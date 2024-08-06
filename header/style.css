@@ -1,72 +1,76 @@
+@import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
 header {
-  background-color: #111;
+  background-color: #191919;
   color: #fff;
 }
 header .header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 400px;
+}
+header .header-top .header-logo {
+  margin: 10px;
+  cursor: pointer;
 }
 header .header-top .header-logo img {
   height: 40px;
 }
 header .header-top .header-search {
+  width: calc(100% - 400px);
+  height: 36px;
   display: flex;
   align-items: center;
+  background: #fff;
+  padding: 4px 14px;
+  justify-content: space-between;
+  border-radius: 40px;
 }
 header .header-top .header-search input {
+  width: 90%;
   padding: 5px;
   border: none;
   border-radius: 4px;
 }
 header .header-top .header-search button {
-  padding: 5px 10px;
+  width: 56px;
+  height: 32px;
+  padding: 4px 16px;
   border: none;
-  background-color: #fff;
-  border-radius: 4px;
+  border-radius: 20px;
+  background-color: #191919;
   margin-left: 5px;
   cursor: pointer;
 }
 header .header-icons {
   width: 350px;
+  display: flex;
   align-items: center;
   gap: 30px;
-  display: flex;
+  margin: 10px;
 }
 header .header-icons .login,
 header .header-icons .cart {
   text-align: center;
+  cursor: pointer;
 }
 header .header-icons .language {
   display: flex;
   text-align: left;
+  cursor: pointer;
 }
 header .header-nav {
-  background-color: #222;
+  background-color: #191919;
   display: flex;
   flex-direction: column-reverse;
+  padding: 0 400px;
+  line-height: 50px;
 }
 header .header-nav ul {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
@@ -75,10 +79,18 @@ header .header-nav ul i {
   font-size: 24px;
 }
 header .header-nav ul ul {
+  width: 170px;
+  height: 30px;
+  display: flex;
   background-color: #fff;
   color: #111;
   font-weight: bold;
   position: relative;
+}
+header .header-nav ul ul i {
+  border: 1px solid red;
+  margin-top: 30px;
+  height: 20px;
 }
 header .header-nav ul ul li {
   position: absolute;
@@ -92,7 +104,7 @@ header .header-nav ul li {
 }
 
 footer {
-  background-color: #111;
+  background-color: #191919;
   color: #fff;
   padding: 20px;
 }
@@ -108,7 +120,7 @@ footer .footer-top .footer-services {
 footer .footer-top .footer-services .footer-select select {
   width: 150px;
   color: #fff;
-  background-color: #111;
+  background-color: #191919;
   margin-right: 40px;
   margin-top: 20px;
   border: 1px solid #fff;
