@@ -3,9 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <h1>This is Master</h1>
+    <div class="contaniner">
+      <div class="log">
+        <img src="./img/Aliexpress_logo.svg 1.png" alt="logo" />
+      </div>
+      <main>
+        <div class="login-box">
+          <div class="login-method">
+            <button id="email_btn" class="email_tab" onclick="showEmailLogin()">
+              <img src="" alt="" />이메일 / 전화번호 로그인
+            </button>
+            <button id="qr_btn" class="qr_tab" onclick="showQRLogin()">
+              <img src="" alt="" />QR 로그인
+            </button>
+          </div>
+
+          <div id="email-login" class="login-content">
+            <form action="#" method="post" class="login-form">
+              <input
+                type="text"
+                id="email-phone"
+                name="email-phone"
+                placeholder="이메일 주소 / 휴대폰 번호"
+                required
+              />
+              <input
+                id="email-pw"
+                type="password"
+                name="email-pw"
+                placeholder="비밀번호"
+                required
+              />
+              <button type="submit" class="continue-btn">계속하기</button>
+            </form>
+          </div>
+          <div id="qr-login" class="login-content hidden">
+            <p>QR 코드를 스캔하여 로그인하세요.</p>
+            <!-- Placeholder for QR Code -->
+            <div class="qr-code">[QR Code Here]</div>
+          </div>
+        </div>
+
+        <!-- <div class="find-info">
+          <a href="#">이메일 찾기</a>
+          <a href="#">비밀번호 찾기</a>
+        </div>
+        <div class="easy-login">
+          <h3>간편로그인</h3>
+          <div class="icons">
+            <img src="" alt="Kakao" />
+            <img src="" alt="Naver" />
+            <img src="" alt="Google" />
+            <img src="" alt="Apple" />
+          </div>
+        </div>
+        <div class="footer">
+          <label class="field" for="country">지역 : </label>
+          <select class="inputBox" name="country" id="country">
+            <option selected disabled>지역</option>
+            <option value="korea">korea</option>
+            <option value="china">china</option>
+            <option value="japan">japan</option>
+          </select>
+          <p>
+            계속하면 귀하가 성인임을 확인하게 됩니다. 계정을 생성함과 동시에
+            <br />
+            AliExpress.com 무료 멤버십가입 동의 및 개인정보 정책에 동의하시게
+            됩니다.
+          </p>
+          <p>지역을 선택하는 이유</p>
+        </div> -->
+      </main>
+    </div>
   </body>
 </html>
