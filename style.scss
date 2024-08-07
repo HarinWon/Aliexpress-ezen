@@ -1,0 +1,101 @@
+@import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+
+// font family
+$fonts: (
+  noto-sans: "Noto Sans KR, sans-serif",
+);
+
+// font styles
+$font-styles: (
+  display1: (
+    family: map-get($fonts, noto-sans),
+    size: 50px,
+    weight: 400,
+    line-height: 1.3rem,
+  ),
+  display2: (
+    family: map-get($fonts, noto-sans),
+    size: 42px,
+    weight: 400,
+    line-height: 1.3rem,
+  ),
+  heading1: (
+    family: map-get($fonts, noto-sans),
+    size: 50px,
+    weight: 700,
+    line-height: 1.3rem,
+  ),
+  heading2: (
+    family: map-get($fonts, noto-sans),
+    size: 42px,
+    weight: 700,
+    line-height: 1.3rem,
+  ),
+  heading3: (
+    family: map-get($fonts, noto-sans),
+    size: 34px,
+    weight: 700,
+    line-height: 1.3rem,
+  ),
+  heading4: (
+    family: map-get($fonts, noto-sans),
+    size: 26px,
+    weight: 700,
+    line-height: 1.3rem,
+  ),
+  heading5: (
+    family: map-get($fonts, noto-sans),
+    size: 18px,
+    weight: 700,
+    line-height: 1.3rem,
+  ),
+  lead-paragraph: (
+    family: map-get($fonts, noto-sans),
+    size: 22px,
+    weight: 500,
+    line-height: 1.3rem,
+  ),
+  body-medium: (
+    family: map-get($fonts, noto-sans),
+    size: 18px,
+    weight: 500,
+    line-height: 1.3rem,
+  ),
+  body-small: (
+    family: map-get($fonts, noto-sans),
+    size: 14px,
+    weight: 500,
+    line-height: 1.3rem,
+  ),
+);
+
+@mixin body-medium {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3rem;
+}
+
+// color
+$color: (
+  main-color: #ff611d,
+  point-color1: #e43225,
+  point-color2: linear-gradient(#FF611D44.33%, #F7971D98.56%),
+  logo-color: #f7971d,
+  enable-color: #fd384f,
+  disabled-color: #ffc6cd,
+  dark1: #191919,
+  dark2: #333333,
+  dark3: #7b7b7b,
+  light1: #afafaf,
+  light2: #dddddd,
+  light3: #f5f5f5,
+);
+
+// mix - in 사용법 !!!!
+// h1 {
+//   @include body-medium();
+//   color: map-get($color, main-color);
+// }
+
