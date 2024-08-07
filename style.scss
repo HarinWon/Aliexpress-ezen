@@ -1,85 +1,80 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
-
 // font family
 $fonts: (
   noto-sans: "Noto Sans KR, sans-serif",
 );
-
-// font styles
-$font-styles: (
-  display1: (
-    family: map-get($fonts, noto-sans),
-    size: 50px,
-    weight: 400,
-    line-height: 1.3rem,
-  ),
-  display2: (
-    family: map-get($fonts, noto-sans),
-    size: 42px,
-    weight: 400,
-    line-height: 1.3rem,
-  ),
-  heading1: (
-    family: map-get($fonts, noto-sans),
-    size: 50px,
-    weight: 700,
-    line-height: 1.3rem,
-  ),
-  heading2: (
-    family: map-get($fonts, noto-sans),
-    size: 42px,
-    weight: 700,
-    line-height: 1.3rem,
-  ),
-  heading3: (
-    family: map-get($fonts, noto-sans),
-    size: 34px,
-    weight: 700,
-    line-height: 1.3rem,
-  ),
-  heading4: (
-    family: map-get($fonts, noto-sans),
-    size: 26px,
-    weight: 700,
-    line-height: 1.3rem,
-  ),
-  heading5: (
-    family: map-get($fonts, noto-sans),
-    size: 18px,
-    weight: 700,
-    line-height: 1.3rem,
-  ),
-  lead-paragraph: (
-    family: map-get($fonts, noto-sans),
-    size: 22px,
-    weight: 500,
-    line-height: 1.3rem,
-  ),
-  body-medium: (
-    family: map-get($fonts, noto-sans),
-    size: 18px,
-    weight: 500,
-    line-height: 1.3rem,
-  ),
-  body-small: (
-    family: map-get($fonts, noto-sans),
-    size: 14px,
-    weight: 500,
-    line-height: 1.3rem,
-  ),
-);
-
+// font style mixins
+@mixin display1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin display2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin heading1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading3 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading4 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading5 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin lead-paragraph {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
 @mixin body-medium {
   font-family: map-get($fonts, noto-sans);
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.3rem;
 }
-
+@mixin body-normal {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-small {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
 // color
 $color: (
   main-color: #ff611d,
+  main-gradient: linear-gradient(to right, #f7971d 0%, #ff611d 100%),
   point-color: #e43225,
   logo-color: #f7971d,
   enable-color: #fd384f,
@@ -116,7 +111,7 @@ header {
     }
 
     .header-search {
-      width: calc(100% - 400px);
+      width: 800px;
       height: 36px;
       display: flex;
       align-items: center;
@@ -124,13 +119,30 @@ header {
       padding: 4px 14px;
       justify-content: space-between;
       border-radius: 40px;
+      .real-time-search {
+        width: 160px;
+        border-right: 1px solid map-get($color, dark3);
+        color: map-get($color, dark3);
+        @include body-small();
+        cursor: pointer;
+      }
       input {
         width: 90%;
         padding: 5px;
         border: none;
         border-radius: 4px;
+        &:focus {
+          outline: none;
+        }
       }
-      button {
+      .camera {
+        width: 40px;
+        height: 30px;
+        border: none;
+        background: inherit;
+        cursor: pointer;
+      }
+      .search {
         width: 56px;
         height: 32px;
         padding: 4px 16px;
@@ -143,13 +155,15 @@ header {
     }
   }
   .header-icons {
+    @include body-small();
     width: 350px;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
     margin: 10px;
     .login,
     .cart {
+      width: 60px;
       text-align: center;
       cursor: pointer;
     }
@@ -161,6 +175,7 @@ header {
   }
 
   .header-nav {
+    @include body-small();
     background-color: map-get($color, dark1);
     display: flex;
     flex-direction: column-reverse;
@@ -214,6 +229,9 @@ footer {
       display: flex;
       gap: 50px;
       .footer-select {
+        p {
+          @include body-normal();
+        }
         select {
           width: 150px;
           color: #fff;
@@ -243,18 +261,22 @@ footer {
     text-align: center;
     margin: 20px 0;
   }
-
-  .payment-wrap {
-    width: 600px;
-    overflow: hidden;
-    .footer-payment {
-      position: relative;
-      height: 96px;
-      display: flex;
-      align-items: center;
-      animation: marquee 18s linear infinite;
-      img {
-        margin: 0 4px;
+  #payment {
+    p {
+      @include body-normal();
+    }
+    .payment-wrap {
+      width: 600px;
+      overflow: hidden;
+      .footer-payment {
+        position: relative;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        animation: marquee 18s linear infinite;
+        img {
+          margin: 0 4px;
+        }
       }
 
       @keyframes marquee {
@@ -295,22 +317,19 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+// Tab
+@media (max-width: 1160px) {
   header {
     .header-top {
       padding: 10px 10px;
       .header-logo {
         scale: 80%;
       }
-      .header-icons {
-        gap: 10px;
-      }
     }
     .header-nav {
       width: 100%;
       padding: 0 10px;
       #main_nav {
-        // width: 660px;
         li {
           #sub_nav {
             width: 30px;
@@ -344,6 +363,84 @@ footer {
       .footer-links,
       .footer-social {
         margin: 10px 0;
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 430px) {
+  header {
+    position: fixed;
+    width: 100%;
+    .header-top {
+      display: block;
+      .header-logo {
+        float: left;
+      }
+      .header-search {
+        width: calc(100% - 10px);
+        .real-time-search {
+          width: 250px;
+          border: none;
+        }
+      }
+      .header-icons {
+        position: absolute;
+        width: 188px;
+        top: 10px;
+        right: 0;
+        .login,
+        .cart {
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+    .header-nav {
+      background: #fff;
+      #main_nav {
+        width: 100%;
+        padding: 0;
+        color: map-get($color, dark1);
+        overflow-x: auto;
+        white-space: nowrap;
+        li {
+          display: inline-block;
+          margin-right: 10px;
+          &.active {
+            color: map-get($color, main-color);
+            font-weight: bold;
+            border-bottom: 3px solid map-get($color, main-color);
+          }
+        }
+
+        #sub_nav {
+          display: none;
+        }
+      }
+    }
+  }
+  .web_footer {
+    display: none;
+  }
+  .mobile_footer {
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    z-index: 12;
+    padding: 0 20px;
+    // border-top: 1px solid map-get($color, dark1);
+    box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.08);
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      li {
+        line-height: 60px;
       }
     }
   }
