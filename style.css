@@ -1,0 +1,219 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+header {
+  background-color: #191919;
+  color: #fff;
+}
+header .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 300px;
+}
+header .header-top .header-logo {
+  margin: 10px;
+  cursor: pointer;
+}
+header .header-top .header-logo img {
+  height: 40px;
+}
+header .header-top .header-search {
+  width: calc(100% - 400px);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 4px 14px;
+  justify-content: space-between;
+  border-radius: 40px;
+}
+header .header-top .header-search input {
+  width: 90%;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+header .header-top .header-search button {
+  width: 56px;
+  height: 32px;
+  padding: 4px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #191919;
+  margin-left: 5px;
+  cursor: pointer;
+}
+header .header-icons {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 10px;
+}
+header .header-icons .login,
+header .header-icons .cart {
+  text-align: center;
+  cursor: pointer;
+}
+header .header-icons .language {
+  display: flex;
+  text-align: left;
+  cursor: pointer;
+}
+header .header-nav {
+  background-color: #191919;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 100px;
+  line-height: 50px;
+}
+header .header-nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+header .header-nav ul i {
+  font-size: 24px;
+}
+header .header-nav ul ul {
+  width: 170px;
+  height: 30px;
+  display: flex;
+  background-color: #fff;
+  color: #111;
+  font-weight: bold;
+}
+header .header-nav ul ul i {
+  border: 1px solid red;
+  height: 20px;
+}
+header .header-nav ul ul li {
+  display: block;
+  color: #191919;
+  background: #fff;
+  z-index: 1;
+}
+header .header-nav ul li {
+  cursor: pointer;
+}
+
+footer {
+  background-color: #191919;
+  color: #fff;
+  padding: 20px;
+}
+footer .footer-top {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+footer .footer-top .footer-services {
+  display: flex;
+  gap: 50px;
+}
+footer .footer-top .footer-services .footer-select select {
+  width: 150px;
+  color: #fff;
+  background-color: #191919;
+  margin-right: 40px;
+  margin-top: 20px;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 2px;
+}
+footer .footer-top .footer-dropdown button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+footer .footer-categories {
+  text-align: center;
+  margin: 20px 0;
+}
+footer .payment-wrap {
+  width: 600px;
+  overflow: hidden;
+}
+footer .payment-wrap .footer-payment {
+  position: relative;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  animation: marquee 18s linear infinite;
+}
+footer .payment-wrap .footer-payment img {
+  margin: 0 4px;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding: 10px 0;
+}
+footer .footer-bottom .footer-links a,
+footer .footer-bottom .footer-social a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+footer .footer-bottom .footer-social {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  header .header-top {
+    padding: 10px 10px;
+  }
+  header .header-top .header-logo {
+    scale: 80%;
+  }
+  header .header-top .header-icons {
+    gap: 10px;
+  }
+  header .header-nav {
+    width: 100%;
+    padding: 0 10px;
+  }
+  header .header-nav #main_nav li #sub_nav {
+    width: 30px;
+  }
+  header .header-nav #main_nav li #sub_nav .menu_hamburger span {
+    display: none;
+  }
+  header .header-nav ul {
+    flex-direction: row;
+    align-items: center;
+  }
+  footer .footer-top .footer-services {
+    flex-direction: column;
+    text-align: center;
+  }
+  footer .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  footer .footer-bottom .footer-links,
+  footer .footer-bottom .footer-social {
+    margin: 10px 0;
+  }
+}
