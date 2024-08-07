@@ -217,7 +217,7 @@ header {
 }
 
 // footer
-footer {
+.web_footer {
   background-color: map-get($color, dark1);
   color: #fff;
   padding: 20px;
@@ -316,6 +316,9 @@ footer {
     }
   }
 }
+.mobile_footer {
+  display: none;
+}
 
 // Tab
 @media (max-width: 1160px) {
@@ -348,7 +351,7 @@ footer {
     }
   }
 
-  footer {
+  .web_footer {
     .footer-top {
       .footer-services {
         flex-direction: column;
