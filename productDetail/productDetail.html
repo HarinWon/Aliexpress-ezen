@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="./productDetail.css" />
+  </head>
+  <body>
+    <main>
+      <section class="product-detail">
+        <div class="product-images">
+          <div class="thumbnail-images">
+            <img src="./img/framebox.png" alt="Thumbnail 1" />
+            <img src="./img/framebox-1.png" alt="Thumbnail 2" />
+            <img src="./img/framebox-2.png" alt="Thumbnail 3" />
+            <img src="./img/framebox-3.png" alt="Thumbnail 4" />
+          </div>
+          <div class="main-image">
+            <img src="./img/mainImg.png" alt="Product Main Image" />
+          </div>
+        </div>
+        <div class="product-info">
+          <h1>아누아 어성초 모공 클레이 팩 100ml</h1>
+          <p class="price">16,000₩</p>
+          <p class="description">속속 바르기만 해도 피지 & 각질 케어</p>
+          <p class="star">별별별별별</p>
+          <p>
+            <img
+              src="./img/Delivery information.png"
+              alt="Delivery information"
+            />
+          </p>
+          <div class="options">
+            <label for="color">Color</label>
+            <select id="color">
+              <option>Color1</option>
+              <option>Color2</option>
+            </select>
+            <label for="option">Option</label>
+            <select id="option">
+              <option>Option1</option>
+              <option>Option2</option>
+            </select>
+          </div>
+          <button class="buy-now">구매하기</button>
+          <button class="add-to-cart">장바구니</button>
+        </div>
+      </section>
+
+      <section class="product-details-tabs">
+        <div class="tabs">
+          <button class="tab active" data-tab="details">제품상세</button>
+          <button class="tab" data-tab="reviews">상품리뷰</button>
+        </div>
+        <div class="tab-content" id="details">
+          <h2>딱, 3분으로 끝내요.</h2>
+          <p>속속 바르기만 해도 피지 & 각질 케어</p>
+          <img src="./img/details.jpg" alt="Details" />
+        </div>
+        <div class="tab-content" id="reviews">
+          <h2>상품리뷰</h2>
+          <p>상품 리뷰 내용이 여기에 표시됩니다.</p>
+        </div>
+      </section>
+
+      <section class="related-products">
+        <h2>함께 볼 만한 상품</h2>
+        <div class="product-list">
+          <div class="product">
+            <img src="./img/related1.jpg" alt="Related Product 1" />
+            <p class="product-name">Product 1</p>
+            <p class="product-price">10,000₩</p>
+          </div>
+          <div class="product">
+            <img src="./img/related2.jpg" alt="Related Product 2" />
+            <p class="product-name">Product 2</p>
+            <p class="product-price">20,000₩</p>
+          </div>
+          <div class="product">
+            <img src="./img/related3.jpg" alt="Related Product 3" />
+            <p class="product-name">Product 3</p>
+            <p class="product-price">30,000₩</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

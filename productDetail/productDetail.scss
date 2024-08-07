@@ -1,0 +1,268 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+// font family
+$fonts: (
+  noto-sans: "Noto Sans KR, sans-serif",
+);
+// font style mixins
+@mixin display1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin display2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin heading1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading3 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading4 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading5 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin lead-paragraph {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-medium {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-normal {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-small {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+// color
+$color: (
+  main-color: #ff611d,
+  main-gradient: linear-gradient(to right, #f7971d 0%, #ff611d 100%),
+  point-color: #e43225,
+  logo-color: #f7971d,
+  enable-color: #fd384f,
+  disabled-color: #ffc6cd,
+  dark1: #191919,
+  dark2: #333333,
+  dark3: #7b7b7b,
+  light1: #afafaf,
+  light2: #dddddd,
+  light3: #f5f5f5,
+);
+
+// mix - in 사용법 !!!!
+// h1 {
+//   @include body-medium();
+//   color: map-get($color, main-color);
+// }
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 20px;
+
+  .product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .product-images {
+      display: flex;
+      flex-direction: row;
+      //   min-width: 300px;
+      .main-image {
+        width: 500px;
+      }
+      .thumbnail-images {
+        display: flex;
+        flex-direction: column;
+        img {
+          width: 70px;
+          height: 70px;
+          margin: 10px 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .product-info {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+
+      h1 {
+        font-size: 24px;
+        margin: 0 0 10px;
+      }
+
+      .price {
+        font-size: 20px;
+        color: #ff611d;
+        margin: 10px 0;
+      }
+
+      .description {
+        font-size: 14px;
+        color: #333;
+        margin: 10px 0;
+      }
+
+      .options {
+        margin: 20px 0;
+
+        label {
+          display: block;
+          margin: 5px 0;
+        }
+
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .buy-now,
+      .add-to-cart {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        background-color: #ff611d;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+
+        &.add-to-cart {
+          background-color: #333;
+        }
+      }
+    }
+  }
+
+  .product-details-tabs {
+    margin: 20px 0;
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 1px solid #ddd;
+
+      .tab {
+        flex-grow: 1;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+
+        &.active {
+          color: #ff611d;
+          border-bottom: 2px solid #ff611d;
+        }
+      }
+    }
+
+    .tab-content {
+      &.active {
+        display: block;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+
+      p {
+        font-size: 14px;
+        color: #333;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .related-products {
+    margin: 20px 0;
+
+    h2 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product-list {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px 0;
+
+      .product {
+        flex: 0 0 auto;
+        width: 150px;
+        margin-right: 10px;
+        text-align: center;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        .product-name {
+          font-size: 14px;
+          margin: 5px 0;
+        }
+
+        .product-price {
+          font-size: 12px;
+          color: #ff611d;
+        }
+      }
+    }
+  }
+}
