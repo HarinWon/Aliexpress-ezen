@@ -8,7 +8,7 @@ header .header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 400px;
+  padding: 10px 300px;
 }
 header .header-top .header-logo {
   margin: 10px;
@@ -64,7 +64,7 @@ header .header-nav {
   background-color: #191919;
   display: flex;
   flex-direction: column-reverse;
-  padding: 0 400px;
+  padding: 0 100px;
   line-height: 50px;
 }
 header .header-nav ul {
@@ -85,15 +85,12 @@ header .header-nav ul ul {
   background-color: #fff;
   color: #111;
   font-weight: bold;
-  position: relative;
 }
 header .header-nav ul ul i {
   border: 1px solid red;
-  margin-top: 30px;
   height: 20px;
 }
 header .header-nav ul ul li {
-  position: absolute;
   display: block;
   color: #191919;
   background: #fff;
@@ -184,8 +181,27 @@ footer .footer-bottom .footer-social {
 }
 
 @media (max-width: 768px) {
+  header .header-top {
+    padding: 10px 10px;
+  }
+  header .header-top .header-logo {
+    scale: 80%;
+  }
+  header .header-top .header-icons {
+    gap: 10px;
+  }
+  header .header-nav {
+    width: 100%;
+    padding: 0 10px;
+  }
+  header .header-nav #main_nav li #sub_nav {
+    width: 30px;
+  }
+  header .header-nav #main_nav li #sub_nav .menu_hamburger span {
+    display: none;
+  }
   header .header-nav ul {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
   footer .footer-top .footer-services {

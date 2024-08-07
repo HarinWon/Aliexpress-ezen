@@ -105,7 +105,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 400px;
+    padding: 10px 300px;
 
     .header-logo {
       margin: 10px;
@@ -164,7 +164,7 @@ header {
     background-color: map-get($color, dark1);
     display: flex;
     flex-direction: column-reverse;
-    padding: 0 400px;
+    padding: 0 100px;
     line-height: 50px;
     ul {
       display: flex;
@@ -183,14 +183,11 @@ header {
         background-color: #fff;
         color: #111;
         font-weight: bold;
-        position: relative;
         i {
           border: 1px solid red;
-          margin-top: 30px;
           height: 20px;
         }
         li {
-          position: absolute;
           display: block;
           color: map-get($color, dark1);
           background: #fff;
@@ -300,9 +297,33 @@ footer {
 
 @media (max-width: 768px) {
   header {
+    .header-top {
+      padding: 10px 10px;
+      .header-logo {
+        scale: 80%;
+      }
+      .header-icons {
+        gap: 10px;
+      }
+    }
     .header-nav {
+      width: 100%;
+      padding: 0 10px;
+      #main_nav {
+        // width: 660px;
+        li {
+          #sub_nav {
+            width: 30px;
+            .menu_hamburger {
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
       ul {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
       }
     }
