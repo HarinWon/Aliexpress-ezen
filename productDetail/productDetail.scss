@@ -93,14 +93,9 @@ $color: (
 //   color: map-get($color, main-color);
 // }
 
-body {
-  font-family: "Noto Sans KR", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 main {
-  padding: 20px;
+  width: 1020px;
+  margin: 0 auto;
 
   .product-detail {
     display: flex;
@@ -147,7 +142,14 @@ main {
         color: #333;
         margin: 10px 0;
       }
-
+      .star {
+        color: map-get($color, light2);
+        i {
+          &.active {
+            color: map-get($color, main-color);
+          }
+        }
+      }
       .options {
         margin: 20px 0;
 
@@ -186,8 +188,7 @@ main {
   }
 
   .product-details-tabs {
-    margin: 20px 0;
-
+    margin: 0 auto;
     .tabs {
       display: flex;
       justify-content: space-around;
@@ -197,8 +198,9 @@ main {
         flex-grow: 1;
         padding: 10px;
         text-align: center;
+        background: inherit;
+        border: none;
         cursor: pointer;
-
         &.active {
           color: #ff611d;
           border-bottom: 2px solid #ff611d;
@@ -207,6 +209,7 @@ main {
     }
 
     .tab-content {
+      width: 1020px;
       &.active {
         display: block;
       }
