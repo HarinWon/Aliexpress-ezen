@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./loginAgree.css" />
+    <script
+      src="https://kit.fontawesome.com/0dce9d1228.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="./img/Aliexpress_logo.svg 1.png" alt="AliExpress" />
+      </div>
+      <div class="login-box">
+        <form class="login-form">
+          <input type="text" placeholder="이메일 / 전화번호" />
+          <input type="password" placeholder="비밀번호 (영문+숫자 6-16자)" />
+          <input type="password" placeholder="비밀번호 재입력" />
+          <p>
+            8~20자 영문, 숫자, 특수문자 중 2가지 이상의 조합만 허용하며
+            <br />3개 이상의 동일한 문자를 연속으로 입력할 수 없습니다.
+          </p>
+        </form>
+      </div>
+      <h4>이용 약관 보기<i class="fa-solid fa-angle-down"></i></h4>
+      <div class="agree">
+        <form class="agree-form">
+          <div class="terms">
+            <h3>이용 약관</h3>
+            <p>
+              AliExpress 계정 개설을 위해 아래의 약관을 주의 깊게 읽으신 후
+              동의해 주십시오
+            </p>
+            <label>
+              <input type="checkbox" name="terms" value="all" />
+              모든 항목에 동의합니다.<i class="fa-solid fa-angle-down"></i>
+              <p>
+                전체 동의에는 필수 및 선택 항목에 대한 동의가 포합됩니다. 귀하는
+                개별 적으로 동의를 선택하실 수 있습니다. 귀하가 선택 항목에 대한
+                동의를 거 부하시는 경우에도 서비스 이용이 가능하나, 맞춤형 상품
+                추천을 받을 수 없습니다. 귀하가 필수 항목에 동의하지 않으실 경우
+                서비스 이용이 불가 능할 수 있습니다.
+              </p>
+            </label>
+            <label>
+              <input type="checkbox" name="terms" value="terms1" />
+              AliExpress.com 무료 멤버쉽이용약관(필수)
+            </label>
+            <label>
+              <input type="checkbox" name="terms" value="terms2" />
+              AliExpress.com 이용약관(필수)
+            </label>
+            <label>
+              <input type="checkbox" name="terms" value="terms3" />
+              개인정보 수집 및 이용 동의(필수)
+            </label>
+            <label>
+              <input type="checkbox" name="terms" value="terms4" />
+              만 19세 이상입니다(필수)
+            </label>
+            <label>
+              <input type="checkbox" name="terms" value="terms5" />
+              마케팅 목적의 개인정보 수집 및 이용 동의(선택)
+            </label>
+            <label>
+              <input type="checkbox" name="terms" value="terms6" />
+              AliExpress 광고성 수신 정보 동의(선택)
+            </label>
+          </div>
+          <button type="submit">동의 및 계속</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
