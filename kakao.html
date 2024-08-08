@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kakao Login</title>
+    <link rel="stylesheet" href="kakao.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="logo">
+          <h1>kakao</h1>
+        </div>
+        <div class="login-box">
+          <form>
+            <input
+              type="text"
+              placeholder="카카오메일 아이디, 이메일, 전화번호"
+            />
+            <input type="password" placeholder="비밀번호" />
+            <div class="checkbox">
+              <input type="checkbox" id="keep-login" />
+              <label for="keep-login">로그인 상태 유지</label>
+            </div>
+            <button type="submit" class="login-btn">로그인</button>
+            <div class="divider">또는</div>
+            <button type="button" class="qr-login-btn">QR코드 로그인</button>
+            <div class="help-links">
+              <a href="#">회원가입</a>
+              <div class="find">
+                <a href="#">계정찾기</a>
+                <a href="#">비밀번호 찾기</a>
+              </div>
+            </div>
+            <div class="qr-code">
+              <img src="./img/kakao_qr.png" alt="QR 코드" />
+              <p>남은 시간 <span id="timer">04:57</span></p>
+            </div>
+            <p>
+              카카오톡 앱 > 더보기 >우측 상단의<br />버튼을 눌러 QR코드를
+              스캔하세요.
+            </p>
+          </form>
+        </div>
+        <footer>
+          <div class="footer-links">
+            <a href="#">한국어</a>
+            <a href="#">이용약관</a>
+            <a href="#">개인정보 처리방침</a>
+            <a href="#">고객센터</a>
+            <p>&copy; Kakao Corp.</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
