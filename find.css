@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-content: inherit;
+  height: 100vh;
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 930px;
+    height: 900px;
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 700px;
+      height: 650px;
+      margin: 0 auto;
+      border: 1px solid #0f0;
+      .find-btn {
+        display: flex;
+        justify-content: center;
+        & > button {
+          width: 290px;
+          height: 80px;
+          border: 1px solid #ddd;
+          background: #fff;
+          font-size: 22px;
+          text-align: center;
+          &:nth-child(1) {
+            border-radius: 8px 0 0 8px;
+          }
+          &:nth-child(2) {
+            border-radius: 0 8px 8px 0;
+            border-left: none;
+          }
+        }
+      }
+      .find-email-form {
+        display: none;
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          margin: 0 0 60px;
+        }
+        .find-method-email {
+          font-size: 22px;
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            li {
+              width: 80%;
+              margin: 0 auto;
+              padding-bottom: 8px;
+              border-bottom: 1px solid #ddd;
+              span {
+                text-align: left;
+                i {
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .find-password-form1 {
+      }
+      .find-password-form2 {
+        display: none;
+      }
+      .submit {
+        width: 350px;
+        height: 60px;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 50px;
+        border: none;
+        background: linear-gradient(#ff611d, #f7971d);
+        color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+  }
+}
