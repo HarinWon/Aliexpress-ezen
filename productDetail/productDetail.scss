@@ -267,296 +267,308 @@ main {
         }
       }
     }
+    .product-contents {
+      width: 1560px;
+      height: 100%;
+      display: flex;
+      position: relative;
+      .tab-content {
+        width: 1020px;
+        // display: none;
 
-    .tab-content {
-      width: 1020px;
-      // display: none;
+        h2 {
+          font-size: 18px;
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: 14px;
+          color: #333;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          margin: 20px 0;
+        }
+      }
+    }
+
+    .related-products {
+      margin: 20px 0;
 
       h2 {
         font-size: 18px;
         margin: 10px 0;
       }
 
-      p {
-        font-size: 14px;
-        color: #333;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-        margin: 20px 0;
-      }
-    }
-  }
-
-  .related-products {
-    margin: 20px 0;
-
-    h2 {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    .product-list {
-      display: flex;
-      overflow-x: auto;
-      padding: 10px 0;
-
-      .product {
-        flex: 0 0 auto;
-        width: 150px;
-        margin-right: 10px;
-        text-align: center;
-
-        img {
-          width: 100%;
-          height: auto;
-        }
-
-        .product-name {
-          font-size: 14px;
-          margin: 5px 0;
-        }
-
-        .product-price {
-          font-size: 12px;
-          color: #ff611d;
-        }
-      }
-    }
-  }
-
-  .review-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-    h1 {
-      @include heading5();
-      color: map-get($color, dark1);
-    }
-
-    .summary {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      gap: 20px;
-
-      div {
-        text-align: center;
-        flex: 1;
-
-        h2 {
-          font-size: 1.2em;
-          color: #333;
-        }
-      }
-
-      .rating-overall,
-      .total-reviews,
-      .rating-distribution {
-        width: 300px;
-        height: 200px;
+      .product-list {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 20px;
-        background: #ffd6a1;
-        border-radius: 10px;
+        overflow-x: auto;
+        padding: 10px 0;
 
-        .stars {
-          color: map-get($color, light1);
-
-          i {
-            &.active {
-              color: map-get($color, main-color);
-            }
-          }
-        }
-
-        .rating-score,
-        .review-count {
-          @include heading3();
-          color: map-get($color, dark1);
-        }
-      }
-
-      .rating-distribution {
-        padding: 50px;
-
-        .distribution-bar {
-          display: flex;
-          gap: 30px;
-
-          .bar {
-            height: 100px;
-            background-color: #e0e0e0;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            position: relative;
-
-            .bar-fill {
-              width: 100%;
-              position: absolute;
-              bottom: 0;
-              padding: 5px;
-              border-radius: 0 0 5px 5px;
-              background-color: map-get($color, logo-color);
-              color: #fff;
-              white-space: nowrap;
-              text-align: left;
-            }
-
-            &:nth-child(1) .bar-fill {
-              height: 80%;
-            }
-
-            &:nth-child(2) .bar-fill {
-              height: 40%;
-            }
-
-            &:nth-child(3) .bar-fill {
-              height: 10%;
-            }
-
-            &:nth-child(4) .bar-fill {
-              height: 2%;
-            }
-
-            &:nth-child(5) .bar-fill {
-              height: 0%;
-            }
-
-            p {
-              position: absolute;
-              margin-left: 2px;
-              bottom: -20px;
-              @include body-small();
-              color: map-get($color, dark2);
-              font-weight: bold;
-            }
-          }
-        }
-      }
-    }
-
-    .photo-reviews {
-      margin-bottom: 20px;
-
-      h3 {
-        font-size: 1.5em;
-        color: #333;
-      }
-
-      .photos {
-        display: flex;
-        gap: 10px;
-        list-style: none;
-        padding: 0;
-
-        li {
-          position: relative;
+        .product {
+          flex: 0 0 auto;
+          width: 150px;
+          margin-right: 10px;
+          text-align: center;
 
           img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: auto;
           }
 
-          &.more {
-            &:hover {
-              cursor: pointer;
+          .product-name {
+            font-size: 14px;
+            margin: 5px 0;
+          }
 
-              &::before {
-                content: "+더보기";
-                position: absolute;
-                top: 0;
-                left: 0;
+          .product-price {
+            font-size: 12px;
+            color: #ff611d;
+          }
+        }
+      }
+    }
+
+    .review-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+      h1 {
+        @include heading5();
+        color: map-get($color, dark1);
+      }
+
+      .summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        gap: 20px;
+
+        div {
+          text-align: center;
+          flex: 1;
+
+          h2 {
+            font-size: 1.2em;
+            color: #333;
+          }
+        }
+
+        .rating-overall,
+        .total-reviews,
+        .rating-distribution {
+          width: 300px;
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 20px;
+          background: #ffd6a1;
+          border-radius: 10px;
+
+          .stars {
+            color: map-get($color, light1);
+
+            i {
+              &.active {
+                color: map-get($color, main-color);
+              }
+            }
+          }
+
+          .rating-score,
+          .review-count {
+            @include heading3();
+            color: map-get($color, dark1);
+          }
+        }
+
+        .rating-distribution {
+          padding: 50px;
+
+          .distribution-bar {
+            display: flex;
+            gap: 30px;
+
+            .bar {
+              height: 100px;
+              background-color: #e0e0e0;
+              margin-bottom: 5px;
+              border-radius: 5px;
+              position: relative;
+
+              .bar-fill {
                 width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.7);
+                position: absolute;
+                bottom: 0;
+                padding: 5px;
+                border-radius: 0 0 5px 5px;
+                background-color: map-get($color, logo-color);
                 color: #fff;
-                z-index: 1;
-                font-size: 16px;
-                border-radius: 5px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                white-space: nowrap;
+                text-align: left;
+              }
+
+              &:nth-child(1) .bar-fill {
+                height: 80%;
+              }
+
+              &:nth-child(2) .bar-fill {
+                height: 40%;
+              }
+
+              &:nth-child(3) .bar-fill {
+                height: 10%;
+              }
+
+              &:nth-child(4) .bar-fill {
+                height: 2%;
+              }
+
+              &:nth-child(5) .bar-fill {
+                height: 0%;
+              }
+
+              p {
+                position: absolute;
+                margin-left: 2px;
+                bottom: -20px;
+                @include body-small();
+                color: map-get($color, dark2);
+                font-weight: bold;
               }
             }
           }
         }
       }
-    }
 
-    .text-reviews {
-      .review-filter {
-        display: flex;
-        justify-content: space-between;
+      .photo-reviews {
+        margin-bottom: 20px;
 
         h3 {
           font-size: 1.5em;
           color: #333;
         }
 
-        .review-filter-list {
+        .photos {
           display: flex;
-          float: right;
           gap: 10px;
+          list-style: none;
+          padding: 0;
 
           li {
-            cursor: pointer;
-            color: map-get($color, dark3);
+            position: relative;
 
-            &.active {
-              font-weight: bold;
-              color: map-get($color, main-color);
+            img {
+              width: 100px;
+              height: 100px;
+              object-fit: cover;
+              border-radius: 5px;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+
+            &.more {
+              &:hover {
+                cursor: pointer;
+
+                &::before {
+                  content: "+더보기";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.7);
+                  color: #fff;
+                  z-index: 1;
+                  font-size: 16px;
+                  border-radius: 5px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
             }
           }
         }
       }
 
-      .review {
-        margin-bottom: 15px;
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
+      .text-reviews {
+        .review-filter {
+          display: flex;
+          justify-content: space-between;
 
-        .rating {
-          color: map-get($color, logo-color);
+          h3 {
+            font-size: 1.5em;
+            color: #333;
+          }
+
+          .review-filter-list {
+            display: flex;
+            float: right;
+            gap: 10px;
+
+            li {
+              cursor: pointer;
+              color: map-get($color, dark3);
+
+              &.active {
+                font-weight: bold;
+                color: map-get($color, main-color);
+              }
+            }
+          }
         }
 
-        .reply {
-          margin-top: 5px;
-          color: #555;
+        .review {
+          margin-bottom: 15px;
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+
+          .rating {
+            color: map-get($color, logo-color);
+          }
+
+          .reply {
+            margin-top: 5px;
+            color: #555;
+          }
         }
       }
-    }
 
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
 
-      a {
-        margin: 0 5px;
-        text-decoration: none;
-        color: map-get($color, dark2);
+        a {
+          margin: 0 5px;
+          text-decoration: none;
+          color: map-get($color, dark2);
 
-        &.select {
-          font-weight: bold;
-          color: map-get($color, main-color);
+          &.select {
+            font-weight: bold;
+            color: map-get($color, main-color);
+          }
         }
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+aside {
+  width: 270px;
+  height: 500px;
+  border: 1px solid red;
+  position: sticky;
+}
+
+@media (max-width: 1160px) {
   main {
     width: 100%;
     padding: 0 20px;
