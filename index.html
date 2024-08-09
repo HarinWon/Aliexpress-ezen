@@ -5,177 +5,1031 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- fontawsome -->
     <script
-      src="https://kit.fontawesome.com/3d3f071495.js"
+      src="https://kit.fontawesome.com/44357f99e0.js"
       crossorigin="anonymous"
     ></script>
-    <!-- style css & js -->
+    <!-- custom css&js -->
+    <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js"></script>
-    <title>AliExpress</title>
+    <title>Main</title>
   </head>
   <body>
-    <header>
-      <div class="header-top">
-        <div class="header-logo">
-          <img src="./img/logo.png" alt="AliExpress" />
-        </div>
-        <div class="header-search">
-          <input type="text" placeholder="지금 Ali의 인기상품은?" />
-          <button>🔍</button>
-        </div>
-        <div class="header-icons">
-          <div class="language">
-            <img src="./img/kr.png" alt="language_img" />
-            <div>
-              <span>Language </span>
-              <p>KR</p>
-            </div>
+    <main id="mainContainer">
+      <div class="video"></div>
+    </main>
+    <section id="infoContainer">
+      <article class="inner">
+        <ul>
+          <div class="infoTitleMobile">
+            Aliexpress<br />
+            약속
           </div>
-          <div class="login">
-            <img src="./img/icon/user.png" alt="login" />
-            <p>로그인</p>
-          </div>
-          <div class="cart">
-            <img src="./img/icon/cart.png" alt="cart" />
-            <p>장바구니</p>
-          </div>
-        </div>
-      </div>
-      <nav class="header-nav">
-        <ul id="main_nav">
           <li>
-            <ul id="sub_nav">
-              <i class="fa-solid fa-bars"> </i
-              >모든 카테고리
-              <li></li>
-            </ul>
+            <img src="./img/alieinfo1.png" alt="alieinfo1" />
+            <article class="alieInfoDesc">
+              <h3>가성비 쇼핑</h3>
+              <span class="infoDesk">
+                백만개의 상품을<br />
+                경쟁력 있는 가격으로 제공해드려요!
+              </span>
+              <span class="infoTablet">
+                경쟁력 있는 가격으로 <br />제공해드려요!
+              </span>
+            </article>
           </li>
-          <li>디지털</li>
-          <li>스포츠/레저</li>
-          <li>자동차용품</li>
-          <li>홈인테리어</li>
-          <li>뷰티/건강</li>
-          <li>패션/가방</li>
-          <li>가전</li>
-          <li>유아용품</li>
+          <li>
+            <img src="./img/alieinfo2.png" alt="alieinfo2" />
+            <article class="alieInfoDesc">
+              <h3>빠른 배송</h3>
+              <span class="infoDesk">
+                신속해진 배송 수단으로<br />
+                상품을 더 빨리 받아보세요!
+              </span>
+              <span class="infoTablet">
+                상품을 더 빨리 <br />
+                받아보세요!
+              </span>
+            </article>
+          </li>
+          <li>
+            <img src="./img/alieinfo3.png" alt="alieinfo3" />
+            <article class="alieInfoDesc">
+              <h3>안전 결제</h3>
+              <span class="infoDesk">
+                글로벌 쇼퍼들이 검증한<br />
+                안전한 시스템으로 결제할 수 있어요
+              </span>
+              <span class="infoTablet">
+                안전한 시스템으로 <br />
+                결제할 수 있어요
+              </span>
+            </article>
+          </li>
+          <li>
+            <img src="./img/alieinfo4.png" alt="alieinfo4" />
+            <article class="alieInfoDesc">
+              <h3>구매자 보호</h3>
+              <span class="infoDesk">
+                상품이 설명과 다르거나<br />
+                도착 지연 시 환불받으세요!
+              </span>
+              <span class="infoTablet">
+                도착 지연 시 <br />
+                환불받으세요!
+              </span>
+            </article>
+          </li>
         </ul>
-      </nav>
-    </header>
-
-    <footer>
-      <div class="footer-top">
-        <div class="footer-services">
-          <div class="footer-select">
-            <p>서비스 안내</p>
-            <select name="customer-service" id="customer-service">
-              <option value="customer-service" disabled selected hidden>
-                고객서비스
-              </option>
-              <option value="">고객센터</option>
-              <option value="option1">
-                Transaction Services Agreement for
-              </option>
-              <option value="option2">
-                Terms and Conditions for EU/EEA/UK
-              </option>
-              <option value="option3">Consumers (Transactions)</option>
-              <option value="option3">고객 의견 설문 응답</option>
-            </select>
-            <select name="shopping-guide" id="shopping-guide">
-              <option value="customer-service" disabled selected hidden>
-                쇼핑가이드
-              </option>
-              <option value="">결제하기</option>
-              <option value="option1">배송 옵션</option>
-              <option value="option2">구매자 보호</option>
-            </select>
-            <select name="alliance" id="alliance">
-              <option value="customer-service" disabled selected hidden>
-                제휴안내
-              </option>
-              <option value="">파트너십</option>
-              <option value="option1">협력 프로그램</option>
-              <option value="option2">DS Center</option>
-              <option value="option2">Seller Log In</option>
-              <option value="option2">中国卖家入驻</option>
-              <option value="option2">Non-Chinese Seller Registration</option>
-            </select>
-          </div>
-          <div id="payment">
-            <p>결제수단</p>
-            <div class="payment-wrap">
-              <div class="footer-payment">
-                <img src="./img/footer/ae.png" alt="Mastercard" />
-                <img src="./img/footer/bc.png" alt="Mastercard" />
-                <img src="./img/footer/hd.png" alt="Mastercard" />
-                <img src="./img/footer/hn.png" alt="Mastercard" />
-                <img src="./img/footer/jcb.png" alt="Mastercard" />
-                <img src="./img/footer/kb.png" alt="Mastercard" />
-                <img src="./img/footer/lt.png" alt="Mastercard" />
-                <img src="./img/footer/master.png" alt="Mastercard" />
-                <img src="./img/footer/naver.png" alt="Mastercard" />
-                <img src="./img/footer/nh.png" alt="Mastercard" />
-                <img src="./img/footer/sh.png" alt="Mastercard" />
-                <img src="./img/footer/ss.png" alt="Mastercard" />
-                <img src="./img/footer/toss.png" alt="Mastercard" />
-                <img src="./img/footer/visa.png" alt="Mastercard" />
+      </article>
+    </section>
+    <section id="welcomeContainer">
+      <article class="inner">
+        <article class="welcome">
+          <article class="title">
+            <p class="titleText">첫 구매 고객님을 위한 혜택</p>
+            <h3 class="titleHeader">Welcome!</h3>
+          </article>
+          <article class="welcomeContents">
+            <div class="welcomeContentLeft">
+              <img src="./img/welcome.png" alt="welcome" />
+              <div class="leftText">
+                <span>오직 당신만을 위한 특가로 즐겨보세요 </span>
+                <i class="fas fa-plus"></i>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-categories">
-        Browse by Category:
-        <a href="https://ko.aliexpress.com/popular.html">All Popular</a>,
-        <a href="https://ko.aliexpress.com/wholesale.html">Product</a>,
-        <a href="https://ko.aliexpress.com/promotion.html">Low price</a>,
-        <a href="https://ko.aliexpress.com/cheap.html">Great Value</a>,
-        <a href="https://ko.aliexpress.com/reviews.html">Reviews</a>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-links">
-          <a
-            href="https://cdn.contract.alibaba.com/terms/privacy_policy_full/20240624154655415/20240624154655415.html"
-            target="_blank"
-            >개인정보 처리방침</a
-          >
-          <a
-            href="https://www.aliexpress.com/sitemap.html?spm=a2g0o.best.0.0.32de423aj88xX5"
-            target="_blank"
-            >위치 지도</a
-          >
-          <a
-            href="https://helpcenter.aliexpress.com/s/KRBuyerHelp?spm=a2g0o.best.sitefooter.1.32de423afxicKx&language=ko_KR&tsuCode=ByrCmn&region=KR&suid=10301424080121331421016F432817"
-            target="_blank"
-            >고객센터</a
-          >
-        </div>
-        <div class="footer-social">
-          <a
-            href="https://www.facebook.com/AliExpress/?spm=a2g0o.best.14.14.1af7423a85jTI8"
-            target="_blank"
-            ><i class="fa-brands fa-facebook"></i
-          ></a>
-          <a
-            href="https://x.com/AliExpress_EN?spm=a2g0o.best.14.15.1af7423a85jTI8"
-            ><i class="fa-brands fa-x-twitter" target="_blank"></i
-          ></a>
-          <a
-            href="https://www.instagram.com/aliexpress/?spm=a2g0o.best.14.16.1af7423a85jTI8"
-            ><i class="fa-brands fa-instagram" target="_blank"></i
-          ></a>
-          <a
-            href="https://www.messenger.com/login.php?next=https%3A%2F%2Fwww.messenger.com%2Ft%2F335963307560%2F%3Fmessaging_source%3Dsource%253Apages%253Amessage_shortlink%26source_id%3D1441792%26recurring_notification%3D0"
-            target="_blank"
-            ><i class="fa-solid fa-comment"></i
-          ></a>
-          <a
-            href="https://api.whatsapp.com/send/?phone=8657186563839&text&type=phone_number&app_absent=0"
-            target="_blank"
-            ><i class="fa-solid fa-phone"></i
-          ></a>
-        </div>
-      </div>
-    </footer>
+            <div class="welcomeContentRight">
+              <ul>
+                <li>
+                  <a href="#none">
+                    <img src="./img/welcome1.png" alt="welcome1" />
+                    <div class="contentTitle">
+                      <h3>Jennie's GM</h3>
+                      <p>
+                        레트로 선글라스 여성용<br />
+                        하이 엔드 소형 프레임
+                      </p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <img src="./img/welcome2.png" alt="welcome2" />
+                    <div class="contentTitle">
+                      <h3>K.NOBSPIN</h3>
+                      <p>
+                        여성용 웨딩 고급 보석 목걸이<br />
+                        925 스털링 실버 도금
+                      </p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span> <strong>85%</strong>1,350원 </span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span> <b>*****</b>173판매 </span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a href="#none">
+                    <img src="./img/welcome3.png" alt="welcome3" />
+                    <div class="contentTitle">
+                      <h3>NARS</h3>
+                      <p>
+                        나스 라이트 리플렉팅 <br />
+                        파운데이션
+                      </p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <img src="./img/welcome4.png" alt="welcome4" />
+                    <div class="contentTitle">
+                      <h3>Fennec</h3>
+                      <p>
+                        CRINKLE TRIANGLE TRIPLE <br />
+                        WALLET D - BLACK
+                      </p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </article>
+      </article>
+    </section>
+    <section id="weeklyContainer">
+      <article class="inner">
+        <article class="weeklyContents">
+          <article class="weeklyTitle">
+            <article class="weeklyinnerLeft">
+              <h1>Weekly Special</h1>
+              <div class="time">
+                <span id="d-day-hour">00</span>
+                <span class="col">:</span>
+                <span id="d-day-min">00</span>
+                <span class="col">:</span>
+                <span id="d-day-sec">00</span>
+              </div>
+            </article>
+            <article class="weeklyinnerRight">
+              <a href="#none">
+                더보기
+                <i class="fas fa-plus"></i>
+              </a>
+            </article>
+          </article>
+          <article class="weeklyContent">
+            <ul>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/Weekly1.png" alt="Weekly1" />
+                    <div class="sale">24%</div>
+                  </div>
+                  <div class="contentTitle">
+                    <h3>닌텐도</h3>
+                    <p>
+                      닌텐도 스위치 OLED <br />
+                      HEG-001
+                    </p>
+                  </div>
+                  <div class="contentPrice">
+                    <span>
+                      <strong>24%</strong>
+                      374,000원
+                      <del>492,000원</del>
+                    </span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>430판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/Weekly2.png" alt="Weekly2" />
+                    <div class="sale">57%</div>
+                  </div>
+                  <div class="contentTitle">
+                    <h3>샤오미</h3>
+                    <p>
+                      [공식정품] <br />
+                      샤오미 Redmi Watch 4
+                    </p>
+                  </div>
+                  <div class="contentPrice">
+                    <span>
+                      <strong>57%</strong>
+                      93,427원
+                      <del>220,866원</del>
+                    </span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/22 도착예정</p>
+                    </span>
+                    <span>
+                      <b>*****</b>
+                      1,730판매</span
+                    >
+                  </div>
+                  <div class="sale"></div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/Weekly3.png" alt="Weekly3" />
+                    <div class="sale">66%</div>
+                  </div>
+                  <div class="contentTitle">
+                    <h3>DJI</h3>
+                    <p>
+                      RG101 프로 GPS <br />
+                      리턴 드론
+                    </p>
+                  </div>
+                  <div class="contentPrice">
+                    <span>
+                      <strong>66%</strong>
+                      130,298원
+                      <del>391,311원</del>
+                    </span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/18 도착예정</p>
+                    </span>
+                    <span><b>*****</b>230판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/Weekly3.png" alt="Weekly3" />
+                    <div class="sale">66%</div>
+                  </div>
+                  <div class="contentTitle">
+                    <h3>DJI</h3>
+                    <p>
+                      RG101 프로 GPS <br />
+                      리턴 드론
+                    </p>
+                  </div>
+                  <div class="contentPrice">
+                    <span>
+                      <strong>66%</strong>
+                      130,298원
+                      <del>391,311원</del>
+                    </span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/18 도착예정</p>
+                    </span>
+                    <span><b>*****</b>230판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/Weekly3.png" alt="Weekly3" />
+                    <div class="sale">66%</div>
+                  </div>
+                  <div class="contentTitle">
+                    <h3>DJI</h3>
+                    <p>
+                      RG101 프로 GPS <br />
+                      리턴 드론
+                    </p>
+                  </div>
+                  <div class="contentPrice">
+                    <span>
+                      <strong>66%</strong>
+                      130,298원
+                      <del>391,311원</del>
+                    </span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/18 도착예정</p>
+                    </span>
+                    <span><b>*****</b>230판매</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <article class="trigger">
+            <section></section>
+            <section></section>
+          </article>
+        </article>
+      </article>
+    </section>
+    <section id="foryouContainer">
+      <article class="inner">
+        <article class="foryouContents">
+          <article class="foryouTop">
+            <article class="title">
+              <p class="titleText">고객님이 좋아할만한 상품을 추천드려요</p>
+              <h3 class="titleHeader">For you</h3>
+            </article>
+            <article class="titleRight">
+              <a href="#none">
+                더보기
+                <i class="fas fa-plus"></i>
+              </a>
+              <form class="titleBtn">
+                <input type="radio" name="foryou" id="view" />
+                <label for="view" id="view" class="btn active">
+                  많이 본 상품
+                </label>
+                <input type="radio" name="foryou" id="cart" />
+                <label for="cart" id="cart" class="btn"> 많이 담은 상품 </label>
+                <input type="radio" name="foryou" id="buy" />
+                <label for="buy" id="buy" class="btn">
+                  많이 구매 한 상품
+                </label>
+              </form>
+            </article>
+          </article>
+          <article class="foryoucontent">
+            <ul>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/foryou1.png" alt="foryou1" />
+                  </div>
+                  <div class="contentTitle foryouTitle">
+                    <h3>닌텐도</h3>
+                    <p>닌텐도 스위치 OLED</p>
+                  </div>
+                  <div class="contentPrice">
+                    <del>9,200원</del>
+                    <span><strong>85%</strong>1,350원</span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>173판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/foryou2.png" alt="foryou2" />
+                  </div>
+                  <div class="contentTitle foryouTitle">
+                    <h3>닌텐도</h3>
+                    <p>닌텐도 스위치 OLED</p>
+                  </div>
+                  <div class="contentPrice">
+                    <del>9,200원</del>
+                    <span><strong>85%</strong>1,350원</span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>173판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/foryou3.png" alt="foryou3" />
+                  </div>
+                  <div class="contentTitle foryouTitle">
+                    <h3>닌텐도</h3>
+                    <p>닌텐도 스위치 OLED</p>
+                  </div>
+                  <div class="contentPrice">
+                    <del>9,200원</del>
+                    <span><strong>85%</strong>1,350원</span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>173판매</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/foryou4.png" alt="foryou4" />
+                  </div>
+                  <div class="contentTitle foryouTitle">
+                    <h3>닌텐도</h3>
+                    <p>닌텐도 스위치 OLED</p>
+                  </div>
+                  <div class="contentPrice">
+                    <del>9,200원</del>
+                    <span><strong>85%</strong>1,350원</span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>173판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/foryou5.png" alt="foryou5" />
+                  </div>
+                  <div class="contentTitle foryouTitle">
+                    <h3>닌텐도</h3>
+                    <p>닌텐도 스위치 OLED</p>
+                  </div>
+                  <div class="contentPrice">
+                    <del>9,200원</del>
+                    <span><strong>85%</strong>1,350원</span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>173판매</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#none">
+                  <div class="contentImg">
+                    <img src="./img/foryou6.png" alt="foryou6" />
+                  </div>
+                  <div class="contentTitle foryouTitle">
+                    <h3>닌텐도</h3>
+                    <p>닌텐도 스위치 OLED</p>
+                  </div>
+                  <div class="contentPrice">
+                    <del>9,200원</del>
+                    <span><strong>85%</strong>1,350원</span>
+                    <span>
+                      <b>무료배송</b>
+                      <p>9/20 도착예정</p>
+                    </span>
+                    <span><b>*****</b>173판매</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </article>
+        </article>
+      </article>
+    </section>
+    <section id="experienceContainer">
+      <article class="inner">
+        <article class="experienceImg">
+          <article class="experienceDesc">
+            <span>고객님의</span>
+            <span>알리익스프레스의 경험을 남겨주세요!</span>
+            <a href="http://127.0.0.1:5500" method="get">
+              <button>더 나은 알리익스프레스 만들기</button>
+            </a>
+          </article>
+        </article>
+      </article>
+    </section>
+    <section id="categoryContainer">
+      <article class="categoryContents">
+        <article class="categoryGnb Desk">
+          <ul>
+            <li>
+              <a href="#" class="active">
+                <img src="./img/category1.png" alt="category1" />
+                <p>디지털</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category2.png" alt="category2" />
+                <p>가전</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category3.png" alt="category3" />
+                <p>홈인테리어</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category4.png" alt="category4" />
+                <p>뷰티/건강</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category5.png" alt="category5" />
+                <p>패션/가방</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category6.png" alt="category6" />
+                <p>유아용품</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category7.png" alt="category7" />
+                <p>게임</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category8.png" alt="category8" />
+                <p>자동차용품</p>
+              </a>
+            </li>
+          </ul>
+        </article>
+        <article class="categoryGnb Tablet">
+          <ul>
+            <li>
+              <a href="#" class="active">
+                <img src="./img/category1.png" alt="category1" />
+                <p>디지털</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category2.png" alt="category2" />
+                <p>가전</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category3.png" alt="category3" />
+                <p>홈인테리어</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category4.png" alt="category4" />
+                <p>뷰티/건강</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category5.png" alt="category5" />
+                <p>패션/가방</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category6.png" alt="category6" />
+                <p>유아용품</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category7.png" alt="category7" />
+                <p>게임</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/category8.png" alt="category8" />
+                <p>자동차용품</p>
+              </a>
+            </li>
+          </ul>
+        </article>
+        <article class="inner">
+          <article class="category active">
+            <article class="categoryTitle">
+              <h3>디지털</h3>
+              <div class="tag">
+                <ul>
+                  <li>#이어폰</li>
+                  <li>#케이스</li>
+                  <li>#충전기</li>
+                </ul>
+                <ul>
+                  <li>#헤드폰</li>
+                  <li>#스피커</li>
+                  <li>#스마트워치</li>
+                </ul>
+              </div>
+            </article>
+            <article class="categoryContent">
+              <ul>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent1.png"
+                        alt="categoryContent1"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent2.png"
+                        alt="categoryContent2"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent3.png"
+                        alt="categoryContent3"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent4.png"
+                        alt="categoryContent4"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent5.png"
+                        alt="categoryContent5"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent6.png"
+                        alt="categoryContent6"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent7.png"
+                        alt="categoryContent7"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img
+                        src="./img/categoryContent8.png"
+                        alt="categoryContent8"
+                      />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </article>
+          <article class="category">
+            <article class="categoryTitle">
+              <h3>스포츠/레저</h3>
+              <div class="tag">
+                <ul>
+                  <li>#헬스</li>
+                  <li>#요가</li>
+                  <li>#골프</li>
+                </ul>
+                <ul>
+                  <li>#사이클링</li>
+                  <li>#러닝머신</li>
+                  <li>#스포츠의류</li>
+                </ul>
+              </div>
+            </article>
+            <article class="categoryContent">
+              <ul>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports1.png" alt="sports1" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports2.png" alt="sports2" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports3.png" alt="sports3" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports4.png" alt="sports4" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports5.png" alt="sports5" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports6.png" alt="sports6" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports7.png" alt="sports7" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#none">
+                    <div class="contentImg">
+                      <img src="./img/sports8.png" alt="sports8" />
+                    </div>
+                    <div class="contentTitle foryouTitle">
+                      <h3>닌텐도</h3>
+                      <p>닌텐도 스위치 OLED</p>
+                    </div>
+                    <div class="contentPrice">
+                      <del>9,200원</del>
+                      <span><strong>85%</strong>1,350원</span>
+                      <span>
+                        <b>무료배송</b>
+                        <p>9/20 도착예정</p>
+                      </span>
+                      <span><b>*****</b>173판매</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </article>
+        </article>
+      </article>
+    </section>
   </body>
 </html>
