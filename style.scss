@@ -903,6 +903,9 @@ body {
           position: relative;
           border-radius: 50px;
         }
+        &::before {
+          display: none;
+        }
         .alieInfoDesc {
           position: relative;
           h3 {
@@ -925,7 +928,7 @@ body {
   //welcome
   #welcomeContainer {
     .welcome {
-      margin-top: 30px;
+      margin-top: 20px;
       .welcomeContents {
         .welcomeContentLeft {
           width: 100%;
@@ -1052,7 +1055,7 @@ body {
     width: 100%;
     .categoryContents {
       width: 100%;
-      left: 48%;
+      left: 52%;
       .categoryGnb.Desk {
         display: none;
       }
@@ -1080,7 +1083,7 @@ body {
         }
       }
       .category {
-        width: 102%;
+        width: 105%;
         .categoryTitle {
           flex-direction: column;
           justify-content: center;
@@ -1099,14 +1102,16 @@ body {
           }
         }
         .categoryContent {
-          width: 200%;
-          flex-wrap: wrap;
+          width: 100%;
           ul {
+            width: 100%;
+            flex-wrap: wrap;
             gap: 26px;
             &:last-child {
               display: none;
             }
             li {
+              width: 45%;
               .contentImg {
                 img {
                   width: 100%;

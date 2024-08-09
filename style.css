@@ -850,6 +850,9 @@ body {
     position: relative;
     border-radius: 50px;
   }
+  #infoContainer ul li::before {
+    display: none;
+  }
   #infoContainer ul li .alieInfoDesc {
     position: relative;
   }
@@ -866,7 +869,7 @@ body {
     display: none;
   }
   #welcomeContainer .welcome {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
     width: 100%;
@@ -985,7 +988,7 @@ body {
   }
   #categoryContainer .categoryContents {
     width: 100%;
-    left: 48%;
+    left: 52%;
   }
   #categoryContainer .categoryContents .categoryGnb.Desk {
     display: none;
@@ -1013,7 +1016,7 @@ body {
     display: none;
   }
   #categoryContainer .categoryContents .category {
-    width: 102%;
+    width: 105%;
   }
   #categoryContainer .categoryContents .category .categoryTitle {
     flex-direction: column;
@@ -1039,14 +1042,18 @@ body {
     padding-right: 10px;
   }
   #categoryContainer .categoryContents .category .categoryContent {
-    width: 200%;
-    flex-wrap: wrap;
+    width: 100%;
   }
   #categoryContainer .categoryContents .category .categoryContent ul {
+    width: 100%;
+    flex-wrap: wrap;
     gap: 26px;
   }
   #categoryContainer .categoryContents .category .categoryContent ul:last-child {
     display: none;
+  }
+  #categoryContainer .categoryContents .category .categoryContent ul li {
+    width: 45%;
   }
   #categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
     width: 100%;
