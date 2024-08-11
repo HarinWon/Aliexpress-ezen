@@ -21,7 +21,8 @@ body {
       .logo {
         padding-bottom: 10px;
         h1 {
-          font-size: 40px;
+          font-size: 48px;
+          padding-bottom: 20px;
           text-align: center;
         }
       }
@@ -83,7 +84,7 @@ body {
         .help-links {
           display: flex;
           justify-content: space-between;
-          padding: 4px 45px;
+          padding: 12px 45px;
           font-size: 12px;
           a {
             color: #555;
@@ -127,5 +128,54 @@ body {
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .container .content {
+    width: 100%;
+    height: auto;
+    padding-top: 0;
+  }
+
+  .container .login-box {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container .login-box form {
+    padding-top: 20px;
+  }
+
+  .container .login-box form input[type="text"],
+  .container .login-box form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .container .login-box form .checkbox {
+    padding-left: 20px;
+  }
+
+  .container .login-box form .login-btn,
+  .container .login-box form .qr-login-btn {
+    width: 100%;
+  }
+
+  .container .login-box form .help-links {
+    padding: 12px 20px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
   }
 }
