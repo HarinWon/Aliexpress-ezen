@@ -59,6 +59,7 @@ li {
 .contentPrice {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
   font-weight: 400;
@@ -74,26 +75,73 @@ li {
 .contentPrice span strong {
   color: #ff611d;
 }
-.contentPrice span p {
-  color: #afafaf;
+.contentPrice span p:nth-child(1) {
+  color: #191919;
+  padding: 2px 0;
+}
+.contentPrice span p:nth-child(2) {
+  color: #7b7b7b;
   padding: 2px 0;
 }
 
 body {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 #mainContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
-#mainContainer .video {
+#mainContainer video {
+  position: relative;
   width: 100%;
-  height: 800px;
-  background: url("./img/mainAlie.png") center/cover no-repeat;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#mainContainer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+#mainContainer .mainTrigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  left: 8%;
+  bottom: 9%;
+  z-index: 9;
+  color: #f5f5f5;
+}
+#mainContainer .mainTrigger p:nth-of-type(1) {
+  font-size: 1.2rem;
+  position: absolute;
+  left: -2%;
+}
+#mainContainer .mainTrigger p:nth-of-type(2) {
+  font-size: 1.2rem;
+  position: absolute;
+  left: 23%;
+}
+#mainContainer .mainTrigger section:nth-of-type(1) {
+  position: absolute;
+  width: 22%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+}
+#mainContainer .mainTrigger section:nth-of-type(2) {
+  position: absolute;
+  width: 11%;
+  height: 3px;
+  background: #f5f5f5;
 }
 
 #infoContainer {
@@ -107,7 +155,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 18px;
-  margin-top: 80px;
 }
 #infoContainer ul .infoTitleMobile {
   display: none;
@@ -119,13 +166,15 @@ body {
   width: 280px;
   height: 310px;
   position: relative;
+  border-radius: 2px;
 }
 #infoContainer ul li::before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 98%;
   background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
   opacity: 0;
   z-index: 1;
   transition: all 0.3s;
@@ -146,7 +195,7 @@ body {
 #welcomeContainer {
   display: flex;
   flex-direction: column;
-  margin: 20px auto 80px;
+  margin: 50px auto 80px;
 }
 #welcomeContainer .welcome {
   width: 100%;
@@ -162,11 +211,10 @@ body {
   height: 734px;
   cursor: pointer;
 }
-#welcomeContainer .welcome .welcomeContents .welcomeContentLeft img {
+#welcomeContainer .welcome .welcomeContents .welcomeContentLeft .image {
+  background: url("./img/welcome.png") top/cover no-repeat;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .leftText {
   color: #f5f5f5;
@@ -197,7 +245,7 @@ body {
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 54px;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li {
   display: flex;
@@ -255,6 +303,7 @@ body {
 }
 #weeklyContainer .weeklyContents .weeklyContent {
   display: flex;
+  overflow: hidden;
 }
 #weeklyContainer .weeklyContents .weeklyContent ul {
   width: 100%;
@@ -378,7 +427,7 @@ body {
 #foryouContainer .foryouContents .foryoucontent ul li .foryouTitle {
   margin-top: 4px;
   display: flex;
-  gap: 8px;
+  flex-direction: column;
 }
 
 #experienceContainer {
@@ -389,7 +438,6 @@ body {
   width: 1170px;
   height: 320px;
   background: url("./img/experience.png") top/cover no-repeat;
-  background-position: 20px;
 }
 #experienceContainer .experienceImg .experienceDesc {
   height: 100%;
@@ -427,6 +475,8 @@ body {
 #categoryContainer {
   position: relative;
   display: flex;
+  width: 100%;
+  height: 500vh;
 }
 #categoryContainer .categoryContents {
   display: flex;
@@ -437,12 +487,13 @@ body {
 }
 #categoryContainer .categoryContents .categoryGnb.Desk {
   margin-top: 130px;
-  position: sticky;
-  top: 130px;
-  width: 125px;
-  height: 403px;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 130px;
+  right: 0;
+  width: 125px;
+  height: 403px;
 }
 #categoryContainer .categoryContents .categoryGnb.Desk ul li a {
   display: flex;
@@ -515,6 +566,9 @@ body {
   padding: 20px;
   gap: 26px;
 }
+#categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
+  margin-bottom: 20px;
+}
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
   width: 260px;
   height: 200px;
@@ -544,12 +598,38 @@ body {
     font-weight: 400;
     line-height: 1.3rem;
   }
-  #mainContainer .video {
-    width: 100%;
+  #mainContainer {
     height: 400px;
   }
+  #mainContainer video {
+    height: 400px;
+  }
+  #mainContainer::before {
+    height: 400px;
+  }
+  #mainContainer .mainTrigger p:nth-of-type(1) {
+    font-size: 1rem;
+    left: -4%;
+  }
+  #mainContainer .mainTrigger p:nth-of-type(2) {
+    font-size: 1rem;
+    position: absolute;
+    left: 23%;
+  }
+  #mainContainer .mainTrigger section:nth-of-type(1) {
+    position: absolute;
+    width: 22%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  #mainContainer .mainTrigger section:nth-of-type(2) {
+    position: absolute;
+    width: 11%;
+    height: 3px;
+    background: #f5f5f5;
+  }
   #infoContainer {
-    margin-top: -70px;
+    margin-top: 10px;
   }
   #infoContainer ul {
     gap: 10px;
@@ -576,7 +656,7 @@ body {
     display: flex;
   }
   #welcomeContainer .welcome {
-    margin-top: 80px;
+    margin-top: 40px;
   }
   #welcomeContainer .welcome .welcomeContents {
     display: flex;
@@ -585,13 +665,6 @@ body {
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
     width: 100%;
     height: 600px;
-  }
-  #welcomeContainer .welcome .welcomeContents .welcomeContentLeft img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    background-position: top;
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .leftText {
     color: #f5f5f5;
@@ -651,6 +724,9 @@ body {
   #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerRight {
     display: none;
   }
+  #weeklyContainer .weeklyContents .weeklyContent {
+    overflow: visible;
+  }
   #weeklyContainer .weeklyContents .weeklyContent ul {
     gap: 16px;
   }
@@ -698,6 +774,9 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 4px;
+  }
+  #foryouContainer .foryouContents .foryoucontent ul li .foryouTitle p {
+    width: 90%;
   }
   #experienceContainer {
     margin-top: 110px;
@@ -781,8 +860,8 @@ body {
     width: 100%;
   }
   #categoryContainer .categoryContents .category .categoryContent ul {
-    padding: 20px;
-    gap: 26px;
+    width: 100%;
+    justify-content: space-between;
   }
   #categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
     width: 100%;
@@ -824,11 +903,11 @@ body {
     font-weight: 400;
     line-height: 1.3rem;
   }
-  #mainContainer .video {
-    height: 250px;
+  #infoContainer {
+    z-index: 3;
   }
   #infoContainer ul {
-    margin-top: 50px;
+    margin-top: -26px;
     width: 130%;
     height: 80px;
     padding: 10px;
@@ -869,7 +948,7 @@ body {
     display: none;
   }
   #welcomeContainer .welcome {
-    margin-top: 20px;
+    margin-top: 0px;
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
     width: 100%;
@@ -908,6 +987,7 @@ body {
   }
   #weeklyContainer {
     margin-top: 50px;
+    overflow: visible;
   }
   #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft h1 {
     font-family: "Noto Sans KR, sans-serif";
@@ -970,7 +1050,7 @@ body {
   #experienceContainer .experienceImg .experienceDesc {
     gap: 5px;
     padding: 0;
-    padding-left: 50px;
+    padding-left: 40px;
   }
   #experienceContainer .experienceImg .experienceDesc span {
     font-family: "Noto Sans KR, sans-serif";
@@ -986,15 +1066,9 @@ body {
   #categoryContainer {
     width: 100%;
   }
-  #categoryContainer .categoryContents {
-    width: 100%;
-    left: 52%;
-  }
-  #categoryContainer .categoryContents .categoryGnb.Desk {
-    display: none;
-  }
   #categoryContainer .categoryContents .categoryGnb.Tablet {
-    margin: 50px 5px 30px;
+    margin-top: 40px;
+    margin-left: 2px;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul {
     display: flex;
@@ -1016,7 +1090,7 @@ body {
     display: none;
   }
   #categoryContainer .categoryContents .category {
-    width: 105%;
+    width: 100%;
   }
   #categoryContainer .categoryContents .category .categoryTitle {
     flex-direction: column;
@@ -1041,13 +1115,16 @@ body {
   #categoryContainer .categoryContents .category .categoryTitle .tag > ul li {
     padding-right: 10px;
   }
+  #categoryContainer .categoryContents .category .contentPrice {
+    font-size: 0.7rem;
+  }
   #categoryContainer .categoryContents .category .categoryContent {
     width: 100%;
   }
   #categoryContainer .categoryContents .category .categoryContent ul {
     width: 100%;
     flex-wrap: wrap;
-    gap: 26px;
+    justify-content: space-between;
   }
   #categoryContainer .categoryContents .category .categoryContent ul:last-child {
     display: none;

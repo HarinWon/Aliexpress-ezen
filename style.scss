@@ -118,6 +118,7 @@ $color: (
 .contentPrice {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   @include body-small();
   del {
     color: map-get($color, light1);
@@ -128,8 +129,12 @@ $color: (
     strong {
       color: map-get($color, main-color);
     }
-    p {
-      color: map-get($color, light1);
+    p:nth-child(1) {
+      color: map-get($color, dark1);
+      padding: 2px 0;
+    }
+    p:nth-child(2) {
+      color: map-get($color, dark3);
       padding: 2px 0;
     }
   }
@@ -138,18 +143,60 @@ $color: (
 //body
 body {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
 }
 //main
 #mainContainer {
   width: 100%;
-  height: 100%;
-  .video {
+  height: 100vh;
+  video {
+    position: relative;
     width: 100%;
-    height: 800px;
-    background: url("./img/mainAlie.png") center/cover no-repeat;
+    height: 100%;
+    object-fit: cover;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .mainTrigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 8%;
+    bottom: 9%;
+    z-index: 9;
+    color: map-get($color, light3);
+    p:nth-of-type(1) {
+      font-size: 1.2rem;
+      position: absolute;
+      left: -2%;
+    }
+    p:nth-of-type(2) {
+      font-size: 1.2rem;
+      position: absolute;
+      left: 23%;
+    }
+    section:nth-of-type(1) {
+      position: absolute;
+      width: 22%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+    section:nth-of-type(2) {
+      position: absolute;
+      width: 11%;
+      height: 3px;
+      background: map-get($color, light3);
+    }
   }
 }
 //info
@@ -163,7 +210,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 18px;
-    margin-top: 80px;
     .infoTitleMobile {
       display: none;
     }
@@ -173,13 +219,15 @@ body {
         width: 280px;
         height: 310px;
         position: relative;
+        border-radius: 2px;
       }
       &::before {
         content: "";
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 98%;
         background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
         opacity: 0;
         z-index: 1;
         transition: all 0.3s;
@@ -203,7 +251,7 @@ body {
 #welcomeContainer {
   display: flex;
   flex-direction: column;
-  margin: 20px auto 80px;
+  margin: 50px auto 80px;
   .welcome {
     width: 100%;
     display: flex;
@@ -215,10 +263,10 @@ body {
         width: 562px;
         height: 734px;
         cursor: pointer;
-        img {
+        .image {
+          background: url("./img/welcome.png") top/cover no-repeat;
           width: 100%;
           height: 100%;
-          object-fit: cover;
         }
         .leftText {
           color: map-get($color, light3);
@@ -246,7 +294,7 @@ body {
         ul {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 54px;
           li {
             display: flex;
             flex-direction: column;
@@ -300,6 +348,7 @@ body {
     }
     .weeklyContent {
       display: flex;
+      overflow: hidden;
       ul {
         width: 100%;
         display: flex;
@@ -419,7 +468,7 @@ body {
           .foryouTitle {
             margin-top: 4px;
             display: flex;
-            gap: 8px;
+            flex-direction: column;
           }
         }
       }
@@ -434,7 +483,6 @@ body {
     width: 1170px;
     height: 320px;
     background: url("./img/experience.png") top/cover no-repeat;
-    background-position: 20px;
     .experienceDesc {
       height: 100%;
       display: flex;
@@ -469,6 +517,8 @@ body {
 #categoryContainer {
   position: relative;
   display: flex;
+  width: 100%;
+  height: 500vh;
   .categoryContents {
     display: flex;
     position: absolute;
@@ -477,12 +527,13 @@ body {
     transform: translateX(-55%);
     .categoryGnb.Desk {
       margin-top: 130px;
-      position: sticky;
-      top: 130px;
-      width: 125px;
-      height: 403px;
       display: flex;
       flex-direction: column;
+      position: sticky;
+      top: 130px;
+      right: 0;
+      width: 125px;
+      height: 403px;
       ul {
         li {
           a {
@@ -548,6 +599,7 @@ body {
           gap: 26px;
           li {
             .contentImg {
+              margin-bottom: 20px;
               img {
                 width: 260px;
                 height: 200px;
@@ -583,14 +635,40 @@ body {
 
   // main
   #mainContainer {
-    .video {
-      width: 100%;
+    height: 400px;
+    video {
       height: 400px;
+    }
+    &::before {
+      height: 400px;
+    }
+    .mainTrigger {
+      p:nth-of-type(1) {
+        font-size: 1rem;
+        left: -4%;
+      }
+      p:nth-of-type(2) {
+        font-size: 1rem;
+        position: absolute;
+        left: 23%;
+      }
+      section:nth-of-type(1) {
+        position: absolute;
+        width: 22%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.4);
+      }
+      section:nth-of-type(2) {
+        position: absolute;
+        width: 11%;
+        height: 3px;
+        background: map-get($color, light3);
+      }
     }
   }
   //info
   #infoContainer {
-    margin-top: -70px;
+    margin-top: 10px;
     ul {
       gap: 10px;
       .infoTitleMobile {
@@ -617,19 +695,13 @@ body {
   //welcome
   #welcomeContainer {
     .welcome {
-      margin-top: 80px;
+      margin-top: 40px;
       .welcomeContents {
         display: flex;
         flex-direction: column;
         .welcomeContentLeft {
           width: 100%;
           height: 600px;
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background-position: top;
-          }
           .leftText {
             color: map-get($color, light3);
             width: 100%;
@@ -694,6 +766,7 @@ body {
         }
       }
       .weeklyContent {
+        overflow: visible;
         ul {
           gap: 16px;
           .contentImg {
@@ -747,6 +820,11 @@ body {
                 border-radius: 4px;
               }
             }
+            .foryouTitle {
+              p {
+                width: 90%;
+              }
+            }
           }
         }
       }
@@ -777,6 +855,7 @@ body {
   //category
   #categoryContainer {
     margin: 20px;
+
     .categoryContents {
       display: flex;
       flex-direction: column;
@@ -830,8 +909,8 @@ body {
         .categoryContent {
           width: 100%;
           ul {
-            padding: 20px;
-            gap: 26px;
+            width: 100%;
+            justify-content: space-between;
             li {
               .contentImg {
                 img {
@@ -872,16 +951,11 @@ body {
       @include body-small();
     }
   }
-  // main
-  #mainContainer {
-    .video {
-      height: 250px;
-    }
-  }
   //info
   #infoContainer {
+    z-index: 3;
     ul {
-      margin-top: 50px;
+      margin-top: -26px;
       width: 130%;
       height: 80px;
       padding: 10px;
@@ -928,7 +1002,7 @@ body {
   //welcome
   #welcomeContainer {
     .welcome {
-      margin-top: 20px;
+      margin-top: 0px;
       .welcomeContents {
         .welcomeContentLeft {
           width: 100%;
@@ -967,6 +1041,7 @@ body {
   //weekly
   #weeklyContainer {
     margin-top: 50px;
+    overflow: visible;
     .weeklyContents {
       .weeklyTitle {
         .weeklyinnerLeft {
@@ -1036,7 +1111,7 @@ body {
       .experienceDesc {
         gap: 5px;
         padding: 0;
-        padding-left: 50px;
+        padding-left: 40px;
         span {
           @include body-medium();
         }
@@ -1054,13 +1129,9 @@ body {
   #categoryContainer {
     width: 100%;
     .categoryContents {
-      width: 100%;
-      left: 52%;
-      .categoryGnb.Desk {
-        display: none;
-      }
       .categoryGnb.Tablet {
-        margin: 50px 5px 30px;
+        margin-top: 40px;
+        margin-left: 2px;
         ul {
           display: flex;
           gap: 12px;
@@ -1083,7 +1154,7 @@ body {
         }
       }
       .category {
-        width: 105%;
+        width: 100%;
         .categoryTitle {
           flex-direction: column;
           justify-content: center;
@@ -1101,12 +1172,15 @@ body {
             }
           }
         }
+        .contentPrice {
+          font-size: 0.7rem;
+        }
         .categoryContent {
           width: 100%;
           ul {
             width: 100%;
             flex-wrap: wrap;
-            gap: 26px;
+            justify-content: space-between;
             &:last-child {
               display: none;
             }
