@@ -14,14 +14,14 @@
     <main>
       <section class="product-detail">
         <div class="product-images">
+          <div class="main-image">
+            <img src="./img/mainImg.png" alt="Product Main Image" />
+          </div>
           <div class="thumbnail-images">
             <img src="./img/framebox.png" alt="Thumbnail 1" />
             <img src="./img/framebox-1.png" alt="Thumbnail 2" />
             <img src="./img/framebox-2.png" alt="Thumbnail 3" />
             <img src="./img/framebox-3.png" alt="Thumbnail 4" />
-          </div>
-          <div class="main-image">
-            <img src="./img/mainImg.png" alt="Product Main Image" />
           </div>
         </div>
         <div class="product-info">
@@ -52,8 +52,10 @@
           <div class="buy">
             <button class="buy-now">구매하기</button>
             <button class="add-to-cart">장바구니</button>
-            <button class="heart">찜</button>
-            <button class="share">공유</button>
+            <button class="heart"><i class="fa-regular fa-heart"></i></button>
+            <button class="share">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
           </div>
         </div>
       </section>
@@ -116,7 +118,9 @@
                 src="./img/productDetail/slogan_heartleaf.jpg"
                 alt="Details"
               />
+              <button class="view">제품상세</button>
             </div>
+
             <div class="review-container">
               <h1>상품 리뷰</h1>
               <p>인증된 구매 후기입니다</p>
@@ -245,9 +249,47 @@
               </div>
             </div>
           </div>
-          <aside></aside>
+          <aside>
+            <div class="quantity-container-aside">
+              <div class="quantity_aside_buy">
+                <span class="quantity-label">구매수량</span>
+                <div class="quantity-input">
+                  <button class="quantity-button decrement">-</button>
+                  <input type="text" value="1" readonly />
+                  <button class="quantity-button increment">+</button>
+                </div>
+              </div>
+
+              <p class="delivery_information">
+                <img
+                  src="./img/Delivery information_aside.png"
+                  alt="Delivery information"
+                />
+              </p>
+              <p class="choice_service">
+                Chice 서비스 <br />
+                무료배송 / 90일 내 무료반품<span>자세히보기</span>
+              </p>
+              <div class="buy">
+                <div class="buy_cart">
+                  <button class="buy-now">구매하기</button>
+                  <button class="add-to-cart">장바구니</button>
+                </div>
+                <div class="heart_share">
+                  <button class="heart">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                  <button class="share">
+                    <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
+      <section>슬라이드영역 (슬릭슬라이더)</section>
     </main>
+    <button></button>
   </body>
 </html>
