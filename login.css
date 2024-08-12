@@ -18,50 +18,51 @@ body {
   align-items: center;
   .contaniner {
     .log {
-      margin: 0 auto;
-      width: 370px;
-      height: 80px;
+      margin: 20px auto;
+      width: 300px;
+      height: 60px;
       img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
     }
     main {
       .login-page {
         display: flex;
-        width: 800px;
-        height: 1000px;
+        width: 650px;
+        height: 800px;
         flex-direction: column;
         margin: 10px auto;
-        border: 1px solid #0f0;
+        /* border: 1px solid #0f0; */
         justify-content: center;
         align-items: center;
         .login-box {
           .login-method {
             display: flex;
-            width: 690px;
-            height: 90px;
+            width: 600px;
+            height: 70px;
             #email_btn {
-              width: 345px;
-              height: 90px;
-              font-size: 20px;
-              color: #333;
-              background: #fff;
+              width: 300px;
+              height: 75px;
+              font-size: 18px;
+              color: #777;
+              background: #f5f6f7;
               border: 1px solid #ddd;
-              border-bottom: none;
+              /* border-bottom: none; */
               border-radius: 18px 0 0 0;
               cursor: pointer;
-              /* &.active {
-                color: #777;
-                background: #f5f6f7;
-              } */
+              &.active {
+                color: #333;
+                background: #fff;
+              }
             }
             #qr_btn {
-              width: 345px;
-              height: 90px;
-              font-size: 20px;
+              width: 300px;
+              height: 75px;
+              font-size: 18px;
               border: 1px solid #ddd;
-              border-bottom: none;
+              /* border-bottom: none; */
               background: #f5f6f7;
               color: #777;
               border-radius: 0 18px 0 0;
@@ -73,42 +74,51 @@ body {
             }
           }
           #email-login {
-            width: 690px;
-            height: 400px;
-            padding: 40px;
+            width: 600px;
+            height: 350px;
+            padding: 30px;
             border: 1px solid #c5ccd2;
             border-radius: 10px;
+            margin-top: -10px;
             input[type="text"] {
-              width: 615px;
-              height: 80px;
+              width: 540px;
+              height: 70px;
               padding: 10px;
               border: 1px solid #c5ccd2;
               border-radius: 10px;
               transition: all 0.3s;
-              margin-bottom: 20px;
+              margin-bottom: 18px;
+              padding-left: 20px;
+              font-size: 20px;
               &::placeholder {
                 font-size: 20px;
                 font-weight: 400;
                 color: #d3d3d3;
-                padding-left: 10px;
+              }
+              &:focus {
+                outline: none;
               }
             }
             input[type="password"] {
-              width: 615px;
-              height: 80px;
+              width: 540px;
+              height: 70px;
               border: 1px solid #c5ccd2;
               border-radius: 10px;
               margin-bottom: 20px;
+              font-size: 20px;
+              padding-left: 20px;
               &::placeholder {
                 font-size: 20px;
                 font-weight: 400;
                 color: #d3d3d3;
-                padding-left: 20px;
+              }
+              &:focus {
+                outline: none;
               }
             }
             .continue-btn {
-              width: 615px;
-              height: 75px;
+              width: 540px;
+              height: 70px;
               background: linear-gradient(#ff611d, #f7971d);
               border: none;
               border-radius: 10px;
@@ -120,14 +130,15 @@ body {
             }
           }
           #qr-login {
-            width: 690px;
-            height: 500px;
-            padding: 40px;
+            width: 600px;
+            height: 380px;
+            padding: 30px;
             border: 1px solid #c5ccd2;
             border-radius: 10px;
+            margin-top: -10px;
             .qr-code {
-              width: 200px;
-              height: 200px;
+              width: 160px;
+              height: 160px;
               background-color: #eee;
               display: flex;
               justify-content: center;
@@ -137,26 +148,26 @@ body {
               border-radius: 5px;
             }
             p:nth-of-type(1) {
-              font-size: 22px;
+              font-size: 18px;
               text-align: center;
-              margin: 20px;
+              margin: 12px;
               .qr-timer {
-                font-size: 26px;
+                font-size: 22px;
                 font-weight: bold;
                 color: #00cd3c;
               }
             }
             p:nth-of-type(2) {
-              font-size: 22px;
-              margin: 15px;
+              font-size: 16px;
+              margin: 6px;
               text-align: center;
             }
             p:nth-of-type(3) {
-              font-size: 18px;
+              font-size: 16px;
               text-align: center;
-              margin-top: 15px;
+              margin-top: 10px;
               .qr-number {
-                font-size: 24px;
+                font-size: 22px;
                 font-weight: bold;
                 color: #00cd3c;
               }
@@ -165,25 +176,33 @@ body {
         }
         .find-info {
           display: flex;
-          gap: 30px;
-          margin-top: 20px;
-          color: #000;
+          gap: 40px;
+          margin-top: 10px;
+          color: #606060;
+          a {
+            &:hover {
+              color: #000;
+              border-bottom: 1px solid #000;
+            }
+          }
         }
         .easy-login {
+          margin-top: 4px;
           h3 {
-            font-size: 26px;
-            margin: 40px 0;
+            font-size: 24px;
+            margin: 30px 0;
             text-align: center;
           }
           .icons {
             ul {
-              width: 600px;
-              height: 90px;
+              width: 540px;
+              height: 65px;
               display: flex;
-              justify-content: space-around;
+              justify-content: space-evenly;
               img {
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
               }
             }
           }
@@ -192,23 +211,34 @@ body {
           display: flex;
           flex-direction: column;
           text-align: center;
+          margin-top: 10px;
           gap: 10px;
           .country-select {
             margin-top: 16px;
             .field {
-              font-size: 18px;
+              font-size: 16px;
             }
             .inputBox {
               font-size: 18px;
               border: none;
               option {
-                font-size: 18px;
+                font-size: 16px;
+              }
+              &:focus {
+                outline: none;
               }
             }
           }
           p {
             font-size: 14px;
-            &:last-child {
+          }
+          span {
+            width: 120px;
+            margin: 0 auto;
+            margin-top: 10px;
+            font-size: 12px;
+            &:hover {
+              border-bottom: 1px solid #000;
             }
           }
         }
@@ -227,4 +257,59 @@ body {
   display: block;
   background: #fff;
   color: #333;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+  .login-page {
+    width: 100%;
+    height: auto;
+  }
+
+  .login-box {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .login-method button {
+    height: auto;
+    font-size: 16px;
+  }
+
+  #email-login input[type="text"],
+  #email-login input[type="password"],
+  .continue-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .qr-code {
+    max-width: 150px;
+  }
+
+  .qr-timer {
+    font-size: 22px;
+  }
+
+  .find-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .easy-login h3 {
+    font-size: 20px;
+  }
+
+  .icons img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer {
+    padding: 10px;
+  }
+
+  .footer p {
+    font-size: 10px;
+  }
 }

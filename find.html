@@ -9,16 +9,16 @@
     ></script>
     <link rel="stylesheet" href="./find.css" />
     <script defer src="./find.js"></script>
-    <title>Document</title>
+    <title>find</title>
   </head>
   <body>
     <div class="inner">
       <main class="content">
         <div class="find-btn">
-          <button>계정 찾기</button>
-          <button>비밀번호 찾기</button>
+          <button class="email-btn" onclick="findEmail()">계정 찾기</button>
+          <button class="pw-btn" onclick="findPw()">비밀번호 찾기</button>
         </div>
-        <div class="find-email-form">
+        <div class="find-email-form find-content">
           <h3>다음 방법 중 하나를 사용해 계정을 찾아보세요.</h3>
           <div class="find-method-email">
             <ul>
@@ -43,68 +43,70 @@
             </ul>
           </div>
         </div>
-        <div class="find-password-form1">
-          <h1>비밀번호 재설정</h1>
-          <h3>
-            가입 시 등록된 이메일 주소, 회원 ID 및 전화번호를 <br />
-            이용해 로그인하세요.
-          </h3>
+        <div class="find-password-form1 find-content">
+          <div class="find-password-form1-header">
+            <h1>비밀번호 재설정</h1>
+            <h3>
+              가입 시 등록된 이메일 주소, 회원 ID 및 전화번호를 <br />
+              이용해 로그인하세요.
+            </h3>
+          </div>
           <div class="find-method-pw1">
-            <form>
+            <form action="http://wwww.localhost:3000" method="get">
               <ul>
                 <li>
-                  <label>
-                    <input type="radio" name="email" value="email" checked />
-                    이메일주소
-                  </label>
+                  <input type="radio" name="pw1" value="email" checked />
+                  이메일주소
+                  <label for="email"></label>
                 </li>
                 <li>
-                  <label>
-                    <input type="radio" name="phone" value="phone" /> 전화번호
-                  </label>
+                  <input type="radio" name="pw1" value="phone" /> 전화번호
+                  <label for="phone"></label>
                 </li>
               </ul>
               <input
                 type="text"
-                name=""
-                id=""
+                name="useremail"
+                id="useremail"
                 placeholder="이메일 또는 회원 ID"
               />
               <a href="#">비밀번호 재설정이 안 되나요?</a>
             </form>
           </div>
         </div>
-        <div class="find-password-form2">
-          <h1>비밀번호 재설정</h1>
-          <h3>
-            가입 시 등록된 이메일 주소, 회원 ID 및 전화번호를 <br />
-            이용해 로그인하세요.
-          </h3>
+        <!-- <div class="find-password-form2 find-content">
+          <div class="find-password-form2-header">
+            <h1>비밀번호 재설정</h1>
+            <h3>
+              가입 시 등록된 이메일 주소, 회원 ID 및 전화번호를 <br />
+              이용해 로그인하세요.
+            </h3>
+          </div>
           <div class="find-method-pw2">
-            <form>
+            <form action="http://wwww.localhost:3000" method="get">
               <ul>
                 <li>
-                  <label>
-                    <input type="radio" name="email" value="email" checked />
+                  <label for="email">
+                    <input type="radio" name="pw2" value="email" checked />
                     이메일주소
                   </label>
                 </li>
                 <li>
-                  <label>
-                    <input type="radio" name="phone" value="phone" /> 전화번호
+                  <label for="phone">
+                    <input type="radio" name="pw2" value="phone" /> 전화번호
                   </label>
                 </li>
               </ul>
               <input
                 type="text"
-                name=""
-                id=""
-                placeholder="KR +82 | 전화번호를 입력하세요."
+                name="userphone"
+                id="userphone"
+                placeholder="KR +82  |  전화번호를 입력하세요."
               />
               <a href="#">비밀번호 재설정이 안 되나요?</a>
             </form>
           </div>
-        </div>
+        </div> -->
         <button class="submit">다음</button>
       </main>
     </div>
