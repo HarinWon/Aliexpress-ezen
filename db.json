@@ -5,6 +5,7 @@
         "price": "99000",
         "category": "생활",
         "img": "./img/air_fry.png"
+        
       },
       {
         "name": "공기청정기",
