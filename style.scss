@@ -105,8 +105,10 @@ $color: (
     @include heading1();
   }
 }
+
 .contentTitle {
   margin-bottom: 4px;
+  padding: 10px 10px 0 10px;
   h3 {
     @include heading5();
     margin-bottom: 10px;
@@ -115,10 +117,13 @@ $color: (
     @include body-medium();
   }
 }
+
 .contentPrice {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0px 10px 10px 10px;
+
   @include body-small();
   del {
     color: map-get($color, light1);
@@ -151,12 +156,12 @@ body {
 }
 //main
 #mainContainer {
+  position: relative;
   width: 100%;
   height: 100vh;
-  video {
-    position: relative;
+  #mainVideo video {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
   }
   &::before {
@@ -174,28 +179,39 @@ body {
     left: 8%;
     bottom: 9%;
     z-index: 9;
-    color: map-get($color, light3);
+    color: map-get($color, light1);
+    cursor: pointer;
+    p.action {
+      color: map-get($color, light3);
+    }
     p:nth-of-type(1) {
       font-size: 1.2rem;
       position: absolute;
       left: -2%;
+      cursor: pointer;
     }
     p:nth-of-type(2) {
       font-size: 1.2rem;
       position: absolute;
       left: 23%;
+      cursor: pointer;
     }
-    section:nth-of-type(1) {
+    div:nth-of-type(1) {
       position: absolute;
       width: 22%;
       height: 2px;
       background: rgba(255, 255, 255, 0.4);
     }
-    section:nth-of-type(2) {
+    div:nth-of-type(2) {
       position: absolute;
+      left: 0;
       width: 11%;
       height: 3px;
       background: map-get($color, light3);
+      transition: all 0.3s;
+      &.action {
+        left: 11%;
+      }
     }
   }
 }
@@ -215,22 +231,29 @@ body {
     }
     li {
       position: relative;
+      width: 400px;
+      height: 310px;
+      transition: all 2s;
+      bottom: -300px;
+      opacity: 0;
       img {
-        width: 280px;
-        height: 310px;
         position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         border-radius: 2px;
       }
       &::before {
         content: "";
         position: absolute;
         width: 100%;
-        height: 98%;
+        height: 100%;
         background-color: rgba(0, 0, 0, 0.2);
         border-radius: 2px;
         opacity: 0;
         z-index: 1;
-        transition: all 0.3s;
+        cursor: pointer;
+        transition: all 0.5s;
       }
       &:hover::before {
         opacity: 1;
@@ -240,9 +263,14 @@ body {
         bottom: 10px;
         left: 10px;
         color: map-get($color, light3);
+        z-index: 1;
         .infoTablet {
           display: none;
         }
+      }
+      &.activeScroll {
+        bottom: 0;
+        opacity: 1;
       }
     }
   }
@@ -258,15 +286,17 @@ body {
     flex-direction: column;
     .welcomeContents {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       .welcomeContentLeft {
         width: 562px;
         height: 734px;
         cursor: pointer;
+        transition: all 0.5s;
         .image {
           background: url("./img/welcome.png") top/cover no-repeat;
           width: 100%;
           height: 100%;
+          border-radius: 4px 4px 0 0;
         }
         .leftText {
           color: map-get($color, light3);
@@ -286,21 +316,32 @@ body {
             padding: 0 20px;
           }
         }
+        &:hover {
+          box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+          border-radius: 4px 4px 0 0;
+        }
       }
       .welcomeContentRight {
-        width: 580px;
+        width: 620px;
         display: flex;
         justify-content: space-between;
         ul {
           display: flex;
           flex-direction: column;
-          gap: 54px;
+          gap: 10px;
           li {
             display: flex;
             flex-direction: column;
+            transition: all 0.5s;
             img {
-              width: 265px;
+              width: 285px;
               height: 220px;
+              transition: all 0.5s;
+              border-radius: 4px;
+            }
+            &:hover {
+              box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+              border-radius: 4px;
             }
           }
         }
@@ -327,23 +368,27 @@ body {
         h1 {
           @include heading1();
         }
-        .time {
+        .weeklyTime {
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 20px;
-          width: 240px;
+          gap: 16px;
+          width: 220px;
           height: 55px;
-          // margin: 30px 0;
           @include lead-paragraph();
-          color: map-get($color, main-color);
-          border: 1px solid map-get($color, main-color);
+          font-weight: 600;
+          color: map-get($color, light3);
+          background: map-get($color, main-gradient);
+          // border: 1.8px solid map-get($color, main-color);
           border-radius: 50px;
         }
       }
       .weeklyinnerRight {
         @include body-medium();
         color: map-get($color, light1);
+        i {
+          font-size: 1rem;
+        }
       }
     }
     .weeklyContent {
@@ -374,10 +419,11 @@ body {
             justify-content: center;
             width: 60px;
             height: 60px;
-            color: map-get($color, light3);
-            background: map-get($color, main-color);
+            color: map-get($color, main-color);
+            background: rgba(255, 255, 255, 0.8);
+            // border: 1px solid map-get($color, main-color);
             border-radius: 50px;
-            box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+            box-shadow: 0 0 5px rgba($color: #ff611d, $alpha: 0.4);
           }
         }
       }
@@ -635,14 +681,19 @@ body {
 
   // main
   #mainContainer {
-    height: 400px;
-    video {
-      height: 400px;
+    width: 100%;
+    height: 100%;
+    #mainVideo video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     &::before {
-      height: 400px;
+      width: 100%;
+      height: 99%;
     }
     .mainTrigger {
+      bottom: 30px;
       p:nth-of-type(1) {
         font-size: 1rem;
         left: -4%;

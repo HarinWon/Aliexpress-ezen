@@ -41,6 +41,7 @@ li {
 
 .contentTitle {
   margin-bottom: 4px;
+  padding: 10px 10px 0 10px;
 }
 .contentTitle h3 {
   font-family: "Noto Sans KR, sans-serif";
@@ -60,6 +61,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0px 10px 10px 10px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
   font-weight: 400;
@@ -94,13 +96,13 @@ body {
 }
 
 #mainContainer {
+  position: relative;
   width: 100%;
   height: 100vh;
 }
-#mainContainer video {
-  position: relative;
+#mainContainer #mainVideo video {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -119,29 +121,40 @@ body {
   left: 8%;
   bottom: 9%;
   z-index: 9;
+  color: #afafaf;
+  cursor: pointer;
+}
+#mainContainer .mainTrigger p.action {
   color: #f5f5f5;
 }
 #mainContainer .mainTrigger p:nth-of-type(1) {
   font-size: 1.2rem;
   position: absolute;
   left: -2%;
+  cursor: pointer;
 }
 #mainContainer .mainTrigger p:nth-of-type(2) {
   font-size: 1.2rem;
   position: absolute;
   left: 23%;
+  cursor: pointer;
 }
-#mainContainer .mainTrigger section:nth-of-type(1) {
+#mainContainer .mainTrigger div:nth-of-type(1) {
   position: absolute;
   width: 22%;
   height: 2px;
   background: rgba(255, 255, 255, 0.4);
 }
-#mainContainer .mainTrigger section:nth-of-type(2) {
+#mainContainer .mainTrigger div:nth-of-type(2) {
   position: absolute;
+  left: 0;
   width: 11%;
   height: 3px;
   background: #f5f5f5;
+  transition: all 0.3s;
+}
+#mainContainer .mainTrigger div:nth-of-type(2).action {
+  left: 11%;
 }
 
 #infoContainer {
@@ -161,23 +174,31 @@ body {
 }
 #infoContainer ul li {
   position: relative;
+  width: 400px;
+  height: 310px;
+  transition: all 2s;
+  bottom: -300px;
+  opacity: 0;
 }
 #infoContainer ul li img {
-  width: 280px;
-  height: 310px;
   position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 2px;
 }
 #infoContainer ul li::before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 98%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   opacity: 0;
   z-index: 1;
-  transition: all 0.3s;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 #infoContainer ul li:hover::before {
   opacity: 1;
@@ -187,9 +208,14 @@ body {
   bottom: 10px;
   left: 10px;
   color: #f5f5f5;
+  z-index: 1;
 }
 #infoContainer ul li .alieInfoDesc .infoTablet {
   display: none;
+}
+#infoContainer ul li.activeScroll {
+  bottom: 0;
+  opacity: 1;
 }
 
 #welcomeContainer {
@@ -204,17 +230,19 @@ body {
 }
 #welcomeContainer .welcome .welcomeContents {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
   width: 562px;
   height: 734px;
   cursor: pointer;
+  transition: all 0.5s;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .image {
   background: url("./img/welcome.png") top/cover no-repeat;
   width: 100%;
   height: 100%;
+  border-radius: 4px 4px 0 0;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .leftText {
   color: #f5f5f5;
@@ -237,23 +265,34 @@ body {
   font-size: 18px;
   padding: 0 20px;
 }
+#welcomeContainer .welcome .welcomeContents .welcomeContentLeft:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px 4px 0 0;
+}
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight {
-  width: 580px;
+  width: 620px;
   display: flex;
   justify-content: space-between;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul {
   display: flex;
   flex-direction: column;
-  gap: 54px;
+  gap: 10px;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li {
   display: flex;
   flex-direction: column;
+  transition: all 0.5s;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li img {
-  width: 265px;
+  width: 285px;
   height: 220px;
+  transition: all 0.5s;
+  border-radius: 4px;
+}
+#welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
 #weeklyContainer {
@@ -279,19 +318,20 @@ body {
   font-weight: 700;
   line-height: 1.3rem;
 }
-#weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft .time {
+#weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft .weeklyTime {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  width: 240px;
+  gap: 16px;
+  width: 220px;
   height: 55px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 22px;
   font-weight: 400;
   line-height: 1.3rem;
-  color: #ff611d;
-  border: 1px solid #ff611d;
+  font-weight: 600;
+  color: #f5f5f5;
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
   border-radius: 50px;
 }
 #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerRight {
@@ -300,6 +340,9 @@ body {
   font-weight: 400;
   line-height: 1.3rem;
   color: #afafaf;
+}
+#weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerRight i {
+  font-size: 1rem;
 }
 #weeklyContainer .weeklyContents .weeklyContent {
   display: flex;
@@ -336,10 +379,10 @@ body {
   justify-content: center;
   width: 60px;
   height: 60px;
-  color: #f5f5f5;
-  background: #ff611d;
+  color: #ff611d;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 50px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(255, 97, 29, 0.4);
 }
 #weeklyContainer .trigger {
   position: relative;
@@ -599,13 +642,21 @@ body {
     line-height: 1.3rem;
   }
   #mainContainer {
-    height: 400px;
+    width: 100%;
+    height: 100%;
   }
-  #mainContainer video {
-    height: 400px;
+  #mainContainer #mainVideo video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   #mainContainer::before {
-    height: 400px;
+    width: 100%;
+    height: 99%;
+  }
+  #mainContainer .mainTrigger {
+    bottom: 30px;
   }
   #mainContainer .mainTrigger p:nth-of-type(1) {
     font-size: 1rem;

@@ -15,12 +15,13 @@
   </head>
   <body>
     <main id="mainContainer">
-      <video src="./img/aliExpressMainVideo1.mp4" autoplay muted loop></video>
+      <!-- <video src="./img/aliExpressMainVideo1.mp4" autoplay muted loop></video> -->
+      <article id="mainVideo"></article>
       <article class="mainTrigger">
-        <p>01</p>
-        <section></section>
-        <section></section>
-        <p>02</p>
+        <p id="left" class="arrow action">01</p>
+        <div class="mainArrow action"></div>
+        <div class="mainArrow"></div>
+        <p id="right" class="arrow">02</p>
       </article>
     </main>
     <section id="infoContainer">
@@ -215,13 +216,7 @@
           <article class="weeklyTitle">
             <article class="weeklyinnerLeft">
               <h1>Weekly Special</h1>
-              <div class="time">
-                <span id="d-day-hour">00</span>
-                <span class="col">:</span>
-                <span id="d-day-min">00</span>
-                <span class="col">:</span>
-                <span id="d-day-sec">00</span>
-              </div>
+              <div class="weeklyTime"></div>
             </article>
             <article class="weeklyinnerRight">
               <a href="#none">
