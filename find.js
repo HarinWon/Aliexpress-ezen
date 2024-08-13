@@ -40,3 +40,22 @@ document.addEventListener("DOMContentLoaded", () => {
     inputField.placeholder = "KR +82 | 전화번호를 입력하세요.";
   });
 });
+
+// 계정찾기 화면에서 원하는정보 찾기 누르면 체크표시에 불들어오게 하기
+
+const find = document.querySelectorAll(".find-method-email li span");
+
+find.forEach((span) => {
+  span.addEventListener("click", function () {
+    document
+      .querySelectorAll(".find-method-email li span i")
+      .forEach((icon) => {
+        icon.classList.remove("active");
+      });
+
+    const icon = this.querySelector("i");
+    if (icon) {
+      icon.classList.add("active");
+    }
+  });
+});

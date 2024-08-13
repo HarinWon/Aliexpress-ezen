@@ -30,16 +30,16 @@ body {
       width: 700px;
       height: 650px;
       margin: 0 auto;
-      border: 1px solid #0f0;
       .find-btn {
         display: flex;
         justify-content: center;
         & > button {
           width: 290px;
-          height: 80px;
+          height: 70px;
           border: 1px solid #ddd;
           background: #fff;
           font-size: 22px;
+          font-weight: bold;
           text-align: center;
           &:nth-child(1) {
             border-radius: 8px 0 0 8px;
@@ -59,7 +59,6 @@ body {
         }
       }
       .find-email-form {
-        /* display: block; */
         h3 {
           font-size: 20px;
           text-align: center;
@@ -80,7 +79,7 @@ body {
                 text-align: left;
                 cursor: pointer;
                 i {
-                  margin-right: 10px;
+                  margin-right: 14px;
                 }
               }
             }
@@ -88,7 +87,6 @@ body {
         }
       }
       .find-password-form1 {
-        /* display: none; */
         .find-password-form1-header {
           text-align: center;
           & > h1 {
@@ -122,7 +120,10 @@ body {
               padding-left: 10px;
               &::placeholder {
                 font-size: 18px;
-                padding-left: 6px;
+                padding-left: 8px;
+              }
+              &:focus {
+                outline: none;
               }
             }
             & > a {
@@ -156,6 +157,10 @@ body {
   }
 }
 
+.find-method-email i.active {
+  color: red;
+}
+
 .find-content {
   display: none;
 }
@@ -163,58 +168,6 @@ body {
 .find-content.active {
   display: block;
 }
-
-/*
-.find-password-form2 {
-  .find-password-form2-header {
-    text-align: center;
-    & > h1 {
-      font-size: 26px;
-      font-weight: bold;
-      margin: 2px 0 10px;
-    }
-    & > h3 {
-      font-size: 20px;
-      color: #d6d6d6;
-    }
-  }
-  .find-method-pw2 {
-    font-size: 20px;
-    form {
-      display: flex;
-      flex-direction: column;
-      ul {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 30px 0;
-      }
-      input[type="text"] {
-        display: inline-block;
-        width: 500px;
-        height: 70px;
-        margin: 0 auto;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        font-size: 18px;
-        padding-left: 10px;
-        &::placeholder {
-          font-size: 18px;
-          padding-left: 6px;
-        }
-      }
-      & > a {
-        margin-top: 20px;
-        text-align: center;
-        font-size: 18px;
-        color: #7b7b7b;
-      }
-    }
-  }
-  &.active {
-    display: block;
-  }
-}
-*/
 
 @media screen and (max-width: 760px) {
   body {
@@ -228,153 +181,54 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 930px;
-    height: 900px;
+    width: 100%;
+    height: 100%;
   }
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 700px;
-    height: 650px;
+    width: 90%;
+    height: auto;
     margin: 0 auto;
-    border: 1px solid #0f0;
-  }
-
-  .find-btn {
-    display: flex;
-    justify-content: center;
   }
 
   .find-btn > button {
-    width: 290px;
-    height: 80px;
-    border: 1px solid #ddd;
-    background: #fff;
-    font-size: 22px;
-    text-align: center;
-    cursor: pointer;
-  }
-
-  .find-btn > button:nth-child(1) {
-    border-radius: 8px 0 0 8px;
-  }
-
-  .find-btn > button:nth-child(2) {
-    border-radius: 0 8px 8px 0;
-    border-left: none;
-  }
-
-  .find-btn > button.active {
-    background: linear-gradient(#ff611d, #f7971d);
+    width: 45%;
+    height: 60px;
+    font-size: 18px;
   }
 
   .find-email-form h3 {
-    font-size: 20px;
-    text-align: center;
-    margin: 0 0 60px;
-  }
-
-  .find-method-email {
-    font-size: 22px;
+    font-size: 18px;
+    margin: 0 0 40px;
   }
 
   .find-method-email ul {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
 
   .find-method-email li {
-    width: 80%;
-    margin: 0 auto;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .find-method-email li span {
-    text-align: left;
-  }
-
-  .find-method-email li i {
-    margin-right: 10px;
-  }
-
-  .find-password-form1-header {
-    text-align: center;
+    width: 100%;
   }
 
   .find-password-form1-header h1 {
-    font-size: 26px;
-    font-weight: bold;
-    margin: 2px 0 10px;
+    font-size: 24px;
   }
 
   .find-password-form1-header h3 {
-    font-size: 20px;
-    color: #d6d6d6;
-  }
-
-  .find-method-pw1 {
-    font-size: 20px;
-  }
-
-  .find-method-pw1 form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .find-method-pw1 ul {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 30px 0;
+    font-size: 18px;
   }
 
   .find-method-pw1 input[type="text"] {
-    display: inline-block;
-    width: 500px;
-    height: 70px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 18px;
-    padding-left: 10px;
-  }
-
-  .find-method-pw1 input[type="text"]::placeholder {
-    font-size: 18px;
-    padding-left: 6px;
-  }
-
-  .find-method-pw1 > a {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: #7b7b7b;
+    width: 90%;
+    height: 60px;
   }
 
   .submit {
-    width: 350px;
-    height: 60px;
-    margin: 0 auto;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 50px;
-    border: none;
-    background: linear-gradient(#ff611d, #f7971d);
-    color: #fff;
-    font-size: 22px;
-    font-weight: bold;
-  }
-
-  /* Initially hide the forms */
-  .find-content {
-    display: none;
-  }
-
-  /* Show active form */
-  .find-content.active {
-    display: block;
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
   }
 }
