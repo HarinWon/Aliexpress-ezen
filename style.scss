@@ -214,6 +214,7 @@ header {
           }
         }
         .sub_nav_con {
+          display: none;
           width: 190px;
           height: 398px;
           justify-content: start;
@@ -237,7 +238,7 @@ header {
 
 // footer
 .web_footer {
-  display: none;
+  // display: none;
   background-color: map-get($color, dark1);
   color: #fff;
   padding: 20px;

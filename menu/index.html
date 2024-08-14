@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menu</title>
+    <style>
+      /* 기본 스타일 */
+      .dropdown-container {
+        display: none;
+        position: absolute;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 10px;
+        width: max-content; /* 메뉴의 너비를 내용에 맞게 설정 */
+        z-index: 1000;
+      }
+      #category-menu {
+        display: flex;
+        flex-direction: column; /* 카테고리 항목을 세로로 배치 */
+      }
+      .category {
+        padding: 10px;
+        cursor: pointer;
+        position: relative; /* 서브메뉴를 상대적으로 배치할 수 있도록 */
+        border-bottom: 1px solid #ddd; /* 카테고리 항목 사이에 경계 추가 */
+      }
+      .category:hover {
+        background-color: #f0f0f0;
+      }
+      .subcategory-menu {
+        display: none;
+        position: absolute;
+        left: 100%; /* 서브 카테고리를 오른쪽으로 배치 */
+        top: 0;
+        background: white;
+        border: 1px solid #ddd;
+        min-width: 200px; /* 서브 메뉴의 최소 너비 */
+      }
+      .subcategory-menu .subcategory-item {
+        padding: 5px;
+        cursor: pointer;
+      }
+      .subcategory-menu .subcategory-item:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="all-categories">모든 카테고리</div>
+    <div class="dropdown-container">
+      <div id="category-menu"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
