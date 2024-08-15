@@ -193,41 +193,52 @@ header {
       }
       #sub_nav {
         position: relative;
-        .menu_hamburger {
-          width: 170px;
-          height: 30px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #fff;
-          border-radius: 4px;
-          color: #111;
-          font-weight: bold;
-          i {
-            padding-top: 10px;
-          }
-          li {
-            display: block;
-            color: map-get($color, dark1);
-            background: #fff;
-            z-index: 1;
-          }
-        }
-        .sub_nav_con {
+        .dropdown-container {
+          color: black;
           display: none;
-          width: 190px;
-          height: 398px;
-          justify-content: start;
-          align-items: start;
-          bottom: -408px;
-          left: 0;
           position: absolute;
-          background: map-get($color, light2);
-          border: 1px solid red;
-          li {
-            border: 1px solid red;
+          top: 50px;
+          background: white;
+          width: max-content;
+          z-index: 1000;
+        }
+        #category-menu {
+
+          display: flex;
+          flex-direction: column;
+          
+        }
+        .category {
+          width: 120px;
+          height: 50px;
+          line-height: 50px;
+          padding: 10px;
+          cursor: pointer;
+          border-bottom: 1px solid #ddd;
+          &:last-child {
+            border-bottom: none;
           }
         }
+        .category:hover {
+          background-color: #f0f0f0;
+        }
+        .subcategory-menu {
+          display: none;
+          width: 180px;
+          height: 400px;
+          position: absolute;
+          left: 120px;
+          top: 0;
+          background: white;
+          border: 1px solid #ddd;
+        }
+        .subcategory-menu .subcategory-item {
+          cursor: pointer;
+        }
+        .subcategory-menu .subcategory-item:hover {
+          background-color: #f0f0f0;
+        }
+        
       }
       li {
         cursor: pointer;
