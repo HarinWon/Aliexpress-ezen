@@ -179,6 +179,7 @@ body {
   transition: all 2s;
   bottom: -300px;
   opacity: 0;
+  cursor: pointer;
 }
 #infoContainer ul li img {
   position: relative;
@@ -193,11 +194,10 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   opacity: 0;
   z-index: 1;
-  cursor: pointer;
   transition: all 0.5s;
 }
 #infoContainer ul li:hover::before {
@@ -380,9 +380,9 @@ body {
   width: 60px;
   height: 60px;
   color: #ff611d;
-  background: rgba(255, 255, 255, 0.8);
+  background: #fff;
+  border: 1px solid #ff611d;
   border-radius: 50px;
-  box-shadow: 0 0 5px rgba(255, 97, 29, 0.4);
 }
 #weeklyContainer .trigger {
   position: relative;

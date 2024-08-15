@@ -55,14 +55,14 @@ window.addEventListener("scroll", () => {
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
 
-const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
+const targetDate = new Date("2024-09-27T00:00:00");
 
 const countdown = () => {
   const current = new Date();
-  const diff = targetDate - current; // 현재 시간과 기준 시간 차이 계산
+  const diff = targetDate - current;
 
   if (diff <= 0) {
-    weeklyTime.innerHTML = "00:00:00"; // 카운트다운이 끝났을 때
+    weeklyTime.innerHTML = "00:00:00";
     return;
   }
 
@@ -80,3 +80,79 @@ const countdown = () => {
 };
 
 setInterval(countdown);
+
+//weekly slide
+
+//자동 슬라이드 기능
+
+//마우스 오버하면 멈추기
+//트리거도 함께 움직이기
+
+// const weeklyTrigger = document.querySelector("#triggerBar");
+// const weeklySlides = document.querySelector(".weeklyContent ul");
+// const weeklySlide = document.querySelectorAll(".weeklyContent li");
+
+// const slideCount = weeklySlide.length;
+// const slideWidth = 350;
+// const slideMargin = 50;
+
+// let currentIdx = 0;
+
+// const updateWidth = () => {
+//   const newWidth = `${(slideWidth + slideMargin) * slideCount - slideMargin}px`;
+//   weeklySlides.computedStyleMap.width = newWidth;
+// };
+
+// const setInitialPos = () => {
+//   const translateValue = -(slideWidth + slideMargin) * slideCount;
+//   weeklySlides.computedStyleMap.transform = `translateX(${translateValue}px)`;
+// };
+
+// const makeClone = () => {
+//   for (let i = 0; i < slideCount; i++) {
+//     const cloneSlide = weeklySlide[i].cloneNode(true);
+//     cloneSlide.classList.add("clone");
+//     weeklySlides.appendChild(cloneSlide);
+//   }
+//   updateWidth();
+//   setInitialPos();
+//   setTimeout(() => {
+//     slides.classList.add("animated");
+//   }, 1000);
+// };
+// makeClone();
+
+// const moveSlide = (num) => {
+//   weeklySlides.style.left = `${-num * (slideWidth + slideMargin)}px`;
+//   currentIdx = num;
+//   if (currentIdx === slideCount || currentIdx === -slideCount) {
+//     setTimeout(() => {
+//       weeklySlides.classList.remove("animated");
+//       weeklySlides.style.left = "0px";
+//       currentIdx = 0;
+//     }, 500);
+//     setTimeout(() => {
+//       weeklySlides.classList.add("animated");
+//     }, 600);
+//   }
+//   // console.log(currentIdx, slideCount);
+// };
+
+//foryou
+const form = document.querySelector("form");
+const foryouBtn = form.querySelectorAll(".btn");
+
+foryouBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    //1.active가 있는지 확인
+    const isActive = btn.classList.contains("active");
+    foryouBtn.forEach((b) => b.classList.remove("active"));
+    //2.있다면 삭제
+    //3.클릭했을 때 active없으면 add 있으면 remove
+    if (isActive) {
+      btn.classList.remove("active");
+    } else {
+      btn.classList.add("active");
+    }
+  });
+});
