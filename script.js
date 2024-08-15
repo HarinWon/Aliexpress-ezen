@@ -55,14 +55,14 @@ window.addEventListener("scroll", () => {
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
 
-const targetDate = new Date("2024-09-27T00:00:00");
+const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
 
 const countdown = () => {
   const current = new Date();
-  const diff = targetDate - current;
+  const diff = targetDate - current; // 현재 시간과 기준 시간 차이 계산
 
   if (diff <= 0) {
-    weeklyTime.innerHTML = "00:00:00";
+    weeklyTime.innerHTML = "00:00:00"; // 카운트다운이 끝났을 때
     return;
   }
 
@@ -82,6 +82,96 @@ const countdown = () => {
 setInterval(countdown);
 
 //weekly slide
+const slideWrapper = document.querySelector(".weeklyContent ul");
+const slides = document.querySelectorAll(".weeklyContent li");
+const totalSlides = slides.length;
+const triggerBar = document.querySelector("#triggerBar");
+const triggerItems = 4; // 트리거 개수
+let currentIndex = 0;
+let slideInterval;
+let isPaused = false;
+
+// 슬라이드 크기 및 여백 설정
+const slideWidth = 350;
+const slideMargin = 50;
+
+// 슬라이드 복제
+for (let i = 0; i < 3; i++) {
+  let cloneFirst = slides[i].cloneNode(true);
+  slideWrapper.appendChild(cloneFirst);
+}
+
+// 슬라이드 래퍼의 너비 계산
+const updateSlideWrapperWidth = () => {
+  const totalWidth = (slideWidth + slideMargin) * (totalSlides + 3); // 복제된 슬라이드 포함
+  slideWrapper.style.width = `${totalWidth}px`;
+};
+updateSlideWrapperWidth();
+
+// 슬라이드 이동 함수
+function moveToNextSlide() {
+  if (!isPaused) {
+    currentIndex++;
+    slideWrapper.style.transition = "transform 0.5s ease-in-out";
+    slideWrapper.style.transform = `translateX(-${
+      currentIndex * (slideWidth + slideMargin)
+    }px)`;
+
+    if (currentIndex >= totalSlides) {
+      setTimeout(() => {
+        slideWrapper.style.transition = "none";
+        slideWrapper.style.transform = `translateX(0)`;
+        currentIndex = 0;
+      }, 500); // 애니메이션 시간이 지난 후 0으로 복구
+    }
+    updateTrigger();
+  }
+}
+
+// 트리거 업데이트
+function updateTrigger() {
+  // 트리거 애니메이션 부드럽게 만들기 위해 transition 추가
+  triggerBar.style.transition = "transform 0.5s ease-in-out";
+  triggerBar.style.transform = `translateX(${
+    (currentIndex % triggerItems) * 100
+  }%)`;
+}
+
+// 자동 슬라이드
+function startSlide() {
+  slideInterval = setInterval(() => {
+    moveToNextSlide();
+  }, 3000);
+}
+
+// 마우스 오버시 슬라이드 및 트리거 일시 정지
+slideWrapper.addEventListener("mouseover", () => {
+  isPaused = true;
+  clearInterval(slideInterval);
+  triggerBar.style.transition = "none"; // 트리거 애니메이션 일시 정지
+});
+
+slideWrapper.addEventListener("mouseout", () => {
+  isPaused = false;
+  startSlide();
+  triggerBar.style.transition = "transform 0.5s ease-in-out"; // 트리거 애니메이션 재개
+});
+
+// 트리거 클릭 이벤트 추가
+const triggerButtons = document.querySelectorAll(
+  ".mainTrigger section:nth-of-type(2) button"
+); // 각 트리거 버튼 선택
+
+triggerButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    moveToSlide(index);
+    isPaused = true; // 클릭 시 자동 슬라이드 일시 정지
+    clearInterval(slideInterval);
+  });
+});
+
+// 슬라이드 시작
+startSlide();
 
 //자동 슬라이드 기능
 
@@ -138,21 +228,73 @@ setInterval(countdown);
 //   // console.log(currentIdx, slideCount);
 // };
 
-//foryou
+//foryou button
 const form = document.querySelector("form");
 const foryouBtn = form.querySelectorAll(".btn");
 
 foryouBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    //1.active가 있는지 확인
     const isActive = btn.classList.contains("active");
     foryouBtn.forEach((b) => b.classList.remove("active"));
-    //2.있다면 삭제
-    //3.클릭했을 때 active없으면 add 있으면 remove
-    if (isActive) {
-      btn.classList.remove("active");
-    } else {
+    if (
+      !isActive ||
+      !Array.from(foryouBtn).some((b) => b.classList.contains("active"))
+    ) {
       btn.classList.add("active");
     }
   });
 });
+
+////foryou json
+fetch("./main.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const foryouContent = document.querySelector(".foryoucontent");
+
+    foryouBtn.forEach((button) => {
+      button.addEventListener("click", () => {
+        let selectedCategory;
+
+        if (button.id === "view") {
+          selectedCategory = data["많이 본 상품"];
+        } else if (button.id === "cart") {
+          selectedCategory = data["많이 담은 상품"];
+        } else if (button.id === "buy") {
+          selectedCategory = data["많이 구매 한 상품"];
+        }
+
+        // 기존 콘텐츠 제거
+        foryouContent.innerHTML = "";
+
+        // 새로운 콘텐츠 추가
+        selectedCategory.forEach((item) => {
+          const productHTML = `
+            <li>
+              <a href="#none">
+                <div class="contentImg">
+                  <img src="${item.image_path}" alt="${item.product_name}" />
+                </div>
+                <div class="contentTitle foryouTitle">
+                  <h3>${item.brand}</h3>
+                  <p>${item.product_name}</p>
+                </div>
+                <div class="contentPrice">
+                  <span>
+                    <strong>${item.discount}</strong>
+                    <b>${item.price}</b>
+                    <del>${item.original_price}</del>
+                  </span>
+                  <span>
+                    <p>${item.delivery_date}</p>
+                  </span>
+                  <span><b>*****</b>${item.ratings} 판매</span>
+                </div>
+              </a>
+            </li>
+          `;
+          foryouContent.insertAdjacentHTML("beforeend", productHTML);
+        });
+      });
+    });
+  })
+  .catch((error) => console.error("Error loading JSON:", error));

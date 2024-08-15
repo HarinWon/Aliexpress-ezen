@@ -1,0 +1,206 @@
+{
+  "많이 본 상품": [
+    {
+      "brand": "쿠첸",
+      "product_name": "[공식정품] 6인용 전기밥솥 CRE-D0601I",
+      "discount": "14%",
+      "price": "62,959원",
+      "original_price": "76,900원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou1.png"
+    },
+    {
+      "brand": "SAMSUNG",
+      "product_name": "비스포크 큐커 컨벡션오븐 32L 전자레인지",
+      "discount": "23%",
+      "price": "171,900원",
+      "original_price": "191,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "240개",
+      "image_path": "./img/foryou2.png"
+    },
+    {
+      "brand": "샤오미",
+      "product_name": "Xiaomi Five-in-one 스마트 진공 청소기",
+      "discount": "80%",
+      "price": "8,393원",
+      "original_price": "42,479원",
+      "delivery": "무료배송",
+      "delivery_date": "9/21 도착예정",
+      "ratings": "187개",
+      "image_path": "./img/foryou3.png"
+    },
+    {
+      "brand": "샤오미",
+      "product_name": "미지아 스마트 항균 가습기 4.5L",
+      "discount": "69%",
+      "price": "36,645원",
+      "original_price": "118,670원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "370개",
+      "image_path": "./img/foryou4.png"
+    },
+    {
+      "brand": "HANN",
+      "product_name": "14인치 스탠드 에어 서큘레이터",
+      "discount": "20%",
+      "price": "32,018원",
+      "original_price": "40,030원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "230개",
+      "image_path": "./img/foryou5.png"
+    },
+    {
+      "brand": "샤오미",
+      "product_name": "미지아 휴대용 의류 스팀다리미",
+      "discount": "71%",
+      "price": "48,819원",
+      "original_price": "168,970원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "190개",
+      "image_path": "./img/foryou6.png"
+    }
+  ],
+  "많이 담은 상품": [
+    {
+      "brand": "Naturehike",
+      "product_name": "오토 캠핑 텐트 4인용",
+      "discount": "60%",
+      "price": "40,000원",
+      "original_price": "100,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "200개",
+      "image_path": "./img/foryou7.png"
+    },
+    {
+      "brand": "Kooler",
+      "product_name": "아이스박스 30L",
+      "discount": "50%",
+      "price": "50,000원",
+      "original_price": "120,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/22 도착예정",
+      "ratings": "150개",
+      "image_path": "./img/foryou8.png"
+    },
+    {
+      "brand": "X-Camp",
+      "product_name": "휴대용 캠핑 체어",
+      "discount": "70%",
+      "price": "30,000원",
+      "original_price": "90,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/23 도착예정",
+      "ratings": "180개",
+      "image_path": "./img/foryou9.png"
+    },
+    {
+      "brand": "Firepit",
+      "product_name": "캠핑용 화로대",
+      "discount": "65%",
+      "price": "35,000원",
+      "original_price": "110,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/21 도착예정",
+      "ratings": "160개",
+      "image_path": "./img/foryou10.png"
+    },
+    {
+      "brand": "Outdoor",
+      "product_name": "캠핑 테이블 세트",
+      "discount": "75%",
+      "price": "25,000원",
+      "original_price": "95,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/25 도착예정",
+      "ratings": "140개",
+      "image_path": "./img/foryou11.png"
+    },
+    {
+      "brand": "CookMaster",
+      "product_name": "휴대용 가스버너 세트",
+      "discount": "85%",
+      "price": "15,000원",
+      "original_price": "85,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "190개",
+      "image_path": "./img/foryou12.png"
+    }
+  ],
+  "많이 구매 한 상품": [
+    {
+      "brand": "펫케어",
+      "product_name": "자동 급수기",
+      "discount": "80%",
+      "price": "20,000원",
+      "original_price": "100,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou13.png"
+    },
+    {
+      "brand": "캣코지",
+      "product_name": "휴대용 고양이 침대 겸 이동장",
+      "discount": "80%",
+      "price": "22,000원",
+      "original_price": "110,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou14.png"
+    },
+    {
+      "brand": "펫드레스업",
+      "product_name": "고양이 할로윈 배트맨 의상",
+      "discount": "80%",
+      "price": "20,000원",
+      "original_price": "120,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou15.png"
+    },
+    {
+      "brand": "펫퍼즐",
+      "product_name": "강아지 노즈워크 매트",
+      "discount": "80%",
+      "price": "21,000원",
+      "original_price": "130,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou16.png"
+    },
+    {
+      "brand": "코지펫",
+      "product_name": "강아지 텐트 하우스",
+      "discount": "80%",
+      "price": "24,000원",
+      "original_price": "140,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou17.png"
+    },
+    {
+      "brand": "펫패션",
+      "product_name": "강아지 스타일 선캡",
+      "discount": "80%",
+      "price": "19,000원",
+      "original_price": "90,000원",
+      "delivery": "무료배송",
+      "delivery_date": "9/18 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/foryou18.png"
+    }
+  ]
+}
