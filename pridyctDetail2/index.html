@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/3d3f071495.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="product-page">
+      <section class="product-main">
+        <div class="product-images">
+          <div class="main-image">
+            <img src="./img/mainImg.png" alt="Product Main Image" />
+          </div>
+          <div class="thumbnail-images">
+            <img src="./img/framebox.png" alt="Thumbnail 1" />
+            <img src="./img/framebox-1.png" alt="Thumbnail 2" />
+            <img src="./img/framebox-2.png" alt="Thumbnail 3" />
+            <img src="./img/framebox-3.png" alt="Thumbnail 4" />
+          </div>
+        </div>
+        <div class="product-details">
+          <h1>아누아 어성초 모공 클레이 팩 100ml</h1>
+          <p class="price">16,000₩</p>
+          <p class="description">슥슥 바르기만 해도 피지 & 각질 케어</p>
+          <p class="star">
+            <i class="fa-solid fa-star active"></i>
+            <i class="fa-solid fa-star active"></i>
+            <i class="fa-solid fa-star active"></i>
+            <i class="fa-solid fa-star active"></i>
+            <i class="fa-solid fa-star"></i>
+          </p>
+          <div class="quantity-container">
+            <span class="quantity-label">구매수량</span>
+            <div class="quantity-input">
+              <button class="quantity-button decrement">-</button>
+              <input type="text" value="1" readonly />
+              <button class="quantity-button increment">+</button>
+            </div>
+          </div>
+          <div class="buy">
+            <button class="buy-now">구매하기</button>
+            <button class="add-to-cart">장바구니</button>
+            <button class="heart"><i class="fa-regular fa-heart"></i></button>
+            <button class="share">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <aside class="product-sidebar">
+        <div class="sticky-container">
+          <div class="buy-options">
+            <div class="quantity-container-aside">
+              <div class="quantity_aside_buy">
+                <span class="quantity-label">구매수량</span>
+                <div class="quantity-input">
+                  <button class="quantity-button decrement">-</button>
+                  <input type="text" value="1" readonly />
+                  <button class="quantity-button increment">+</button>
+                </div>
+              </div>
+              <p class="delivery_information">
+                <img
+                  src="./img/Delivery information_aside.png"
+                  alt="Delivery information"
+                />
+              </p>
+              <p class="choice_service">
+                Chice 서비스 <br />
+                무료배송 / 90일 내 무료반품 <span>자세히보기</span>
+              </p>
+              <div class="buy">
+                <div class="buy_cart">
+                  <button class="buy-now">구매하기</button>
+                  <button class="add-to-cart">장바구니</button>
+                </div>
+                <div class="heart_share">
+                  <button class="heart">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                  <button class="share">
+                    <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <section class="product-details-tabs">
+        <div class="tabs">
+          <button class="tab active" data-tab="details">제품상세</button>
+          <button class="tab" data-tab="reviews">상품리뷰</button>
+        </div>
+        <div class="product-contents">
+          <div class="tab-content" id="details">
+            <!-- Product details content with images... -->
+            <img src="./img/productDetail/poreclay_01.jpg" alt="Details" />
+            <!-- Add more images here... -->
+            <button class="view">제품상세</button>
+          </div>
+          <div class="review-container">
+            <h1>상품 리뷰</h1>
+            <p>인증된 구매 후기입니다</p>
+            <div class="summary">
+              <div class="rating-overall">
+                <h2>총 평점</h2>
+                <p class="stars">
+                  <i class="fa-solid fa-star active"></i>
+                  <i class="fa-solid fa-star active"></i>
+                  <i class="fa-solid fa-star active"></i>
+                  <i class="fa-solid fa-star active"></i>
+                  <i class="fa-solid fa-star"></i>
+                </p>
+                <span class="rating-score">4.8 / 5.0</span>
+              </div>
+              <div class="total-reviews">
+                <h2>사용자 전체 리뷰수</h2>
+                <span class="review-count">186개</span>
+                <i class="fa-solid fa-ranking-star"></i>
+              </div>
+              <div class="rating-distribution">
+                <h2>리뷰 평점 비율</h2>
+                <div class="distribution-bar">
+                  <!-- Bars for rating distribution... -->
+                </div>
+              </div>
+            </div>
+            <div class="photo-reviews">
+              <h3>포토 리뷰</h3>
+              <ul class="photos">
+                <!-- Photo reviews... -->
+              </ul>
+            </div>
+            <div class="text-reviews">
+              <div class="review-filter">
+                <h3>전체 리뷰</h3>
+                <ul class="review-filter-list">
+                  <li class="active">최신순</li>
+                  <li>추천순</li>
+                  <li>평점높은순</li>
+                  <li>평점낮은순</li>
+                </ul>
+              </div>
+              <div class="review">
+                <div class="rating">★★★★★</div>
+                <p>만족도 최상입니다. 너무 맘에 들어요^^</p>
+              </div>
+              <div class="review">
+                <div class="rating">★★★★★</div>
+                <p>배송도 빠르고 좋았어요.</p>
+              </div>
+            </div>
+            <div class="pagination">
+              <a href="#none" class="select">1</a>
+              <a href="#none">2</a>
+              <a href="#none">3</a>
+              <a href="#none">4</a>
+              <a href="#none">5</a>
+              <a href="#none">다음</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
