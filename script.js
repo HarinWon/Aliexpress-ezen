@@ -266,13 +266,19 @@ fetch("./main.json")
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
 
+        // 새로운 ul 태그 생성 및 스타일 적용
+        const ulElement = document.createElement("ul");
+        ulElement.style.display = "flex";
+        ulElement.style.flexWrap = "wrap";
+        ulElement.className = "ulElements";
+
         // 새로운 콘텐츠 추가
         selectedCategory.forEach((item) => {
           const productHTML = `
             <li>
               <a href="#none">
                 <div class="contentImg">
-                  <img src="${item.image_path}" alt="${item.product_name}" />
+                  <img src="${item.image_path}" alt="${item.product_name}" style= "width:350px" "height:220px" />
                 </div>
                 <div class="contentTitle foryouTitle">
                   <h3>${item.brand}</h3>
@@ -285,6 +291,7 @@ fetch("./main.json")
                     <del>${item.original_price}</del>
                   </span>
                   <span>
+                    <p>${item.delivery}</p>
                     <p>${item.delivery_date}</p>
                   </span>
                   <span><b>*****</b>${item.ratings} 판매</span>
@@ -298,3 +305,5 @@ fetch("./main.json")
     });
   })
   .catch((error) => console.error("Error loading JSON:", error));
+
+//category Scroll Event

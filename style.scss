@@ -9,67 +9,67 @@ $fonts: (
   font-family: map-get($fonts, noto-sans);
   font-size: 50px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin display2 {
   font-family: map-get($fonts, noto-sans);
   font-size: 42px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin heading1 {
   font-family: map-get($fonts, noto-sans);
   font-size: 50px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin heading2 {
   font-family: map-get($fonts, noto-sans);
   font-size: 42px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin heading3 {
   font-family: map-get($fonts, noto-sans);
   font-size: 34px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin heading4 {
   font-family: map-get($fonts, noto-sans);
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin heading5 {
   font-family: map-get($fonts, noto-sans);
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin lead-paragraph {
   font-family: map-get($fonts, noto-sans);
   font-size: 22px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin body-medium {
   font-family: map-get($fonts, noto-sans);
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin body-normal {
   font-family: map-get($fonts, noto-sans);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 @mixin body-small {
   font-family: map-get($fonts, noto-sans);
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 
 // color
@@ -566,7 +566,6 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  height: 500vh;
   .categoryContents {
     display: flex;
     position: absolute;
@@ -574,14 +573,14 @@ body {
     left: 50%;
     transform: translateX(-55%);
     .categoryGnb.Desk {
-      margin-top: 130px;
+      margin-top: 171px;
       display: flex;
       flex-direction: column;
       position: sticky;
       top: 130px;
       right: 0;
       width: 125px;
-      height: 403px;
+      height: fit-content;
       ul {
         li {
           a {
@@ -616,7 +615,9 @@ body {
       display: none;
     }
     .category {
+      height: fit-content;
       margin-bottom: 120px;
+      border: 1px solid #f00;
       .categoryTitle {
         width: 100%;
         height: 120px;
@@ -640,6 +641,7 @@ body {
       }
       .categoryContent {
         width: 100%;
+
         ul {
           display: flex;
           justify-content: center;
@@ -1252,3 +1254,21 @@ body {
     }
   }
 }
+// .foryoucontent {
+//   .ulElements {
+//     display: flex;
+//     justify-content: space-between;
+//     li {
+//       .contentImg {
+//         width: 350px;
+//         height: 220px;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           margin-bottom: 10px;
+//           object-fit: cover;
+//         }
+//       }
+//     }
+//   }
+// }
