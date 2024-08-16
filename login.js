@@ -15,16 +15,20 @@ function showQRLogin() {
 // Initialize with email login visible
 showEmailLogin();
 
-function redirectToMobileVersion() {
-  if (window.innerWidth <= 400) {
-    window.location.href = "mobileLogin.html"; // 모바일용 HTML 파일로 변경
+// 원래 페이지의 URL 저장
+const originalPage = window.location.href;
+
+function checkScreenWidth() {
+  const width = window.innerWidth;
+
+  if (width <= 500 && !window.location.href.includes("mobileLogin.html")) {
+    // 400px 이하로 줄어들고 현재 페이지가 mobileLogin.html이 아닌 경우
+    window.location.href = "mobileLogin.html";
+  } else if (width > 500 && window.location.href.includes("mobileLogin.html")) {
+    // 400px 이상으로 커지고 현재 페이지가 mobileLogin.html인 경우
+    window.location.href = originalPage;
   }
 }
 
-// 페이지 로드 시 체크
-redirectToMobileVersion();
-
-// 윈도우 리사이즈 시 체크
-window.addEventListener("resize", function () {
-  redirectToMobileVersion();
-});
+window.addEventListener("load", checkScreenWidth);
+window.addEventListener("resize", checkScreenWidth);

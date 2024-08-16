@@ -16,7 +16,7 @@
       "name": "에어퍼프",
       "price": "5000",
       "category": "뷰티",
-      "img": "./img/airpuff.png"
+      "img": "./img/airpuff.jpg"
     },
     {
       "name": "닌텐도 스위치 동물의 숲 에디션",
@@ -274,7 +274,7 @@
       "name": "닌텐도 스플래툰3",
       "price": "60000",
       "category": "게임",
-      "img": "./img/nintendo_splatoon3.jpeg"
+      "img": "./img/nintendo_splatoon3.jpg"
     },
     {
       "name": "닌텐도 스위치",
@@ -496,19 +496,19 @@
       "name": "샤오미 밴드워치",
       "price": "25000",
       "category": "전자제품",
-      "img": "./img/xiaomi_bandwatch.png"
+      "img": "./img/xaomi_bandwatch.png"
     },
     {
       "name": "샤오미 헤드셋",
       "price": "40000",
       "category": "전자제품",
-      "img": "./img/xiaomi_headset.png"
+      "img": "./img/xaomi_headset.png"
     },
     {
       "name": "샤오미 로봇 청소기",
       "price": "200000",
       "category": "전자제품",
-      "img": "./img/xiaomi_robot_vacuum_cleaner.jpg"
+      "img": "./img/xaomi_robot_vacuum_cleaner.jpg"
     },
     {
       "name": "샤오미 커피포트",
@@ -568,7 +568,7 @@
       "name": "샤오미 프린터",
       "price": "200000",
       "category": "전자제품",
-      "img": "./img/xiaomi_printer.jpg"
+      "img": "./img/xiaomi_printing.jpg"
     },
     {
       "name": "샤오미 리프레셔",

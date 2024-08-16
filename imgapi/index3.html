@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Search by Filename</title>
+    <style>
+      #dropZone {
+        width: 300px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dropZone">이미지를 이곳에 드래그하거나 클릭하세요</div>
+    <div id="result"></div>
+
+    <script>
+      const dropZone = document.getElementById("dropZone");
+      dropZone.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+
+      dropZone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        handleImageUpload(event.dataTransfer.files[0]);
+      });
+
+      dropZone.addEventListener("click", () => {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.click();
+        fileInput.onchange = () => {
+          handleImageUpload(fileInput.files[0]);
+        };
+      });
+
+      function handleImageUpload(file) {
+        const uploadedFileName = file.name.toLowerCase().slice(0, 3); // 파일명의 앞 3글자 추출 및 소문자로 변환
+        searchSimilarFiles(uploadedFileName);
+      }
+
+      function searchSimilarFiles(uploadedFileNamePrefix) {
+        fetch("db.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const matchedProducts = findMatchingProductsByFilename(
+              uploadedFileNamePrefix,
+              data.data
+            );
+            displayResults(matchedProducts);
+          });
+      }
+
+      function findMatchingProductsByFilename(
+        uploadedFileNamePrefix,
+        products
+      ) {
+        return products.filter((product) => {
+          const productFileNamePrefix = product.img
+            .split("/")
+            .pop()
+            .toLowerCase()
+            .slice(0, 3);
+          return productFileNamePrefix === uploadedFileNamePrefix;
+        });
+      }
+
+      function displayResults(products) {
+        const resultContainer = document.getElementById("result");
+        resultContainer.innerHTML = ""; // 기존 결과 지우기
+
+        if (products.length === 0) {
+          resultContainer.innerHTML = "<p>비슷한 상품이 없습니다.</p>";
+          return;
+        }
+
+        products.forEach((product) => {
+          const productElement = document.createElement("div");
+          productElement.innerHTML = `
+                    <h4>${product.name}</h4>
+                    <img src="${product.img}" alt="${product.name}">
+                    <p>가격: ${product.price}원</p>
+                    <p>카테고리: ${product.category}</p>
+                `;
+          resultContainer.appendChild(productElement);
+        });
+      }
+    </script>
+  </body>
+</html>

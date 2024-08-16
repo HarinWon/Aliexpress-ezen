@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="./login.css" />
     <script defer src="./login.js"></script>
     <title>Document</title>
+    <script>
+      function checkScreenWidth() {
+        if (window.innerWidth <= 500) {
+          window.location.href = "mobileLogin.html";
+        }
+      }
+      window.addEventListener("load", checkScreenWidth);
+      window.addEventListener("resize", checkScreenWidth);
+    </script>
   </head>
   <body>
     <div class="contaniner">
