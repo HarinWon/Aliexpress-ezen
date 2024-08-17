@@ -230,10 +230,11 @@ body {
 }
 #welcomeContainer .welcome .welcomeContents {
   display: flex;
+  justify-content: space-between;
   gap: 30px;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
-  width: 540px;
+  width: 500px;
   height: 700px;
   cursor: pointer;
   transition: all 0.5s;
@@ -268,7 +269,7 @@ body {
   padding: 0 20px;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft:hover {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
   border-radius: 4px 4px 0 0;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight {
@@ -300,6 +301,7 @@ body {
 #weeklyContainer {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 #weeklyContainer .weeklyContents .weeklyTitle {
   width: 100%;
@@ -357,11 +359,12 @@ body {
   padding: 24px;
 }
 #weeklyContainer .weeklyContents .weeklyContent ul .contentImg {
-  position: relative;
-}
-#weeklyContainer .weeklyContents .weeklyContent ul .contentImg img {
   width: 320px;
   height: 380px;
+}
+#weeklyContainer .weeklyContents .weeklyContent ul .contentImg img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border: 1px solid #f5f5f5;
@@ -385,6 +388,36 @@ body {
   background: #fff;
   border: 1px solid #ff611d;
   border-radius: 50px;
+}
+#weeklyContainer .weeklyArrows {
+  position: absolute;
+  top: 55%;
+  width: 1170px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 3rem;
+  color: #ddd;
+  cursor: pointer;
+}
+#weeklyContainer .weeklyArrows .fas {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+#weeklyContainer .weeklyArrows .fa-angle-left:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateX(-20px);
+  color: #fff;
+  border-radius: 50%;
+}
+#weeklyContainer .weeklyArrows .fa-angle-right:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateX(20px);
+  color: #fff;
+  border-radius: 50%;
 }
 #weeklyContainer .trigger {
   position: relative;
@@ -622,10 +655,12 @@ body {
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
   margin-bottom: 20px;
-}
-#categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
   width: 260px;
   height: 200px;
+}
+#categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
+  width: 100%;
+  height: 100%;
 }
 #categoryContainer .categoryContents .category.active .categoryTitle {
   background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);

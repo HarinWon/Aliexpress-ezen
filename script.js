@@ -102,11 +102,11 @@ for (let i = 0; i < 3; i++) {
 }
 
 // 슬라이드 래퍼의 너비 계산
-const updateSlideWrapperWidth = () => {
+const updateSlideWidth = () => {
   const totalWidth = (slideWidth + slideMargin) * (totalSlides + 3); // 복제된 슬라이드 포함
   slideWrapper.style.width = `${totalWidth}px`;
 };
-updateSlideWrapperWidth();
+updateSlideWidth();
 
 // 슬라이드 이동 함수
 function moveToNextSlide() {
@@ -157,76 +157,24 @@ slideWrapper.addEventListener("mouseout", () => {
   triggerBar.style.transition = "transform 0.5s ease-in-out"; // 트리거 애니메이션 재개
 });
 
-// 트리거 클릭 이벤트 추가
-const triggerButtons = document.querySelectorAll(
-  ".mainTrigger section:nth-of-type(2) button"
-); // 각 트리거 버튼 선택
+// arrow 클릭 이벤트 추가
+const weeklyArrowLeft = document.querySelector(".weeklyArrowLeft");
+const weeklyArrowRight = document.querySelector(".weeklyArrowRight");
 
-triggerButtons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    moveToSlide(index);
-    isPaused = true; // 클릭 시 자동 슬라이드 일시 정지
-    clearInterval(slideInterval);
-  });
+weeklyArrowLeft.addEventListener("click", () => {
+  moveSlide(currentIndex - 1);
+  isPaused = true; // 클릭 시 자동 슬라이드 일시 정지
+  clearInterval(slideInterval);
+});
+
+weeklyArrowRight.addEventListener("click", () => {
+  moveSlide(currentIndex + 1);
+  isPaused = true; // 클릭 시 자동 슬라이드 일시 정지
+  clearInterval(slideInterval);
 });
 
 // 슬라이드 시작
 startSlide();
-
-//자동 슬라이드 기능
-
-//마우스 오버하면 멈추기
-//트리거도 함께 움직이기
-
-// const weeklyTrigger = document.querySelector("#triggerBar");
-// const weeklySlides = document.querySelector(".weeklyContent ul");
-// const weeklySlide = document.querySelectorAll(".weeklyContent li");
-
-// const slideCount = weeklySlide.length;
-// const slideWidth = 350;
-// const slideMargin = 50;
-
-// let currentIdx = 0;
-
-// const updateWidth = () => {
-//   const newWidth = `${(slideWidth + slideMargin) * slideCount - slideMargin}px`;
-//   weeklySlides.computedStyleMap.width = newWidth;
-// };
-
-// const setInitialPos = () => {
-//   const translateValue = -(slideWidth + slideMargin) * slideCount;
-//   weeklySlides.computedStyleMap.transform = `translateX(${translateValue}px)`;
-// };
-
-// const makeClone = () => {
-//   for (let i = 0; i < slideCount; i++) {
-//     const cloneSlide = weeklySlide[i].cloneNode(true);
-//     cloneSlide.classList.add("clone");
-//     weeklySlides.appendChild(cloneSlide);
-//   }
-//   updateWidth();
-//   setInitialPos();
-//   setTimeout(() => {
-//     slides.classList.add("animated");
-//   }, 1000);
-// };
-// makeClone();
-
-// const moveSlide = (num) => {
-//   weeklySlides.style.left = `${-num * (slideWidth + slideMargin)}px`;
-//   currentIdx = num;
-//   if (currentIdx === slideCount || currentIdx === -slideCount) {
-//     setTimeout(() => {
-//       weeklySlides.classList.remove("animated");
-//       weeklySlides.style.left = "0px";
-//       currentIdx = 0;
-//     }, 500);
-//     setTimeout(() => {
-//       weeklySlides.classList.add("animated");
-//     }, 600);
-//   }
-//   // console.log(currentIdx, slideCount);
-// };
 
 //foryou button
 const form = document.querySelector("form");
