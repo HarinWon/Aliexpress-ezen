@@ -272,9 +272,10 @@ fetch("./main.json")
         ulElement.style.flexWrap = "wrap";
         ulElement.className = "ulElements";
 
+        let productHTML;
         // 새로운 콘텐츠 추가
         selectedCategory.forEach((item) => {
-          const productHTML = `
+          productHTML = `
             <li>
               <a href="#none">
                 <div class="contentImg">
@@ -301,6 +302,8 @@ fetch("./main.json")
           `;
           foryouContent.insertAdjacentHTML("beforeend", productHTML);
         });
+        ulElement.appendChild(productHTML);
+        foryouContent.appendChild("ulElement");
       });
     });
   })
