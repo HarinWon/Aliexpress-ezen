@@ -23,8 +23,8 @@ li {
 .title {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding-bottom: 30px;
+  gap: 5px;
+  padding-bottom: 10px;
 }
 .title p {
   font-family: "Noto Sans KR, sans-serif";
@@ -176,7 +176,7 @@ body {
   position: relative;
   width: 400px;
   height: 310px;
-  transition: all 2s;
+  transition: all 1.5s;
   bottom: -300px;
   opacity: 0;
   cursor: pointer;
@@ -233,13 +233,15 @@ body {
   gap: 30px;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
-  width: 562px;
-  height: 734px;
+  width: 540px;
+  height: 700px;
   cursor: pointer;
   transition: all 0.5s;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .image {
-  background: url("./img/welcome.png") top/cover no-repeat;
+  background: url("./img/welcome.png") center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 4px 4px 0 0;
@@ -286,7 +288,7 @@ body {
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li img {
   width: 285px;
-  height: 220px;
+  height: 200px;
   transition: all 0.5s;
   border-radius: 4px;
 }
@@ -455,8 +457,8 @@ body {
 #foryouContainer .foryouContents .foryoucontent {
   display: flex;
   flex-direction: column;
-  height: 760px;
   justify-content: space-between;
+  gap: 30px;
 }
 #foryouContainer .foryouContents .foryoucontent ul {
   display: flex;

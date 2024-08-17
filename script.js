@@ -262,7 +262,6 @@ fetch("./main.json")
         } else if (button.id === "buy") {
           selectedCategory = data["많이 구매 한 상품"];
         }
-
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
 
@@ -270,16 +269,16 @@ fetch("./main.json")
         const ulElement = document.createElement("ul");
         ulElement.style.display = "flex";
         ulElement.style.flexWrap = "wrap";
+        ulElement.style.gap = "30px";
         ulElement.className = "ulElements";
 
-        let productHTML;
         // 새로운 콘텐츠 추가
         selectedCategory.forEach((item) => {
-          productHTML = `
+          const productHTML = `
             <li>
               <a href="#none">
                 <div class="contentImg">
-                  <img src="${item.image_path}" alt="${item.product_name}" style= "width:350px" "height:220px" />
+                  <img src="${item.image_path}" alt="${item.product_name}" style="width:350px; height:220px;" />
                 </div>
                 <div class="contentTitle foryouTitle">
                   <h3>${item.brand}</h3>
@@ -300,10 +299,11 @@ fetch("./main.json")
               </a>
             </li>
           `;
-          foryouContent.insertAdjacentHTML("beforeend", productHTML);
+          ulElement.insertAdjacentHTML("beforeend", productHTML);
         });
-        ulElement.appendChild(productHTML);
-        foryouContent.appendChild("ulElement");
+
+        // ulElement를 foryouContent에 추가
+        foryouContent.appendChild(ulElement);
       });
     });
   })
