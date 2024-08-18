@@ -1,0 +1,50 @@
+@import "./style.scss";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .container {
+    width: 700px;
+    height: 665px;
+    .inner {
+      width: 380px;
+      height: 530px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 0 auto;
+      .logo {
+        width: 360px;
+        height: 80px;
+      }
+      h1 {
+        @include heading3();
+        line-height: 1.3;
+      }
+      p {
+        @include body-medium();
+        text-align: center;
+      }
+      .img {
+        width: 365px;
+        height: 135px;
+      }
+      .btn {
+        width: 365px;
+        height: 60px;
+        padding: 10px 30px;
+        background: map-get($color, main-gradient);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+}

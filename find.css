@@ -1,164 +1,186 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-ul,
-li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
 body {
   display: flex;
   justify-content: center;
   align-content: inherit;
   height: 100vh;
-  .inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 930px;
-    height: 900px;
-    .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      width: 700px;
-      height: 650px;
-      margin: 0 auto;
-      .find-btn {
-        display: flex;
-        justify-content: center;
-        & > button {
-          width: 290px;
-          height: 70px;
-          border: 1px solid #ddd;
-          background: #fff;
-          font-size: 22px;
-          font-weight: bold;
-          text-align: center;
-          &:nth-child(1) {
-            border-radius: 8px 0 0 8px;
-            cursor: pointer;
-            &.active {
-              background: linear-gradient(#ff611d, #f7971d);
-            }
-          }
-          &:nth-child(2) {
-            border-radius: 0 8px 8px 0;
-            border-left: none;
-            cursor: pointer;
-            &.active {
-              background: linear-gradient(#ff611d, #f7971d);
-            }
-          }
-        }
-      }
-      .find-email-form {
-        h3 {
-          font-size: 20px;
-          text-align: center;
-          margin: 0 0 60px;
-        }
-        .find-method-email {
-          font-size: 22px;
-          ul {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            li {
-              width: 80%;
-              margin: 0 auto;
-              padding-bottom: 8px;
-              border-bottom: 1px solid #ddd;
-              span {
-                text-align: left;
-                cursor: pointer;
-                i {
-                  margin-right: 14px;
-                }
-              }
-            }
-          }
-        }
-      }
-      .find-password-form1 {
-        .find-password-form1-header {
-          text-align: center;
-          & > h1 {
-            font-size: 26px;
-            font-weight: bold;
-            margin: 2px 0 10px;
-          }
-          & > h3 {
-            font-size: 20px;
-            color: #d6d6d6;
-          }
-        }
-        .find-method-pw1 {
-          font-size: 20px;
-          form {
-            display: flex;
-            flex-direction: column;
-            ul {
-              display: flex;
-              justify-content: space-evenly;
-              margin: 30px 0;
-            }
-            input[type="text"] {
-              display: inline-block;
-              width: 500px;
-              height: 70px;
-              margin: 0 auto;
-              border: 1px solid #ddd;
-              border-radius: 10px;
-              font-size: 18px;
-              padding-left: 10px;
-              &::placeholder {
-                font-size: 18px;
-                padding-left: 8px;
-              }
-              &:focus {
-                outline: none;
-              }
-            }
-            & > a {
-              margin-top: 20px;
-              text-align: center;
-              font-size: 18px;
-              color: #7b7b7b;
-              cursor: pointer;
-              transition: all 0.3s;
-              &:hover {
-                color: #f00;
-              }
-            }
-          }
-        }
-      }
-      .submit {
-        width: 350px;
-        height: 60px;
-        margin: 0 auto;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 50px;
-        border: none;
-        background: linear-gradient(#ff611d, #f7971d);
-        color: #fff;
-        font-size: 22px;
-        font-weight: bold;
-      }
-    }
-  }
+}
+body .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 930px;
+  height: 900px;
+}
+body .inner .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 700px;
+  height: 650px;
+  margin: 0 auto;
+}
+body .inner .content .find-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -30px;
+}
+body .inner .content .find-btn > button {
+  width: 290px;
+  height: 70px;
+  border: 1px solid #dddddd;
+  background: #fff;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+body .inner .content .find-btn > button:nth-child(1) {
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+}
+body .inner .content .find-btn > button:nth-child(1).active {
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+}
+body .inner .content .find-btn > button:nth-child(2) {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+  cursor: pointer;
+}
+body .inner .content .find-btn > button:nth-child(2).active {
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+}
+body .inner .content .find-email-form h3 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  margin: 0 0 60px;
+}
+body .inner .content .find-email-form .find-method-email {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .inner .content .find-email-form .find-method-email ul {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+body .inner .content .find-email-form .find-method-email ul li {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dddddd;
+}
+body .inner .content .find-email-form .find-method-email ul li span {
+  text-align: left;
+  cursor: pointer;
+}
+body .inner .content .find-email-form .find-method-email ul li span i {
+  margin-right: 14px;
+}
+body .inner .content .find-password-form1 .find-password-form1-header {
+  text-align: center;
+}
+body .inner .content .find-password-form1 .find-password-form1-header > h1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  padding-bottom: 10px;
+}
+body .inner .content .find-password-form1 .find-password-form1-header > h3 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #d6d6d6;
+  padding-top: 10px;
+}
+body .inner .content .find-password-form1 .find-method-pw1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form {
+  display: flex;
+  flex-direction: column;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form input[type=text] {
+  display: inline-block;
+  width: 500px;
+  height: 70px;
+  margin: 0 auto;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 10px;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]::-moz-placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 8px;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 8px;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]:focus {
+  outline: none;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form > a {
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #7b7b7b;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+body .inner .content .find-password-form1 .find-method-pw1 form > a:hover {
+  color: #e43225;
+}
+body .inner .content .submit {
+  width: 350px;
+  height: 60px;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+  color: #fff;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
 }
 
 .find-method-email i.active {
-  color: red;
+  color: #e43225;
 }
 
 .find-content {
@@ -184,7 +206,6 @@ body {
     width: 100%;
     height: 100%;
   }
-
   .content {
     display: flex;
     flex-direction: column;
@@ -193,42 +214,46 @@ body {
     height: auto;
     margin: 0 auto;
   }
-
   .find-btn > button {
     width: 45%;
     height: 60px;
-    font-size: 18px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3rem;
   }
-
   .find-email-form h3 {
-    font-size: 18px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3rem;
     margin: 0 0 40px;
   }
-
   .find-method-email ul {
     gap: 30px;
   }
-
   .find-method-email li {
     width: 100%;
   }
-
   .find-password-form1-header h1 {
-    font-size: 24px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3rem;
   }
-
   .find-password-form1-header h3 {
-    font-size: 18px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3rem;
   }
-
-  .find-method-pw1 input[type="text"] {
+  .find-method-pw1 input[type=text] {
     width: 90%;
     height: 60px;
   }
-
   .submit {
     width: 80%;
     height: 50px;
     font-size: 20px;
   }
-}
+}/*# sourceMappingURL=find.css.map */

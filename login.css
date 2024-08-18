@@ -1,266 +1,307 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-ul,
-li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  .contaniner {
-    .log {
-      margin: 20px auto;
-      width: 300px;
-      height: 60px;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-    }
-    main {
-      .login-page {
-        display: flex;
-        width: 650px;
-        height: 800px;
-        flex-direction: column;
-        margin: 10px auto;
-        /* border: 1px solid #0f0; */
-        justify-content: center;
-        align-items: center;
-        .login-box {
-          .login-method {
-            display: flex;
-            width: 600px;
-            height: 70px;
-            #email_btn {
-              width: 300px;
-              height: 75px;
-              font-size: 18px;
-              color: #777;
-              background: #f5f6f7;
-              border: 1px solid #ddd;
-              /* border-bottom: none; */
-              border-radius: 18px 0 0 0;
-              cursor: pointer;
-              &.active {
-                color: #333;
-                background: #fff;
-              }
-            }
-            #qr_btn {
-              width: 300px;
-              height: 75px;
-              font-size: 18px;
-              border: 1px solid #ddd;
-              /* border-bottom: none; */
-              background: #f5f6f7;
-              color: #777;
-              border-radius: 0 18px 0 0;
-              cursor: pointer;
-              &.active {
-                color: #333;
-                background: #fff;
-              }
-            }
-          }
-          #email-login {
-            width: 600px;
-            height: 350px;
-            padding: 30px;
-            border: 1px solid #c5ccd2;
-            border-radius: 10px;
-            margin-top: -10px;
-            input[type="text"] {
-              width: 540px;
-              height: 70px;
-              padding: 10px;
-              border: 1px solid #c5ccd2;
-              border-radius: 10px;
-              transition: all 0.3s;
-              margin-bottom: 18px;
-              padding-left: 20px;
-              font-size: 20px;
-              &::placeholder {
-                font-size: 20px;
-                font-weight: 400;
-                color: #d3d3d3;
-              }
-              &:focus {
-                outline: none;
-              }
-            }
-            input[type="password"] {
-              width: 540px;
-              height: 70px;
-              border: 1px solid #c5ccd2;
-              border-radius: 10px;
-              margin-bottom: 20px;
-              font-size: 20px;
-              padding-left: 20px;
-              &::placeholder {
-                font-size: 20px;
-                font-weight: 400;
-                color: #d3d3d3;
-              }
-              &:focus {
-                outline: none;
-              }
-            }
-            .continue-btn {
-              width: 540px;
-              height: 70px;
-              background: linear-gradient(#ff611d, #f7971d);
-              border: none;
-              border-radius: 10px;
-              font-size: 26px;
-              font-weight: bold;
-              color: #fff;
-              margin-top: 30px;
-              cursor: pointer;
-            }
-          }
-          #qr-login {
-            width: 600px;
-            height: 380px;
-            padding: 30px;
-            border: 1px solid #c5ccd2;
-            border-radius: 10px;
-            margin-top: -10px;
-            .qr-code {
-              width: 160px;
-              height: 160px;
-              background-color: #eee;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: 0 auto;
-              border: 1px solid #ccc;
-              border-radius: 5px;
-            }
-            p:nth-of-type(1) {
-              font-size: 18px;
-              text-align: center;
-              margin: 12px;
-              .qr-timer {
-                font-size: 22px;
-                font-weight: bold;
-                color: #00cd3c;
-              }
-            }
-            p:nth-of-type(2) {
-              font-size: 16px;
-              margin: 6px;
-              text-align: center;
-            }
-            p:nth-of-type(3) {
-              font-size: 16px;
-              text-align: center;
-              margin-top: 10px;
-              .qr-number {
-                font-size: 22px;
-                font-weight: bold;
-                color: #00cd3c;
-              }
-            }
-          }
-        }
-        .find-info {
-          display: flex;
-          gap: 40px;
-          margin-top: 10px;
-          color: #606060;
-          transition: all 0.3s;
-          a {
-            &:hover {
-              color: #000;
-              /* border-bottom: 1px solid #000; */
-            }
-          }
-        }
-        .easy-login {
-          margin-top: 4px;
-          h3 {
-            font-size: 24px;
-            margin: 30px 0;
-            text-align: center;
-          }
-          .icons {
-            ul {
-              width: 540px;
-              height: 65px;
-              display: flex;
-              justify-content: space-evenly;
-              img {
-                width: 60px;
-                height: 60px;
-                object-fit: contain;
-              }
-            }
-          }
-        }
-        .footer {
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          margin-top: 10px;
-          gap: 10px;
-          .country-select {
-            margin-top: 16px;
-            .field {
-              font-size: 16px;
-            }
-            .inputBox {
-              font-size: 18px;
-              border: none;
-              option {
-                font-size: 16px;
-              }
-              &:focus {
-                outline: none;
-              }
-            }
-          }
-          p {
-            font-size: 14px;
-          }
-          span {
-            width: 120px;
-            margin: 0 auto;
-            margin-top: 10px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            &:hover {
-              border-bottom: 1px solid #000;
-            }
-          }
-        }
-      }
-    }
-  }
+}
+body .contaniner .log {
+  margin: 20px auto;
+  width: 300px;
+  height: 60px;
+}
+body .contaniner .log img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body .contaniner main .login-page {
+  display: flex;
+  width: 650px;
+  height: 800px;
+  flex-direction: column;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+}
+body .contaniner main .login-page .login-box .login-method {
+  display: flex;
+  width: 600px;
+  height: 70px;
+}
+body .contaniner main .login-page .login-box .login-method #email_btn {
+  width: 300px;
+  height: 75px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #777;
+  background: #f5f6f7;
+  border: 1px solid #ddd;
+  border-radius: 18px 0 0 0;
+  cursor: pointer;
+}
+body .contaniner main .login-page .login-box .login-method #email_btn.active {
+  color: #333;
+  background: #fff;
+}
+body .contaniner main .login-page .login-box .login-method #qr_btn {
+  width: 300px;
+  height: 75px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  border: 1px solid #ddd;
+  background: #f5f6f7;
+  color: #777;
+  border-radius: 0 18px 0 0;
+  cursor: pointer;
+}
+body .contaniner main .login-page .login-box .login-method #qr_btn.active {
+  color: #333333;
+  background: #fff;
+}
+body .contaniner main .login-page .login-box #email-login {
+  width: 600px;
+  height: 350px;
+  padding: 30px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+body .contaniner main .login-page .login-box #email-login input[type=text] {
+  width: 540px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  transition: all 0.3s;
+  margin-bottom: 18px;
+  padding-left: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .contaniner main .login-page .login-box #email-login input[type=text]::-moz-placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #d3d3d3;
+}
+body .contaniner main .login-page .login-box #email-login input[type=text]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #d3d3d3;
+}
+body .contaniner main .login-page .login-box #email-login input[type=text]:focus {
+  outline: none;
+}
+body .contaniner main .login-page .login-box #email-login input[type=password] {
+  width: 540px;
+  height: 70px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 20px;
+}
+body .contaniner main .login-page .login-box #email-login input[type=password]::-moz-placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: #d3d3d3;
+}
+body .contaniner main .login-page .login-box #email-login input[type=password]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: #d3d3d3;
+}
+body .contaniner main .login-page .login-box #email-login input[type=password]:focus {
+  outline: none;
+}
+body .contaniner main .login-page .login-box #email-login .continue-btn {
+  width: 540px;
+  height: 70px;
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+  border: none;
+  border-radius: 10px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  color: #fff;
+  margin-top: 30px;
+  cursor: pointer;
+}
+body .contaniner main .login-page .login-box #qr-login {
+  width: 600px;
+  height: 380px;
+  padding: 30px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+body .contaniner main .login-page .login-box #qr-login .qr-code {
+  width: 160px;
+  height: 160px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  margin: 12px;
+}
+body .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) .qr-timer {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: #00cd3c;
+}
+body .contaniner main .login-page .login-box #qr-login p:nth-of-type(2) {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  margin: 6px;
+  text-align: center;
+}
+body .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  margin-top: 10px;
+}
+body .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) .qr-number {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: #00cd3c;
+}
+body .contaniner main .login-page .find-info {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+  color: #606060;
+  transition: all 0.3s;
+}
+body .contaniner main .login-page .find-info a:hover {
+  color: #000;
+  /* border-bottom: 1px solid #000; */
+}
+body .contaniner main .login-page .easy-login {
+  margin-top: 4px;
+}
+body .contaniner main .login-page .easy-login h3 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  margin: 30px 0;
+  text-align: center;
+}
+body .contaniner main .login-page .easy-login .icons ul {
+  width: 540px;
+  height: 65px;
+  display: flex;
+  justify-content: space-evenly;
+}
+body .contaniner main .login-page .easy-login .icons ul img {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body .contaniner main .login-page .footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+body .contaniner main .login-page .footer .country-select {
+  margin-top: 16px;
+}
+body .contaniner main .login-page .footer .country-select .field {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .contaniner main .login-page .footer .country-select .inputBox {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  border: none;
+}
+body .contaniner main .login-page .footer .country-select .inputBox option {
+  font-size: 16px;
+}
+body .contaniner main .login-page .footer .country-select .inputBox:focus {
+  outline: none;
+}
+body .contaniner main .login-page .footer p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .contaniner main .login-page .footer span {
+  width: 120px;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+body .contaniner main .login-page .footer span:hover {
+  border-bottom: 1px solid #000;
 }
 
 .hidden {
   display: none;
 }
+
 .login-content {
   display: none;
 }
+
 .login-content.active {
   display: block;
   background: #fff;
-  color: #333;
+  color: #333333;
 }
 
 /* Media Queries for Responsive Design */
@@ -269,51 +310,41 @@ body {
     width: 100%;
     height: auto;
   }
-
   .login-box {
     width: 100%;
     padding: 10px;
   }
-
   .login-method button {
     height: auto;
     font-size: 16px;
   }
-
-  #email-login input[type="text"],
-  #email-login input[type="password"],
+  #email-login input[type=text],
+  #email-login input[type=password],
   .continue-btn {
     width: 100%;
     max-width: 100%;
   }
-
   .qr-code {
     max-width: 150px;
   }
-
   .qr-timer {
     font-size: 22px;
   }
-
   .find-info {
     display: flex;
     align-items: center;
   }
-
   .easy-login h3 {
     font-size: 20px;
   }
-
   .icons img {
     width: 50px;
     height: 50px;
   }
-
   .footer {
     padding: 10px;
   }
-
   .footer p {
     font-size: 10px;
   }
-}
+}/*# sourceMappingURL=login.css.map */

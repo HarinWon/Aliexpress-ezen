@@ -1,188 +1,194 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  .container {
-    .content {
-      width: 700px;
-      height: 900px;
-      padding-top: 20px;
-      .logo {
-        padding-bottom: 10px;
-        h1 {
-          font-size: 48px;
-          padding-bottom: 20px;
-          text-align: center;
-        }
-      }
-    }
-    .login-box {
-      width: 500px;
-      height: 650px;
-      margin: 0 auto;
-      border: 1px solid #8e8e8e;
-      form {
-        text-align: center;
-        padding-top: 40px;
-        input[type="text"],
-        input[type="password"] {
-          width: 400px;
-          padding: 10px;
-          margin-bottom: 10px;
-          border: none;
-          border-bottom: 1px solid #ddd;
-          font-size: 16px;
-          &:focus {
-            outline: none;
-          }
-        }
-        .checkbox {
-          text-align: left;
-          padding-left: 50px;
-          margin: 20px 0;
-          font-size: 14px;
-          input {
-            margin-right: 5px;
-          }
-        }
-        .login-btn {
-          width: 400px;
-          padding: 10px;
-          background-color: #ffeb00;
-          color: black;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 16px;
-        }
-        .divider {
-          margin: 20px 0;
-          color: #aaa;
-          font-size: 12px;
-        }
-        .qr-login-btn {
-          width: 400px;
-          padding: 10px;
-          background-color: #eee;
-          color: black;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 16px;
-          transition: all 0.3s;
-          &:hover {
-            background-color: #888;
-          }
-        }
-        .help-links {
-          display: flex;
-          justify-content: space-between;
-          padding: 12px 45px;
-          font-size: 12px;
-          a {
-            color: #555;
-            margin: 0 4px;
-            &:hover {
-              color: #000;
-            }
-          }
-        }
-        .qr-code {
-          margin: 20px 0;
-          .qr-code img {
-            width: 150px;
-            height: 150px;
-          }
-          p {
-            padding-top: 4px;
-            font-size: 12px;
-            #timer {
-              font-size: 14px;
-              font-weight: bold;
-              color: crimson;
-            }
-          }
-        }
-        p {
-          font-size: 14px;
-        }
-      }
-    }
-    footer {
-      margin-top: 20px;
-      font-size: 14px;
-      text-align: center;
-      color: #777;
-      .footer-links {
-        margin-bottom: 10px;
-        a {
-          color: #777;
-          margin: 0 5px;
-        }
-        p {
-          padding-top: 4px;
-        }
-      }
-    }
-  }
+}
+body .container .content {
+  width: 700px;
+  height: 900px;
+  padding-top: 20px;
+}
+body .container .content .logo {
+  padding-bottom: 10px;
+}
+body .container .content .logo h1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  padding-bottom: 20px;
+  text-align: center;
+}
+body .container .login-box {
+  width: 500px;
+  height: 650px;
+  margin: 0 auto;
+  border: 1px solid #8e8e8e;
+}
+body .container .login-box form {
+  text-align: center;
+  padding-top: 40px;
+}
+body .container .login-box form input[type=text],
+body .container .login-box form input[type=password] {
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .login-box form input[type=text]:focus,
+body .container .login-box form input[type=password]:focus {
+  outline: none;
+}
+body .container .login-box form .checkbox {
+  text-align: left;
+  padding-left: 50px;
+  margin: 20px 0;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .login-box form .checkbox input {
+  margin-right: 5px;
+}
+body .container .login-box form .login-btn {
+  width: 400px;
+  padding: 10px;
+  background-color: #ffeb00;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .login-box form .divider {
+  margin: 20px 0;
+  color: #aaa;
+  font-size: 12px;
+}
+body .container .login-box form .qr-login-btn {
+  width: 400px;
+  padding: 10px;
+  background-color: #eee;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  transition: all 0.3s;
+}
+body .container .login-box form .qr-login-btn:hover {
+  background-color: #888;
+}
+body .container .login-box form .help-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 45px;
+  font-size: 12px;
+}
+body .container .login-box form .help-links a {
+  color: #555;
+  margin: 0 4px;
+}
+body .container .login-box form .help-links a:hover {
+  color: #000;
+}
+body .container .login-box form .qr-code {
+  margin: 20px 0;
+}
+body .container .login-box form .qr-code .qr-code img {
+  width: 150px;
+  height: 150px;
+}
+body .container .login-box form .qr-code p {
+  padding-top: 4px;
+  font-size: 12px;
+}
+body .container .login-box form .qr-code p #timer {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: crimson;
+}
+body .container .login-box form p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container footer {
+  margin-top: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  color: #777;
+}
+body .container footer .footer-links {
+  margin-bottom: 10px;
+}
+body .container footer .footer-links a {
+  color: #777;
+  margin: 0 5px;
+}
+body .container footer .footer-links p {
+  padding-top: 4px;
 }
 
 @media screen and (max-width: 768px) {
   body {
     padding: 20px;
   }
-
   .container .content {
     width: 100%;
     height: auto;
     padding-top: 0;
   }
-
   .container .login-box {
     width: 100%;
     height: auto;
     padding: 20px;
   }
-
   .container .login-box form {
     padding-top: 20px;
   }
-
-  .container .login-box form input[type="text"],
-  .container .login-box form input[type="password"] {
+  .container .login-box form input[type=text],
+  .container .login-box form input[type=password] {
     width: 100%;
     padding: 12px;
   }
-
   .container .login-box form .checkbox {
     padding-left: 20px;
   }
-
   .container .login-box form .login-btn,
   .container .login-box form .qr-login-btn {
     width: 100%;
   }
-
   .container .login-box form .help-links {
     padding: 12px 20px;
   }
-
   footer {
     font-size: 12px;
   }
-
   .footer-links a {
     font-size: 12px;
   }
-}
+}/*# sourceMappingURL=kakao.css.map */
