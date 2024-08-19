@@ -405,11 +405,12 @@ body {
         .contentImg {
           width: 320px;
           height: 380px;
+          position: relative;
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border: 1px solid map-get($color, light3);
+            // border: 1px solid map-get($color, light3);
             border-radius: 4px;
             margin-bottom: 10px;
           }
@@ -427,6 +428,7 @@ body {
             background: #fff;
             border: 1px solid map-get($color, main-color);
             border-radius: 50px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           }
         }
       }
@@ -478,8 +480,8 @@ body {
     section:last-child {
       position: absolute;
       left: 0;
-      width: 25%;
-      height: 3px;
+      width: 16.67%;
+      height: 2px;
       background: map-get($color, dark1);
     }
   }

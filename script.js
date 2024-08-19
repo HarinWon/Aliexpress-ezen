@@ -81,96 +81,102 @@ const countdown = () => {
 
 setInterval(countdown);
 
-//weekly slide
 const slideWrapper = document.querySelector(".weeklyContent ul");
 const slides = document.querySelectorAll(".weeklyContent li");
 const totalSlides = slides.length;
 const triggerBar = document.querySelector("#triggerBar");
-const triggerItems = 4; // 트리거 개수
+const triggerItems = 6;
 let currentIndex = 0;
 let slideInterval;
 let isPaused = false;
 
-// 슬라이드 크기 및 여백 설정
 const slideWidth = 350;
 const slideMargin = 50;
 
 // 슬라이드 복제
-for (let i = 0; i < 3; i++) {
-  let cloneFirst = slides[i].cloneNode(true);
-  slideWrapper.appendChild(cloneFirst);
-}
+slides.forEach((slide) => {
+  let cloneSlide = slide.cloneNode(true);
+  slideWrapper.appendChild(cloneSlide);
+});
 
-// 슬라이드 래퍼의 너비 계산
+// 슬라이드 너비 계산
 const updateSlideWidth = () => {
-  const totalWidth = (slideWidth + slideMargin) * (totalSlides + 3); // 복제된 슬라이드 포함
+  const totalWidth = (slideWidth + slideMargin) * totalSlides;
   slideWrapper.style.width = `${totalWidth}px`;
 };
 updateSlideWidth();
 
 // 슬라이드 이동 함수
-function moveToNextSlide() {
-  if (!isPaused) {
-    currentIndex++;
+function moveToSlide(index) {
+  if (index < 0) {
+    currentIndex = totalSlides - 1;
+    slideWrapper.style.transition = "none";
+    slideWrapper.style.transform = `translateX(-${
+      currentIndex * (slideWidth + slideMargin)
+    }px)`;
+  } else if (index >= totalSlides) {
+    currentIndex = 0;
+    slideWrapper.style.transition = "none";
+    slideWrapper.style.transform = `translateX(0)`;
+  } else {
+    currentIndex = index;
+  }
+
+  setTimeout(() => {
     slideWrapper.style.transition = "transform 0.5s ease-in-out";
     slideWrapper.style.transform = `translateX(-${
       currentIndex * (slideWidth + slideMargin)
     }px)`;
+  }, 0);
 
-    if (currentIndex >= totalSlides) {
-      setTimeout(() => {
-        slideWrapper.style.transition = "none";
-        slideWrapper.style.transform = `translateX(0)`;
-        currentIndex = 0;
-      }, 500); // 애니메이션 시간이 지난 후 0으로 복구
-    }
-    updateTrigger();
-  }
+  updateTrigger();
 }
 
 // 트리거 업데이트
 function updateTrigger() {
-  // 트리거 애니메이션 부드럽게 만들기 위해 transition 추가
   triggerBar.style.transition = "transform 0.5s ease-in-out";
   triggerBar.style.transform = `translateX(${
     (currentIndex % triggerItems) * 100
   }%)`;
 }
 
-// 자동 슬라이드
-function startSlide() {
-  slideInterval = setInterval(() => {
-    moveToNextSlide();
-  }, 3000);
+// 다음 슬라이드로 이동 함수
+function moveToNextSlide() {
+  moveToSlide(currentIndex + 1);
 }
 
-// 마우스 오버시 슬라이드 및 트리거 일시 정지
-slideWrapper.addEventListener("mouseover", () => {
-  isPaused = true;
-  clearInterval(slideInterval);
-  triggerBar.style.transition = "none"; // 트리거 애니메이션 일시 정지
-});
-
-slideWrapper.addEventListener("mouseout", () => {
-  isPaused = false;
-  startSlide();
-  triggerBar.style.transition = "transform 0.5s ease-in-out"; // 트리거 애니메이션 재개
-});
+// 자동 슬라이드 함수 시작
+function startSlide() {
+  slideInterval = setInterval(moveToNextSlide, 3000);
+}
 
 // arrow 클릭 이벤트 추가
 const weeklyArrowLeft = document.querySelector(".weeklyArrowLeft");
 const weeklyArrowRight = document.querySelector(".weeklyArrowRight");
 
 weeklyArrowLeft.addEventListener("click", () => {
-  moveSlide(currentIndex - 1);
-  isPaused = true; // 클릭 시 자동 슬라이드 일시 정지
+  moveToSlide(currentIndex - 1);
   clearInterval(slideInterval);
+  isPaused = true; // 자동 슬라이드 일시 정지
 });
 
 weeklyArrowRight.addEventListener("click", () => {
-  moveSlide(currentIndex + 1);
-  isPaused = true; // 클릭 시 자동 슬라이드 일시 정지
+  moveToSlide(currentIndex + 1);
   clearInterval(slideInterval);
+  isPaused = true; // 자동 슬라이드 일시 정지
+});
+
+// 마우스 오버시 슬라이드 일시 정지
+slideWrapper.addEventListener("mouseover", () => {
+  clearInterval(slideInterval);
+  triggerBar.style.transition = "none"; // 트리거 애니메이션 일시 정지
+  isPaused = true;
+});
+
+slideWrapper.addEventListener("mouseout", () => {
+  if (!isPaused) startSlide(); // 마우스 아웃시 자동 슬라이드 재개
+  triggerBar.style.transition = "transform 0.5s ease-in-out"; // 트리거 애니메이션 재개
+  isPaused = false;
 });
 
 // 슬라이드 시작
@@ -194,7 +200,7 @@ foryouBtn.forEach((btn) => {
 });
 
 ////foryou json
-fetch("./main.json")
+fetch("./mainForyou.json")
   .then((response) => response.json())
   .then((data) => {
     const foryouContent = document.querySelector(".foryoucontent");
