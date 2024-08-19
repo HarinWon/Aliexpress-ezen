@@ -192,45 +192,53 @@ header {
         // font-size: 24px;
       }
       #sub_nav {
+        width: 160px;
+        height: 40px;
         position: relative;
+        background: map-get($color, light3);
+        color: map-get($color, dark1);
+        font-weight: bold;
         .dropdown-container {
+          width: 160px;
+          // height: 40px;
           color: black;
           display: none;
           position: absolute;
-          top: 50px;
-          background: white;
-          width: max-content;
+          top: 40px;
+          left: 0;
+          background: map-get($color, light3);
+          border-radius: 4px;
+          font-weight: 400;
           z-index: 1000;
         }
         #category-menu {
-
           display: flex;
           flex-direction: column;
-          
-        }
-        .category {
-          width: 120px;
-          height: 50px;
-          line-height: 50px;
-          padding: 10px;
-          cursor: pointer;
-          border-bottom: 1px solid #ddd;
-          &:last-child {
-            border-bottom: none;
+          .category {
+            width: 160px;
+            height: 50px;
+            line-height: 50px;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            &:last-child {
+              border-bottom: none;
+            }
+            &:hover {
+              background-color: #fff;
+            }
           }
         }
-        .category:hover {
-          background-color: #f0f0f0;
-        }
+
         .subcategory-menu {
           display: none;
           width: 180px;
           height: 400px;
           position: absolute;
-          left: 120px;
+          left: 160px;
           top: 0;
-          background: white;
-          border: 1px solid #ddd;
+          background: map-get($color, light3);
+          border-radius: 4px;
         }
         .subcategory-menu .subcategory-item {
           cursor: pointer;
@@ -238,7 +246,6 @@ header {
         .subcategory-menu .subcategory-item:hover {
           background-color: #f0f0f0;
         }
-        
       }
       li {
         cursor: pointer;
@@ -306,8 +313,196 @@ header {
         display: flex;
         align-items: center;
         animation: marquee 18s linear infinite;
-        img {
+        &:hover {
+          animation-play-state: paused;
+        }
+        .cards {
+          width: 87px;
+          height: 60px;
           margin: 0 4px;
+          position: relative;
+          &:nth-child(1) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "100코인 적립";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(2) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(3) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(4) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(5) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(6) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(7) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(8) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(9) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(10) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(11) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(12) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(13) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
+          &:nth-child(14) {
+            &:hover {
+              &::before {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                content: "10% 할인";
+                @include body-small();
+                line-height: 60px;
+                background: rgba($color: #000000, $alpha: 0.6);
+              }
+            }
+          }
         }
       }
 
