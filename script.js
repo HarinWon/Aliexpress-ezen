@@ -81,6 +81,7 @@ const countdown = () => {
 
 setInterval(countdown);
 
+//weeklySlideDesktop
 const slideWrapper = document.querySelector(".weeklyContent ul");
 const slides = document.querySelectorAll(".weeklyContent li");
 const totalSlides = slides.length;
@@ -90,8 +91,8 @@ let currentIndex = 0;
 let slideInterval;
 let isPaused = false;
 
-const slideWidth = 350;
-const slideMargin = 50;
+let slideWidth = 350;
+let slideMargin = 50;
 
 // 슬라이드 복제
 slides.forEach((slide) => {
@@ -179,6 +180,32 @@ slideWrapper.addEventListener("mouseout", () => {
   isPaused = false;
 });
 
+function applyResponsiveSettings() {
+  const tabletQuery = window.matchMedia("(max-width: 768px)");
+  const mobileQuery = window.matchMedia("(max-width: 430px)");
+
+  if (mobileQuery.matches) {
+    slideWidth = 300;
+    slideMargin = 70;
+  } else if (tabletQuery.matches) {
+    slideWidth = 210;
+    slideMargin = 18;
+  } else {
+    slideWidth = 350;
+    slideMargin = 50;
+  }
+
+  updateSlideWidth();
+
+  // 슬라이드 위치 재조정
+  slideWrapper.style.transform = `translateX(-${
+    currentIndex * (slideWidth + slideMargin)
+  }px)`;
+}
+
+applyResponsiveSettings();
+window.addEventListener("resize", applyResponsiveSettings);
+
 // 슬라이드 시작
 startSlide();
 
@@ -223,7 +250,6 @@ fetch("./mainForyou.json")
         const ulElement = document.createElement("ul");
         ulElement.style.display = "flex";
         ulElement.style.flexWrap = "wrap";
-        ulElement.style.gap = "30px";
         ulElement.className = "ulElements";
 
         // 새로운 콘텐츠 추가
@@ -232,7 +258,7 @@ fetch("./mainForyou.json")
             <li>
               <a href="#none">
                 <div class="contentImg">
-                  <img src="${item.image_path}" alt="${item.product_name}" style="width:350px; height:220px;" />
+                  <img src="${item.image_path}" alt="${item.product_name}" style="width:325px; height:220px;" />
                 </div>
                 <div class="contentTitle foryouTitle">
                   <h3>${item.brand}</h3>
@@ -264,3 +290,28 @@ fetch("./mainForyou.json")
   .catch((error) => console.error("Error loading JSON:", error));
 
 //category Scroll Event
+const categories = document.querySelectorAll(".category");
+const gnbItems = document.querySelectorAll(".Desk ul li a");
+
+window.addEventListener("scroll", () => {
+  let scrollY = window.scrollY;
+
+  categories.forEach((category, index) => {
+    const categoryRect = category.getBoundingClientRect();
+    const categoryTop = window.scrollY + categoryRect.top; // 정확한 위치 계산
+    const categoryHeight = category.offsetHeight;
+
+    // 헤더 높이 등을 고려한 보정값 (예: 100px 헤더)
+    const offset = 300;
+
+    if (
+      scrollY >= categoryTop - offset &&
+      scrollY < categoryTop + categoryHeight - offset
+    ) {
+      gnbItems.forEach((item) => item.classList.remove("active"));
+      categories.forEach((item) => item.classList.remove("active"));
+      gnbItems[index].classList.add("active");
+      categories[index].classList.add("active");
+    }
+  });
+});
