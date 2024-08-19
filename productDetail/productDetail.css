@@ -480,7 +480,8 @@ main .product-details-tabs .product-contents .review-container .photo-reviews .p
 main .product-details-tabs .product-contents .review-container .photo-reviews .photos li img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -586,7 +587,7 @@ main .product-slider button.slick-prev {
 }
 main .product-slider button.slick-prev::before {
   content: "\f053";
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   color: #fff;
   font-size: 20px;
 }
@@ -597,7 +598,7 @@ main .product-slider button.slick-next {
 }
 main .product-slider button.slick-next::before {
   content: "\f054";
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   color: #fff;
   font-size: 20px;
 }

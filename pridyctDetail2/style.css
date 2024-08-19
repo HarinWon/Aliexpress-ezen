@@ -54,8 +54,7 @@ body {
 .product-sidebar {
   position: relative;
 }
-.product-sidebar .sticky-container {
-  position: -webkit-sticky; /* For Safari */
+.product-sidebar .sticky-container { /* For Safari */
   position: sticky;
   top: 20px;
 }
@@ -182,7 +181,8 @@ body {
 .product-details-tabs .review-container .photo-reviews .photos img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 4px;
 }
 .product-details-tabs .review-container .text-reviews {
