@@ -7,8 +7,8 @@ body {
   height: 100vh;
 }
 body .container {
-  width: 900px;
-  height: 1100px;
+  width: 700px;
+  height: 100%;
 }
 body .container .inner {
   width: 100%;
@@ -20,8 +20,8 @@ body .container .inner .logo {
   margin: 10px auto;
 }
 body .container .inner .login-box {
-  width: 550px;
-  height: 280px;
+  width: 480px;
+  height: 260px;
   margin: 0 auto;
   background: #dddddd;
   border-radius: 10px;
@@ -29,16 +29,16 @@ body .container .inner .login-box {
 body .container .inner .login-box .login-form {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 20px;
 }
 body .container .inner .login-box .login-form input[type=text] {
-  width: 450px;
+  width: 430px;
   height: 55px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border: 1px solid #dddddd;
   border-radius: 13px;
-  padding-left: 15px;
+  padding-left: 10px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 16px;
   font-weight: 400;
@@ -63,12 +63,12 @@ body .container .inner .login-box .login-form input[type=text]:focus {
   outline: none;
 }
 body .container .inner .login-box .login-form input[type=password] {
-  width: 450px;
+  width: 430px;
   height: 50px;
   margin: 2px auto;
   border: none;
   border-radius: 13px;
-  padding-left: 15px;
+  padding-left: 10px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 16px;
   font-weight: 400;
@@ -104,7 +104,7 @@ body .container .inner .login-box .login-form p {
 }
 body .container .inner h4 {
   text-align: right;
-  width: 550px;
+  width: 480px;
   margin: 0 auto;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
@@ -120,8 +120,8 @@ body .container .inner .agree {
   display: none;
   justify-content: center;
   align-items: center;
-  width: 550px;
-  height: 680px;
+  width: 480px;
+  height: 650px;
   margin: 0 auto;
   background: #dddddd;
   border-radius: 10px;
@@ -130,11 +130,12 @@ body .container .inner .agree {
 body .container .inner .agree .agree-box {
   display: flex;
   flex-direction: column;
-  width: 450px;
-  height: 650px;
+  width: 430px;
+  height: 620px;
   background: #fff;
   border-radius: 10px;
-  gap: 15px;
+  gap: 14px;
+  padding: 10px 20px 10px;
 }
 body .container .inner .agree .agree-box .agree-header {
   text-align: center;
@@ -149,20 +150,20 @@ body .container .inner .agree .agree-box .agree-header h3 {
 }
 body .container .inner .agree .agree-box .agree-header p {
   font-family: "Noto Sans KR, sans-serif";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.3rem;
 }
 body .container .inner .agree .agree-box .agree-main ul li {
   font-family: "Noto Sans KR, sans-serif";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.3rem;
   font-weight: bold;
-  margin: 15px;
+  margin: 0 auto 10px;
 }
 body .container .inner .agree .agree-box .agree-main ul li #agree_more_angle {
-  font-size: 22px;
+  font-size: 18px;
 }
 body .container .inner .agree .agree-box .agree-main ul li a {
   border-bottom: 1px solid #000;
@@ -177,7 +178,7 @@ body .container .inner .agree .agree-box .agree-main ul li p {
   padding-left: 20px;
 }
 body .container .inner .agree .agree-box .submit {
-  width: 440px;
+  width: 380px;
   height: 40px;
   border: none;
   border-radius: 19px;
@@ -207,30 +208,37 @@ body .container .inner .agree.active {
   display: none;
 }
 
-/* Media Queries for Responsive Design */
+.fa-circle-check.active {
+  color: #e43225;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
-    height: auto;
+    height: 100%;
+    overflow-x: hidden;
   }
-  .logo {
-    width: 60%;
-    height: auto;
+  .container .inner {
+    width: 100%;
+  }
+  .container .inner .logo {
+    width: 100%;
+    height: 100%;
     margin: 20px auto;
   }
-  .login-box {
+  .container .inner .login-box {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
-  h4 {
-    width: 90%;
-    font-size: 14px;
+  .container .inner h4 {
+    width: 100%;
   }
   .agree {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
-  .agree-box {
+  .agree .agree-box {
+    padding: 10px;
     width: 100%;
   }
 }/*# sourceMappingURL=loginAgree.css.map */

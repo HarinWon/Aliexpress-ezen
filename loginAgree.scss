@@ -6,8 +6,8 @@ body {
   align-items: center;
   height: 100vh;
   .container {
-    width: 900px;
-    height: 1100px;
+    width: 700px;
+    height: 100%;
     .inner {
       width: 100%;
       height: 100%;
@@ -17,23 +17,23 @@ body {
         margin: 10px auto;
       }
       .login-box {
-        width: 550px;
-        height: 280px;
+        width: 480px;
+        height: 260px;
         margin: 0 auto;
         background: map-get($color, light2);
         border-radius: 10px;
         .login-form {
           display: flex;
           flex-direction: column;
-          padding: 30px;
+          padding: 20px;
           input[type="text"] {
-            width: 450px;
+            width: 430px;
             height: 55px;
             margin: 0 auto;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border: 1px solid map-get($color, light2);
             border-radius: 13px;
-            padding-left: 15px;
+            padding-left: 10px;
             @include body-normal();
             transition: all 0.3s;
             &::placeholder {
@@ -45,12 +45,12 @@ body {
             }
           }
           input[type="password"] {
-            width: 450px;
+            width: 430px;
             height: 50px;
             margin: 2px auto;
             border: none;
             border-radius: 13px;
-            padding-left: 15px;
+            padding-left: 10px;
             @include body-normal();
             transition: all 0.3s;
             &::placeholder {
@@ -72,7 +72,7 @@ body {
       }
       h4 {
         text-align: right;
-        width: 550px;
+        width: 480px;
         margin: 0 auto;
         @include body-small();
         gap: 4px;
@@ -85,8 +85,8 @@ body {
         display: none;
         justify-content: center;
         align-items: center;
-        width: 550px;
-        height: 680px;
+        width: 480px;
+        height: 650px;
         margin: 0 auto;
         background: map-get($color, light2);
         border-radius: 10px;
@@ -94,11 +94,12 @@ body {
         .agree-box {
           display: flex;
           flex-direction: column;
-          width: 450px;
-          height: 650px;
+          width: 430px;
+          height: 620px;
           background: #fff;
           border-radius: 10px;
-          gap: 15px;
+          gap: 14px;
+          padding: 10px 20px 10px;
           .agree-header {
             text-align: center;
             h3 {
@@ -107,17 +108,17 @@ body {
               margin-bottom: 6px;
             }
             p {
-              @include body-medium();
+              @include body-normal();
             }
           }
           .agree-main {
             ul {
               li {
-                @include body-medium();
+                @include body-normal();
                 font-weight: bold;
-                margin: 15px;
+                margin: 0 auto 10px;
                 #agree_more_angle {
-                  font-size: 22px;
+                  font-size: 18px;
                 }
                 a {
                   border-bottom: 1px solid #000;
@@ -132,7 +133,7 @@ body {
             }
           }
           .submit {
-            width: 440px;
+            width: 380px;
             height: 40px;
             border: none;
             border-radius: 19px;
@@ -163,35 +164,40 @@ body {
   }
 }
 
-/* Media Queries for Responsive Design */
+.fa-circle-check {
+  &.active {
+    color: map-get($color, point-color);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
-    height: auto;
-  }
-
-  .logo {
-    width: 60%;
-    height: auto;
-    margin: 20px auto;
-  }
-
-  .login-box {
-    width: 100%;
-    height: auto;
-  }
-
-  h4 {
-    width: 90%;
-    font-size: 14px;
+    height: 100%;
+    overflow-x: hidden;
+    .inner {
+      width: 100%;
+      .logo {
+        width: 100%;
+        height: 100%;
+        margin: 20px auto;
+      }
+      .login-box {
+        width: 100%;
+        height: 100%;
+      }
+      h4 {
+        width: 100%;
+      }
+    }
   }
 
   .agree {
     width: 100%;
-    height: auto;
-  }
-
-  .agree-box {
-    width: 100%;
+    height: 100%;
+    .agree-box {
+      padding: 10px;
+      width: 100%;
+    }
   }
 }

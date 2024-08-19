@@ -26,7 +26,7 @@ toggleButton2.addEventListener("click", () => {
 
   if (agreeSection2.classList.contains("active")) {
     toggleButton2.classList.add("fa-angle-down");
-    toggleButton2.style.fontSize = "22px";
+    toggleButton2.style.fontSize = "18px";
     toggleButton2.classList.remove("fa-angle-up");
   } else {
     toggleButton2.classList.add("fa-angle-up");
@@ -74,7 +74,7 @@ function validateEmailOrPhone() {
   if (!isValidEmail(value) && !isValidPhone(value)) {
     emailOrPhoneField.value = "";
     emailOrPhoneField.placeholder =
-      "이메일 형식이 맞지 않거나 전화번호가 유효하지 않습니다";
+      "이메일 형식이 틀리거나 전화번호가 유효하지않습니다";
   }
 }
 
@@ -104,3 +104,33 @@ document.getElementById("password").addEventListener("blur", validatePassword);
 document
   .getElementById("confirmPassword")
   .addEventListener("blur", validateConfirmPassword);
+
+// 모두 동의 체크시 동그라미 전부 빨간불
+const checks = document.querySelectorAll(".fa-circle-check");
+const checkAll = document.querySelector(".checkAll");
+
+checks.forEach((check) => {
+  check.addEventListener("click", function () {
+    this.classList.toggle("active");
+
+    if (checkAll.classList.contains("active")) {
+      checks.forEach((check) => {
+        check.classList.add("active");
+      });
+    }
+  });
+});
+
+// checkAll.addEventListener("click", function () {
+//   if (!this.classList.contains("active")) {
+//     checks.forEach((check) => {
+//       check.classList.add("active");
+//     });
+//     this.classList.add("active");
+//   } else {
+//     checks.forEach((check) => {
+//       check.classList.remove("active");
+//     });
+//     this.classList.remove("active");
+//   }
+// });
