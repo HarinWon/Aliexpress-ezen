@@ -1,0 +1,657 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+body header {
+  width: 100%;
+}
+body header #cartHeader {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #7b7b7b;
+  padding: 20px;
+}
+body header #cartHeader .gnbWrapper {
+  display: flex;
+  width: 1170px;
+  align-items: center;
+  justify-content: space-between;
+}
+body header #cartHeader .gnbWrapper .leftGnb {
+  display: flex;
+  align-items: center;
+}
+body header #cartHeader .gnbWrapper .leftGnb i {
+  display: none;
+  font-size: 24px;
+  padding: 6px;
+}
+body header #cartHeader .gnbWrapper .leftGnb h1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body header #cartHeader .gnbWrapper .leftGnb img {
+  height: 36px;
+  filter: invert(1);
+}
+body header #cartHeader .gnbWrapper .rightGnb {
+  display: flex;
+}
+body header #cartHeader .gnbWrapper .rightGnb ul {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+body header #cartHeader .gnbWrapper .rightGnb ul li {
+  color: #7b7b7b;
+}
+body header #cartHeader .gnbWrapper .rightGnb ul li.active {
+  color: #000;
+}
+body #cartSort {
+  display: flex;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  font-size: 26px;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid;
+  z-index: 2;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body #cartSort ul {
+  width: 1170px;
+  display: flex;
+  gap: 10px;
+  padding: 20px 0;
+}
+body #cartSort ul li span {
+  background: #dddddd;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body #cartSort ul li.active {
+  color: #ff611d;
+}
+body #cartSort ul .barRight {
+  align-items: center;
+  display: flex;
+  border-right: 1px solid #dddddd;
+  padding: 0 30px;
+  gap: 20px;
+}
+body #cartSort ul .barNone {
+  align-items: center;
+  display: flex;
+  padding: 0 30px;
+  gap: 10px;
+}
+body main {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  min-height: 100vh;
+}
+body main .content {
+  display: flex;
+  flex-direction: column;
+  width: 770px;
+}
+body main .content #selectNCoup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 541px;
+  padding: 20px 10px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main .content #selectNCoup #selectProd {
+  display: flex;
+  gap: 10px;
+}
+body main .content #selectNCoup #selectProd #selectAll input[type=checkbox] {
+  display: none;
+}
+body main .content #selectNCoup #selectProd #selectAll input[type=checkbox]:checked ~ .fa-circle-check {
+  color: #ff611d;
+  text-shadow: 0 0 2px #ff611d;
+}
+body main .content #selectNCoup #selectProd #selectAll .fa-circle-check {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
+body main .content #selectNCoup #selectProd #selectDel {
+  padding-left: 10px;
+  border-left: 1px solid #000;
+}
+body main .content #selectNCoup #coupon {
+  display: flex;
+  gap: 5px;
+}
+body main .content #selectNCoup #coupon .coupInfo {
+  display: flex;
+  gap: 0;
+}
+body main .content #selectNCoup #coupon .coupLink {
+  cursor: pointer;
+}
+body main .content .alertEmptyWrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+body main .content .alertEmptyWrapper .alertEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+body main .content .alertEmptyWrapper .alertEmpty i {
+  font-size: 90px;
+  color: #fff;
+  text-shadow: 0 0 5px #7b7b7b;
+}
+body main .content .alertEmptyWrapper .alertEmpty h2 {
+  color: #7b7b7b;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main .content .alertEmptyWrapper .alertEmpty .recommandButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+body main .content .alertEmptyWrapper .alertEmpty .recommandButtons button {
+  padding: 15px 30px;
+  border-radius: 5px;
+  background: transparent;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main .content .alertEmptyWrapper .alertEmpty .recommandButtons button:nth-child(1) {
+  color: #7b7b7b;
+  border: 1px solid #7b7b7b;
+}
+body main .content .alertEmptyWrapper .alertEmpty .recommandButtons button:nth-child(2) {
+  color: #ff611d;
+  border: 1px solid #ff611d;
+}
+body main #stickyDesk {
+  display: flex;
+  position: sticky;
+  flex-direction: column;
+  width: 370px;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 30px;
+  gap: 30px;
+  top: 105px;
+  left: 0;
+}
+body main #stickyDesk #payInfo {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+body main #stickyDesk #payInfo .payInfoUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+body main #stickyDesk #payInfo .payInfoUp h2 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main #stickyDesk #payInfo .payInfoUp h4 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #afafaf;
+}
+body main #stickyDesk #payInfo .payInfoMid {
+  display: flex;
+  padding: 20px 20px;
+  border: 1px #afafaf;
+  border-style: solid none;
+}
+body main #stickyDesk #payInfo .payInfoMid ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+body main #stickyDesk #payInfo .payInfoMid ul li {
+  display: flex;
+  justify-content: space-between;
+}
+body main #stickyDesk #payInfo .payInfoMid ul li .active {
+  color: #e43225;
+}
+body main #stickyDesk #payInfo .payInfoDown {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 24px;
+  min-width: 360px;
+}
+body main #stickyDesk #payInfo .payInfoDown div {
+  display: flex;
+  justify-content: space-between;
+}
+body main #stickyDesk #payInfo .payInfoDown div h2 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main #stickyDesk #payInfo .payInfoDown div h3 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main #stickyDesk #payInfo .payInfoDown div h3 a {
+  color: #e43225;
+}
+body main #stickyDesk #payInfo .payInfoDown div h3 a:hover {
+  border-bottom: 1px solid #e43225;
+}
+body main #stickyDesk #payInfo .payInfoDown input[type=button] {
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #fff;
+}
+body main #stickyDesk .bannerEvt {
+  width: 100%;
+  height: 115px;
+  background: url("./img/eventBanner.png") center/cover no-repeat;
+}
+body footer #tabCartFooter {
+  display: none;
+}
+body section {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  body main {
+    justify-content: start;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    position: relative;
+  }
+  body header #cartHeader {
+    padding: 15px 24px;
+  }
+  body header #cartHeader .gnbWrapper {
+    width: 100%;
+  }
+  body header #cartHeader .gnbWrapper .leftGnb i {
+    display: block;
+  }
+  body header #cartHeader .gnbWrapper .rightGnb {
+    display: none;
+  }
+  body #cartSort {
+    min-width: 617px;
+  }
+  body #cartSort ul {
+    width: 100%;
+    padding: 15px 0;
+    gap: 0;
+    justify-content: center;
+  }
+  body main {
+    flex-direction: column;
+    width: 100%;
+    min-width: 670px;
+  }
+  body main .content {
+    width: 100%;
+    justify-content: center;
+    padding: 0 24px;
+  }
+  body main .content #selectNCoup {
+    padding: 20px 15px;
+  }
+  body main .content .alertEmptyWrapper {
+    height: 70vh;
+  }
+  body main .content .bannerEvtTab {
+    margin: 48px 0 120px;
+    display: flex;
+    width: 100%;
+    height: 115px;
+    background: url("./img/eventBanner.png") center/cover no-repeat;
+  }
+  body main #stickyDesk {
+    display: none;
+  }
+  body footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  body footer #tabCartFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 24px;
+    background: #fff;
+    border: 1px #333333;
+    border-style: solid none;
+  }
+  body footer #tabCartFooter div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  body footer #tabCartFooter div span.active {
+    color: #e43225;
+  }
+  body footer #tabCartFooter input[type=submit] {
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    padding: 10px 0;
+    flex: 2.5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body footer #mobCartFooter {
+    display: none;
+  }
+  body section {
+    display: flex;
+    width: 100%;
+  }
+  body section #payInfoTab {
+    background: #fff;
+    border: 1px #000;
+    border-style: solid none;
+    width: 100%;
+    z-index: 2;
+  }
+  body section #payInfoTab .payInfoUp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    min-width: 316px;
+  }
+  body section #payInfoTab .payInfoUp h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body section #payInfoTab .payInfoUp h4 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #afafaf;
+  }
+  body section #payInfoTab .payInfoMid {
+    display: flex;
+    padding: 20px 20px;
+    border: 1px #afafaf;
+    border-style: solid none;
+  }
+  body section #payInfoTab .payInfoMid ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  body section #payInfoTab .payInfoMid ul li {
+    display: flex;
+    justify-content: space-between;
+  }
+  body section #payInfoTab .payInfoMid ul li .active {
+    color: #e43225;
+  }
+  body section #payInfoTab .payInfoDown {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 24px;
+  }
+  body section #payInfoTab .payInfoDown div {
+    display: flex;
+    justify-content: space-between;
+  }
+  body section #payInfoTab .payInfoDown div h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body section #payInfoTab .payInfoDown div h3 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body section #payInfoTab .payInfoDown input[type=button] {
+    background: #ff611d;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #fff;
+  }
+}
+@media (max-width: 360px) {
+  body header #cartHeader {
+    padding: 10px 20px;
+  }
+  body header #cartHeader .gnbWrapper {
+    width: 100%;
+  }
+  body header #cartHeader .gnbWrapper .leftGnb i {
+    font-size: 16px;
+  }
+  body header #cartHeader .gnbWrapper .leftGnb h1 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body header #cartHeader .gnbWrapper .leftGnb img {
+    height: 20px;
+  }
+  body #cartSort {
+    min-width: 0;
+  }
+  body #cartSort ul {
+    width: 100%;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body #cartSort ul li span {
+    width: 20px;
+    height: 20px;
+    padding-top: 0;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body #cartSort ul .barRight {
+    padding: 0 15px;
+    gap: 5px;
+  }
+  body #cartSort ul .barNone {
+    padding: 0 15px;
+    gap: 5px;
+  }
+  body main {
+    flex-direction: column;
+    width: 360px;
+    min-width: 0;
+  }
+  body main .content {
+    width: 100%;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  body main .content #selectNCoup {
+    padding: 15px 0;
+    min-width: 0;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body main .content #selectNCoup #selectProd {
+    gap: 4px;
+  }
+  body main .content #selectNCoup #selectProd #selectDel {
+    padding-left: 5px;
+  }
+  body main .content #selectNCoup #coupon {
+    gap: 2px;
+  }
+  body main .content #selectNCoup #coupon .coupInfo .cartCoup {
+    display: none;
+  }
+  body main .content .alertEmptyWrapper {
+    height: 60vh;
+  }
+  body main .content .bannerEvtTab {
+    margin: 48px 0;
+    display: flex;
+    width: 100%;
+    height: 115px;
+    background: url("./img/eventBanner.png") center/cover no-repeat;
+  }
+  body main #stickyDesk {
+    display: none;
+  }
+  body footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  body footer #tabCartFooter {
+    display: none;
+  }
+  body footer #mobCartFooter {
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body footer #mobCartFooter .payDetail {
+    padding: 10px;
+    text-align: center;
+  }
+  body footer #mobCartFooter .payDetail ul li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  body footer #mobCartFooter .payDetail ul li .active {
+    color: #e43225;
+  }
+  body footer #mobCartFooter #payInfoMob {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    color: #fff;
+    padding: 10px;
+    gap: 10px;
+  }
+  body footer #mobCartFooter #payInfoMob button {
+    color: #fff;
+    background: transparent;
+    padding: 5px 15px;
+    border: none;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body footer #mobCartFooter #payInfoMob button.inactive {
+    opacity: 0;
+  }
+  body footer #mobCartFooter #payInfoMob h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body section {
+    display: none;
+  }
+}

@@ -84,8 +84,8 @@
               <div class="storeR">
                 <input type="button" value="2건바로구매" />
                 <span>
-                  <input type="checkbox" class="storeHeart" id="storeHeart1" />
-                  <label for="storeHeart1" class="storeHeartLb" id="heartLb"
+                  <input type="checkbox" class="storeHeart" id="storeHeartMob1" />
+                  <label for="storeHeartMob1" class="storeHeartLb" id="heartLb"
                     ><i class="fa-solid fa-heart"></i
                   ></label>
                 </span>
@@ -107,9 +107,7 @@
                         롯데칠성음료 펩시 제로 콜라 355ml x 24캔
                       </h3>
                     </a>
-                    <h4 class="prodOpt">
-
-                    </h4>
+                    <h4 class="prodOpt"></h4>
                     <!-- https://codepen.io/komarovdesign/pen/PPRbgb -->
                     <!-- https://www.youtube.com/watch?v=zCT7vRaXovk -->
                     <div class="ProdInfoLBtn">
@@ -188,11 +186,10 @@
                             롯데칠성음료 펩시 제로 콜라 355ml x 24캔
                           </h3>
                         </a>
-                        <h4 class="prodOpt">
-                        </h4>
+                        <h4 class="prodOpt"></h4>
                         <h4>7/24일(화) <span>배송예정</span></h4>
-                        <h2>12,000원</h2>
-                        <h4 class="hidden"><s>.</s></h4>
+                        <h5><s>41,000원</s></h5>
+                        <h2>39,000원</h2>
                       </div>
                     </div>
                   </div>
@@ -228,8 +225,7 @@
                         동서 맥심 모카골드 커피믹스 400T
                       </h3>
                     </a>
-                    <h4 class="prodOpt">
-                    </h4>
+                    <h4 class="prodOpt"></h4>
                     <!-- https://codepen.io/komarovdesign/pen/PPRbgb -->
                     <!-- https://www.youtube.com/watch?v=zCT7vRaXovk -->
                     <div class="ProdInfoLBtn">
@@ -262,7 +258,6 @@
                     <i class="fa-solid fa-xmark"></i>
                     <h2>21,000원</h2>
                     <h4>7/24일(화) <span>배송예정</span></h4>
-                    <h4 class="hidden"><s>.</s></h4>
                   </div>
                   <div class="prodInfoRBtn">
                     <input type="button" value="쿠폰변경" />
@@ -309,8 +304,7 @@
                             자켓...
                           </h3>
                         </a>
-                        <h4 class="prodOpt">
-                        </h4>
+                        <h4 class="prodOpt"></h4>
                         <h4>7/24일(화) <span>배송예정</span></h4>
                         <h2>12,000원</h2>
                         <h4 class="hidden"><s>.</s></h4>
@@ -371,7 +365,7 @@
               </div>
               <div class="storePay">
                 <div class="totalPrice">
-                  <h3 class="totalPriceL">주문금액</h3>
+                  <h3 class="totalPriceL">주문금액 <i class="fa-solid fa-chevron-up"></i></h3>
                   <h3 class="totalPriceR">63,000원</h3>
                 </div>
                 <input type="submit" value="1건바로구매" />
@@ -404,8 +398,8 @@
               <div class="storeR">
                 <input type="button" value="1건바로구매" />
                 <span>
-                  <input type="checkbox" class="storeHeart" id="storeHeart1" />
-                  <label for="storeHeart1" class="storeHeartLb" id="heartLb"
+                  <input type="checkbox" class="storeHeart" id="storeHeartMob2" />
+                  <label for="storeHeartMob2" class="storeHeartMobLb" id="heartLb"
                     ><i class="fa-solid fa-heart"></i
                   ></label>
                 </span>
@@ -560,19 +554,19 @@
                 <i class="fa-solid fa-chevron-down"></i>
                 <div class="storeOrigPrice">
                   <span>상품금액</span><span>12,000원</span>
-                  <div class="storeShipFee">
-                    <span>배송비<i class="fa-solid fa-chevron-down"></i></span
-                    ><span class="active">무료배송</span>
-                  </div>
-                  <div class="StoreDiscount">
-                    <span>할인금액<i class="fa-solid fa-chevron-down"></i></span
-                    ><span>0원</span>
-                  </div>
+                </div>
+                <div class="storeShipFee">
+                  <span>배송비<i class="fa-solid fa-chevron-down"></i></span
+                  ><span class="active">무료배송</span>
+                </div>
+                <div class="StoreDiscount">
+                  <span>할인금액<i class="fa-solid fa-chevron-down"></i></span
+                  ><span>0원</span>
                 </div>
               </div>
               <div class="storePay">
                 <div class="totalPrice">
-                  <h3 class="totalPriceL">주문금액</h3>
+                  <h3 class="totalPriceL">주문금액 <i class="fa-solid fa-chevron-up"></i></h3>
                   <h3 class="totalPriceR">12,000원</h3>
                 </div>
 
@@ -640,12 +634,28 @@
       </section>
       <section id="mobCartFooter">
         <div class="payDetail">
-
+          <i class="fa-solid fa-chevron-down"></i>
+          <ul>
+            <li>
+              <h3>상품금액</h3>
+              <h3>74,000원</h3>
+            </li>
+            <li>
+              <h3>배송비</h3>
+              <h3>3,000원</h3>
+            </li>
+            <li>
+              <h3>할인금액</h3>
+              <h3 class="active">-2000원</h3>
+            </li>
+          </ul>
         </div>
         <div id="payInfoMob">
           <button><i class="fa-solid fa-chevron-up"></i></button>
           <h2>75,000원(3건) 주문하기</h2>
-          <button class="inactive"><i class="fa-solid fa-chevron-up"></i></button>
+          <button class="inactive">
+            <i class="fa-solid fa-chevron-up"></i>
+          </button>
         </div>
       </section>
     </footer>

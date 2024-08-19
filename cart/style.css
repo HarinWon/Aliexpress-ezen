@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
 * {
   margin: 0;
@@ -813,6 +812,7 @@ body section {
   body main .content #stores .storeBlock .localStore,
   body main .content #stores .storeBlock .foreignStore {
     padding: 10px;
+    align-items: center;
   }
   body main .content #stores .storeBlock .storeL {
     font-family: "Noto Sans KR, sans-serif";
@@ -824,11 +824,23 @@ body section {
   body main .content #stores .storeBlock .storeL .storeHeartLb {
     display: none;
   }
+  body main .content #stores .storeBlock .storeL span img {
+    height: 18px;
+    width: 18px;
+  }
   body main .content #stores .storeBlock .storeR input {
     display: none;
   }
   body main .content #stores .storeBlock .storeR span {
     display: block;
+  }
+  body main .content #stores .storeBlock .storeR span input:checked ~ label {
+    color: #ff611d;
+    text-shadow: none;
+  }
+  body main .content #stores .storeBlock .storeR span label {
+    color: #fff;
+    text-shadow: 0 0 2px #000;
   }
   body main .content #stores .storeBlock .prodList .prodBlock {
     display: none;
@@ -886,9 +898,6 @@ body section {
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL .prodImg .prodHeartMob:checked ~ label {
     color: #fd384f;
   }
-  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL .prodImg:nth-child(1) {
-    background: 롯데칠성음료 펩시 제로 콜라 355ml x 24캔;
-  }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR {
     text-align: right;
   }
@@ -926,6 +935,12 @@ body section {
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h4.hidden {
     display: none;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h5 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt {
     display: none;
@@ -1007,6 +1022,26 @@ body section {
     display: flex;
     flex-direction: column;
   }
+  body main .content #stores .storeBlock .storeCalcMob .acordion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 20px;
+    gap: 5px;
+    background: #f5f5f5;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .acordion div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .acordion div .active {
+    color: #e43225;
+  }
   body main .content #stores .storeBlock .storeCalcMob .storePay {
     display: flex;
     flex-direction: column;
@@ -1050,18 +1085,34 @@ body section {
   }
   body footer #mobCartFooter {
     display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    background: #f5f5f5;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body footer #mobCartFooter .payDetail {
     padding: 10px;
-    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
-    color: #fff;
+    text-align: center;
+  }
+  body footer #mobCartFooter .payDetail ul li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  body footer #mobCartFooter .payDetail ul li .active {
+    color: #e43225;
   }
   body footer #mobCartFooter #payInfoMob {
+    width: 100%;
     display: flex;
     justify-content: start;
     text-align: left;
     align-items: center;
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    color: #fff;
+    padding: 10px;
     gap: 10px;
   }
   body footer #mobCartFooter #payInfoMob button {

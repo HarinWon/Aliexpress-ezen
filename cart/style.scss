@@ -854,12 +854,19 @@ body {
             .localStore,
             .foreignStore {
               padding: 10px;
+              align-items: center;
             }
             .storeL {
               @include body-normal();
               .storeHeart,
               .storeHeartLb {
                 display: none;
+              }
+              span{
+                img{
+                  height: 18px;
+                  width: 18px;
+                }
               }
             }
             .storeR {
@@ -868,6 +875,16 @@ body {
               }
               span {
                 display: block;
+                input {
+                  &:checked ~ label {
+                    color: map-get($color, main);
+                    text-shadow: none;
+                  }
+                }
+                label {
+                  color: #fff;
+                  text-shadow: 0 0 2px #000;
+                }
               }
             }
             .prodList {
@@ -924,9 +941,6 @@ body {
                             color: map-get($color, enable-color);
                           }
                         }
-                        &:nth-child(1) {
-                          background: ;
-                        }
                       }
                     }
                     .prodBlockMobR {
@@ -954,6 +968,9 @@ body {
                           &.hidden {
                             display: none;
                           }
+                        }
+                        h5 {
+                          @include body-small();
                         }
                         .prodOpt {
                           display: none;
@@ -1027,6 +1044,23 @@ body {
             .storeCalcMob {
               display: flex;
               flex-direction: column;
+              .acordion {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 5px 20px;
+                gap: 5px;
+                background: map-get($color, light3);
+                @include body-medium();
+                div {
+                  display: flex;
+                  width: 100%;
+                  justify-content: space-between;
+                  .active{
+                    color: map-get($color, point-color);
+                  }
+                }
+              }
               .storePay {
                 display: flex;
                 flex-direction: column;
@@ -1072,17 +1106,32 @@ body {
       }
       #mobCartFooter {
         display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: map-get($color, main-gradient);
-        color: #fff;
+        flex-direction: column;
+        background: map-get($color,light3);
+        @include body-small();
+        .payDetail{
+          padding: 10px;
+          text-align: center;
+          ul{
+            li{
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              .active{
+                color: map-get($color, point-color);
+              }
+            }
+          }
+        }
         #payInfoMob {
+          width: 100%;
           display: flex;
-          justify-content: start;
+          justify-content: center;
           text-align: left;
           align-items: center;
+          background: map-get($color, main-gradient);
+          color: #fff;
+          padding: 10px;
           gap: 10px;
           button {
             color: #fff;
