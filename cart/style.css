@@ -204,6 +204,17 @@ body main .content #stores .storeBlock .storeL {
   font-weight: 700;
   line-height: 1.3;
 }
+body main .content #stores .storeBlock .storeL span {
+  text-align: center;
+  align-items: center;
+}
+body main .content #stores .storeBlock .storeL span .storeLinkTitle {
+  display: inline-block;
+  max-width: 330px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 body main .content #stores .storeBlock .storeL input[type=checkbox] {
   display: none;
 }
@@ -287,6 +298,14 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
   font-size: 20px;
   font-weight: 500;
   line-height: 1.3;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodTitle:hover {
   text-decoration: underline;
@@ -307,6 +326,7 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn {
   display: flex;
+  align-items: center;
   text-align: center;
   gap: 15px;
 }
@@ -352,7 +372,7 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
   text-shadow: none;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn label {
-  color: white;
+  color: #fff;
   text-shadow: 0 0 2px #000;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .tab {
@@ -556,7 +576,7 @@ body section {
     justify-content: start;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   body {
     position: relative;
     min-height: 100vh;
@@ -733,7 +753,7 @@ body section {
     color: #fff;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 686px) {
   body header #cartHeader {
     padding: 10px 20px;
   }
@@ -782,7 +802,6 @@ body section {
   body main {
     justify-content: center;
     flex-direction: column;
-    width: 360px;
     min-width: 0;
   }
   body main .content {
@@ -942,6 +961,12 @@ body section {
     font-weight: 400;
     line-height: 1.3;
   }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
+    max-width: 330px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt {
     display: none;
     font-family: "Noto Sans KR, sans-serif";
@@ -958,8 +983,8 @@ body section {
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: end;
+    gap: 20px;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant {
     display: flex;
@@ -1075,6 +1100,30 @@ body section {
   body main #stickyDesk {
     display: none;
   }
+  body section {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  body main .content #stores .storeBlock .storeL span .storeLinkTitle {
+    max-width: 190px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo {
+    gap: 15px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
+    justify-content: center;
+  }
   body footer {
     bottom: 0;
     position: fixed;
@@ -1107,7 +1156,7 @@ body section {
   body footer #mobCartFooter #payInfoMob {
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     text-align: left;
     align-items: center;
     background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
@@ -1134,7 +1183,9 @@ body section {
     font-weight: 500;
     line-height: 1.3;
   }
-  body section {
-    display: none;
+}
+@media (max-width: 400px) {
+  main main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
+    max-width: 150px;
   }
 }

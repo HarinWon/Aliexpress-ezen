@@ -254,6 +254,17 @@ body {
             align-items: center;
             gap: 10px;
             @include heading4();
+            span {
+              text-align: center;
+              align-items: center;
+              .storeLinkTitle {
+                display: inline-block;
+                max-width: 330px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
             input[type="checkbox"] {
               display: none;
               &.storeCheck {
@@ -343,6 +354,14 @@ body {
 
                   .prodTitle {
                     @include bodyLarge();
+                    max-width: 240px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    white-space: normal;
                     &:hover {
                       text-decoration: underline;
                     }
@@ -362,6 +381,7 @@ body {
 
                   .ProdInfoLBtn {
                     display: flex;
+                    align-items: center;
                     text-align: center;
                     gap: 15px;
                     .prodQuant {
@@ -402,7 +422,7 @@ body {
                       }
                     }
                     label {
-                      color: white;
+                      color: #fff;
                       text-shadow: 0 0 2px #000;
                     }
                   }
@@ -598,7 +618,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   body {
     position: relative;
     min-height: 100vh;
@@ -776,7 +796,7 @@ body {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 686px) {
   body {
     header {
       #cartHeader {
@@ -823,7 +843,7 @@ body {
     main {
       justify-content: center;
       flex-direction: column;
-      width: 360px;
+      // width: 360px;
       min-width: 0;
 
       .content {
@@ -862,8 +882,8 @@ body {
               .storeHeartLb {
                 display: none;
               }
-              span{
-                img{
+              span {
+                img {
                   height: 18px;
                   width: 18px;
                 }
@@ -972,6 +992,12 @@ body {
                         h5 {
                           @include body-small();
                         }
+                        .prodTitle {
+                          max-width: 330px;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                        }
                         .prodOpt {
                           display: none;
                           @include body-small();
@@ -988,8 +1014,8 @@ body {
                   }
                   .prodInfoBtn {
                     display: flex;
-                    justify-content: center;
-                    gap: 10px;
+                    justify-content: end;
+                    gap: 20px;
                     .prodQuant {
                       display: flex;
                       justify-content: space-between;
@@ -1056,7 +1082,7 @@ body {
                   display: flex;
                   width: 100%;
                   justify-content: space-between;
-                  .active{
+                  .active {
                     color: map-get($color, point-color);
                   }
                 }
@@ -1097,6 +1123,56 @@ body {
         display: none;
       }
     }
+    section {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    main {
+      .content {
+        #stores {
+          .storeBlock {
+            .storeL {
+              span {
+                .storeLinkTitle {
+                  max-width: 190px;
+                }
+              }
+            }
+            .prodList {
+              .prodBlockMob {
+                .prodInfoWrapper {
+                  .prodBlockMobInfo {
+                    gap: 15px;
+                    .prodBlockMobR {
+                      .prodInfoRdesc {
+                        .prodTitle {
+                          // text-align: left;
+                          max-width: 300px;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          display: -webkit-box;
+                          -webkit-line-clamp: 2;
+                          line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          white-space: normal;
+                        }
+                      }
+                    }
+                  }
+                  .prodInfoBtn {
+                    justify-content: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     footer {
       bottom: 0;
       position: fixed;
@@ -1107,17 +1183,17 @@ body {
       #mobCartFooter {
         display: flex;
         flex-direction: column;
-        background: map-get($color,light3);
+        background: map-get($color, light3);
         @include body-small();
-        .payDetail{
+        .payDetail {
           padding: 10px;
           text-align: center;
-          ul{
-            li{
+          ul {
+            li {
               display: flex;
               width: 100%;
               justify-content: space-between;
-              .active{
+              .active {
                 color: map-get($color, point-color);
               }
             }
@@ -1151,8 +1227,33 @@ body {
         }
       }
     }
-    section {
-      display: none;
+  }
+}
+
+@media(max-width: 400px){
+  main{
+    main {
+      .content {
+        #stores {
+          .storeBlock {
+            .prodList {
+              .prodBlockMob {
+                .prodInfoWrapper {
+                  .prodBlockMobInfo {
+                    .prodBlockMobR {
+                      .prodInfoRdesc {
+                        .prodTitle {
+                          max-width: 150px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
