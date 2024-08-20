@@ -576,7 +576,7 @@ body {
   transform: translateX(-55%);
 }
 #categoryContainer .categoryContents .categoryGnb.Desk {
-  margin-top: 171px;
+  margin-top: 140px;
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -616,7 +616,7 @@ body {
 #categoryContainer .categoryContents .categoryGnb.Desk ul li a.active {
   background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
   border-bottom: none;
-  border-radius: 0 0 0 10px;
+  border-radius: 10px 0 0 10px;
 }
 #categoryContainer .categoryContents .categoryGnb.Tablet {
   display: none;
@@ -625,7 +625,10 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 120px;
-  border: 1px solid #f00;
+  transition: all 0.3s;
+}
+#categoryContainer .categoryContents .category:last-child {
+  margin-bottom: 0;
 }
 #categoryContainer .categoryContents .category .categoryTitle {
   width: 100%;

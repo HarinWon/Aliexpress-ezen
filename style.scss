@@ -616,7 +616,7 @@ body {
     left: 50%;
     transform: translateX(-55%);
     .categoryGnb.Desk {
-      margin-top: 171px;
+      margin-top: 140px;
       display: flex;
       flex-direction: column;
       position: sticky;
@@ -649,7 +649,7 @@ body {
             &.active {
               background: map-get($color, main-gradient);
               border-bottom: none;
-              border-radius: 0 0 0 10px;
+              border-radius: 10px 0 0 10px;
             }
           }
         }
@@ -661,7 +661,11 @@ body {
     .category {
       height: fit-content;
       margin-bottom: 120px;
-      border: 1px solid #f00;
+      transition: all 0.3s;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
       .categoryTitle {
         width: 100%;
         height: 120px;

@@ -289,6 +289,24 @@ fetch("./mainForyou.json")
   })
   .catch((error) => console.error("Error loading JSON:", error));
 
+//category json
+fetch("./mainCategory.json")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    // Process the data here
+    console.log(data);
+    // Example: you can loop through the products and log each one
+    data.products.forEach((product) => {
+      console.log(product);
+    });
+  })
+  .catch((error) => console.error("Error loading JSON:", error));
+
 //category Scroll Event
 const categories = document.querySelectorAll(".category");
 const gnbItems = document.querySelectorAll(".Desk ul li a");
@@ -298,11 +316,11 @@ window.addEventListener("scroll", () => {
 
   categories.forEach((category, index) => {
     const categoryRect = category.getBoundingClientRect();
-    const categoryTop = window.scrollY + categoryRect.top; // 정확한 위치 계산
+
+    const categoryTop = window.scrollY + categoryRect.top;
     const categoryHeight = category.offsetHeight;
 
-    // 헤더 높이 등을 고려한 보정값 (예: 100px 헤더)
-    const offset = 300;
+    const offset = 120;
 
     if (
       scrollY >= categoryTop - offset &&

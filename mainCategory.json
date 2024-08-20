@@ -1,0 +1,103 @@
+{
+  "products": [
+    {
+      "brand": "쿠첸",
+      "product_name": "[공식정품] 6인용 전기밥솥 CRE-D0601I",
+      "discount": "14%",
+      "price": "62,959원",
+      "original_price": "76,900원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "173개",
+      "image_path": "./img/category/01digital/categoryContent1.png"
+    },
+    {
+      "brand": "SKY",
+      "product_name": "블루투스5.3 무선 헤드셋",
+      "discount": "34%",
+      "price": "18,848원",
+      "original_price": "28,565원",
+      "delivery": "무료배송",
+      "delivery_date": "9/8 도착예정",
+      "ratings": "120개",
+      "image_path": "./img/category/01digital/categoryContent2.png"
+    },
+    {
+      "brand": "SAMSUNG",
+      "product_name": "[공식정품] JBL GO3 블루투스 스피커",
+      "discount": "20%",
+      "price": "30,858원",
+      "original_price": "38,500원",
+      "delivery": "무료배송",
+      "delivery_date": "9/9 도착예정",
+      "ratings": "245개",
+      "image_path": "./img/category/01digital/categoryContent3.png"
+    },
+    {
+      "brand": "MARSHALL",
+      "product_name": "MAJOR IV 블루투스 헤드폰",
+      "discount": "52%",
+      "price": "45,243원",
+      "original_price": "96,116원",
+      "delivery": "무료배송",
+      "delivery_date": "9/19 도착예정",
+      "ratings": "76개",
+      "image_path": "./img/category/01digital/categoryContent4.png"
+    },
+    {
+      "brand": "APPLE",
+      "product_name": "애플 워치 SE GPS 40mm, 44mm",
+      "discount": "66%",
+      "price": "250,936원",
+      "original_price": "735,547원",
+      "delivery": "무료배송",
+      "delivery_date": "9/19 도착예정",
+      "ratings": "202개",
+      "image_path": "./img/category/01digital/categoryContent5.png"
+    },
+    {
+      "brand": "APPLE",
+      "product_name": "맥세이프 애플 실리콘 마그네틱 케이스",
+      "discount": "86%",
+      "price": "5,268원",
+      "original_price": "39,616원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "570개",
+      "image_path": "./img/category/01digital/categoryContent6.png"
+    },
+    {
+      "brand": "APPLE",
+      "product_name": "닌텐도 스위치 OLED",
+      "discount": "65%",
+      "price": "12,061원",
+      "original_price": "34,775원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "73개",
+      "image_path": "./img/category/01digital/categoryContent7.png"
+    },
+    {
+      "brand": "바우와우",
+      "product_name": "3in1 듀얼 코일 고속 무선충전기",
+      "discount": "38%",
+      "price": "17,592원",
+      "original_price": "28,374원",
+      "delivery": "무료배송",
+      "delivery_date": "9/20 도착예정",
+      "ratings": "93개",
+      "image_path": "./img/category/01digital/categoryContent8.png"
+    },
+    {
+      "brand": "샤오미",
+      "product_name": "AP05 트루 무선 이어폰 Buds5",
+      "discount": "70%",
+      "price": "3,671원",
+      "original_price": "12,240원",
+      "delivery": "무료배송",
+      "delivery_date": "9/9 도착예정",
+      "ratings": "373개",
+      "image_path": "./img/category/01digital/categoryContent9.png"
+    }
+  ]
+}
