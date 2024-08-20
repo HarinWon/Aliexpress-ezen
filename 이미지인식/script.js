@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownContainer = document.querySelector(".dropdown-container");
 
   // 메뉴 데이터 가져오기
-  fetch("categories.json")
+  fetch("db.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
