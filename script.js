@@ -227,15 +227,16 @@ foryouBtn.forEach((btn) => {
 });
 
 ////foryou json
-fetch("./mainForyou.json")
-  .then((response) => response.json())
-  .then((data) => {
-    const foryouContent = document.querySelector(".foryoucontent");
 
-    foryouBtn.forEach((button) => {
-      button.addEventListener("click", () => {
+const foryouContent = document.querySelector(".foryoucontent");
+foryouBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    // JSON 데이터를 가져오는 부분
+    fetch("./mainForyou.json")
+      .then((response) => response.json())
+      .then((data) => {
         let selectedCategory;
-
+        // 클릭된 버튼에 따라 JSON 데이터의 카테고리 선택
         if (button.id === "view") {
           selectedCategory = data["많이 본 상품"];
         } else if (button.id === "cart") {
@@ -245,64 +246,90 @@ fetch("./mainForyou.json")
         }
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
-
-        // 새로운 ul 태그 생성 및 스타일 적용
+        // 새로운 ulElements 생성
         const ulElement = document.createElement("ul");
-        ulElement.style.display = "flex";
-        ulElement.style.flexWrap = "wrap";
-        ulElement.className = "ulElements";
-
-        // 새로운 콘텐츠 추가
+        ulElement.className = "ulElements"; // 클래스 추가
+        ulElement.style.display = "flex"; // 스타일 추가
+        ulElement.style.flexWrap = "wrap"; // 스타일 추가
+        // JSON 데이터를 이용해 li 태그 생성 및 추가
         selectedCategory.forEach((item) => {
-          const productHTML = `
-            <li>
-              <a href="#none">
-                <div class="contentImg">
-                  <img src="${item.image_path}" alt="${item.product_name}" style="width:325px; height:220px;" />
-                </div>
-                <div class="contentTitle foryouTitle">
-                  <h3>${item.brand}</h3>
-                  <p>${item.product_name}</p>
-                </div>
-                <div class="contentPrice">
-                  <span>
-                    <strong>${item.discount}</strong>
-                    <b>${item.price}</b>
-                    <del>${item.original_price}</del>
-                  </span>
-                  <span>
-                    <p>${item.delivery}</p>
-                    <p>${item.delivery_date}</p>
-                  </span>
-                  <span><b>*****</b>${item.ratings} 판매</span>
-                </div>
-              </a>
-            </li>
+          const liElement = document.createElement("li");
+          // 제품 정보를 포함하는 HTML 구조를 생성
+          liElement.innerHTML = `
+            <a href="#none">
+              <div class="contentImg">
+                <img src="${item.image_path}" alt="${item.product_name}" style="width:325px; height:220px;" />
+              </div>
+              <div class="contentTitle foryouTitle">
+                <h3>${item.brand}</h3>
+                <p>${item.product_name}</p>
+              </div>
+              <div class="contentPrice">
+                <span>
+                  <strong>${item.discount}</strong>
+                  <b>${item.price}</b>
+                  <del>${item.original_price}</del>
+                </span>
+                <span>
+                  <p>${item.delivery}</p>
+                  <p>${item.delivery_date}</p>
+                </span>
+                <span><b>*****</b>${item.ratings} 판매</span>
+              </div>
+            </a>
           `;
-          ulElement.insertAdjacentHTML("beforeend", productHTML);
+          ulElement.appendChild(liElement); // li 태그를 ulElement에 추가
         });
-
-        // ulElement를 foryouContent에 추가
+        // 생성된 ulElements를 foryouContent에 추가
         foryouContent.appendChild(ulElement);
-      });
-    });
-  })
-  .catch((error) => console.error("Error loading JSON:", error));
+      })
+      .catch((error) => console.error("Error loading JSON:", error));
+  });
+});
+// 초기 페이지 로드 시 첫 번째 버튼이 활성화되어 있으면 그에 해당하는 데이터를 자동으로 로드
+document.querySelector(".btn.active")?.click();
 
 //category json
 fetch("./mainCategory.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok " + response.statusText);
-    }
-    return response.json();
-  })
+  .then((response) => response.json())
   .then((data) => {
-    // Process the data here
-    console.log(data);
-    // Example: you can loop through the products and log each one
-    data.products.forEach((product) => {
-      console.log(product);
+    const productContainer = document.querySelector(".categoryContent");
+
+    // data를 categoryItems에 할당
+    const categoryItems = data;
+
+    // categoryItems 배열을 순회하며 HTML 생성
+    categoryItems.forEach((item) => {
+      const productHTML = `
+      <ul>
+        <li>
+          <a href="#none">
+            <div class="contentImg">
+              <img src="${item.image_path}" alt="${item.product_name}" style="width:325px; height:220px;" />
+            </div>
+            <div class="contentTitle foryouTitle">
+              <h3>${item.brand}</h3>
+              <p>${item.product_name}</p>
+            </div>
+            <div class="contentPrice">
+              <span>
+                <strong>${item.discount}</strong>
+                <b>${item.price}</b>
+                <del>${item.original_price}</del>
+              </span>
+              <span>
+                <p>${item.delivery}</p>
+                <p>${item.delivery_date}</p>
+              </span>
+              <span><b>*****</b>${item.ratings} 판매</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+      `;
+
+      // HTML을 컨테이너에 삽입
+      productContainer.insertAdjacentHTML("beforeend", productHTML);
     });
   })
   .catch((error) => console.error("Error loading JSON:", error));
