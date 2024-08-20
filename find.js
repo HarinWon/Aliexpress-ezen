@@ -18,7 +18,6 @@ function findPw() {
   document.querySelector(".email-btn").classList.remove("active");
 }
 
-// 기본적으로 계정 찾기 폼을 활성화
 document.addEventListener("DOMContentLoaded", function () {
   findEmail();
 });
@@ -33,11 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // 이메일 라디오 버튼 클릭 시
   emailRadio.addEventListener("click", () => {
     inputField.placeholder = "이메일 또는 회원 ID";
+    inputField.value = "";
   });
 
   // 전화번호 라디오 버튼 클릭 시
   phoneRadio.addEventListener("click", () => {
     inputField.placeholder = "KR +82 | 전화번호를 입력하세요.";
+    inputField.value = "";
   });
 });
 

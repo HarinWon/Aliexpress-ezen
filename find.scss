@@ -15,13 +15,13 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      width: 700px;
-      height: 650px;
+      width: 100%;
+      height: 100%;
       margin: 0 auto;
       .find-btn {
         display: flex;
         justify-content: center;
-        margin-bottom: -30px;
+        margin-bottom: -40px;
         & > button {
           width: 290px;
           height: 70px;
@@ -48,10 +48,12 @@ body {
         }
       }
       .find-email-form {
+        margin-top: -50px;
         h3 {
           @include lead-paragraph();
+          font-weight: bold;
           text-align: center;
-          margin: 0 0 60px;
+          margin: -30px 0 60px;
         }
         .find-method-email {
           @include lead-paragraph();
@@ -60,7 +62,7 @@ body {
             flex-direction: column;
             gap: 40px;
             li {
-              width: 80%;
+              width: 60%;
               margin: 0 auto;
               padding-bottom: 8px;
               border-bottom: 1px solid map-get($color, light2);
@@ -76,6 +78,7 @@ body {
         }
       }
       .find-password-form1 {
+        margin-top: -50px;
         .find-password-form1-header {
           text-align: center;
           & > h1 {
@@ -95,8 +98,8 @@ body {
             flex-direction: column;
             ul {
               display: flex;
-              justify-content: space-evenly;
-              margin: 30px 0;
+              gap: 80px;
+              margin: 30px auto;
             }
             input[type="text"] {
               display: inline-block;
@@ -132,7 +135,7 @@ body {
       .submit {
         width: 350px;
         height: 60px;
-        margin: 0 auto;
+        margin: -80px auto 0;
         text-align: center;
         cursor: pointer;
         border-radius: 50px;
@@ -165,59 +168,80 @@ body {
     align-items: center;
     height: 100vh;
     width: 100%;
-  }
-  .inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .find-btn > button {
-    width: 45%;
-    height: 60px;
-    @include lead-paragraph();
-  }
-
-  .find-email-form h3 {
-    @include lead-paragraph();
-    margin: 0 0 40px;
-  }
-
-  .find-method-email ul {
-    gap: 30px;
-  }
-
-  .find-method-email li {
-    width: 100%;
-  }
-
-  .find-password-form1-header h1 {
-    @include heading4();
-  }
-
-  .find-password-form1-header h3 {
-    @include lead-paragraph();
-  }
-
-  .find-method-pw1 input[type="text"] {
-    width: 90%;
-    height: 60px;
-  }
-
-  .submit {
-    width: 80%;
-    height: 50px;
-    font-size: 20px;
+    overflow: hidden;
+    .inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        // width: 100%;
+        margin: 0 auto;
+        .find-btn {
+          & > button {
+            width: 230px;
+            height: 60px;
+            @include body-normal();
+            font-weight: bold;
+            margin-bottom: -80px;
+          }
+        }
+        .find-email-form h3 {
+          @include body-normal();
+          font-weight: bold;
+          margin: 0 0 40px;
+        }
+        .find-method-email {
+          ul {
+            @include body-normal();
+            width: 100%;
+            margin: 0 auto;
+            gap: 20px;
+          }
+        }
+        .find-password-form1 {
+          .find-password-form1-header h1 {
+            @include body-normal();
+            font-weight: bold;
+          }
+          .find-password-form1-header h3 {
+            @include body-normal();
+          }
+          .find-method-pw1 {
+            form {
+              ul {
+                width: 340px;
+                display: flex;
+                padding: 20px;
+                justify-content: space-between;
+                margin: 0 auto;
+                @include body-small();
+              }
+              input[type="text"] {
+                width: 380px;
+                height: 60px;
+                @include body-small();
+                &::placeholder {
+                  @include body-small();
+                }
+              }
+              a {
+                @include body-small();
+              }
+            }
+          }
+        }
+        .submit {
+          width: 300px;
+          height: 50px;
+          font-size: 20px;
+          margin-top: -180px;
+        }
+      }
+    }
   }
 }

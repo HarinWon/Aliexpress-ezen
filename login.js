@@ -14,16 +14,10 @@ function showQRLogin() {
 showEmailLogin();
 
 // 모바일 사이즈 진입
-
-const originalPage = window.location.href;
-
 function checkScreenWidth() {
   const width = window.innerWidth;
-
-  if (width <= 500 && !window.location.href.includes("mobileLogin.html")) {
+  if (width <= 510 && !window.location.href.includes("mobileLogin.html")) {
     window.location.href = "mobileLogin.html";
-  } else if (width > 500 && window.location.href.includes("mobileLogin.html")) {
-    window.location.href = originalPage;
   }
 }
 

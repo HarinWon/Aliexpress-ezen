@@ -6,9 +6,11 @@ body {
   align-items: center;
   height: 100vh;
   .container {
+    width: 600px;
+    height: 800px;
     .content {
-      width: 700px;
-      height: 900px;
+      width: 100%;
+      height: 100%;
       padding-top: 20px;
       .logo {
         padding-bottom: 10px;
@@ -91,10 +93,12 @@ body {
           }
         }
         .qr-code {
-          margin: 20px 0;
+          margin: 20px auto;
+          width: 150px;
+          height: 150px;
           .qr-code img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
           }
           p {
             padding-top: 4px;
@@ -107,6 +111,7 @@ body {
           }
         }
         p {
+          padding-top: 20px;
           @include body-small();
         }
       }
@@ -131,50 +136,35 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    padding: 20px;
-  }
-
-  .container .content {
+  .container {
+    overflow: hidden;
     width: 100%;
-    height: auto;
-    padding-top: 0;
+    .content {
+      width: 100%;
+    }
   }
 
   .container .login-box {
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 0px 10px 10px 10px;
+    overflow: hidden;
   }
 
   .container .login-box form {
-    padding-top: 20px;
+    width: 100%;
   }
 
   .container .login-box form input[type="text"],
   .container .login-box form input[type="password"] {
     width: 100%;
-    padding: 12px;
-  }
-
-  .container .login-box form .checkbox {
-    padding-left: 20px;
   }
 
   .container .login-box form .login-btn,
   .container .login-box form .qr-login-btn {
     width: 100%;
   }
-
-  .container .login-box form .help-links {
-    padding: 12px 20px;
-  }
-
-  footer {
-    font-size: 12px;
-  }
-
-  .footer-links a {
+  .footer-links {
     font-size: 12px;
   }
 }

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// 모두확인하였고 << 버튼이벤트
+// 모두확인하였고 화살표 << 버튼이벤트
 const toggleButton2 = document.querySelector("#agree_more_angle");
 const agreeSection2 = document.querySelector(".agree_more");
 
@@ -34,7 +34,7 @@ toggleButton2.addEventListener("click", () => {
   }
 });
 
-// 아래 모두동의 체크
+// 아이디 유효성검사
 function isValidEmail(email) {
   return email.includes("@");
 }
