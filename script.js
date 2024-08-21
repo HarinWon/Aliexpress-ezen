@@ -169,3 +169,39 @@ const camera = document.querySelector(".camera");
 camera.addEventListener("click", () => {
   dropZone.classList.toggle("click");
 });
+
+// 실시간 검색어 관련 함수
+const realTimeTxt = document.querySelector(".real-time-result-txt");
+const realTimeResult = document.querySelector(".real-time-result");
+
+realTimeTxt.addEventListener("mouseover", () => {
+  realTimeResult.classList.toggle("timeHover");
+})
+document.addEventListener("DOMContentLoaded", function () {
+  // realTime.json에서 데이터를 가져옴
+  fetch('realTime.json')
+      .then(response => response.json())
+      .then(data => {
+          const realTimeResult = document.querySelector('.real-time-result');
+          const currentHour = new Date().getHours();
+          let timeOfDay;
+
+          // 현재 시간에 따라 timeOfDay 설정
+          if (currentHour >= 6 && currentHour < 12) {
+              timeOfDay = 'morning';
+          } else if (currentHour >= 12 && currentHour < 18) {
+              timeOfDay = 'afternoon';
+          } else {
+              timeOfDay = 'evening';
+          }
+
+          // li 태그들을 지우고, 새로운 li 태그로 실시간 검색어 목록을 채움
+          realTimeResult.innerHTML = ''; // 기존 목록 제거
+          data[timeOfDay].forEach(item => {
+              const listItem = document.createElement('li');
+              listItem.textContent = `${Object.keys(item)[0]}. ${Object.values(item)[0]}`;
+              realTimeResult.appendChild(listItem);
+          });
+      })
+      .catch(error => console.error('Error fetching real-time data:', error));
+});

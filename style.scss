@@ -87,6 +87,17 @@ $color: (
   light3: #f5f5f5,
 );
 
+@mixin card-styles {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
 // mix - in 사용법 !!!!
 // h1 {
 //   @include body-medium();
@@ -126,6 +137,30 @@ header {
         color: map-get($color, dark3);
         font-size: 10px;
         cursor: pointer;
+        position: relative;
+          .real-time-result {
+            width: 130px;
+            height: 200px;
+            position: absolute;
+            top: 24px;
+            left: -10px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            li {
+              padding-bottom: 2px;
+              border-bottom: 1px solid map-get($color, light1);
+              &:last-child {
+                border: none;
+              }
+            }
+            &.timeHover {
+              display: flex;
+            }
+          }
       }
       input {
         width: 90%;
@@ -332,7 +367,7 @@ header {
         height: 96px;
         display: flex;
         align-items: center;
-        animation: marquee 18s linear infinite;
+        // animation: marquee 18s linear infinite;
         &:hover {
           animation-play-state: paused;
         }
@@ -344,182 +379,113 @@ header {
           &:nth-child(1) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "100코인 적립";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
+                
               }
             }
           }
           &:nth-child(2) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(3) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(4) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(5) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(6) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(7) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(8) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(9) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(10) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(11) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(12) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(13) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
           &:nth-child(14) {
             &:hover {
               &::before {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                content: "10% 할인";
-                @include body-small();
-                line-height: 60px;
-                background: rgba($color: #000000, $alpha: 0.6);
+                content: "안냐세요?";
+                @include card-styles();
               }
             }
           }
