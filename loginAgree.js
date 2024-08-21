@@ -121,16 +121,13 @@ checks.forEach((check) => {
   });
 });
 
-// checkAll.addEventListener("click", function () {
-//   if (!this.classList.contains("active")) {
-//     checks.forEach((check) => {
-//       check.classList.add("active");
-//     });
-//     this.classList.add("active");
-//   } else {
-//     checks.forEach((check) => {
-//       check.classList.remove("active");
-//     });
-//     this.classList.remove("active");
-//   }
-// });
+// 모바일 사이즈 진입
+function checkScreenWidth() {
+  const width = window.innerWidth;
+  if (width <= 510 && !window.location.href.includes("mobileAgree.html")) {
+    window.location.href = "mobileAgree.html";
+  }
+}
+
+window.addEventListener("load", checkScreenWidth);
+window.addEventListener("resize", checkScreenWidth);
