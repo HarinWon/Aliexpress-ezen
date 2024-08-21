@@ -392,7 +392,7 @@ body {
   color: #ff611d;
   background: #fff;
   border: 1px solid #ff611d;
-  border-radius: 50px;
+  border-radius: 6px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 #weeklyContainer .weeklyArrows {
@@ -663,17 +663,19 @@ body {
 #categoryContainer .categoryContents .category .categoryContent ul {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  gap: 26px;
+  padding: 10px 20px;
+  gap: 10px;
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
   margin-bottom: 20px;
-  width: 260px;
-  height: 200px;
+  width: 280px;
+  height: 210px;
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #categoryContainer .categoryContents .category.active .categoryTitle {
   background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);

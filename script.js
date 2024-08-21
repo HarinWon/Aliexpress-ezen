@@ -227,22 +227,27 @@ foryouBtn.forEach((btn) => {
 });
 
 ////foryou json
-
 const foryouContent = document.querySelector(".foryoucontent");
 foryouBtn.forEach((button) => {
   button.addEventListener("click", () => {
     // JSON 데이터를 가져오는 부분
-    fetch("./mainForyou.json")
+    fetch("./main.json")
       .then((response) => response.json())
       .then((data) => {
         let selectedCategory;
-        // 클릭된 버튼에 따라 JSON 데이터의 카테고리 선택
+        // 클릭된 버튼의 ID에 따라 매칭된 항목 필터링
         if (button.id === "view") {
-          selectedCategory = data["많이 본 상품"];
+          selectedCategory = data.filter(
+            (item) => item.viewPoint === "많이 본 상품"
+          );
         } else if (button.id === "cart") {
-          selectedCategory = data["많이 담은 상품"];
+          selectedCategory = data.filter(
+            (item) => item.cartPoint === "많이 담은 상품"
+          );
         } else if (button.id === "buy") {
-          selectedCategory = data["많이 구매 한 상품"];
+          selectedCategory = data.filter(
+            (item) => item.buyingPoint === "많이 구매 한 상품"
+          );
         }
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
@@ -258,7 +263,7 @@ foryouBtn.forEach((button) => {
           liElement.innerHTML = `
             <a href="#none">
               <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" style="width:325px; height:220px;" />
+                <img src="${item.image_path}" alt="${item.product_name}" style="width:350px; height:220px;" />
               </div>
               <div class="contentTitle foryouTitle">
                 <h3>${item.brand}</h3>
@@ -290,49 +295,6 @@ foryouBtn.forEach((button) => {
 document.querySelector(".btn.active")?.click();
 
 //category json
-fetch("./mainCategory.json")
-  .then((response) => response.json())
-  .then((data) => {
-    const productContainer = document.querySelector(".categoryContent");
-
-    // data를 categoryItems에 할당
-    const categoryItems = data;
-
-    // categoryItems 배열을 순회하며 HTML 생성
-    categoryItems.forEach((item) => {
-      const productHTML = `
-      <ul>
-        <li>
-          <a href="#none">
-            <div class="contentImg">
-              <img src="${item.image_path}" alt="${item.product_name}" style="width:325px; height:220px;" />
-            </div>
-            <div class="contentTitle foryouTitle">
-              <h3>${item.brand}</h3>
-              <p>${item.product_name}</p>
-            </div>
-            <div class="contentPrice">
-              <span>
-                <strong>${item.discount}</strong>
-                <b>${item.price}</b>
-                <del>${item.original_price}</del>
-              </span>
-              <span>
-                <p>${item.delivery}</p>
-                <p>${item.delivery_date}</p>
-              </span>
-              <span><b>*****</b>${item.ratings} 판매</span>
-            </div>
-          </a>
-        </li>
-      </ul>
-      `;
-
-      // HTML을 컨테이너에 삽입
-      productContainer.insertAdjacentHTML("beforeend", productHTML);
-    });
-  })
-  .catch((error) => console.error("Error loading JSON:", error));
 
 //category Scroll Event
 const categories = document.querySelectorAll(".category");

@@ -432,7 +432,7 @@ body {
             color: map-get($color, main-color);
             background: #fff;
             border: 1px solid map-get($color, main-color);
-            border-radius: 50px;
+            border-radius: 6px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           }
         }
@@ -692,16 +692,17 @@ body {
         ul {
           display: flex;
           justify-content: center;
-          padding: 20px;
-          gap: 26px;
+          padding: 10px 20px;
+          gap: 10px;
           li {
             .contentImg {
               margin-bottom: 20px;
-              width: 260px;
-              height: 200px;
+              width: 280px;
+              height: 210px;
               img {
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
               }
             }
           }
