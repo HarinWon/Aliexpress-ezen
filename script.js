@@ -175,8 +175,13 @@ const realTimeTxt = document.querySelector(".real-time-result-txt");
 const realTimeResult = document.querySelector(".real-time-result");
 
 realTimeTxt.addEventListener("mouseover", () => {
-  realTimeResult.classList.toggle("timeHover");
-})
+  realTimeResult.classList.add("timeHover");
+});
+
+realTimeTxt.addEventListener("mouseout", () => {
+  realTimeResult.classList.remove("timeHover");
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // realTime.json에서 데이터를 가져옴
   fetch('realTime.json')
