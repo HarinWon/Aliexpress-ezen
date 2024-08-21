@@ -119,11 +119,12 @@ header {
       padding: 4px 14px;
       justify-content: space-between;
       border-radius: 40px;
+      position: relative;
       .real-time-search {
-        width: 160px;
-        border-right: 1px solid map-get($color, dark3);
+        width: 130px;
+        // border-right: 1px solid map-get($color, dark3);
         color: map-get($color, dark3);
-        @include body-small();
+        font-size: 10px;
         cursor: pointer;
       }
       input {
@@ -141,6 +142,25 @@ header {
         border: none;
         background: inherit;
         cursor: pointer;
+      }
+      #dropZone {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        border: 2px dashed #ccc;
+        background: #fff;
+        color: map-get($color, dark1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 12px;
+        display: none;
+        &.click {
+          display: block;
+        }
       }
       .search {
         width: 56px;

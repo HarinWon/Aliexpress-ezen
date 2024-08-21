@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const categoryMenu = document.getElementById("category-menu");
   const dropdownContainer = document.querySelector(".dropdown-container");
 
-  // 메뉴 데이터 가져오기
+  // * 좌측 아코디언 메뉴 코드
   fetch("categories.json")
     .then((response) => {
       if (!response.ok) {
@@ -91,4 +91,81 @@ document.addEventListener("DOMContentLoaded", function () {
   dropdownContainer.addEventListener("mouseenter", function () {
     dropdownContainer.style.display = "flex";
   });
+});
+
+// 이미지 인식 코드
+const dropZone = document.getElementById("dropZone");
+dropZone.addEventListener("dragover", (event) => {
+  event.preventDefault();
+});
+
+dropZone.addEventListener("drop", (event) => {
+  event.preventDefault();
+  handleImageUpload(event.dataTransfer.files[0]);
+});
+
+dropZone.addEventListener("click", () => {
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.accept = "image/*";
+  fileInput.click();
+  fileInput.onchange = () => {
+    handleImageUpload(fileInput.files[0]);
+  };
+});
+
+function handleImageUpload(file) {
+  const uploadedFileName = file.name.toLowerCase().slice(0, 3); // 파일명의 앞 3글자 추출 및 소문자로 변환
+  searchSimilarFiles(uploadedFileName);
+}
+
+function searchSimilarFiles(uploadedFileNamePrefix) {
+  fetch("db.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const matchedProducts = findMatchingProductsByFilename(
+        uploadedFileNamePrefix,
+        data.data
+      );
+      displayResults(matchedProducts);
+    });
+}
+
+function findMatchingProductsByFilename(uploadedFileNamePrefix, products) {
+  return products.filter((product) => {
+    const productFileNamePrefix = product.img
+      .split("/")
+      .pop()
+      .toLowerCase()
+      .slice(0, 3);
+    return productFileNamePrefix === uploadedFileNamePrefix;
+  });
+}
+
+function displayResults(products) {
+  const resultContainer = document.getElementById("result");
+  resultContainer.innerHTML = ""; // 기존 결과 지우기
+
+  if (products.length === 0) {
+    resultContainer.innerHTML = "<p>비슷한 상품이 없습니다.</p>";
+    return;
+  }
+
+  products.forEach((product) => {
+    const productElement = document.createElement("div");
+    productElement.innerHTML = `
+              <h4>${product.name}</h4>
+              <img src="${product.img}" alt="${product.name}">
+              <p>가격: ${product.price}원</p>
+              <p>카테고리: ${product.category}</p>
+          `;
+    resultContainer.appendChild(productElement);
+  });
+}
+
+// 카메라 클릭시 인식 화면 보이게 하는 코드
+const camera = document.querySelector(".camera");
+
+camera.addEventListener("click", () => {
+  dropZone.classList.toggle("click");
 });
