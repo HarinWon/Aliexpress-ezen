@@ -756,6 +756,139 @@ main {
       }
     }
   }
+  #weeklyContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .weeklyContents {
+      .weeklyTitle {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding-bottom: 20px;
+        border-bottom: 1px solid map-get($color, dark1);
+        .weeklyinnerLeft {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          h1 {
+            @include heading1();
+          }
+          .weeklyTime {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            width: 220px;
+            height: 55px;
+            @include lead-paragraph();
+            font-weight: 600;
+            color: map-get($color, light3);
+            background: map-get($color, main-gradient);
+            // border: 1.8px solid map-get($color, main-color);
+            border-radius: 50px;
+          }
+        }
+        .weeklyinnerRight {
+          @include body-medium();
+          color: map-get($color, light1);
+          i {
+            font-size: 1rem;
+          }
+        }
+      }
+      .weeklyContent {
+        display: flex;
+        overflow: hidden;
+        ul {
+          width: 100%;
+          display: flex;
+          gap: 80px;
+          padding: 24px;
+          .contentImg {
+            width: 320px;
+            height: 380px;
+            position: relative;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 4px;
+              margin-bottom: 10px;
+            }
+            .sale {
+              @include heading5();
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 60px;
+              height: 60px;
+              color: map-get($color, main-color);
+              background: #fff;
+              border: 1px solid map-get($color, main-color);
+              border-radius: 6px;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+    .weeklyArrows {
+      position: absolute;
+      top: 55%;
+      width: 1170px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 3rem;
+      color: #ddd;
+      cursor: pointer;
+      .fas {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        border-radius: 50%;
+        transition: all 0.3s;
+      }
+      .fa-angle-left:hover {
+        background: map-get($color, main-color);
+        transform: translateX(-20px);
+        color: #fff;
+        border-radius: 50%;
+      }
+      .fa-angle-right:hover {
+        // background: rgba($color: #ff611d, $alpha: 0.9);
+        background: map-get($color, main-color);
+        transform: translateX(20px);
+        color: #fff;
+        border-radius: 50%;
+      }
+    }
+    .trigger {
+      position: relative;
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      section:first-child {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: map-get($color, light1);
+      }
+      section:last-child {
+        position: absolute;
+        left: 0;
+        width: 16.67%;
+        height: 2px;
+        background: map-get($color, dark1);
+      }
+    }
+  }
 }
 .buy-nav {
   display: none;
