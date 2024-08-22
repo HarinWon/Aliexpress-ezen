@@ -245,7 +245,7 @@ body {
   transition: all 0.5s;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .image {
-  background: url("./img/welcome.png") top/cover no-repeat;
+  background: url("./dbImg/welcome.png") top/cover no-repeat;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -528,7 +528,7 @@ body {
 #experienceContainer .experienceImg {
   width: 1170px;
   height: 320px;
-  background: url("./img/experience.png") top/cover no-repeat;
+  background: url("./dbImg/experience.png") top/cover no-repeat;
 }
 #experienceContainer .experienceImg .experienceDesc {
   height: 100%;

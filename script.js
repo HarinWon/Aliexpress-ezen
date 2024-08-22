@@ -4,7 +4,7 @@ const arrows = document.querySelectorAll(".arrow");
 const mainArrows = document.querySelectorAll(".mainArrow");
 const videos = ["aliExpressMainVideo1.mp4", "aliExpressMainVideo2.mp4"];
 
-mainVideo.innerHTML = `<video width="100%" height="100%" src="./img/${videos[0]}" autoplay muted loop></video>`;
+mainVideo.innerHTML = `<video width="100%" height="100%" src="./dbimg/${videos[0]}" autoplay muted loop></video>`;
 
 const srcVideo = document.querySelector("video");
 
@@ -23,7 +23,7 @@ arrows.forEach((arrow) => {
       }
     }
 
-    srcVideo.src = `./img/${videos[i]}`;
+    srcVideo.src = `./dbimg/${videos[i]}`;
 
     if (i === 0) {
       arrows[0].classList.add("action");
@@ -231,7 +231,7 @@ const foryouContent = document.querySelector(".foryoucontent");
 foryouBtn.forEach((button) => {
   button.addEventListener("click", () => {
     // JSON 데이터를 가져오는 부분
-    fetch("./main.json")
+    fetch("./db.json")
       .then((response) => response.json())
       .then((data) => {
         let selectedCategory;
