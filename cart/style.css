@@ -21,14 +21,13 @@ body {
   width: 100%;
   height: 100%;
 }
-body header {
-  width: 100%;
-}
 body header #cartHeader {
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #7b7b7b;
+  width: 100%;
   padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid #7b7b7b;
 }
 body header #cartHeader .gnbWrapper {
   display: flex;
@@ -73,7 +72,10 @@ body header #cartHeader .gnbWrapper .rightGnb ul li {
 body header #cartHeader .gnbWrapper .rightGnb ul li.active {
   color: #000;
 }
-body #cartSort {
+body header #cartSortMob {
+  display: none;
+}
+body #cartSortDesk {
   display: flex;
   position: sticky;
   top: 0;
@@ -89,13 +91,19 @@ body #cartSort {
   font-weight: 700;
   line-height: 1.3;
 }
-body #cartSort ul {
+body #cartSortDesk ul {
   width: 1170px;
   display: flex;
   gap: 10px;
   padding: 20px 0;
 }
-body #cartSort ul li span {
+body #cartSortDesk ul li {
+  align-items: center;
+  display: flex;
+  padding: 0 30px;
+  gap: 20px;
+}
+body #cartSortDesk ul li span {
   background: #dddddd;
   width: 30px;
   height: 30px;
@@ -106,21 +114,11 @@ body #cartSort ul li span {
   font-weight: 500;
   line-height: 1.3;
 }
-body #cartSort ul li.active {
+body #cartSortDesk ul li.active {
   color: #ff611d;
 }
-body #cartSort ul .barRight {
-  align-items: center;
-  display: flex;
+body #cartSortDesk ul .barRight {
   border-right: 1px solid #dddddd;
-  padding: 0 30px;
-  gap: 20px;
-}
-body #cartSort ul .barNone {
-  align-items: center;
-  display: flex;
-  padding: 0 30px;
-  gap: 10px;
 }
 body main {
   display: flex;
@@ -283,9 +281,6 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodImg
   border: 1px solid #f5f5f5;
   border-radius: 5px;
   transition: all 0.3s;
-}
-body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodImg:hover {
-  box-shadow: 8px 8px 6px #afafaf;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL {
   display: flex;
@@ -576,10 +571,15 @@ body section {
     justify-content: start;
   }
 }
-@media (max-width: 770px) {
+@media (max-width: 800px) {
   body {
     position: relative;
     min-height: 100vh;
+  }
+  body header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
   body header #cartHeader {
     padding: 15px 24px;
@@ -593,14 +593,53 @@ body section {
   body header #cartHeader .gnbWrapper .rightGnb {
     display: none;
   }
-  body #cartSort {
-    min-width: 617px;
-  }
-  body #cartSort ul {
+  body header #cartSortMob {
+    display: flex;
+    top: 0;
     width: 100%;
+    min-width: 617px;
+    font-size: 26px;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid;
+    z-index: 2;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body header #cartSortMob ul {
+    width: 100%;
+    display: flex;
     padding: 15px 0;
     gap: 0;
     justify-content: center;
+  }
+  body header #cartSortMob ul li {
+    align-items: center;
+    display: flex;
+    padding: 0 30px;
+    gap: 20px;
+  }
+  body header #cartSortMob ul li span {
+    background: #dddddd;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body header #cartSortMob ul li.active {
+    color: #ff611d;
+  }
+  body header #cartSortMob ul .barRight {
+    border-right: 1px solid #dddddd;
+  }
+  body #cartSortDesk {
+    display: none;
   }
   body main {
     justify-content: center;
@@ -772,17 +811,21 @@ body section {
   body header #cartHeader .gnbWrapper .leftGnb img {
     height: 20px;
   }
-  body #cartSort {
+  body header #cartSortMob {
     min-width: 0;
   }
-  body #cartSort ul {
+  body header #cartSortMob ul {
     width: 100%;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3;
   }
-  body #cartSort ul li span {
+  body header #cartSortMob ul li {
+    padding: 0 25px;
+    gap: 8px;
+  }
+  body header #cartSortMob ul li span {
     width: 20px;
     height: 20px;
     padding-top: 0;
@@ -790,14 +833,6 @@ body section {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
-  }
-  body #cartSort ul .barRight {
-    padding: 0 15px;
-    gap: 5px;
-  }
-  body #cartSort ul .barNone {
-    padding: 0 15px;
-    gap: 5px;
   }
   body main {
     justify-content: center;
@@ -1047,8 +1082,8 @@ body section {
     display: flex;
     flex-direction: column;
   }
-  body main .content #stores .storeBlock .storeCalcMob .acordion {
-    display: flex;
+  body main .content #stores .storeBlock .storeCalcMob .accordion {
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 5px 20px;
@@ -1059,12 +1094,12 @@ body section {
     font-weight: 500;
     line-height: 1.3;
   }
-  body main .content #stores .storeBlock .storeCalcMob .acordion div {
+  body main .content #stores .storeBlock .storeCalcMob .accordion div {
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
-  body main .content #stores .storeBlock .storeCalcMob .acordion div .active {
+  body main .content #stores .storeBlock .storeCalcMob .accordion div .active {
     color: #e43225;
   }
   body main .content #stores .storeBlock .storeCalcMob .storePay {
@@ -1078,6 +1113,9 @@ body section {
   body main .content #stores .storeBlock .storeCalcMob .storePay .totalPrice {
     display: flex;
     justify-content: space-between;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .storePay .totalPrice i.active {
+    transform: rotate(180deg);
   }
   body main .content #stores .storeBlock .storeCalcMob .storePay input[type=submit] {
     background: #ff611d;
@@ -1105,6 +1143,9 @@ body section {
   }
 }
 @media (max-width: 500px) {
+  body header #cartSortMob ul li {
+    padding: 0 15px;
+  }
   body main .content #stores .storeBlock .storeL span .storeLinkTitle {
     max-width: 190px;
   }
@@ -1182,10 +1223,5 @@ body section {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.3;
-  }
-}
-@media (max-width: 400px) {
-  main main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
-    max-width: 150px;
   }
 }

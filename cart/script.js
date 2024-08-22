@@ -102,3 +102,34 @@ plusBs.forEach((plusB, i) => {
   plusB.addEventListener("mouseup", clearButtons);
   plusB.addEventListener("mouseout", clearButtons);
 });
+
+//Accordion
+//storeCalcMob
+// const firstContent = document.querySelectorAll(".accordion");
+const accordionContent = document.querySelectorAll(".accordion");
+
+
+const accordionOpen = document.querySelectorAll(".totalpriceL i");
+// console.log(accordionOpen);
+accordionOpen.forEach((openBtn) => {
+  openBtn.addEventListener("click", () => {
+    accordionContent.forEach((item) => {
+      item.style.display = "none";
+    });
+
+    accordionOpen.forEach((otherOpen) => {
+      if (otherOpen !== openBtn) {
+        otherOpen.classList.remove("active");
+      }
+    });
+
+    // let content = accordionContent;
+    // if (accordionContent.classList.contains("active")) {
+    //   accordionContent.classList.remove("active");
+    //   content.style.display = "none";
+    // } else {
+    //   accordionContent.classList.add("active");
+    //   content.style.display = "flex";
+    // }
+  });
+});
