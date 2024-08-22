@@ -260,6 +260,7 @@ header .header-nav ul li {
   height: 96px;
   display: flex;
   align-items: center;
+  animation: marquee 18s linear infinite;
 }
 .web_footer #payment .payment-wrap .footer-payment:hover {
   animation-play-state: paused;
@@ -458,7 +459,7 @@ header .header-nav ul li {
   header .header-nav #main_nav li #sub_nav {
     width: 30px;
   }
-  header .header-nav #main_nav li #sub_nav .menu_hamburger span {
+  header .header-nav #main_nav li #sub_nav #all-categories span {
     display: none;
   }
   header .header-nav ul {

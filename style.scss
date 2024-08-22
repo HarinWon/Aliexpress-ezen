@@ -97,7 +97,6 @@ $color: (
   background: rgba(0, 0, 0, 0.6);
 }
 
-
 // mix - in 사용법 !!!!
 // h1 {
 //   @include body-medium();
@@ -138,29 +137,29 @@ header {
         font-size: 10px;
         cursor: pointer;
         position: relative;
-          .real-time-result {
-            width: 130px;
-            height: 200px;
-            position: absolute;
-            top: 24px;
-            left: -10px;
-            background: #fff;
-            border-radius: 4px;
-            padding: 10px;
-            display: none;
-            flex-direction: column;
-            gap: 2px;
-            li {
-              padding-bottom: 2px;
-              border-bottom: 1px solid map-get($color, light1);
-              &:last-child {
-                border: none;
-              }
-            }
-            &.timeHover {
-              display: flex;
+        .real-time-result {
+          width: 130px;
+          height: 200px;
+          position: absolute;
+          top: 24px;
+          left: -10px;
+          background: #fff;
+          border-radius: 4px;
+          padding: 10px;
+          display: none;
+          flex-direction: column;
+          gap: 2px;
+          li {
+            padding-bottom: 2px;
+            border-bottom: 1px solid map-get($color, light1);
+            &:last-child {
+              border: none;
             }
           }
+          &.timeHover {
+            display: flex;
+          }
+        }
       }
       input {
         width: 90%;
@@ -367,7 +366,7 @@ header {
         height: 96px;
         display: flex;
         align-items: center;
-        // animation: marquee 18s linear infinite;
+        animation: marquee 18s linear infinite;
         &:hover {
           animation-play-state: paused;
         }
@@ -381,7 +380,6 @@ header {
               &::before {
                 content: "안냐세요?";
                 @include card-styles();
-                
               }
             }
           }
@@ -549,7 +547,7 @@ header {
         li {
           #sub_nav {
             width: 30px;
-            .menu_hamburger {
+            #all-categories {
               span {
                 display: none;
               }
