@@ -92,7 +92,7 @@ $color: (
 
 .inner {
   width: 1170px;
-  margin: 70px 0;
+  margin: 50px 0;
 }
 .title {
   display: flex;
@@ -131,9 +131,14 @@ $color: (
   }
   span {
     display: flex;
+    align-items: center;
     gap: 6px;
     strong {
-      color: map-get($color, main-color);
+      padding: 2px 3px 0;
+      text-align: center;
+      border-radius: 4px;
+      background: map-get($color, main-color);
+      color: map-get($color, light3);
     }
     p:nth-child(1) {
       color: map-get($color, dark1);
@@ -167,14 +172,14 @@ body {
   height: 100vh;
   #mainVideo video {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 65px);
     object-fit: cover;
   }
   &::before {
     content: "";
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 65px);
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -192,15 +197,51 @@ body {
     }
     p:nth-of-type(1) {
       font-size: 1.2rem;
-      position: absolute;
-      left: -2%;
+      position: relative;
+      top: 0;
+      left: -2.5%;
       cursor: pointer;
+      opacity: 1;
+      &::before {
+        content: "\f104";
+        font-family: "fontawesome";
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: transform 0.3s;
+      }
+      &:hover::before {
+        opacity: 1;
+        transform: translateX(-10px) scale(1.5);
+        color: rgba(255, 255, 255, 0.8);
+      }
+      &:hover {
+        color: transparent;
+      }
     }
     p:nth-of-type(2) {
       font-size: 1.2rem;
-      position: absolute;
-      left: 23%;
+      position: relative;
+      right: -22%;
       cursor: pointer;
+      &::before {
+        content: "\f105";
+        font-family: "fontawesome";
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        transition: transform 0.3s;
+      }
+      &:hover::before {
+        opacity: 1;
+        transform: translateX(15px) scale(1.5);
+        color: rgba(255, 255, 255, 0.8);
+      }
+      &:hover {
+        color: transparent;
+      }
     }
     div:nth-of-type(1) {
       position: absolute;
@@ -239,16 +280,19 @@ body {
       position: relative;
       width: 400px;
       height: 310px;
+      bottom: -150px;
       transition: all 1.5s;
-      bottom: -300px;
       opacity: 0;
       cursor: pointer;
+      overflow-clip-margin: content-box;
+      overflow: clip;
       img {
         position: relative;
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 2px;
+        transition: transform 0.3s;
       }
       &::before {
         content: "";
@@ -263,6 +307,9 @@ body {
       }
       &:hover::before {
         opacity: 1;
+      }
+      &:hover img {
+        transform: scale(1.1);
       }
       .alieInfoDesc {
         position: absolute;
@@ -285,7 +332,7 @@ body {
 #welcomeContainer {
   display: flex;
   flex-direction: column;
-  margin: 50px auto 80px;
+  align-items: center;
   .welcome {
     width: 100%;
     display: flex;
@@ -293,11 +340,12 @@ body {
     .welcomeContents {
       display: flex;
       justify-content: space-between;
-      gap: 30px;
       .welcomeContentLeft {
-        width: 500px;
-        height: 700px;
+        width: 480px;
+        height: 630px;
         cursor: pointer;
+        overflow-clip-margin: content-box;
+        overflow: clip;
         transition: all 0.5s;
         .image {
           background: url("./dbImg/welcome.png") top/cover no-repeat;
@@ -305,10 +353,15 @@ body {
           width: 100%;
           height: 100%;
           border-radius: 4px 4px 0 0;
+          transition: all 0.5s;
+          &:hover.image {
+            transform: scale(1.1);
+          }
         }
         .leftText {
+          position: absolute;
           color: map-get($color, light3);
-          width: 100%;
+          width: 480px;
           height: 50px;
           display: flex;
           justify-content: space-between;
@@ -324,32 +377,30 @@ body {
             padding: 0 20px;
           }
         }
-        // &:hover {
-        //   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-        //   border-radius: 4px 4px 0 0;
-        // }
       }
       .welcomeContentRight {
-        width: 620px;
+        width: 640px;
         display: flex;
-        justify-content: space-between;
         ul {
           display: flex;
-          flex-direction: column;
+          justify-content: space-between;
+          flex-wrap: wrap;
           gap: 10px;
           li {
             display: flex;
-            flex-direction: column;
             transition: all 0.5s;
+            overflow-clip-margin: content-box;
+            overflow: clip;
             img {
-              width: 285px;
-              height: 200px;
+              width: 300px;
+              height: 190px;
+              object-fit: cover;
               transition: all 0.5s;
               border-radius: 4px;
+              transition: transform 0.3s;
             }
-            &:hover {
-              box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-              border-radius: 4px;
+            &:hover img {
+              transform: scale(1.1);
             }
           }
         }
@@ -402,6 +453,7 @@ body {
     .weeklyContent {
       display: flex;
       overflow: hidden;
+
       ul {
         width: 100%;
         display: flex;
@@ -434,9 +486,9 @@ body {
             justify-content: center;
             width: 60px;
             height: 60px;
-            color: map-get($color, main-color);
-            background: #fff;
-            border: 2px solid map-get($color, main-color);
+            color: map-get($color, light3);
+            background: rgba(255, 97, 29, 0.95);
+            // border: 2px solid map-get($color, main-color);
             border-radius: 50%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           }
@@ -552,7 +604,7 @@ body {
         li {
           .contentImg {
             width: 350px;
-            height: 220px;
+            height: 210px;
             overflow-clip-margin: content-box;
             overflow: clip;
             img {
@@ -626,7 +678,7 @@ body {
     left: 50%;
     transform: translateX(-55%);
     .categoryGnb.Desk {
-      margin-top: 140px;
+      margin-top: 120px;
       display: flex;
       flex-direction: column;
       position: sticky;
@@ -644,7 +696,7 @@ body {
             width: 100%;
             height: 50px;
             padding-left: 10px;
-            border-bottom: 1px solid map-get($color, dark1);
+            background: transparent;
             transition: all 0.3s;
             img {
               width: 28px;

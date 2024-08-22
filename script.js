@@ -44,7 +44,7 @@ window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
   const info = document.querySelectorAll("#infoContainer ul li");
   info.forEach((item) => {
-    if (scrollY > 200) {
+    if (scrollY > 250) {
       item.classList.add("activeScroll");
     } else {
       item.classList.remove("activeScroll");
@@ -54,7 +54,6 @@ window.addEventListener("scroll", () => {
 
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
-
 const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
 
 const countdown = () => {
@@ -226,25 +225,26 @@ foryouBtn.forEach((btn) => {
   });
 });
 
-////foryou json
+//foryou json + category json
+
 const foryouContent = document.querySelector(".foryoucontent");
-foryouBtn.forEach((button) => {
-  button.addEventListener("click", () => {
-    // JSON 데이터를 가져오는 부분
-    fetch("./db.json")
-      .then((response) => response.json())
-      .then((data) => {
-        let selectedCategory;
+
+fetch("./db.json")
+  .then((response) => response.json())
+  .then((data) => {
+    foryouBtn.forEach((button) => {
+      button.addEventListener("click", () => {
+        let selectedButton;
         if (button.id === "view") {
-          selectedCategory = data.filter(
+          selectedButton = data.filter(
             (item) => item.id >= "AP-0001" && item.id <= "AP-0006"
           );
         } else if (button.id === "cart") {
-          selectedCategory = data.filter(
+          selectedButton = data.filter(
             (item) => item.id >= "CP-0001" && item.id <= "CP-0006"
           );
         } else if (button.id === "buy") {
-          selectedCategory = data.filter(
+          selectedButton = data.filter(
             (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
           );
         }
@@ -256,7 +256,7 @@ foryouBtn.forEach((button) => {
         ulElement.style.display = "flex";
         ulElement.style.flexWrap = "wrap";
         // JSON 데이터를 이용해 li 태그 생성 및 추가
-        selectedCategory.forEach((item) => {
+        selectedButton.forEach((item) => {
           const liElement = document.createElement("li");
           // 제품 정보를 포함하는 HTML 구조를 생성
           liElement.innerHTML = `
@@ -286,14 +286,45 @@ foryouBtn.forEach((button) => {
         });
         // 생성된 ulElements를 foryouContent에 추가
         foryouContent.appendChild(ulElement);
-      })
-      .catch((error) => console.error("Error loading JSON:", error));
-  });
-});
-// 초기 페이지 로드 시 첫 번째 버튼이 활성화되어 있으면 그에 해당하는 데이터를 자동으로 로드
-document.querySelector(".btn.active")?.click();
+      });
+    });
+    document.querySelector(".btn.active")?.click();
 
-//category json
+    const digital = document.querySelector("#digital");
+    const categoryContent = document.querySelector(".categoryContent");
+
+    let categoryJson;
+    categoryJson.forEach((item) => {
+      const productHTML = `
+        <ul>
+          <li>
+            <a href="#none">
+              <div class="contentImg">
+                <img src="${item.image_path}" alt="${item.product_name}" style="width:340px; height:220px;" />
+              </div>
+              <div class="contentTitle foryouTitle">
+                <h3>${item.brand}</h3>
+                <p>${item.product_name}</p>
+              </div>
+              <div class="contentPrice">
+                <span>
+                  <strong>${item.discount}</strong>
+                  <b>${item.price}</b>
+                  <del>${item.original_price}</del>
+                </span>
+                <span>
+                  <p>${item.delivery}</p>
+                  <p>${item.delivery_date}</p>
+                </span>
+                <span><b>*****</b>${item.ratings} 판매</span>
+              </div>
+            </a>
+           </li>
+        </ul>
+        `;
+      categoryContent.insertAdjacentHTML("beforeend", productHTML);
+    });
+  });
 
 //category Scroll Event
 const categories = document.querySelectorAll(".category");
@@ -308,7 +339,7 @@ window.addEventListener("scroll", () => {
     const categoryTop = window.scrollY + categoryRect.top;
     const categoryHeight = category.offsetHeight;
 
-    const offset = 120;
+    const offset = 130;
 
     if (
       scrollY >= categoryTop - offset &&
