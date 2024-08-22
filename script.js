@@ -235,27 +235,26 @@ foryouBtn.forEach((button) => {
       .then((response) => response.json())
       .then((data) => {
         let selectedCategory;
-        // 클릭된 버튼의 ID에 따라 매칭된 항목 필터링
         if (button.id === "view") {
           selectedCategory = data.filter(
-            (item) => item.viewPoint === "많이 본 상품"
+            (item) => item.id >= "AP-0001" && item.id <= "AP-0006"
           );
         } else if (button.id === "cart") {
           selectedCategory = data.filter(
-            (item) => item.cartPoint === "많이 담은 상품"
+            (item) => item.id >= "CP-0001" && item.id <= "CP-0006"
           );
         } else if (button.id === "buy") {
           selectedCategory = data.filter(
-            (item) => item.buyingPoint === "많이 구매 한 상품"
+            (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
           );
         }
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
         // 새로운 ulElements 생성
         const ulElement = document.createElement("ul");
-        ulElement.className = "ulElements"; // 클래스 추가
-        ulElement.style.display = "flex"; // 스타일 추가
-        ulElement.style.flexWrap = "wrap"; // 스타일 추가
+        ulElement.className = "ulElements";
+        ulElement.style.display = "flex";
+        ulElement.style.flexWrap = "wrap";
         // JSON 데이터를 이용해 li 태그 생성 및 추가
         selectedCategory.forEach((item) => {
           const liElement = document.createElement("li");
@@ -263,7 +262,7 @@ foryouBtn.forEach((button) => {
           liElement.innerHTML = `
             <a href="#none">
               <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" style="width:350px; height:220px;" />
+                <img src="${item.image_path}" alt="${item.product_name}" style="width:340px; height:220px;" />
               </div>
               <div class="contentTitle foryouTitle">
                 <h3>${item.brand}</h3>

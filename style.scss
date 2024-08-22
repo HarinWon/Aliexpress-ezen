@@ -324,10 +324,10 @@ body {
             padding: 0 20px;
           }
         }
-        &:hover {
-          box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-          border-radius: 4px 4px 0 0;
-        }
+        // &:hover {
+        //   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+        //   border-radius: 4px 4px 0 0;
+        // }
       }
       .welcomeContentRight {
         width: 620px;
@@ -388,7 +388,6 @@ body {
           font-weight: 600;
           color: map-get($color, light3);
           background: map-get($color, main-gradient);
-          // border: 1.8px solid map-get($color, main-color);
           border-radius: 50px;
         }
       }
@@ -412,12 +411,18 @@ body {
           width: 320px;
           height: 380px;
           position: relative;
+          overflow-clip-margin: content-box;
+          overflow: clip;
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 4px;
             margin-bottom: 10px;
+            transition: transform 0.3s;
+          }
+          &:hover img {
+            transform: scale(1.1);
           }
           .sale {
             @include heading5();
@@ -431,8 +436,8 @@ body {
             height: 60px;
             color: map-get($color, main-color);
             background: #fff;
-            border: 1px solid map-get($color, main-color);
-            border-radius: 6px;
+            border: 2px solid map-get($color, main-color);
+            border-radius: 50%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           }
         }
@@ -446,7 +451,7 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 3rem;
-    color: #ddd;
+    color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
     .fas {
       width: 60px;
@@ -463,7 +468,6 @@ body {
       border-radius: 50%;
     }
     .fa-angle-right:hover {
-      // background: rgba($color: #ff611d, $alpha: 0.9);
       background: map-get($color, main-color);
       transform: translateX(20px);
       color: #fff;
@@ -479,14 +483,14 @@ body {
     section:first-child {
       position: absolute;
       width: 100%;
-      height: 1px;
+      height: 2px;
       background: map-get($color, light1);
     }
     section:last-child {
       position: absolute;
       left: 0;
       width: 16.67%;
-      height: 2px;
+      height: 3px;
       background: map-get($color, dark1);
     }
   }
@@ -549,12 +553,18 @@ body {
           .contentImg {
             width: 350px;
             height: 220px;
+            overflow-clip-margin: content-box;
+            overflow: clip;
             img {
               width: 100%;
               height: 100%;
               margin-bottom: 10px;
               object-fit: cover;
+              transition: transform 0.3s;
             }
+          }
+          &:hover img {
+            transform: scale(1.1);
           }
           .foryouTitle {
             margin-top: 4px;
@@ -662,7 +672,6 @@ body {
       height: fit-content;
       margin-bottom: 120px;
       transition: all 0.3s;
-
       &:last-child {
         margin-bottom: 0;
       }
@@ -699,10 +708,16 @@ body {
               margin-bottom: 20px;
               width: 280px;
               height: 210px;
+              overflow-clip-margin: content-box;
+              overflow: clip;
               img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                transition: transform 0.3s;
+              }
+              &:hover img {
+                transform: scale(1.1);
               }
             }
           }
@@ -802,7 +817,7 @@ body {
   //welcome
   #welcomeContainer {
     .welcome {
-      margin-top: 40px;
+      margin-top: -30px;
       .welcomeContents {
         display: flex;
         flex-direction: column;
@@ -852,7 +867,7 @@ body {
   }
   //weekly
   #weeklyContainer {
-    margin-top: 80px;
+    margin-top: -20px;
     .weeklyContents {
       .weeklyTitle {
         .weeklyinnerLeft {
@@ -891,19 +906,24 @@ body {
         }
       }
       .weeklyArrows {
-        width: 100%;
+        width: 90%;
+        .fas {
+          color: map-get($color, dark2);
+        }
         .fa-angle-left:hover {
           transform: translateX(0);
+          color: map-get($color, light3);
         }
         .fa-angle-right:hover {
           transform: translateX(0);
+          color: map-get($color, light3);
         }
       }
     }
   }
   //foryou
   #foryouContainer {
-    margin-top: 180px;
+    margin-top: 120px;
     .foryouContents {
       .foryouTop {
         width: 100%;
@@ -1330,20 +1350,19 @@ body {
           flex-direction: column;
           justify-content: space-between;
           ul {
+            // border: 1px solid #f00;
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            &:last-child {
-              display: none;
-            }
+            padding: 8px;
+            justify-content: space-between;
             li {
               width: calc(50% - 10px);
               display: flex;
               justify-content: center;
               .contentImg {
-                width: 150px;
-                height: 120px;
+                width: 160px;
+                height: 160px;
                 img {
                   width: 100%;
                   height: 100%;
