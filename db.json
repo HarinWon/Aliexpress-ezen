@@ -10,7 +10,7 @@
     "delivery_date": "9/20 도착예정",
     "ratings": "173개",
     "image_path": "./dbImg/foryou1.png",
-    "category": "appliances",
+    "category": "foryou",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품"
@@ -26,7 +26,7 @@
     "delivery_date": "9/18 도착예정",
     "ratings": "240개",
     "image_path": "./dbImg/foryou2.png",
-    "category": "appliances",
+    "category": "foryou",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품"
@@ -42,7 +42,7 @@
     "delivery_date": "9/21 도착예정",
     "ratings": "187개",
     "image_path": "./dbImg/foryou3.png",
-    "category": "appliances",
+    "category": "foryou",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품"
@@ -58,7 +58,7 @@
     "delivery_date": "9/20 도착예정",
     "ratings": "370개",
     "image_path": "./dbImg/foryou4.png",
-    "category": "appliances",
+    "category": "foryou",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품"
@@ -74,7 +74,7 @@
     "delivery_date": "9/20 도착예정",
     "ratings": "230개",
     "image_path": "./dbImg/foryou5.png",
-    "category": "appliances",
+    "category": "foryou",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품"
@@ -90,7 +90,7 @@
     "delivery_date": "9/20 도착예정",
     "ratings": "190개",
     "image_path": "./dbImg/foryou6.png",
-    "category": "appliances",
+    "category": "foryou",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품"
@@ -109,7 +109,10 @@
     "category": "camping",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "CP-0002",
@@ -125,7 +128,10 @@
     "category": "camping",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "CP-0003",
@@ -141,7 +147,10 @@
     "category": "camping",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "CP-0004",
@@ -157,7 +166,10 @@
     "category": "camping",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "CP-0005",
@@ -173,7 +185,10 @@
     "category": "camping",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "CP-0006",
@@ -189,7 +204,10 @@
     "category": "camping",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "PT-0001",
@@ -205,7 +223,10 @@
     "category": "pet",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "PT-0002",
@@ -221,7 +242,10 @@
     "category": "pet",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "PT-0003",
@@ -237,7 +261,10 @@
     "category": "pet",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "PT-0004",
@@ -253,7 +280,10 @@
     "category": "pet",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "PT-0005",
@@ -269,7 +299,10 @@
     "category": "pet",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "PT-0006",
@@ -285,7 +318,10 @@
     "category": "pet",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "DG-0001",
@@ -301,7 +337,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "DG-0002",
@@ -317,7 +356,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "DG-0003",
@@ -333,7 +375,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "DG-0004",
@@ -349,7 +394,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "DG-0005",
@@ -365,7 +413,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "DG-0006",
@@ -381,7 +432,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "DG-0007",
@@ -397,7 +451,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "DG-0008",
@@ -413,7 +470,10 @@
     "category": "digital",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "AP-0007",
@@ -429,7 +489,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "AP-0008",
@@ -445,7 +508,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "AP-0009",
@@ -461,7 +527,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "AP-0010",
@@ -477,7 +546,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "AP-0011",
@@ -493,7 +565,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "AP-0012",
@@ -509,7 +584,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "AP-0013",
@@ -525,7 +603,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "AP-0014",
@@ -541,7 +622,10 @@
     "category": "appliances",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "HM-0001",
@@ -557,7 +641,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "HM-0002",
@@ -573,7 +660,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "HM-0003",
@@ -589,7 +679,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "HM-0004",
@@ -605,7 +698,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "HM-0005",
@@ -621,7 +717,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "HM-0006",
@@ -637,7 +736,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "HM-0007",
@@ -653,7 +755,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "HM-0008",
@@ -669,7 +774,10 @@
     "category": "home",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BT-0001",
@@ -685,7 +793,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BT-0002",
@@ -701,7 +812,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BT-0003",
@@ -717,7 +831,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BT-0004",
@@ -733,7 +850,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BT-0005",
@@ -749,7 +869,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BT-0006",
@@ -765,7 +888,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BT-0007",
@@ -781,7 +907,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BT-0008",
@@ -797,7 +926,10 @@
     "category": "beauty",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "FS-0001",
@@ -813,7 +945,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "FS-0002",
@@ -829,7 +964,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "FS-0003",
@@ -845,7 +983,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "FS-0004",
@@ -861,7 +1002,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "FS-0005",
@@ -877,7 +1021,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "FS-0006",
@@ -893,7 +1040,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "FS-0007",
@@ -909,7 +1059,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "FS-0008",
@@ -925,7 +1078,10 @@
     "category": "fashion",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BB-0001",
@@ -941,7 +1097,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BB-0002",
@@ -957,7 +1116,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BB-0003",
@@ -973,7 +1135,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BB-0004",
@@ -989,7 +1154,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BB-0005",
@@ -1005,7 +1173,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "BB-0006",
@@ -1021,7 +1192,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BB-0007",
@@ -1037,7 +1211,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "BB-0008",
@@ -1053,7 +1230,10 @@
     "category": "baby",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "GM-0001",
@@ -1069,7 +1249,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "GM-0002",
@@ -1085,7 +1268,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "GM-0003",
@@ -1101,7 +1287,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "GM-0004",
@@ -1117,7 +1306,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "GM-0005",
@@ -1133,7 +1325,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "GM-0006",
@@ -1149,7 +1344,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "GM-0007",
@@ -1165,7 +1363,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "GM-0008",
@@ -1181,7 +1382,10 @@
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "SP-0001",
@@ -1197,7 +1401,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "SP-0002",
@@ -1213,7 +1420,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "SP-0003",
@@ -1229,7 +1439,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "SP-0004",
@@ -1245,7 +1458,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "SP-0005",
@@ -1261,7 +1477,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송"
   },
   {
     "id": "SP-0006",
@@ -1277,7 +1496,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "SP-0007",
@@ -1293,7 +1515,10 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "국내배송",
+    "isFavorited": false,
+    "shippingMethod": "choice배송"
   },
   {
     "id": "SP-0008",
@@ -1309,6 +1534,9 @@
     "category": "sports",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
-    "buyingPoint": "많이 구매 한 상품"
+    "buyingPoint": "많이 구매 한 상품",
+    "shippingType": "해외배송",
+    "isFavorited": true,
+    "shippingMethod": "choice배송"
   }
 ]

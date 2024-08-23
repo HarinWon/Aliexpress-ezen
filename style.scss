@@ -752,8 +752,9 @@ body {
         width: 100%;
         ul {
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
-          padding: 10px 20px;
+          padding: 10px 0;
           gap: 10px;
           li {
             .contentImg {

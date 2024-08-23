@@ -226,7 +226,6 @@ foryouBtn.forEach((btn) => {
 });
 
 //foryou json + category json
-
 const foryouContent = document.querySelector(".foryoucontent");
 
 fetch("./db.json")
@@ -248,6 +247,7 @@ fetch("./db.json")
             (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
           );
         }
+        console.log(data);
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
         // 새로운 ulElements 생성
@@ -288,19 +288,23 @@ fetch("./db.json")
         foryouContent.appendChild(ulElement);
       });
     });
-    document.querySelector(".btn.active")?.click();
+    document.querySelector(".btn.active").click();
 
-    const digital = document.querySelector("#digital");
-    const categoryContent = document.querySelector(".categoryContent");
+    data.forEach((item) => {
+      const categoryElement = document.querySelector(`.${item.category}`);
+      if (categoryElement) {
+        // 이미 존재하는 ul을 찾거나, 없으면 새로 생성
+        let createUl = categoryElement.querySelector("ul");
+        if (!createUl) {
+          createUl = document.createElement("ul");
+          categoryElement.appendChild(createUl);
+        }
 
-    let categoryJson;
-    categoryJson.forEach((item) => {
-      const productHTML = `
-        <ul>
+        const productHTML = `
           <li>
             <a href="#none">
               <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" style="width:340px; height:220px;" />
+                <img src="${item.image_path}" alt="${item.product_name}" />
               </div>
               <div class="contentTitle foryouTitle">
                 <h3>${item.brand}</h3>
@@ -319,10 +323,11 @@ fetch("./db.json")
                 <span><b>*****</b>${item.ratings} 판매</span>
               </div>
             </a>
-           </li>
-        </ul>
-        `;
-      categoryContent.insertAdjacentHTML("beforeend", productHTML);
+          </li>
+          
+      `;
+        createUl.insertAdjacentHTML("beforeend", productHTML);
+      }
     });
   });
 

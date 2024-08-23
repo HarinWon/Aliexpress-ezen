@@ -725,8 +725,9 @@ body {
 }
 #categoryContainer .categoryContents .category .categoryContent ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 10px 0;
   gap: 10px;
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
