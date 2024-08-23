@@ -1,12 +1,13 @@
 function updatePlaceholder(option) {
   const input = document.getElementById("reset-input");
+
   if (option === "email") {
     input.placeholder = "이메일 또는 회원 ID";
-    inputField.value = "";
   } else if (option === "phone") {
     input.placeholder = "KR+82 | 010-0000-0000";
-    inputField.value = "";
   }
+
+  input.value = "";
 }
 
 // PC 사이즈 진입
@@ -19,3 +20,9 @@ function checkScreenWidth() {
 
 window.addEventListener("load", checkScreenWidth);
 window.addEventListener("resize", checkScreenWidth);
+
+// back-button 누르면뒤로
+const backButton = document.querySelector(".back-button");
+backButton.addEventListener("click", () => {
+  window.history.back();
+});

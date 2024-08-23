@@ -91,6 +91,9 @@ p {
   font-size: 12px;
   font-weight: bold;
   color: #1976d2;
+  &:hover {
+    border-bottom: 1px solid #1976d2;
+  }
 }
 
 .code-inputs {
@@ -120,6 +123,11 @@ p {
   color: #1976d2;
   text-align: left;
   padding-top: 20px;
+  a {
+    &:hover {
+      border-bottom: 1px solid #1976d2;
+    }
+  }
 }
 
 .submit-button {

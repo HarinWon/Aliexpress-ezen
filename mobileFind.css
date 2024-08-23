@@ -89,6 +89,9 @@ h1 {
     span {
       font-size: 14px;
     }
+    i {
+      cursor: pointer;
+    }
   }
 }
 

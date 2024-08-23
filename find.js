@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 계정찾기 화면에서 원하는정보 찾기 누르면 체크표시에 불들어오게 하기
-
 const find = document.querySelectorAll(".find-method-email li span");
 
 find.forEach((span) => {
