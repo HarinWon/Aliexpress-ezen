@@ -163,7 +163,7 @@ accordionOpenF.forEach((openBtnF) => {
       // contentF.style.display = "block";
       // contentF.style.height = fit-content;
     }
-    
+
     const accordCloseF = contentF.querySelector(".accordCloseF");
     accordCloseF.addEventListener("click", () => {
       contentF.classList.remove("active");
@@ -172,3 +172,36 @@ accordionOpenF.forEach((openBtnF) => {
     });
   });
 });
+
+// SelectAll
+// function selectAll(selectAll) {
+//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+//   checkboxes.forEach((checkbox) => {
+//     checkbox.checked = selectAll.checked;
+//   });
+// }
+
+// function selectAll(selectAll) {
+//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+//   // Only select/deselect if the first checkbox is checked
+//   if (checkboxes[0].checked) {
+//     checkboxes.forEach((checkbox) => {
+//       checkbox.checked = selectAll.checked;
+//     });
+//   } else {
+//     // If the first checkbox is not checked, uncheck all checkboxes
+//     checkboxes.forEach((checkbox) => {
+//       checkbox.checked = false;
+//     });
+//   }
+// }
+
+// const selectAll = document.getElementById("#selectAllCheck");
+// selectAll.addEventListener("click", 
+//   function selectAll(selectAll) {
+//     const checkboxes = document.querySelectorAll(".storeCheck", ".prodCheck");
+//     checkboxes.forEach((checkbox) => {
+//       checkbox.checked = selectAll.checked;
+//     });
+//   }
+// )
