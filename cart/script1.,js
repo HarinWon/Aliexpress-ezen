@@ -105,70 +105,35 @@ plusBs.forEach((plusB, i) => {
 //Accordion storeCalcMob
 
 // const accordionContent = document.querySelectorAll(".accordion");
-// const accordionOpen = document.querySelectorAll(".accordOpen");
-// // console.log(accordionOpen);
-// accordionOpen.forEach((openBtn) => {
-//   openBtn.addEventListener("click", () => {
-//     //버튼 안 보이게 할 거면 //openBtn.style.display = "none";
-
-//     let openContainer = openBtn.parentElement.parentElement.parentElement;
-//     let content = openContainer.previousElementSibling;
-//     let accordClose = content.querySelector(".accordClose").addEventListener("click");
-
-//     content.style.display = "flex";
-
-//     if(accordClose){
-//         openBtn.classList.remove("active");
-//     }
-
-//   });
-// });
-
 const accordionOpen = document.querySelectorAll(".accordOpen");
-
+// console.log(accordionOpen);
 accordionOpen.forEach((openBtn) => {
   openBtn.addEventListener("click", () => {
+    //버튼 안 보이게 할 거면 //openBtn.style.display = "none";
+    
     let openContainer = openBtn.parentElement.parentElement.parentElement;
     let content = openContainer.previousElementSibling;
-
+    let accordClose = content.querySelector(".accordClose").addEventListener("click");
+    
     content.style.display = "flex";
 
-    const accordClose = content.querySelector(".accordClose");
-    accordClose.addEventListener("click", () => {
-      content.style.display = "none";
-      openBtn.style.display = "inline-block";
-    });
-
-    // const accordCloseFoot = content
-    openBtn.style.display = "none";
-  });
-});
-
-const accordionOpenF = document.querySelectorAll(".accordOpenF");
-
-accordionOpenF.forEach((openBtnF) => {
-  openBtnF.addEventListener("click", () => {
-    let contentF = openBtnF.parentElement.previousElementSibling;
-
-    // contentF.style.display = "block";
-
-    if (openBtnF.classList.contains("active")) {
-      contentF.classList.remove("active");
-      openBtnF.classList.remove("active");
-      // contentF.style.display = "none";
-      // contentF.style.height = 0;
-    } else {
-      contentF.classList.add("active");
-      openBtnF.classList.add("active");
-      // contentF.style.display = "block";
-      // contentF.style.height = fit-content;
+    // accordClose.forEach((closebtn) => {
+    //   closebtn.addEventListener("click", () =>{
+    //     content.style.display="remove"
+    //   })
+    // })
+    if(accordClose){
+        openBtn.classList.remove("active");
     }
     
-    const accordCloseF = contentF.querySelector(".accordCloseF");
-    accordCloseF.addEventListener("click", () => {
-      contentF.classList.remove("active");
-      // contentF.style.display = "none";
-      openBtnF.classList.remove("active");
-    });
+    // if (openBtn.classList.contains("active")) {
+    //   openBtn.classList.remove("active");
+    //   // content.style.display = "remove";
+    // } else {
+    //   openBtn.classList.add("active");
+    // }
   });
 });
+
+
+

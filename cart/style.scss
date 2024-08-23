@@ -1108,7 +1108,7 @@ body {
                 .totalPrice {
                   display: flex;
                   justify-content: space-between;
-                  i{
+                  i {
                     &.active {
                       transform: rotate(180deg);
                     }
@@ -1210,9 +1210,26 @@ body {
         background: map-get($color, light3);
         @include body-small();
         .payDetail {
+          // display: none;
+          height: 0;
           padding: 10px;
           text-align: center;
+          transition: all 10s;
+          &.active{
+            height: fit-content;
+          }
+          button {
+            width: 100px;
+            border: none;
+            background: none;
+            i {
+              font-size: 20px;
+            }
+          }
           ul {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
             li {
               display: flex;
               width: 100%;
@@ -1241,6 +1258,9 @@ body {
             padding: 5px 15px;
             border: none;
             @include bodyLarge();
+            &.active {
+              transform: rotate(180deg);
+            }
             &.inactive {
               opacity: 0;
             }

@@ -1183,8 +1183,27 @@ body section {
     line-height: 1.3;
   }
   body footer #mobCartFooter .payDetail {
+    height: 0;
     padding: 10px;
     text-align: center;
+    transition: all 10s;
+  }
+  body footer #mobCartFooter .payDetail.active {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  body footer #mobCartFooter .payDetail button {
+    width: 100px;
+    border: none;
+    background: none;
+  }
+  body footer #mobCartFooter .payDetail button i {
+    font-size: 20px;
+  }
+  body footer #mobCartFooter .payDetail ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
   body footer #mobCartFooter .payDetail ul li {
     display: flex;
@@ -1214,6 +1233,9 @@ body section {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.3;
+  }
+  body footer #mobCartFooter #payInfoMob button.active {
+    transform: rotate(180deg);
   }
   body footer #mobCartFooter #payInfoMob button.inactive {
     opacity: 0;
