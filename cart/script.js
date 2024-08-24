@@ -174,34 +174,46 @@ accordionOpenF.forEach((openBtnF) => {
 });
 
 // SelectAll
-// function selectAll(selectAll) {
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-//   checkboxes.forEach((checkbox) => {
-//     checkbox.checked = selectAll.checked;
-//   });
-// }
 
-// function selectAll(selectAll) {
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-//   // Only select/deselect if the first checkbox is checked
-//   if (checkboxes[0].checked) {
+const selectAll = document.getElementById("#selectAllCheck");
+selectAll.addEventListener("click", function selectAll(selectAll) {
+  const checkboxes = document.querySelectorAll(".storeCheck, .prodCheck");
+  checkboxes.forEach((checkbox) => {
+    // checkbox.checked = selectAll.checked;
+    selectAll.checked = checkbox.checked;
+  });
+});
+
+// const selectAll = document.querySelector('input[type="checkbox"]');
+// selectAll.addEventListener('click', function() {
+//   const checkboxes = document.querySelectorAll(".storeCheck , .prodMobCheck, .prodCheck");
+//   if (selectAll.checked) {
 //     checkboxes.forEach((checkbox) => {
-//       checkbox.checked = selectAll.checked;
+//       checkbox.checked = true;
 //     });
 //   } else {
-//     // If the first checkbox is not checked, uncheck all checkboxes
 //     checkboxes.forEach((checkbox) => {
 //       checkbox.checked = false;
 //     });
 //   }
-// }
+// });
 
-// const selectAll = document.getElementById("#selectAllCheck");
-// selectAll.addEventListener("click", 
-//   function selectAll(selectAll) {
-//     const checkboxes = document.querySelectorAll(".storeCheck", ".prodCheck");
-//     checkboxes.forEach((checkbox) => {
-//       checkbox.checked = selectAll.checked;
-//     });
-//   }
-// )
+
+// storeCheck
+
+const storeCheck = document.querySelector('.storeCheck');
+
+// Add event listener to the first checkbox
+storeCheck.addEventListener('click', function() {
+  const prodboxes = storeCheck.parentElement.parentElement.nextSibling.querySelectorAll(".prodMobCheck, .prodCheck");
+  // Only select/deselect if the first checkbox is checked
+  if (storeCheck.checked) {
+    prodboxes.forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+  } else {
+    prodboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  }
+});
