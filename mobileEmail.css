@@ -1,17 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-ul,
-li {
-  list-style: none;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -42,47 +30,58 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .header-btn {
-    display: flex;
-    gap: 115px;
-  }
-  .logo {
-    width: 130px;
-    height: 30px;
-    padding-right: 30px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-  }
 }
+header .header-btn {
+  display: flex;
+  gap: 115px;
+}
+header .logo {
+  width: 130px;
+  height: 30px;
+  padding-right: 30px;
+}
+header .logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .back-button {
   background: none;
   border: none;
   color: #fff;
+  font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
   cursor: pointer;
   margin-right: 10px;
 }
 
 .content {
   padding: 20px 20px 10px;
-  .verification-box {
-    padding: 10px;
-    border-radius: 8px;
-  }
+}
+.content .verification-box {
+  padding: 10px;
+  border-radius: 8px;
 }
 
 h2 {
+  font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3rem;
   font-weight: bold;
   line-height: 1.3;
   margin-bottom: 16px;
 }
 
 p {
+  font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
   line-height: 1.3;
   margin: 10px 0;
 }
@@ -92,9 +91,9 @@ p {
   font-weight: bold;
   color: #1976d2;
   transition: all 0.3s;
-  &:hover {
-    border-bottom: 1px solid #1976d2;
-  }
+}
+.edit-email:hover {
+  border-bottom: 1px solid #1976d2;
 }
 
 .code-inputs {
@@ -107,15 +106,18 @@ p {
 .code-inputs input {
   width: 40px;
   height: 40px;
+  font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
   text-align: center;
   border: 2px solid #ccc;
   border-radius: 8px;
   background-color: #f2f2f2;
   box-sizing: border-box;
-  &:focus {
-    outline: none;
-  }
+}
+.code-inputs input:focus {
+  outline: none;
 }
 
 .resend-code {
@@ -125,11 +127,9 @@ p {
   text-align: left;
   padding-top: 20px;
   transition: all 0.3s;
-  a {
-    &:hover {
-      border-bottom: 1px solid #1976d2;
-    }
-  }
+}
+.resend-code a:hover {
+  border-bottom: 1px solid #1976d2;
 }
 
 .submit-button {
@@ -138,12 +138,15 @@ p {
   height: 38px;
   border: none;
   border-radius: 19px;
-  background: #ffb5bb;
+  background: #ffc6cd;
   color: #fff;
+  font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
   font-weight: bold;
   transition: all 0.3s;
-  &:hover {
-    background-color: #e14a50;
-  }
 }
+.submit-button:hover {
+  background: #fd384f;
+}/*# sourceMappingURL=mobileEmail.css.map */

@@ -85,11 +85,13 @@ body {
               }
             }
             input[type="password"] {
+              display: none;
               width: 540px;
               height: 70px;
               border: 1px solid #c5ccd2;
               border-radius: 10px;
               margin-bottom: 20px;
+              transition: all 0.3s;
               @include body-medium();
               padding-left: 20px;
               &::placeholder {
@@ -123,19 +125,23 @@ body {
             .qr-code {
               width: 160px;
               height: 160px;
-              background-color: #eee;
               display: flex;
               justify-content: center;
               align-items: center;
               margin: 0 auto;
-              border: 1px solid #ccc;
+              border: none;
               border-radius: 5px;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
             }
             p:nth-of-type(1) {
               @include body-medium();
               text-align: center;
               margin: 12px;
-              .qr-timer {
+              #qr-timer {
                 @include lead-paragraph();
                 font-weight: bold;
                 color: #00cd3c;
@@ -150,7 +156,7 @@ body {
               @include body-normal();
               text-align: center;
               margin-top: 10px;
-              .qr-number {
+              #qr-number {
                 @include lead-paragraph();
                 font-weight: bold;
                 color: #00cd3c;

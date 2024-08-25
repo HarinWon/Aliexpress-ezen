@@ -32,7 +32,11 @@
               >
                 <img src="" alt="" />이메일 / 전화번호 로그인
               </button>
-              <button id="qr_btn" class="qr_tab" onclick="showQRLogin()">
+              <button
+                id="qr_btn"
+                class="qr_tab"
+                onclick="showQRLogin(); startQRTimer();"
+              >
                 <img src="" alt="" />QR 로그인
               </button>
             </div>
@@ -50,23 +54,24 @@
                   type="password"
                   name="email-pw"
                   placeholder="비밀번호"
-                  required
                 />
                 <button type="submit" class="continue-btn">계속하기</button>
               </form>
             </div>
             <div id="qr-login" class="login-content hidden">
               <!-- Placeholder for QR Code -->
-              <div class="qr-code">[QR Code Here]</div>
-              <p>남은시간 <span class="qr-timer">03분00초</span></p>
+              <div class="qr-code">
+                <img src="./img/kakao_qr.png" alt="qrcode" />
+              </div>
+              <p>남은시간 <span id="qr-timer">03:00</span></p>
               <p>
                 공용 네트워크, 공용PC라면 안전을 위해 <br />
                 QR코드로 로그인해주세요.
               </p>
               <p>
                 AliExpress 앱 > 렌즈를 눌러 QR코드로 스캔하여 <br />
-                보이는 숫자 중 <span class="qr-number">37</span>을 선택하면
-                로그인 됩니다.
+                보이는 숫자 중 <span id="qr-number">37</span>을 선택하면 로그인
+                됩니다.
               </p>
             </div>
           </div>
