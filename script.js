@@ -43,15 +43,21 @@ arrows.forEach((arrow) => {
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
   const info = document.querySelectorAll("#infoContainer ul li");
-  info.forEach((item) => {
-    if (scrollY > 250) {
-      item.classList.add("activeScroll");
-    } else {
-      item.classList.remove("activeScroll");
-    }
-  });
-});
 
+  const tabletQuery = window.matchMedia("(max-width: 768px)");
+  const mobileQuery = window.matchMedia("(max-width: 430px)");
+
+  // 태블릿 또는 모바일이 아닐 때만 스크롤 이벤트 동작
+  if (!tabletQuery.matches && !mobileQuery.matches) {
+    info.forEach((item) => {
+      if (scrollY > 250) {
+        item.classList.add("activeScroll");
+      } else {
+        item.classList.remove("activeScroll");
+      }
+    });
+  }
+});
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
 const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
