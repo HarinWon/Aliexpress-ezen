@@ -1075,9 +1075,6 @@ body {
     width: 330px;
     margin: 0;
   }
-  .title {
-    gap: 20px;
-  }
   .title p {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
@@ -1098,13 +1095,14 @@ body {
     font-size: 18px;
     font-weight: 700;
     line-height: 1.3;
-    margin-bottom: 10px;
   }
   .contentTitle p {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
+    width: 110%;
+    height: 30px;
   }
   #infoContainer {
     z-index: 3;
@@ -1161,6 +1159,9 @@ body {
     width: 100%;
     height: 330px;
   }
+  #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .leftText {
+    width: 330px;
+  }
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .leftText span {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 18px;
@@ -1187,7 +1188,7 @@ body {
     height: 130px;
   }
   #weeklyContainer .weeklyContents {
-    margin-top: -50px;
+    margin-top: 40px;
   }
   #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft h1 {
     font-family: "Noto Sans KR, sans-serif";
@@ -1205,7 +1206,7 @@ body {
   }
   #weeklyContainer .weeklyContents .weeklyContent ul .contentImg {
     width: 300px;
-    height: 350px;
+    height: 270px;
   }
   #weeklyContainer .weeklyContents .weeklyContent ul .contentImg img {
     width: 100%;
@@ -1226,9 +1227,6 @@ body {
   }
   #weeklyContainer .weeklyContents .trigger {
     margin-top: 10px;
-  }
-  #foryouContainer {
-    margin-top: 120px;
   }
   #foryouContainer .foryouContents .foryouTop .titleRight {
     position: relative;
@@ -1302,6 +1300,8 @@ body {
   }
   #categoryContainer {
     width: 100%;
+    margin-top: 50px;
+    justify-content: center;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet {
     margin-top: 40px;
@@ -1349,11 +1349,8 @@ body {
     line-height: 1.3;
     display: flex;
   }
-  #categoryContainer .categoryContents .category .categoryTitle .tag > ul li {
-    padding-right: 10px;
-  }
   #categoryContainer .categoryContents .category .contentPrice {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
   }
   #categoryContainer .categoryContents .category .categoryContent {
     width: 100%;
@@ -1376,7 +1373,7 @@ body {
   }
   #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
     width: 160px;
-    height: 160px;
+    height: 130px;
   }
   #categoryContainer .categoryContents .category .categoryContent ul li .contentImg img {
     width: 100%;
