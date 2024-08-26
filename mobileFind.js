@@ -13,7 +13,7 @@ function updatePlaceholder(option) {
 // PC 사이즈 진입
 function checkScreenWidth() {
   const width = window.innerWidth;
-  if (width >= 510 && !window.location.href.includes("find.html")) {
+  if (width >= 430 && !window.location.href.includes("find.html")) {
     window.location.href = "find.html";
   }
 }

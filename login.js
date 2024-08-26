@@ -17,7 +17,7 @@ showEmailLogin();
 // 모바일 사이즈 진입
 function checkScreenWidth() {
   const width = window.innerWidth;
-  if (width <= 510 && !window.location.href.includes("mobileLogin.html")) {
+  if (width <= 430 && !window.location.href.includes("mobileLogin.html")) {
     window.location.href = "mobileLogin.html";
   }
 }
@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       passwordInput.setAttribute("required", "true");
       emailInput.disabled = true;
     } else {
+      alert("회원가입으로 넘어가시겠습니까?");
       window.location.href = "./loginAgree.html";
     }
   });

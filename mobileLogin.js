@@ -1,7 +1,7 @@
 // PC사이즈진입
 function checkScreenWidth() {
   const width = window.innerWidth;
-  if (width >= 510 && !window.location.href.includes("login.html")) {
+  if (width >= 430 && !window.location.href.includes("login.html")) {
     window.location.href = "login.html";
   }
 }

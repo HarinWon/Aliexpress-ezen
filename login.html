@@ -6,129 +6,122 @@
     <link rel="stylesheet" href="./login.css" />
     <script defer src="./login.js"></script>
     <title>Document</title>
-    <script>
-      function checkScreenWidth() {
-        if (window.innerWidth <= 500) {
-          window.location.href = "mobileLogin.html";
-        }
-      }
-      window.addEventListener("load", checkScreenWidth);
-      window.addEventListener("resize", checkScreenWidth);
-    </script>
   </head>
   <body>
-    <div class="contaniner">
-      <div class="log">
-        <img src="./img/Aliexpress_logo.svg 1.png" alt="logo" />
-      </div>
-      <main>
-        <div class="login-page">
-          <div class="login-box">
-            <div class="login-method">
-              <button
-                id="email_btn"
-                class="email_tab"
-                onclick="showEmailLogin()"
-              >
-                <img src="" alt="" />이메일 / 전화번호 로그인
-              </button>
-              <button
-                id="qr_btn"
-                class="qr_tab"
-                onclick="showQRLogin(); startQRTimer();"
-              >
-                <img src="" alt="" />QR 로그인
-              </button>
-            </div>
-            <div id="email-login" class="login-content">
-              <form action="#" method="post" class="login-form">
-                <input
-                  type="text"
-                  id="email-phone"
-                  name="email-phone"
-                  placeholder="이메일 주소 / 휴대폰 번호"
-                  required
-                />
-                <input
-                  id="email-pw"
-                  type="password"
-                  name="email-pw"
-                  placeholder="비밀번호"
-                />
-                <button type="submit" class="continue-btn">계속하기</button>
-              </form>
-            </div>
-            <div id="qr-login" class="login-content hidden">
-              <!-- Placeholder for QR Code -->
-              <div class="qr-code">
-                <img src="./img/kakao_qr.png" alt="qrcode" />
-              </div>
-              <p>남은시간 <span id="qr-timer">03:00</span></p>
-              <p>
-                공용 네트워크, 공용PC라면 안전을 위해 <br />
-                QR코드로 로그인해주세요.
-              </p>
-              <p>
-                AliExpress 앱 > 렌즈를 눌러 QR코드로 스캔하여 <br />
-                보이는 숫자 중 <span id="qr-number">37</span>을 선택하면 로그인
-                됩니다.
-              </p>
-            </div>
-          </div>
-          <div class="find-info">
-            <a href="./find.html">이메일 찾기</a>
-            <a href="./find.html">비밀번호 찾기</a>
-          </div>
-          <div class="easy-login">
-            <h3>간편로그인</h3>
-            <div class="icons">
-              <ul>
-                <li>
-                  <a href="./kakao.html"
-                    ><img src="./img/kakao.png" alt="Kakao"
-                  /></a>
-                </li>
-                <li>
-                  <a
-                    href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"
-                    ><img src="./img/naver.png" alt="Naver"
-                  /></a>
-                </li>
-                <li>
-                  <a
-                    href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dko%26sa%3DX%26ved%3D0ahUKEwixif7X4oqIAxUYafUHHfZxGwQQPAgI&ec=GAZAmgQ&hl=ko&passive=true&ifkv=Ab5oB3qdRPJuddOE9Ss9b81lSWbtt5nD2kfZu2s0aKe9IseQODTDlDKSvYodxqWhj3yyecfFn2R1fg&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
-                    ><img src="./img/google.png" alt="Google"
-                  /></a>
-                </li>
-                <li>
-                  <a
-                    href="https://appleid.apple.com/auth/authorize?client_id=com.alibaba.iAliexpressmsite&response_type=code%20id_token&scope=email%20name&response_mode=form_post&state=iV%2FFZnOchXPmwM5RItjn6HmubjMUMB%2FVwK3y5c1OwFs1ER8lbn1uYILSqJElhhSudo4iKihQMc2LvwkeMh1fwtq%2Fge2mJLeDVFxbOqexCQfbBW4RzjUmfJRC9z16J8mh%2BYtvmVMIRAHTq5VAkBXbol1OSC58oZnIuGepibXNolyqG%2BdFvfyYuwlHvHePOctonzPLwT4CeQo2%2BgvDg59FEg%3D%3D&redirect_uri=https%3A%2F%2Fthirdparty.aliexpress.com%2Fapplecallback.htm"
-                    ><img src="./img/apple.png" alt="Apple"
-                  /></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer">
-            <div class="country-select">
-              <label class="field" for="country">지역 : </label>
-              <select class="inputBox" name="country" id="country">
-                <option selected disabled>지역</option>
-                <option value="Korea">Korea</option>
-                <option value="China">China</option>
-                <option value="Japan">Japan</option>
-              </select>
-            </div>
-            <p>
-              계속하면 귀하가 성인임을 확인하게 됩니다. 계정을 생성함과 동시에
-              <br />
-              AliExpress.com 무료 멤버십가입 동의 및 개인정보 정책에 동의하시게
-              됩니다.
-            </p>
-            <span>지역을 선택하는 이유</span>
-          </div>
+    <div class="inner">
+      <div class="contaniner">
+        <div class="log">
+          <img src="./img/Aliexpress_logo.svg 1.png" alt="logo" />
         </div>
-      </main>
+        <main>
+          <div class="login-page">
+            <div class="login-box">
+              <div class="login-method">
+                <button
+                  id="email_btn"
+                  class="email_tab"
+                  onclick="showEmailLogin()"
+                >
+                  <img src="" alt="" />이메일 / 전화번호 로그인
+                </button>
+                <button
+                  id="qr_btn"
+                  class="qr_tab"
+                  onclick="showQRLogin(); startQRTimer();"
+                >
+                  <img src="" alt="" />QR 로그인
+                </button>
+              </div>
+              <div id="email-login" class="login-content">
+                <form action="#" method="post" class="login-form">
+                  <input
+                    type="text"
+                    id="email-phone"
+                    name="email-phone"
+                    placeholder="이메일 주소 / 휴대폰 번호"
+                    required
+                  />
+                  <input
+                    id="email-pw"
+                    type="password"
+                    name="email-pw"
+                    placeholder="비밀번호"
+                  />
+                  <button type="submit" class="continue-btn">계속하기</button>
+                </form>
+              </div>
+              <div id="qr-login" class="login-content hidden">
+                <!-- Placeholder for QR Code -->
+                <div class="qr-code">
+                  <img src="./img/kakao_qr.png" alt="qrcode" />
+                </div>
+                <p>남은시간 <span id="qr-timer">03:00</span></p>
+                <p>
+                  공용 네트워크, 공용PC라면 안전을 위해 <br />
+                  QR코드로 로그인해주세요.
+                </p>
+                <p>
+                  AliExpress 앱 > 렌즈를 눌러 QR코드로 스캔하여 <br />
+                  보이는 숫자 중 <span id="qr-number">37</span>을 선택하면
+                  로그인 됩니다.
+                </p>
+              </div>
+            </div>
+            <div class="find-info">
+              <a href="./find.html">이메일 찾기</a>
+              <a href="./find.html">비밀번호 찾기</a>
+            </div>
+            <div class="easy-login">
+              <h3>간편로그인</h3>
+              <div class="icons">
+                <ul>
+                  <li>
+                    <a href="./kakao.html"
+                      ><img src="./img/kakao.png" alt="Kakao"
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"
+                      ><img src="./img/naver.png" alt="Naver"
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dko%26sa%3DX%26ved%3D0ahUKEwixif7X4oqIAxUYafUHHfZxGwQQPAgI&ec=GAZAmgQ&hl=ko&passive=true&ifkv=Ab5oB3qdRPJuddOE9Ss9b81lSWbtt5nD2kfZu2s0aKe9IseQODTDlDKSvYodxqWhj3yyecfFn2R1fg&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+                      ><img src="./img/google.png" alt="Google"
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://appleid.apple.com/auth/authorize?client_id=com.alibaba.iAliexpressmsite&response_type=code%20id_token&scope=email%20name&response_mode=form_post&state=iV%2FFZnOchXPmwM5RItjn6HmubjMUMB%2FVwK3y5c1OwFs1ER8lbn1uYILSqJElhhSudo4iKihQMc2LvwkeMh1fwtq%2Fge2mJLeDVFxbOqexCQfbBW4RzjUmfJRC9z16J8mh%2BYtvmVMIRAHTq5VAkBXbol1OSC58oZnIuGepibXNolyqG%2BdFvfyYuwlHvHePOctonzPLwT4CeQo2%2BgvDg59FEg%3D%3D&redirect_uri=https%3A%2F%2Fthirdparty.aliexpress.com%2Fapplecallback.htm"
+                      ><img src="./img/apple.png" alt="Apple"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer">
+              <div class="country-select">
+                <label class="field" for="country">지역 : </label>
+                <select class="inputBox" name="country" id="country">
+                  <option selected disabled>지역</option>
+                  <option value="Korea">Korea</option>
+                  <option value="China">China</option>
+                  <option value="Japan">Japan</option>
+                </select>
+              </div>
+              <p>
+                계속하면 귀하가 성인임을 확인하게 됩니다. 계정을 생성함과 동시에
+                <br />
+                AliExpress.com 무료 멤버십가입 동의 및 개인정보 정책에
+                동의하시게 됩니다.
+              </p>
+              <span>지역을 선택하는 이유</span>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   </body>
 </html>

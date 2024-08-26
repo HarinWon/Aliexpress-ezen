@@ -124,7 +124,7 @@ checks.forEach((check) => {
 // 모바일 사이즈 진입
 function checkScreenWidth() {
   const width = window.innerWidth;
-  if (width <= 510 && !window.location.href.includes("mobileAgree.html")) {
+  if (width <= 430 && !window.location.href.includes("mobileAgree.html")) {
     window.location.href = "mobileAgree.html";
   }
 }
