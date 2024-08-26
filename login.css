@@ -41,15 +41,14 @@ body .inner .contaniner main .login-page {
 }
 body .inner .contaniner main .login-page .login-box {
   width: 600px;
-  max-width: 600px;
+  margin: 0 auto;
 }
 body .inner .contaniner main .login-page .login-box .login-method {
   display: flex;
-  width: 100%;
   height: 70px;
 }
 body .inner .contaniner main .login-page .login-box .login-method #email_btn {
-  width: 100%;
+  width: 300px;
   height: 75px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
@@ -66,7 +65,7 @@ body .inner .contaniner main .login-page .login-box .login-method #email_btn.act
   background: #fff;
 }
 body .inner .contaniner main .login-page .login-box .login-method #qr_btn {
-  width: 100%;
+  width: 300px;
   height: 75px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
@@ -83,14 +82,13 @@ body .inner .contaniner main .login-page .login-box .login-method #qr_btn.active
   background: #fff;
 }
 body .inner .contaniner main .login-page .login-box #email-login {
-  width: 100%;
   padding: 30px;
   border: 1px solid #c5ccd2;
   border-radius: 10px;
   margin-top: -10px;
 }
 body .inner .contaniner main .login-page .login-box #email-login input[type=text] {
-  width: 100%;
+  width: 530px;
   height: 70px;
   padding: 10px;
   border: 1px solid #c5ccd2;
@@ -122,7 +120,7 @@ body .inner .contaniner main .login-page .login-box #email-login input[type=text
 }
 body .inner .contaniner main .login-page .login-box #email-login input[type=password] {
   display: none;
-  width: 100%;
+  width: 530px;
   height: 70px;
   border: 1px solid #c5ccd2;
   border-radius: 10px;
@@ -154,7 +152,7 @@ body .inner .contaniner main .login-page .login-box #email-login input[type=pass
   outline: none;
 }
 body .inner .contaniner main .login-page .login-box #email-login .continue-btn {
-  width: 100%;
+  width: 530px;
   height: 70px;
   background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
   border: none;
@@ -333,58 +331,257 @@ body .inner .contaniner main .login-page .footer span:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .inner {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  body .inner {
+    width: 600px;
+  }
+  body .inner .contaniner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .inner .contaniner main {
     width: 100%;
+    height: 700px;
+    margin-top: 10px;
   }
-  main {
+  body .inner .contaniner main .login-page {
+    display: flex;
     width: 100%;
+    height: 100%;
+    flex-direction: column;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
   }
-  main .login-page {
-    width: 100%;
+  body .inner .contaniner main .login-page .login-box {
+    width: 480px;
   }
-  .login-box {
-    width: 200px;
+  body .inner .contaniner main .login-page .login-box .login-method {
+    display: flex;
+    height: 70px;
   }
-  .login-box .login-method #email_btn,
-  .login-box .login-method #qr_btn {
-    width: 80%;
-    height: 50px;
-    font-size: 14px;
+  body .inner .contaniner main .login-page .login-box .login-method #email_btn {
+    width: 240px;
+    height: 75px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    color: #777;
+    background: #f5f6f7;
+    border: 1px solid #ddd;
+    border-radius: 18px 0 0 0;
+    cursor: pointer;
   }
-  .login-box #email-login input[type=text],
-  .login-box #email-login input[type=password],
-  .login-box #qr-login input[type=text],
-  .login-box #qr-login input[type=password] {
-    height: 45px;
+  body .inner .contaniner main .login-page .login-box .login-method #email_btn.active {
+    color: #333;
+    background: #fff;
   }
-  .login-box #email-login .continue-btn,
-  .login-box #qr-login .continue-btn {
-    height: 45px;
-    font-size: 14px;
+  body .inner .contaniner main .login-page .login-box .login-method #qr_btn {
+    width: 240px;
+    height: 75px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    border: 1px solid #ddd;
+    background: #f5f6f7;
+    color: #777;
+    border-radius: 0 18px 0 0;
+    cursor: pointer;
   }
-  .find-info {
-    gap: 20px;
+  body .inner .contaniner main .login-page .login-box .login-method #qr_btn.active {
+    color: #333333;
+    background: #fff;
   }
-  .find-info a {
-    font-size: 14px;
+  body .inner .contaniner main .login-page .login-box #email-login {
+    padding: 30px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    margin-top: -10px;
   }
-  .easy-login h3 {
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text] {
+    width: 430px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-family: "Noto Sans KR, sans-serif";
     font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
   }
-  .easy-login .icons ul {
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text]::-moz-placeholder {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    color: #d3d3d3;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text]::placeholder {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    color: #d3d3d3;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text]:focus {
+    outline: none;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password] {
+    display: none;
+    width: 430px;
+    height: 70px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    padding-left: 20px;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password]::-moz-placeholder {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: 400;
+    color: #d3d3d3;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password]::placeholder {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: 400;
+    color: #d3d3d3;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password]:focus {
+    outline: none;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login .continue-btn {
+    width: 430px;
+    height: 70px;
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    border: none;
+    border-radius: 10px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login {
+    width: 100%;
+    height: 360px;
+    padding: 30px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    margin-top: -10px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login .qr-code {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    text-align: center;
+    margin: 12px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) #qr-timer {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    color: #00cd3c;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(2) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    margin: 6px;
+    text-align: center;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    text-align: center;
+    margin-top: 10px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) #qr-number {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    color: #00cd3c;
+  }
+  body .inner .contaniner main .login-page .find-info {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    color: #606060;
+    transition: all 0.3s;
+  }
+  body .inner .contaniner main .login-page .find-info a:hover {
+    color: #000;
+    /* border-bottom: 1px solid #000; */
+  }
+  body .inner .contaniner main .login-page .footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
     gap: 10px;
   }
-  .easy-login .icons ul img {
-    width: 50px;
-    height: 50px;
+  body .inner .contaniner main .login-page .footer .country-select {
+    margin-top: 16px;
   }
-  .footer .inputBox {
+  body .inner .contaniner main .login-page .footer .country-select .field {
+    font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
   }
-  .footer p {
+  body .inner .contaniner main .login-page .footer .country-select .inputBox {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    border: none;
+  }
+  body .inner .contaniner main .login-page .footer .country-select .inputBox option {
     font-size: 14px;
-  }
-  .footer span {
-    font-size: 10px;
   }
 }/*# sourceMappingURL=login.css.map */
