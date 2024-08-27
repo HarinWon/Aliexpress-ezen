@@ -175,6 +175,7 @@ body {
 }
 .product-buy .product-info .product-actions .btn-cart,
 .product-buy .product-info .product-actions .btn-buy {
+  cursor: pointer;
   width: 50%;
   padding: 10px;
   font-size: 16px;
@@ -320,7 +321,6 @@ main .product-details-tabs .tabs {
   z-index: 2;
 }
 main .product-details-tabs .tabs .tab {
-  flex-grow: 1;
   padding: 10px;
   text-align: center;
   font-family: "Noto Sans KR, sans-serif";
@@ -355,7 +355,6 @@ main .product-details-tabs .product-contents div .tab-content img {
   margin: 20px 0;
 }
 main .product-details-tabs .product-contents .review-container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
@@ -440,6 +439,7 @@ main .product-details-tabs .product-contents .review-container .rating-distribut
   color: #555;
 }
 main .product-details-tabs .product-contents .review-container .bar-container {
+  width: 100%;
   flex-grow: 1;
   background-color: #f0f0f0;
   height: 10px;
@@ -560,7 +560,7 @@ main .product-details-tabs .product-contents .delivery_information {
   background-color: #fff;
   padding: 20px;
   border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 main .product-details-tabs .product-contents .delivery_information h1 {
   font-size: 24px;
@@ -605,6 +605,7 @@ main h3 {
 main .product-slider {
   position: relative;
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 main .product-slider div h3 {
   font-family: "Noto Sans KR, sans-serif";
@@ -677,7 +678,6 @@ main .product-slider button.slick-prev::before {
 main .product-slider button.slick-next {
   right: 0;
   font-size: 0;
-  color: transparent;
 }
 main .product-slider button.slick-next::before {
   content: "\f054";
@@ -687,12 +687,15 @@ main .product-slider button.slick-next::before {
 }
 main .product-slider button:hover {
   background: #ff611d;
+  color: #fff;
 }
 main .product-slider button:hover.slick-prev {
   transform: translateX(-10px);
+  color: #fff;
 }
 main .product-slider button:hover.slick-next {
   transform: translateX(10px);
+  color: #fff;
 }
 main #weeklyContainer {
   display: flex;
@@ -869,12 +872,14 @@ main #weeklyContainer .trigger section:last-child {
     justify-content: space-around;
   }
   .buy-nav .nav-buy-cart .nav-cart {
+    cursor: pointer;
     width: 48%;
     text-align: center;
     line-height: 44px;
     background: #dddddd;
   }
   .buy-nav .nav-buy-cart .nav-buy {
+    cursor: pointer;
     width: 48%;
     text-align: center;
     line-height: 44px;
@@ -885,7 +890,6 @@ main #weeklyContainer .trigger section:last-child {
     display: none;
   }
   main {
-    width: 900px;
     padding: 0 20px;
   }
   main .product-detail {
@@ -934,14 +938,17 @@ main #weeklyContainer .trigger section:last-child {
     width: 100%;
     margin: 0;
   }
-  main .product-details-tabs .product-contents .tab-content {
-    width: 760px;
-  }
   main .product-details-tabs aside {
     display: none;
   }
   main .product-details-tabs .review-container {
-    width: 760px;
+    width: 100%;
+  }
+  main .product-details-tabs .review-container .review-section .review-content {
+    flex-wrap: wrap;
+  }
+  main .product-details-tabs .review-container .review-section .review-content .rating-overview {
+    margin-bottom: 20px;
   }
   main .product-details-tabs .review-container .summary {
     flex-wrap: wrap;
@@ -958,10 +965,11 @@ main #weeklyContainer .trigger section:last-child {
 }
 @media (max-width: 430px) {
   main {
+    width: 430px;
     margin: 0 auto;
   }
   main .product-detail .product-images .main-image {
-    width: 350px;
+    width: 100%;
   }
   main .product-detail .product-images .main-image img {
     width: 100%;
@@ -978,8 +986,8 @@ main #weeklyContainer .trigger section:last-child {
   main .product-details-tabs .product-contents .tab-content img {
     width: 100%;
   }
-  main .product-details-tabs .product-contents .review-container {
-    width: 350px;
+  main .product-details-tabs .product-contents .review-container .review-section {
+    width: 100%;
   }
   main .product-details-tabs .product-contents .review-container .photo-reviews .photos {
     width: 360px;

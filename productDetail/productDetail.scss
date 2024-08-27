@@ -277,6 +277,7 @@ body {
 
       .btn-cart,
       .btn-buy {
+        cursor: pointer;
         width: 50%;
         padding: 10px;
         font-size: 16px;
@@ -420,6 +421,7 @@ main {
 
     .tabs {
       display: flex;
+      // justify-content: space-between;
       justify-content: space-around;
       border-bottom: 1px solid #ddd;
       background: #fff;
@@ -428,7 +430,7 @@ main {
       z-index: 2;
 
       .tab {
-        flex-grow: 1;
+        // flex-grow: 1;
         padding: 10px;
         text-align: center;
         @include lead-paragraph();
@@ -480,7 +482,7 @@ main {
       }
 
       .review-container {
-        max-width: 1200px;
+        // max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
         background-color: #fff;
@@ -492,6 +494,7 @@ main {
 
         .review-section {
           width: 100%;
+          // display: flex;
           padding: 20px;
           border-top: 1px solid #ddd;
           border-bottom: 1px solid #ddd;
@@ -519,6 +522,7 @@ main {
 
         .review-content {
           display: flex;
+          
           justify-content: space-between;
           align-items: center;
         }
@@ -580,6 +584,7 @@ main {
         }
 
         .bar-container {
+          width: 100%;
           flex-grow: 1;
           background-color: #f0f0f0;
           height: 10px;
@@ -713,7 +718,8 @@ main {
         background-color: #fff;
         padding: 20px;
         border: 1px solid #ddd;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
 
         h1 {
           font-size: 24px;
@@ -765,6 +771,7 @@ main {
   .product-slider {
     position: relative;
     margin-top: 20px;
+    margin-bottom: 100px;
     div {
       h3 {
         @include heading5();
@@ -821,7 +828,7 @@ main {
       &.slick-next {
         right: 0;
         font-size: 0;
-        color: transparent;
+        // color: map-get($color, light2 );
         &::before {
           content: "\f054";
           font-family: "FontAwesome";
@@ -831,11 +838,14 @@ main {
       }
       &:hover {
         background: rgba($color: #ff611d, $alpha: 1);
+        color: #fff;
         &.slick-prev {
           transform: translateX(-10px);
+          color: #fff;
         }
         &.slick-next {
           transform: translateX(10px);
+          color: #fff;
         }
       }
     }
@@ -1006,12 +1016,14 @@ main {
       display: flex;
       justify-content: space-around;
       .nav-cart {
+        cursor: pointer;
         width: 48%;
         text-align: center;
         line-height: 44px;
         background: map-get($color, light2);
       }
       .nav-buy {
+        cursor: pointer;
         width: 48%;
         text-align: center;
         line-height: 44px;
@@ -1024,7 +1036,7 @@ main {
     display: none;
   }
   main {
-    width: 900px;
+    // width: 900px;
     padding: 0 20px;
 
     .product-detail {
@@ -1077,7 +1089,7 @@ main {
       margin: 0;
 
       .product-contents .tab-content {
-        width: 760px;
+        // width: 760px;
       }
 
       aside {
@@ -1085,8 +1097,16 @@ main {
       }
 
       .review-container {
-        width: 760px;
-
+        width: 100%;
+        .review-section {
+          .review-content {
+            flex-wrap: wrap;
+            .rating-overview {
+              margin-bottom: 20px;
+            }
+          }
+        }
+        
         .summary {
           flex-wrap: wrap;
 
@@ -1110,11 +1130,12 @@ main {
 // Mobile
 @media (max-width: 430px) {
   main {
+    width: 430px;
     margin: 0 auto;
-
     .product-detail {
       .product-images .main-image {
-        width: 350px;
+        width: 100%;
+        // width: 350px;
 
         img {
           width: 100%;
@@ -1136,8 +1157,12 @@ main {
       }
 
       .review-container {
-        width: 350px;
-
+        .review-section {
+          width: 100%;
+          // display: flex;
+          // flex-direction: column;
+          
+        }
         .photo-reviews .photos {
           width: 360px;
           overflow-x: auto;
