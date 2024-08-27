@@ -110,16 +110,19 @@ body {
   height: 100vh;
 }
 #mainContainer #mainVideo video {
+  position: relative;
   width: 100%;
-  height: calc(100vh - 65px);
+  height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
 #mainContainer::before {
   content: "";
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: calc(100vh - 65px);
+  height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -774,18 +777,14 @@ body {
     line-height: 1.3;
   }
   #mainContainer {
-    width: 100%;
     height: 100%;
+    overflow: hidden;
   }
   #mainContainer #mainVideo video {
-    width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
   #mainContainer::before {
-    width: 100%;
-    height: 99%;
+    height: 100%;
   }
   #mainContainer .mainTrigger {
     bottom: 30px;
@@ -812,7 +811,7 @@ body {
     background: #f5f5f5;
   }
   #infoContainer {
-    margin-top: 10px;
+    margin: 20px 0 50px;
   }
   #infoContainer ul {
     gap: 10px;
@@ -823,6 +822,8 @@ body {
   #infoContainer ul li {
     width: 100%;
     height: 100%;
+    bottom: 0;
+    opacity: 1;
   }
   #infoContainer ul li img {
     width: 100%;
@@ -1105,14 +1106,14 @@ body {
     height: 30px;
   }
   #infoContainer {
-    z-index: 3;
+    z-index: 2;
   }
   #infoContainer ul {
     margin-top: -26px;
     width: 130%;
     height: 80px;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.8);
+    background: #fff;
     border-radius: 50px;
     box-shadow: 0 0 5px #999;
     gap: 5px;
@@ -1121,12 +1122,17 @@ body {
     display: flex;
     color: #ff611d;
     font-weight: bold;
-    padding: 12px 2px;
-    margin-left: 10px;
+    padding: 12px 6px;
+    margin-left: -60px;
+  }
+  #infoContainer ul li {
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
   }
   #infoContainer ul li img {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    height: 100%;
     position: relative;
     border-radius: 50px;
   }
@@ -1138,7 +1144,8 @@ body {
   }
   #infoContainer ul li .alieInfoDesc h3 {
     position: absolute;
-    bottom: 10px;
+    bottom: 12px;
+    left: -3px;
     font-size: 0.6rem;
     color: #dddddd;
   }
@@ -1149,7 +1156,7 @@ body {
     display: none;
   }
   #welcomeContainer .welcome {
-    margin-top: 40px;
+    margin: 0;
   }
   #welcomeContainer .welcome .welcomeContents {
     display: flex;
@@ -1356,8 +1363,6 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
   #categoryContainer .categoryContents .category .categoryContent ul {
     width: 100%;

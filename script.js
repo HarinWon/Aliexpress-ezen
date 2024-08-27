@@ -4,7 +4,7 @@ const arrows = document.querySelectorAll(".arrow");
 const mainArrows = document.querySelectorAll(".mainArrow");
 const videos = ["aliExpressMainVideo1.mp4", "aliExpressMainVideo2.mp4"];
 
-mainVideo.innerHTML = `<video width="100%" height="100%" src="./dbimg/${videos[0]}" autoplay muted loop></video>`;
+mainVideo.innerHTML = `<video src="./dbimg/${videos[0]}" autoplay muted loop></video>`;
 
 const srcVideo = document.querySelector("video");
 
@@ -40,24 +40,20 @@ arrows.forEach((arrow) => {
 });
 
 //infoScroll
+
 window.addEventListener("scroll", () => {
-  let scrollY = window.scrollY;
   const info = document.querySelectorAll("#infoContainer ul li");
+  let scrollY = window.scrollY;
 
-  const tabletQuery = window.matchMedia("(max-width: 768px)");
-  const mobileQuery = window.matchMedia("(max-width: 430px)");
-
-  // 태블릿 또는 모바일이 아닐 때만 스크롤 이벤트 동작
-  if (!tabletQuery.matches && !mobileQuery.matches) {
-    info.forEach((item) => {
-      if (scrollY > 250) {
-        item.classList.add("activeScroll");
-      } else {
-        item.classList.remove("activeScroll");
-      }
-    });
-  }
+  info.forEach((item) => {
+    if (scrollY > 250) {
+      item.classList.add("activeScroll");
+    } else {
+      item.classList.remove("activeScroll");
+    }
+  });
 });
+
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
 const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
@@ -253,7 +249,7 @@ fetch("./db.json")
             (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
           );
         }
-        console.log(data);
+        // console.log(data);
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
         // 새로운 ulElements 생성
@@ -336,6 +332,61 @@ fetch("./db.json")
       }
     });
   });
+
+//category Touch Event
+const categoryGnb = document.querySelector(".Tablet");
+const gnbClientWidth = categoryGnb.clientWidth;
+
+let firstX = 0;
+let secondX = 0;
+
+// document.addEventListener("touchstart", (e) => {
+//   console.log(e.touches); // 현재 터치되고 있는 모든 손가락의 정보를 배열로 출력
+//   console.log(e.touches[0].clientX); // 첫 번째 손가락의 X 좌표
+//   console.log(e.touches[0].clientY); // 첫 번째 손가락의 Y 좌표
+// });
+
+const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+
+//   const hashContent = document.querySelector(".hashcontent");
+// const listClientWidth = hashContent.clientWidth;
+// const listScollWidth = listClientWidth + 200;
+
+// let startX = 0, listX = 0;
+
+// const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+
+// const getTranslateX = () => parseInt(getComputedStyle(hashContent).transform.split(/[^\-0-9]+/g)[5]) || 0;
+
+// const setTranslateX = (x) => {
+//   hashContent.style.transform = `translateX(${x}px)`;
+//   hashContent.style.transition = `none`;
+// };
+
+// const onScrollMove = (e) => {
+//   const nowX = getClientX(e);
+//   setTranslateX(listX + nowX - startX);
+// };
+
+// const onScrollEnd = () => {
+//   listX = getTranslateX();
+//   if (listX > 0) {
+//     setTranslateX(0);
+//   } else if (listX < listClientWidth - listScollWidth) {
+//     setTranslateX(listClientWidth - listScollWidth);
+//   }
+//   hashContent.style.transition = `all 0.1s ease`;
+//   removeScrollListeners();
+// };
+
+// const onScrollStart = (e) => {
+//   startX = getClientX(e);
+//   listX = getTranslateX();
+//   addScrollListeners();
+// };
+
+// hashContent.addEventListener("touchstart", onScrollStart);
+// hashContent.addEventListener("mousedown", onScrollStart);
 
 //category Scroll Event
 const categories = document.querySelectorAll(".category");

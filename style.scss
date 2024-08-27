@@ -169,15 +169,18 @@ body {
   width: 100%;
   height: 100vh;
   #mainVideo video {
+    position: relative;
     width: 100%;
-    height: calc(100vh - 65px);
+    height: 100vh;
     object-fit: cover;
   }
   &::before {
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: calc(100vh - 65px);
+    height: 100%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -802,17 +805,15 @@ body {
 
   // main
   #mainContainer {
-    width: 100%;
     height: 100%;
+    overflow: hidden;
     #mainVideo video {
-      width: 100%;
       height: 100%;
-      object-fit: cover;
     }
     &::before {
-      width: 100%;
-      height: 99%;
+      height: 100%;
     }
+
     .mainTrigger {
       bottom: 30px;
       p:nth-of-type(1) {
@@ -840,7 +841,7 @@ body {
   }
   //info
   #infoContainer {
-    margin-top: 10px;
+    margin: 20px 0 50px;
     ul {
       gap: 10px;
       .infoTitleMobile {
@@ -849,6 +850,8 @@ body {
       li {
         width: 100%;
         height: 100%;
+        bottom: 0;
+        opacity: 1;
         img {
           width: 100%;
           height: 100%;
@@ -1138,13 +1141,13 @@ body {
   }
   //info
   #infoContainer {
-    z-index: 3;
+    z-index: 2;
     ul {
       margin-top: -26px;
       width: 130%;
       height: 80px;
       padding: 10px;
-      background: rgba(255, 255, 255, 0.8);
+      background: #fff;
       border-radius: 50px;
       box-shadow: 0 0 5px #999;
       gap: 5px;
@@ -1152,13 +1155,16 @@ body {
         display: flex;
         color: map-get($color, main-color);
         font-weight: bold;
-        padding: 12px 2px;
-        margin-left: 10px;
+        padding: 12px 6px;
+        margin-left: -60px;
       }
       li {
+        width: 55px;
+        height: 55px;
+        border-radius: 50px;
         img {
-          width: 60px;
-          height: 60px;
+          width: 100%;
+          height: 100%;
           position: relative;
           border-radius: 50px;
         }
@@ -1169,7 +1175,8 @@ body {
           position: relative;
           h3 {
             position: absolute;
-            bottom: 10px;
+            bottom: 12px;
+            left: -3px;
             font-size: 0.6rem;
             color: map-get($color, light2);
           }
@@ -1186,7 +1193,7 @@ body {
   //welcome
   #welcomeContainer {
     .welcome {
-      margin-top: 40px;
+      margin: 0;
       .welcomeContents {
         display: flex;
         flex-direction: column;
@@ -1393,8 +1400,6 @@ body {
           width: 100%;
           height: 100%;
           display: flex;
-          flex-direction: column;
-          justify-content: space-between;
           ul {
             width: 100%;
             display: flex;
