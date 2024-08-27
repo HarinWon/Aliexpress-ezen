@@ -1,0 +1,333 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+// font family
+$fonts: (
+  noto-sans: "Noto Sans KR, sans-serif",
+);
+// font style mixins
+@mixin display1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+@mixin display2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+@mixin heading1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+@mixin heading2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+@mixin heading3 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+@mixin heading4 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+@mixin heading5 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+@mixin lead-paragraph {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+@mixin body-medium {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+@mixin body-normal {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+@mixin body-small {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+// color
+$color: (
+  main-color: #ff611d,
+  main-gradient: linear-gradient(to right, #f7971d 0%, #ff611d 100%),
+  point-color: #e43225,
+  logo-color: #f7971d,
+  enable-color: #fd384f,
+  disabled-color: #ffc6cd,
+  dark1: #191919,
+  dark2: #333333,
+  dark3: #7b7b7b,
+  light1: #afafaf,
+  light2: #dddddd,
+  light3: #f5f5f5,
+);
+
+.contentPrice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px 10px;
+  @include body-small();
+  del {
+    color: map-get($color, light1);
+  }
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 3px;
+    strong {
+      padding: 2px 3px 0;
+      text-align: center;
+      border-radius: 4px;
+      background: map-get($color, main-color);
+      color: map-get($color, light3);
+    }
+    p:nth-child(1) {
+      color: map-get($color, dark1);
+      padding: 2px 0;
+    }
+    p:nth-child(2) {
+      color: map-get($color, dark3);
+      padding: 2px 0;
+    }
+  }
+}
+
+.contentTitle {
+  padding: 10px 10px 0;
+  h3 {
+    @include heading5();
+  }
+  p {
+    @include body-medium();
+  }
+}
+
+.slider-container {
+  width: 200px;
+  margin: 20px;
+}
+
+.slider-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.price-range {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.radio-group,
+.checkbox-group {
+  margin-top: 20px;
+  .label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+    input {
+      margin-right: 5px;
+    }
+  }
+}
+
+// Flexbox container 설정
+.product-detail-list-box {
+  display: flex;
+  height: 100vh;
+}
+
+.product-list {
+  width: calc(
+    100% - 300px
+  ); // 너비 설정, slider-container가 200px이라면 200px로 수정
+}
+
+.productContents {
+  .productTop {
+    width: 100%;
+    .titleRight {
+      position: fixed;
+      width: 100%;
+      height: 70px;
+      // top: 20px;
+      background: #fff;
+      z-index: 3;
+
+      a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include body-medium();
+        color: map-get($color, light1);
+      }
+
+      .titleBtn {
+        display: flex;
+        margin-top: 30px;
+        gap: 16px;
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        .btn {
+          display: inline-block;
+          text-align: center;
+          line-height: 30px;
+          width: 130px;
+          height: 30px;
+          background: map-get($color, light2);
+          border-radius: 50px;
+          cursor: pointer;
+
+          &.active {
+            background: map-get($color, main-gradient);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .productcontent {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    .ulElements {
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 100px;
+
+      li {
+        width: 300px;
+        .contentImg {
+          width: 100%;
+          height: 210px;
+          overflow: hidden; // 부모 컨테이너를 벗어나는 이미지 부분을 숨김
+          img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+            object-fit: cover;
+            transition: transform 0.3s;
+          }
+        }
+
+        &:hover img {
+          transform: scale(1.1); // 이미지 확대 효과
+        }
+
+        .foryouTitle {
+          margin-top: 4px;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+// tab
+@media screen and (max-width: 1100px) {
+  .product-detail-list-box {
+    .slider-container {
+      display: none;
+    }
+    .product-list {
+      width: 100%;
+      .productcontent {
+        .ulElements {
+          gap: 20px;
+          li {
+            width: 200px;
+            .contentImg {
+              width: 100%;
+              height: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .product-detail-list-box {
+    .slider-container {
+      display: none;
+    }
+    .product-list {
+      width: 100%;
+      .productcontent {
+        .ulElements {
+          justify-content: space-around;
+          li {
+            width: 180px;
+            .contentImg {
+              width: 100%;
+              height: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,33 @@
 @charset "UTF-8";
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  display: none; /* 기본적으로 숨겨진 상태 */
+}
+
+.cart-active .overlay {
+  display: block; /* cart-active 클래스가 있을 때만 보이도록 */
+}
+
+.cart-active main {
+  pointer-events: none; /* main의 클릭 및 터치 이벤트 차단 */
+}
+
+.product-info-mobile {
+  display: none;
+}
+
+.buy-nav-cart {
+  display: none;
+}
+
 body {
   overflow-x: hidden;
   display: grid;
@@ -50,6 +77,9 @@ body {
 }
 .product-buy .product-info .product-benefits .delivery-information {
   display: flex;
+  padding: 10px 0px 10px 2px;
+  margin: 10px 0;
+  border: 1px solid #afafaf;
 }
 .product-buy .product-info .product-benefits .delivery-information p {
   font-size: 16px;
@@ -152,8 +182,12 @@ body {
 }
 .product-buy .product-info .selected-product .quantity-selector input {
   width: 40px;
+  height: 30px;
   text-align: center;
   border: 1px solid #ddd;
+}
+.product-buy .product-info .selected-product .quantity-selector input:focus {
+  outline: none;
 }
 .product-buy .product-info .selected-product .total-price {
   font-size: 12px;
@@ -250,7 +284,7 @@ body {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
   border: none;
   border-radius: 2px;
   background-color: #ff611d;
@@ -326,15 +360,15 @@ main .product-details-tabs .tabs .tab {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 22px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   background: #fff;
   font-weight: bold;
   border: none;
   cursor: pointer;
 }
 main .product-details-tabs .tabs .tab.active {
-  color: #ff611d;
-  border-bottom: 2px solid #ff611d;
+  color: #ff611d !important;
+  border-bottom: 2px solid #ff611d !important;
 }
 main .product-details-tabs .product-contents {
   width: 100%;
@@ -363,7 +397,7 @@ main .product-details-tabs .product-contents .review-container h1 {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
   color: #191919;
 }
 main .product-details-tabs .product-contents .review-container .review-section {
@@ -420,7 +454,7 @@ main .product-details-tabs .product-contents .review-container .rating-distribut
   width: 1800px;
 }
 main .product-details-tabs .product-contents .review-container .rating-distribution ul li span {
-  width: 120px;
+  width: 200px;
 }
 main .product-details-tabs .product-contents .review-container .rating-distribution ul {
   list-style: none;
@@ -431,7 +465,10 @@ main .product-details-tabs .product-contents .review-container .rating-distribut
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
 }
 main .product-details-tabs .product-contents .review-container .rating-distribution span {
   width: 80px;
@@ -464,7 +501,7 @@ main .product-details-tabs .product-contents .review-container .photo-reviews h3
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   font-weight: bold;
   color: #333;
 }
@@ -480,8 +517,7 @@ main .product-details-tabs .product-contents .review-container .photo-reviews .p
 main .product-details-tabs .product-contents .review-container .photo-reviews .photos li img {
   width: 100px;
   height: 100px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -512,7 +548,7 @@ main .product-details-tabs .product-contents .review-container .text-reviews .re
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   font-weight: bold;
   color: #333;
 }
@@ -598,7 +634,7 @@ main h3 {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   font-weight: bold;
   color: #333;
 }
@@ -607,18 +643,33 @@ main .product-slider {
   margin-top: 20px;
   margin-bottom: 100px;
 }
+main .product-slider div {
+  cursor: pointer;
+}
+main .product-slider div .productImg {
+  width: 240px;
+  height: 200px;
+  overflow: hidden;
+}
+main .product-slider div .productImg img {
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+main .product-slider div .productImg img:hover {
+  transform: scale(1.1); /* 이미지 확대 */
+}
 main .product-slider div h3 {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
   margin-bottom: 10px;
 }
 main .product-slider div p {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 main .product-slider div img {
   width: 250px;
@@ -627,7 +678,7 @@ main .product-slider div span strong {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   font-weight: bold;
   color: #ff611d;
 }
@@ -635,21 +686,21 @@ main .product-slider div span b {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   font-weight: bold;
 }
 main .product-slider div span del {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   color: #afafaf;
 }
 main .product-slider div span p {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 main .product-slider button {
   cursor: pointer;
@@ -719,7 +770,7 @@ main #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft h1 {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 50px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
 }
 main #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft .weeklyTime {
   display: flex;
@@ -731,7 +782,7 @@ main #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft .weeklyTime 
   font-family: "Noto Sans KR, sans-serif";
   font-size: 22px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   font-weight: 600;
   color: #f5f5f5;
   background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
@@ -741,7 +792,7 @@ main #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerRight {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.3rem;
+  line-height: 1.3;
   color: #afafaf;
 }
 main #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerRight i {
@@ -765,8 +816,7 @@ main #weeklyContainer .weeklyContents .weeklyContent ul .contentImg {
 main #weeklyContainer .weeklyContents .weeklyContent ul .contentImg img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 4px;
   margin-bottom: 10px;
 }
@@ -774,7 +824,7 @@ main #weeklyContainer .weeklyContents .weeklyContent ul .contentImg .sale {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.3rem;
+  line-height: 1.3;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -845,7 +895,216 @@ main #weeklyContainer .trigger section:last-child {
 }
 
 @media (max-width: 900px) {
+  .product-info-mobile {
+    display: block;
+    text-align: left;
+  }
+  .product-info-mobile h2 {
+    font-size: 14px;
+    color: #999;
+  }
+  .product-info-mobile h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .product-info-mobile .product-code {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+  .product-info-mobile .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .product-info-mobile .product-benefits {
+    margin-bottom: 20px;
+  }
+  .product-info-mobile .product-benefits .badge {
+    display: inline-block;
+    background-color: #f7971d;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+  .product-info-mobile .product-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .product-info-mobile .product-actions .btn-cart,
+  .product-info-mobile .product-actions .btn-buy {
+    cursor: pointer;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .product-info-mobile .product-actions .btn-cart.btn-cart,
+  .product-info-mobile .product-actions .btn-buy.btn-cart {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  .product-info-mobile .product-actions .btn-cart.btn-buy,
+  .product-info-mobile .product-actions .btn-buy.btn-buy {
+    background-color: #000;
+    color: white;
+  }
+  .buy-nav-cart {
+    display: none;
+    z-index: 5;
+    width: 100%;
+    height: 40%;
+    position: fixed;
+    justify-self: center;
+    align-items: center;
+    bottom: 70px;
+    background: #fff;
+    padding: 0 20px;
+  }
+  .buy-nav-cart.cart {
+    display: block;
+  }
+  .buy-nav-cart .product-options {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .buy-nav-cart .product-options .option {
+    margin-bottom: 15px;
+  }
+  .buy-nav-cart .product-options .option label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  .buy-nav-cart .product-options .option .color-options img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  .buy-nav-cart .product-options .option .size-options {
+    display: flex;
+    gap: 5px;
+  }
+  .buy-nav-cart .product-options .option .size-options .size-option {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .buy-nav-cart .product-options .option .size-options .size-option.active {
+    border-color: #f7971d;
+    background-color: #f7971d;
+    color: white;
+  }
+  .buy-nav-cart .product-options .option .size-options .size-option.disabled {
+    color: #ccc;
+    border-color: #eee;
+    pointer-events: none;
+  }
+  .buy-nav-cart .product-options .size-guide {
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .buy-nav-cart .product-options .size-guide p {
+    margin: 0;
+  }
+  .buy-nav-cart .selected-product {
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  .buy-nav-cart .selected-product .product-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .buy-nav-cart .selected-product .product-summary p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .buy-nav-cart .selected-product .product-summary .remove {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .buy-nav-cart .selected-product .quantity-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  .buy-nav-cart .selected-product .quantity-selector .quantity-btn {
+    background-color: #ddd;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .buy-nav-cart .selected-product .quantity-selector input {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  .buy-nav-cart .selected-product .quantity-selector input:focus {
+    outline: none;
+  }
+  .buy-nav-cart .selected-product .total-price {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+  }
+  .buy-nav-cart .selected-product .final-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .buy-nav-cart .selected-product .free-shipping {
+    font-size: 12px;
+    color: #ff611d;
+  }
+  .buy-nav-cart .product-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .buy-nav-cart .product-actions .btn-cart,
+  .buy-nav-cart .product-actions .btn-buy {
+    cursor: pointer;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .buy-nav-cart .product-actions .btn-cart.btn-cart,
+  .buy-nav-cart .product-actions .btn-buy.btn-cart {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  .buy-nav-cart .product-actions .btn-cart.btn-buy,
+  .buy-nav-cart .product-actions .btn-buy.btn-buy {
+    background-color: #000;
+    color: white;
+  }
   .buy-nav {
+    z-index: 5;
     width: 100%;
     height: 70px;
     position: fixed;
@@ -904,6 +1163,7 @@ main #weeklyContainer .trigger section:last-child {
     width: 100%;
   }
   main .product-detail .product-images .thumbnail-images {
+    display: none;
     flex-direction: row;
     text-align: center;
   }
@@ -917,13 +1177,13 @@ main #weeklyContainer .trigger section:last-child {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 34px;
     font-weight: 700;
-    line-height: 1.3rem;
+    line-height: 1.3;
   }
   main .product-detail .product-info .price {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 26px;
     font-weight: 700;
-    line-height: 1.3rem;
+    line-height: 1.3;
   }
   main .product-detail .product-info .quantity-container {
     width: 100%;
@@ -978,7 +1238,7 @@ main #weeklyContainer .trigger section:last-child {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 22px;
     font-weight: 400;
-    line-height: 1.3rem;
+    line-height: 1.3;
   }
   main .product-details-tabs .product-contents .tab-content {
     width: 350px;
@@ -1000,14 +1260,17 @@ main #weeklyContainer .trigger section:last-child {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 18px;
     font-weight: 400;
-    line-height: 1.3rem;
+    line-height: 1.3;
     font-weight: bold;
   }
   main .product-details-tabs .product-contents .review-container .text-reviews .review-filter-list {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.3rem;
+    line-height: 1.3;
     gap: 2px;
+  }
+  main .product-slider div img {
+    width: 180px;
   }
 }
