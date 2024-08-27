@@ -332,17 +332,16 @@ fetch("/db.json")
   });
 
 //category Touch Event
-// document.addEventListener("touchstart", (e) => {
-//   console.log(e.touches); // 현재 터치되고 있는 모든 손가락의 정보를 배열로 출력
-//   console.log(e.touches[0].clientX); // 첫 번째 손가락의 X 좌표
-//   console.log(e.touches[0].clientY); // 첫 번째 손가락의 Y 좌표
-// });
-const categoryGnb = document.querySelector(".Tablet");
+const categoryGnb = document.querySelector(".Tablet > ul");
+const TabletBtn = document.querySelector(".TabletBtn");
 const gnbClientWidth = categoryGnb.clientWidth; // 화면에 보이는 부분의 너비
 const gnbScrollWidth = categoryGnb.scrollWidth; // 스크롤 가능한 전체 길이
 
 let firstX = 0;
 let secondX = 0;
+
+categoryGnb.style.width = `${gnbScrollWidth}px`;
+categoryGnb.style.backgroundColor = "white";
 
 // 현재 터치나 마우스 이벤트에서 X 좌표를 가져오는 함수
 const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
@@ -402,14 +401,18 @@ categoryGnb.addEventListener("mousedown", onScrollStart);
 
 //category Scroll Event
 const categories = document.querySelectorAll(".category");
-const gnbItems = document.querySelectorAll(".Desk ul li a");
+const DeskGnbItems = document.querySelectorAll(".Desk ul li a");
+const TabletGnbItems = document.querySelectorAll(".Tablet ul li a");
+
+TabletBtn.addEventListener("click", () => {
+  document.querySelector(".Tablet").classList.toggle("on");
+});
 
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
 
   categories.forEach((category, index) => {
     const categoryRect = category.getBoundingClientRect();
-
     const categoryTop = window.scrollY + categoryRect.top;
     const categoryHeight = category.offsetHeight;
 
@@ -419,10 +422,18 @@ window.addEventListener("scroll", () => {
       scrollY >= categoryTop - offset &&
       scrollY < categoryTop + categoryHeight - offset
     ) {
-      gnbItems.forEach((item) => item.classList.remove("active"));
+      DeskGnbItems.forEach((item) => item.classList.remove("active"));
+      TabletGnbItems.forEach((item) => item.classList.remove("active"));
       categories.forEach((item) => item.classList.remove("active"));
-      gnbItems[index].classList.add("active");
+
+      DeskGnbItems[index].classList.add("active");
+      TabletGnbItems[index].classList.add("active");
       categories[index].classList.add("active");
+    }
+    if (scrollY > 5140) {
+      document.querySelector(".TabletBtn").style.display = "block";
+    } else {
+      document.querySelector(".TabletBtn").style.display = "none";
     }
   });
 });
