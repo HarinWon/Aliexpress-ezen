@@ -82,6 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
       passwordInput.style.display = "block";
       passwordInput.setAttribute("required", "true");
       emailInput.disabled = true;
+
+      if (passwordInput.value.trim()) {
+        window.location.href = "./congratulate.html";
+      }
     } else {
       const userConfirmed = confirm(
         "회원정보가 없습니다. 회원가입으로 넘어가시겠습니까?"
