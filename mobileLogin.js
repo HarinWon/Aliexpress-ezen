@@ -38,8 +38,8 @@ apple.addEventListener("click", () => {
 
 // 유효성검사
 function validateForm() {
-  const userId = document.getElementById("userId").value.trim();
-  const password = document.getElementById("password").value.trim();
+  const userId = document.querySelector("#userId").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^010\d{8}$/;
@@ -52,22 +52,28 @@ function validateForm() {
     passwordRegex.test(password) && !consecutiveCharsRegex.test(password);
 
   if (!isIdValid) {
-    document.getElementById("userId").placeholder =
+    document.querySelector("#userId").placeholder =
       "이메일 주소나 휴대폰 번호를 잘못 적었습니다";
-    document.getElementById("userId").value = "";
+    document.querySelector("#userId").value = "";
   }
 
   if (!isPasswordValid) {
-    document.getElementById("password").placeholder =
+    document.querySelector("#password").placeholder =
       "8~16자, 영문, 숫자, 특수문자2자 이상 사용하세요";
-    document.getElementById("password").value = "";
+    document.querySelector("#password").value = "";
   }
 
   if (isIdValid && isPasswordValid) {
     if (userId === "alieexpress@naver.com" || userId === "01012345678") {
       window.location.href = "congratulate.html";
     } else {
-      window.location.href = "mobileAgree.html";
+      const userConfirmed = confirm(
+        "회원정보가 없습니다. 회원가입으로 넘어가시겠습니까?"
+      );
+      if (userConfirmed) {
+        window.location.href = "./mobileAgree.html";
+      } else {
+      }
     }
   }
 }

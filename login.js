@@ -1,15 +1,15 @@
 function showEmailLogin() {
-  document.getElementById("email-login").classList.add("active");
-  document.getElementById("qr-login").classList.remove("active");
-  document.getElementById("email_btn").classList.add("active");
-  document.getElementById("qr_btn").classList.remove("active");
+  document.querySelector("#email-login").classList.add("active");
+  document.querySelector("#qr-login").classList.remove("active");
+  document.querySelector("#email_btn").classList.add("active");
+  document.querySelector("#qr_btn").classList.remove("active");
 }
 
 function showQRLogin() {
-  document.getElementById("email-login").classList.remove("active");
-  document.getElementById("qr-login").classList.add("active");
-  document.getElementById("email_btn").classList.remove("active");
-  document.getElementById("qr_btn").classList.add("active");
+  document.querySelector("#email-login").classList.remove("active");
+  document.querySelector("#qr-login").classList.add("active");
+  document.querySelector("#email_btn").classList.remove("active");
+  document.querySelector("#qr_btn").classList.add("active");
   generateQRNumber();
 }
 showEmailLogin();
@@ -36,11 +36,11 @@ function updateTimer() {
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  document.getElementById("qr-timer").innerText = `${minutes}:${seconds}`;
+  document.querySelector("#qr-timer").innerText = `${minutes}:${seconds}`;
 
   if (timeLeft <= 0) {
     clearInterval(timerInterval);
-    document.getElementById("qr-timer").innerText = "00:00";
+    document.querySelector("#qr-timer").innerText = "00:00";
     alert("시간이 만료되었습니다.");
   } else {
     timeLeft--;
@@ -59,7 +59,7 @@ function generateQRNumber() {
 
   qrNumber = qrNumber < 10 ? "0" + qrNumber : qrNumber;
 
-  document.getElementById("qr-number").innerText = qrNumber;
+  document.querySelector("#qr-number").innerText = qrNumber;
 }
 
 document.querySelector("#qr_btn").addEventListener("click", showQRLogin);
@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const registeredPhone = "01012345678";
 
   const form = document.querySelector(".login-form");
-  const emailInput = document.getElementById("email-phone");
-  const passwordInput = document.getElementById("email-pw");
+  const emailInput = document.querySelector("#email-phone");
+  const passwordInput = document.querySelector("#email-pw");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -83,8 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
       passwordInput.setAttribute("required", "true");
       emailInput.disabled = true;
     } else {
-      alert("회원가입으로 넘어가시겠습니까?");
-      window.location.href = "./loginAgree.html";
+      const userConfirmed = confirm(
+        "회원정보가 없습니다. 회원가입으로 넘어가시겠습니까?"
+      );
+      if (userConfirmed) {
+        window.location.href = "./loginAgree.html";
+      } else {
+        emailInput.value = "";
+      }
     }
   });
 });

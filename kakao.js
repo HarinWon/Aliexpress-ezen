@@ -7,11 +7,11 @@ function updateTimer() {
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  document.getElementById("timer").innerText = `${minutes}:${seconds}`;
+  document.querySelector("#timer").innerText = `${minutes}:${seconds}`;
 
   if (timeLeft <= 0) {
     clearInterval(timerInterval);
-    document.getElementById("timer").innerText = "00:00";
+    document.querySelector("#timer").innerText = "00:00";
     alert("시간이 만료되었습니다.");
   } else {
     timeLeft--;

@@ -1,5 +1,5 @@
 function updatePlaceholder(option) {
-  const input = document.getElementById("reset-input");
+  const input = document.querySelector("#reset-input");
 
   if (option === "email") {
     input.placeholder = "이메일 또는 회원 ID";

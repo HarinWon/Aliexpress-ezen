@@ -68,7 +68,7 @@ function isValidPassword(password) {
 }
 
 function validateEmailOrPhone() {
-  let emailOrPhoneField = document.getElementById("email");
+  let emailOrPhoneField = document.querySelector("#email");
   let value = emailOrPhoneField.value;
 
   if (!isValidEmail(value) && !isValidPhone(value)) {
@@ -79,7 +79,7 @@ function validateEmailOrPhone() {
 }
 
 function validatePassword() {
-  let passwordField = document.getElementById("password");
+  let passwordField = document.querySelector("#password");
   let password = passwordField.value;
 
   if (!isValidPassword(password)) {
@@ -89,8 +89,8 @@ function validatePassword() {
 }
 
 function validateConfirmPassword() {
-  let passwordField = document.getElementById("password");
-  let confirmPasswordField = document.getElementById("confirmPassword");
+  let passwordField = document.querySelector("#password");
+  let confirmPasswordField = document.querySelector("#confirmPassword");
   let confirmPassword = confirmPasswordField.value;
 
   if (passwordField.value !== confirmPassword) {
@@ -98,25 +98,50 @@ function validateConfirmPassword() {
     confirmPasswordField.placeholder = "비밀번호가 일치하지 않습니다";
   }
 }
-
-document.getElementById("email").addEventListener("blur", validateEmailOrPhone);
-document.getElementById("password").addEventListener("blur", validatePassword);
+document.querySelector("#email").addEventListener("blur", validateEmailOrPhone);
+document.querySelector("#password").addEventListener("blur", validatePassword);
 document
-  .getElementById("confirmPassword")
+  .querySelector("#confirmPassword")
   .addEventListener("blur", validateConfirmPassword);
 
 // 모두 동의 체크시 동그라미 전부 빨간불
 const checks = document.querySelectorAll(".fa-circle-check");
 const checkAll = document.querySelector(".checkAll");
 
+checkAll.addEventListener("click", function () {
+  const isActive = checkAll.classList.contains("active");
+
+  if (isActive) {
+    checks.forEach((check) => {
+      check.classList.remove("active");
+    });
+  } else {
+    checks.forEach((check) => {
+      check.classList.add("active");
+    });
+  }
+
+  checkAll.classList.toggle("active");
+
+  agreeBtn.removeEventListener("click", handleAgreeBtnClick);
+  agreeBtn.addEventListener("click", handleAgreeBtnClick);
+});
+
 checks.forEach((check) => {
   check.addEventListener("click", function () {
     this.classList.toggle("active");
 
-    if (checkAll.classList.contains("active")) {
-      checks.forEach((check) => {
-        check.classList.add("active");
-      });
+    const allActive = Array.from(checks).every((check) =>
+      check.classList.contains("active")
+    );
+    const anyActive = Array.from(checks).some((check) =>
+      check.classList.contains("active")
+    );
+
+    if (allActive) {
+      checkAll.classList.add("active");
+    } else if (!anyActive) {
+      checkAll.classList.remove("active");
     }
   });
 });
