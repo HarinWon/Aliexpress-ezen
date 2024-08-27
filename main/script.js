@@ -40,7 +40,6 @@ arrows.forEach((arrow) => {
 });
 
 //infoScroll
-
 window.addEventListener("scroll", () => {
   const info = document.querySelectorAll("#infoContainer ul li");
   let scrollY = window.scrollY;
@@ -56,7 +55,7 @@ window.addEventListener("scroll", () => {
 
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
-const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
+const targetDate = new Date("2024-09-05T00:00:00"); // 기준 날짜 설정
 
 const countdown = () => {
   const current = new Date();
@@ -229,7 +228,6 @@ foryouBtn.forEach((btn) => {
 
 //foryou json + category json
 const foryouContent = document.querySelector(".foryoucontent");
-
 fetch("/db.json")
   .then((response) => response.json())
   .then((data) => {
@@ -303,90 +301,104 @@ fetch("/db.json")
         }
 
         const productHTML = `
-          <li>
-            <a href="#none">
-              <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" />
-              </div>
-              <div class="contentTitle foryouTitle">
-                <h3>${item.brand}</h3>
-                <p>${item.product_name}</p>
-              </div>
-              <div class="contentPrice">
-                <span>
-                  <strong>${item.discount}</strong>
-                  <b>${item.price}</b>
-                  <del>${item.original_price}</del>
-                </span>
-                <span>
-                  <p>${item.delivery}</p>
-                  <p>${item.delivery_date}</p>
-                </span>
-                <span><b>*****</b>${item.ratings} 판매</span>
-              </div>
-            </a>
-          </li>
-          
-      `;
+        <li>
+        <a href="#none">
+        <div class="contentImg">
+        <img src="${item.image_path}" alt="${item.product_name}" />
+        </div>
+        <div class="contentTitle foryouTitle">
+        <h3>${item.brand}</h3>
+        <p>${item.product_name}</p>
+        </div>
+        <div class="contentPrice">
+        <span>
+        <strong>${item.discount}</strong>
+        <b>${item.price}</b>
+        <del>${item.original_price}</del>
+        </span>
+        <span>
+        <p>${item.delivery}</p>
+        <p>${item.delivery_date}</p>
+        </span>
+        <span><b>*****</b>${item.ratings} 판매</span>
+        </div>
+        </a>
+        </li>
+        
+        `;
         createUl.insertAdjacentHTML("beforeend", productHTML);
       }
     });
   });
 
 //category Touch Event
-const categoryGnb = document.querySelector(".Tablet");
-const gnbClientWidth = categoryGnb.clientWidth;
-
-let firstX = 0;
-let secondX = 0;
-
 // document.addEventListener("touchstart", (e) => {
 //   console.log(e.touches); // 현재 터치되고 있는 모든 손가락의 정보를 배열로 출력
 //   console.log(e.touches[0].clientX); // 첫 번째 손가락의 X 좌표
 //   console.log(e.touches[0].clientY); // 첫 번째 손가락의 Y 좌표
 // });
+const categoryGnb = document.querySelector(".Tablet");
+const gnbClientWidth = categoryGnb.clientWidth; // 화면에 보이는 부분의 너비
+const gnbScrollWidth = categoryGnb.scrollWidth; // 스크롤 가능한 전체 길이
 
+let firstX = 0;
+let secondX = 0;
+
+// 현재 터치나 마우스 이벤트에서 X 좌표를 가져오는 함수
 const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
 
-//   const hashContent = document.querySelector(".hashcontent");
-// const listClientWidth = hashContent.clientWidth;
-// const listScollWidth = listClientWidth + 200;
+// categoryGnb 요소의 transform 값을 가져오는 함수
+const getTranslateX = () =>
+  parseInt(getComputedStyle(categoryGnb).transform.split(/[^\-0-9]+/g)[5]) || 0;
 
-// let startX = 0, listX = 0;
+// categoryGnb 요소를 X축으로 이동시키는 함수
+const setTranslateX = (x) => {
+  categoryGnb.style.transform = `translateX(${x}px)`;
+  categoryGnb.style.transition = `none`; // 이동 중 애니메이션 없음
+};
 
-// const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+// 드래그(스크롤) 중에 호출되는 함수
+const onScrollMove = (e) => {
+  const nowX = getClientX(e);
+  setTranslateX(secondX + nowX - firstX); // 현재 위치에서 드래그한 만큼 이동
+};
 
-// const getTranslateX = () => parseInt(getComputedStyle(hashContent).transform.split(/[^\-0-9]+/g)[5]) || 0;
+// 스크롤(드래그)이 끝났을 때 호출되는 함수
+const onScrollEnd = () => {
+  secondX = getTranslateX(); // 현재 이동된 위치 저장
 
-// const setTranslateX = (x) => {
-//   hashContent.style.transform = `translateX(${x}px)`;
-//   hashContent.style.transition = `none`;
-// };
+  // 화면 범위를 넘어가면 위치를 조정
+  if (secondX > 0) {
+    setTranslateX(0); // 왼쪽으로 벗어나면 0으로 설정
+  } else if (secondX < gnbClientWidth - gnbScrollWidth) {
+    setTranslateX(gnbClientWidth - gnbScrollWidth); // 오른쪽으로 벗어나면 설정
+  }
 
-// const onScrollMove = (e) => {
-//   const nowX = getClientX(e);
-//   setTranslateX(listX + nowX - startX);
-// };
+  // 부드럽게 이동하는 효과 추가
+  categoryGnb.style.transition = `all 0.1s ease`;
 
-// const onScrollEnd = () => {
-//   listX = getTranslateX();
-//   if (listX > 0) {
-//     setTranslateX(0);
-//   } else if (listX < listClientWidth - listScollWidth) {
-//     setTranslateX(listClientWidth - listScollWidth);
-//   }
-//   hashContent.style.transition = `all 0.1s ease`;
-//   removeScrollListeners();
-// };
+  // 스크롤 관련 리스너 해제
+  document.removeEventListener("touchmove", onScrollMove);
+  document.removeEventListener("touchend", onScrollEnd);
+  document.removeEventListener("mousemove", onScrollMove);
+  document.removeEventListener("mouseup", onScrollEnd);
+};
 
-// const onScrollStart = (e) => {
-//   startX = getClientX(e);
-//   listX = getTranslateX();
-//   addScrollListeners();
-// };
+// 스크롤(드래그)이 시작될 때 호출되는 함수
+const onScrollStart = (e) => {
+  firstX = getClientX(e); // 터치/마우스 시작 위치 저장
+  secondX = getTranslateX(); // 현재 위치 저장
 
-// hashContent.addEventListener("touchstart", onScrollStart);
-// hashContent.addEventListener("mousedown", onScrollStart);
+  // 스크롤 관련 리스너 추가
+  document.addEventListener("touchmove", onScrollMove);
+  document.addEventListener("touchend", onScrollEnd);
+  document.addEventListener("mousemove", onScrollMove);
+  document.addEventListener("mouseup", onScrollEnd);
+};
+
+// 터치 및 마우스 이벤트 리스너 등록
+categoryGnb.addEventListener("touchstart", onScrollStart);
+categoryGnb.addEventListener("mousedown", onScrollStart);
 
 //category Scroll Event
 const categories = document.querySelectorAll(".category");
