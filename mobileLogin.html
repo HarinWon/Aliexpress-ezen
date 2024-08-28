@@ -13,12 +13,16 @@
         <div class="logo">
           <img src="img/Aliexpress_logo.svg 1.png" alt="lgo" />
         </div>
+        <label for="userId">아이디</label>
         <input
           type="text"
           id="userId"
           placeholder="이메일 주소 / 휴대폰 번호"
         />
+        <div id="error_email" class="error"></div>
+        <label for="password">비밀번호 입력</label>
         <input type="password" id="password" placeholder="비밀번호" />
+        <div id="error_password1" class="error"></div>
         <button class="login-btn" onclick="validateForm()">등록</button>
         <a href="./mobileFind.html" class="forgot-link"
           >비밀번호 또는 이메일 찾기</a

@@ -52,14 +52,14 @@ function validateForm() {
     passwordRegex.test(password) && !consecutiveCharsRegex.test(password);
 
   if (!isIdValid) {
-    document.querySelector("#userId").placeholder =
-      "이메일 주소나 휴대폰 번호를 잘못 적었습니다";
+    document.querySelector("#error_email").innerText =
+      "*이메일 형식이 틀리거나 전화번호가 유효하지않습니다";
     document.querySelector("#userId").value = "";
   }
 
   if (!isPasswordValid) {
-    document.querySelector("#password").placeholder =
-      "8~16자, 영문, 숫자, 특수문자2자 이상 사용하세요";
+    document.querySelector("#error_password1").innerText =
+      "*8~16자, 영문, 숫자, 특수문자2자 이상 사용하세요";
     document.querySelector("#password").value = "";
   }
 

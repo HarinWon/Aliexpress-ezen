@@ -42,27 +42,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.querySelector("#email-phone");
   const passwordInput = document.querySelector("#email-pw");
 
-  // 로그인 폼 제출 시 비밀번호 입력
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  // // 로그인 폼 제출 시 비밀번호 입력
+  // form.addEventListener("submit", function (event) {
+  //   event.preventDefault();
 
-    const enteredEmail = emailInput.value.trim();
+  //   const enteredEmail = emailInput.value.trim();
 
-    if (enteredEmail === registeredEmail || enteredEmail === registeredPhone) {
-      passwordInput.style.display = "block";
-      passwordInput.setAttribute("required", "true");
-      emailInput.disabled = true;
-    } else {
-      const userConfirmed = confirm(
-        "회원정보가 없습니다. 회원가입으로 넘어가시겠습니까?"
-      );
-      if (userConfirmed) {
-        window.location.href = "./loginAgree.html";
-      } else {
-        emailInput.value = "";
-      }
-    }
-  });
+  //   if (enteredEmail === registeredEmail || enteredEmail === registeredPhone) {
+  //     passwordInput.style.display = "block";
+  //     passwordInput.setAttribute("required", "true");
+  //     emailInput.disabled = true;
+  //   } else {
+  //     const userConfirmed = confirm(
+  //       "회원정보가 없습니다. 회원가입으로 넘어가시겠습니까?"
+  //     );
+  //     if (userConfirmed) {
+  //       window.location.href = "./loginAgree.html";
+  //     } else {
+  //       emailInput.value = "";
+  //     }
+  //   }
+  // });
 
   // 아이디 유효성검사
   function isValidEmail(email) {
@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!isValidEmail(value) && !isValidPhone(value)) {
       emailOrPhoneField.value = "";
-      emailOrPhoneField.placeholder =
-        "이메일 형식이 틀리거나 전화번호가 유효하지않습니다";
+      document.querySelector("#error_email").innerText =
+        "*이메일 형식이 틀리거나 전화번호가 유효하지않습니다";
       return false;
     }
     return true;
@@ -116,7 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!isValidPassword(password)) {
       passwordField.value = "";
-      passwordField.placeholder = "비밀번호 조건이 맞지 않습니다";
+      document.querySelector("#error_password1").innerText =
+        "*비밀번호양식을 확인해주세요!";
       return false;
     }
     return true;
@@ -129,7 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (passwordField.value !== confirmPassword) {
       confirmPasswordField.value = "";
-      confirmPasswordField.placeholder = "비밀번호가 일치하지 않습니다";
+      document.querySelector("#error_password2").innerText =
+        "*비밀번호가 일치하지 않습니다";
       return false;
     }
     return true;
@@ -202,9 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       window.location.href = "./congratulate.html";
     } else {
-      alert(
-        "회원가입 조건을 만족시키지 않았거나 약관에 동의하지 않으셨습니다."
-      );
+      alert("회원가입 조건을 만족하지 않았거나 약관에 동의하지 않으셨습니다.");
     }
   });
 });
