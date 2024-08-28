@@ -331,14 +331,14 @@ body {
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li img {
   width: 300px;
-  height: 190px;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.5s;
   border-radius: 4px;
   transition: transform 0.3s;
 }
-#welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li:hover img {
+#welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li img:hover {
   transform: scale(1.1);
 }
 
@@ -562,7 +562,7 @@ body {
      object-fit: cover;
   transition: transform 0.3s;
 }
-#foryouContainer .foryouContents .foryoucontent .ulElements li:hover img {
+#foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg:hover img {
   transform: scale(1.1);
 }
 #foryouContainer .foryouContents .foryoucontent .ulElements li .foryouTitle {
@@ -1015,9 +1015,7 @@ body {
   #categoryContainer .categoryContents .categoryGnb.Tablet ul {
     display: flex;
     gap: 24px;
-    padding: 20px 40px 0 20px;
-    padding-left: 40px;
-    padding-bottom: 20px;
+    padding: 20px 0 20px 40px;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul li a {
     display: flex;
@@ -1044,7 +1042,7 @@ body {
     display: none;
     width: 100%;
     height: 50px;
-    background: #ff611d;
+    background: #f7971d;
     transition: all 0.3s;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn {
@@ -1242,6 +1240,7 @@ body {
     height: 270px;
   }
   #weeklyContainer .weeklyContents .weeklyContent ul .contentImg img {
+    transform: scale(0.9);
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -1295,7 +1294,8 @@ body {
     display: none;
   }
   #foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg {
-    width: 325px;
+    transform: scale(0.95);
+    width: 330px;
     height: 220px;
   }
   #foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg img {
@@ -1337,27 +1337,67 @@ body {
     justify-content: center;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet {
-    margin-top: 40px;
-    margin-left: 2px;
+    top: -127px;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul {
     display: flex;
     gap: 10px;
+    padding: 20px 0;
+    padding-left: 40px;
   }
-  #categoryContainer .categoryContents .categoryGnb.Tablet ul li > a {
-    gap: 10px;
-  }
-  #categoryContainer .categoryContents .categoryGnb.Tablet ul li > a p {
+  #categoryContainer .categoryContents .categoryGnb.Tablet ul li a p {
     font-size: 0.7rem;
     color: #7b7b7b;
   }
-  #categoryContainer .categoryContents .categoryGnb.Tablet ul li > a img {
+  #categoryContainer .categoryContents .categoryGnb.Tablet ul li a img {
     position: relative;
     width: 56px;
     height: 56px;
   }
-  #categoryContainer .categoryContents .categoryGnb.Tablet ul li > a::before {
+  #categoryContainer .categoryContents .categoryGnb.Tablet ul li a.active p {
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 4px 3px;
+    border-radius: 8px;
+    background: #ff611d;
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox {
     display: none;
+    width: 100%;
+    height: 30px;
+    background: #f7971d;
+    transition: all 0.3s;
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn {
+    position: relative;
+    cursor: pointer;
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn .TabletBtnLeft {
+    width: 10px;
+    position: absolute;
+    top: 14px;
+    left: 46%;
+    transform: rotate(45deg);
+    border: 1px solid #f5f5f5;
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn .TabletBtnRight {
+    width: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 14px;
+    left: 47%;
+    transform: rotate(-45deg);
+    border: 1px solid #f5f5f5;
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox.on .TabletBtnLeft {
+    transform: rotate(-45deg);
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox.on .TabletBtnRight {
+    transform: rotate(45deg);
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet.on {
+    top: 0;
   }
   #categoryContainer .categoryContents .category {
     width: 100%;

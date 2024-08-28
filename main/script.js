@@ -402,6 +402,8 @@ const tabletgnbItems = document.querySelectorAll(".Tablet ul li a");
 
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
+  let tabletBreakpoint = 768;
+  let mobileBreakpoint = 430;
 
   categories.forEach((category, index) => {
     const categoryRect = category.getBoundingClientRect();
@@ -423,10 +425,19 @@ window.addEventListener("scroll", () => {
       deskgnbItems[index].classList.add("active");
       categories[index].classList.add("active");
     }
-    if (scrollY > 5100) {
-      document.querySelector(".TabletBtnBox").style.display = "block";
-    } else {
-      document.querySelector(".TabletBtnBox").style.display = "none";
+
+    if (window.innerWidth >= tabletBreakpoint) {
+      if (scrollY > 4910) {
+        document.querySelector(".TabletBtnBox").style.display = "block";
+      } else {
+        document.querySelector(".TabletBtnBox").style.display = "none";
+      }
+    } else if (window.innerWidth <= mobileBreakpoint) {
+      if (scrollY > 3849) {
+        document.querySelector(".TabletBtnBox").style.display = "block";
+      } else {
+        document.querySelector(".TabletBtnBox").style.display = "none";
+      }
     }
   });
 });

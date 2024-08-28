@@ -394,14 +394,14 @@ body {
             overflow: clip;
             img {
               width: 300px;
-              height: 190px;
+              height: 200px;
               object-fit: cover;
               transition: all 0.5s;
               border-radius: 4px;
               transition: transform 0.3s;
-            }
-            &:hover img {
-              transform: scale(1.1);
+              &:hover {
+                transform: scale(1.1);
+              }
             }
           }
         }
@@ -615,9 +615,9 @@ body {
               object-fit: cover;
               transition: transform 0.3s;
             }
-          }
-          &:hover img {
-            transform: scale(1.1);
+            &:hover img {
+              transform: scale(1.1);
+            }
           }
           .foryouTitle {
             margin-top: 4px;
@@ -1063,9 +1063,7 @@ body {
         ul {
           display: flex;
           gap: 24px;
-          padding: 20px 40px 0 20px;
-          padding-left: 40px;
-          padding-bottom: 20px;
+          padding: 20px 0 20px 40px;
           li {
             a {
               display: flex;
@@ -1094,7 +1092,7 @@ body {
           display: none;
           width: 100%;
           height: 50px;
-          background: map-get($color, main-color);
+          background: map-get($color, logo-color);
           transition: all 0.3s;
           .TabletBtn {
             position: relative;
@@ -1296,6 +1294,7 @@ body {
             width: 300px;
             height: 270px;
             img {
+              transform: scale(0.9);
               width: 100%;
               height: 100%;
               object-fit: cover;
@@ -1348,7 +1347,8 @@ body {
           }
           li {
             .contentImg {
-              width: 325px;
+              transform: scale(0.95);
+              width: 330px;
               height: 220px;
               img {
                 width: 100%;
@@ -1397,26 +1397,72 @@ body {
     justify-content: center;
     .categoryContents {
       .categoryGnb.Tablet {
-        margin-top: 40px;
-        margin-left: 2px;
+        top: -127px;
         ul {
           display: flex;
           gap: 10px;
-          li > a {
-            gap: 10px;
-            p {
-              font-size: 0.7rem;
-              color: map-get($color, dark3);
-            }
-            img {
-              position: relative;
-              width: 56px;
-              height: 56px;
-            }
-            &::before {
-              display: none;
+          padding: 20px 0;
+          padding-left: 40px;
+          li {
+            a {
+              p {
+                font-size: 0.7rem;
+                color: map-get($color, dark3);
+              }
+              img {
+                position: relative;
+                width: 56px;
+                height: 56px;
+              }
+              &.active p {
+                color: map-get($color, light3);
+                font-weight: bold;
+                padding: 4px 3px;
+                border-radius: 8px;
+                background: map-get($color, main-color);
+              }
             }
           }
+        }
+        .TabletBtnBox {
+          display: none;
+          width: 100%;
+          height: 30px;
+          background: map-get($color, logo-color);
+          transition: all 0.3s;
+          .TabletBtn {
+            position: relative;
+            cursor: pointer;
+            .TabletBtnLeft {
+              width: 10px;
+              position: absolute;
+              top: 14px;
+              left: 46%;
+              transform: rotate(45deg);
+              border: 1px solid map-get($color, light3);
+            }
+            .TabletBtnRight {
+              width: 10px;
+              position: absolute;
+              display: flex;
+              justify-content: center;
+              top: 14px;
+              left: 47%;
+              transform: rotate(-45deg);
+              border: 1px solid map-get($color, light3);
+            }
+          }
+          &.on {
+            .TabletBtnLeft {
+              transform: rotate(-45deg);
+            }
+            .TabletBtnRight {
+              transform: rotate(45deg);
+            }
+          }
+        }
+        &.on {
+          top: 0;
         }
       }
       .category {
