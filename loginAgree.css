@@ -161,7 +161,7 @@ body .container .inner .agree .agree-box .agree-header p {
   line-height: 1.3rem;
 }
 body .container .inner .agree .agree-box .agree-main ul {
-  gap: 6px;
+  gap: 10px;
 }
 body .container .inner .agree .agree-box .agree-main ul li {
   font-family: "Noto Sans KR, sans-serif";
