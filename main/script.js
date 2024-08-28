@@ -40,6 +40,7 @@ arrows.forEach((arrow) => {
 });
 
 //infoScroll
+
 window.addEventListener("scroll", () => {
   const info = document.querySelectorAll("#infoContainer ul li");
   let scrollY = window.scrollY;
@@ -55,7 +56,7 @@ window.addEventListener("scroll", () => {
 
 //weeklyCountdown
 const weeklyTime = document.querySelector(".weeklyTime");
-const targetDate = new Date("2024-09-05T00:00:00"); // 기준 날짜 설정
+const targetDate = new Date("2024-09-27T00:00:00"); // 기준 날짜 설정
 
 const countdown = () => {
   const current = new Date();
@@ -228,6 +229,7 @@ foryouBtn.forEach((btn) => {
 
 //foryou json + category json
 const foryouContent = document.querySelector(".foryoucontent");
+
 fetch("/db.json")
   .then((response) => response.json())
   .then((data) => {
@@ -247,18 +249,17 @@ fetch("/db.json")
             (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
           );
         }
-        // console.log(data);
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
-        // 새로운 ulElements 생성
+
         const ulElement = document.createElement("ul");
         ulElement.className = "ulElements";
         ulElement.style.display = "flex";
         ulElement.style.flexWrap = "wrap";
-        // JSON 데이터를 이용해 li 태그 생성 및 추가
+
         selectedButton.forEach((item) => {
           const liElement = document.createElement("li");
-          // 제품 정보를 포함하는 HTML 구조를 생성
+
           liElement.innerHTML = `
             <a href="#none">
               <div class="contentImg">
@@ -282,9 +283,9 @@ fetch("/db.json")
               </div>
             </a>
           `;
-          ulElement.appendChild(liElement); // li 태그를 ulElement에 추가
+          ulElement.appendChild(liElement);
         });
-        // 생성된 ulElements를 foryouContent에 추가
+
         foryouContent.appendChild(ulElement);
       });
     });
@@ -293,7 +294,6 @@ fetch("/db.json")
     data.forEach((item) => {
       const categoryElement = document.querySelector(`.${item.category}`);
       if (categoryElement) {
-        // 이미 존재하는 ul을 찾거나, 없으면 새로 생성
         let createUl = categoryElement.querySelector("ul");
         if (!createUl) {
           createUl = document.createElement("ul");
@@ -301,47 +301,43 @@ fetch("/db.json")
         }
 
         const productHTML = `
-        <li>
-        <a href="#none">
-        <div class="contentImg">
-        <img src="${item.image_path}" alt="${item.product_name}" />
-        </div>
-        <div class="contentTitle foryouTitle">
-        <h3>${item.brand}</h3>
-        <p>${item.product_name}</p>
-        </div>
-        <div class="contentPrice">
-        <span>
-        <strong>${item.discount}</strong>
-        <b>${item.price}</b>
-        <del>${item.original_price}</del>
-        </span>
-        <span>
-        <p>${item.delivery}</p>
-        <p>${item.delivery_date}</p>
-        </span>
-        <span><b>*****</b>${item.ratings} 판매</span>
-        </div>
-        </a>
-        </li>
-        
-        `;
+          <li>
+            <a href="#none">
+              <div class="contentImg">
+                <img src="${item.image_path}" alt="${item.product_name}" />
+              </div>
+              <div class="contentTitle foryouTitle">
+                <h3>${item.brand}</h3>
+                <p>${item.product_name}</p>
+              </div>
+              <div class="contentPrice">
+                <span>
+                  <strong>${item.discount}</strong>
+                  <b>${item.price}</b>
+                  <del>${item.original_price}</del>
+                </span>
+                <span>
+                  <p>${item.delivery}</p>
+                  <p>${item.delivery_date}</p>
+                </span>
+                <span><b>*****</b>${item.ratings} 판매</span>
+              </div>
+            </a>
+          </li>
+          
+      `;
         createUl.insertAdjacentHTML("beforeend", productHTML);
       }
     });
   });
 
 //category Touch Event
-const categoryGnb = document.querySelector(".Tablet > ul");
-const TabletBtn = document.querySelector(".TabletBtn");
-const gnbClientWidth = categoryGnb.clientWidth; // 화면에 보이는 부분의 너비
-const gnbScrollWidth = categoryGnb.scrollWidth; // 스크롤 가능한 전체 길이
+const categoryGnb = document.querySelector(".Tablet ul");
+const gnbClientWidth = categoryGnb.clientWidth;
+const gnbScrollWidth = categoryGnb.scrollWidth;
 
 let firstX = 0;
 let secondX = 0;
-
-categoryGnb.style.width = `${gnbScrollWidth}px`;
-categoryGnb.style.backgroundColor = "white";
 
 // 현재 터치나 마우스 이벤트에서 X 좌표를 가져오는 함수
 const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
@@ -401,18 +397,15 @@ categoryGnb.addEventListener("mousedown", onScrollStart);
 
 //category Scroll Event
 const categories = document.querySelectorAll(".category");
-const DeskGnbItems = document.querySelectorAll(".Desk ul li a");
-const TabletGnbItems = document.querySelectorAll(".Tablet ul li a");
-
-TabletBtn.addEventListener("click", () => {
-  document.querySelector(".Tablet").classList.toggle("on");
-});
+const deskgnbItems = document.querySelectorAll(".Desk ul li a");
+const tabletgnbItems = document.querySelectorAll(".Tablet ul li a");
 
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
 
   categories.forEach((category, index) => {
     const categoryRect = category.getBoundingClientRect();
+
     const categoryTop = window.scrollY + categoryRect.top;
     const categoryHeight = category.offsetHeight;
 
@@ -422,18 +415,26 @@ window.addEventListener("scroll", () => {
       scrollY >= categoryTop - offset &&
       scrollY < categoryTop + categoryHeight - offset
     ) {
-      DeskGnbItems.forEach((item) => item.classList.remove("active"));
-      TabletGnbItems.forEach((item) => item.classList.remove("active"));
+      tabletgnbItems.forEach((item) => item.classList.remove("active"));
+      deskgnbItems.forEach((item) => item.classList.remove("active"));
       categories.forEach((item) => item.classList.remove("active"));
 
-      DeskGnbItems[index].classList.add("active");
-      TabletGnbItems[index].classList.add("active");
+      tabletgnbItems[index].classList.add("active");
+      deskgnbItems[index].classList.add("active");
       categories[index].classList.add("active");
     }
-    if (scrollY > 5140) {
-      document.querySelector(".TabletBtn").style.display = "block";
+    if (scrollY > 5100) {
+      document.querySelector(".TabletBtnBox").style.display = "block";
     } else {
-      document.querySelector(".TabletBtn").style.display = "none";
+      document.querySelector(".TabletBtnBox").style.display = "none";
     }
   });
+});
+
+const tablet = document.querySelector(".Tablet");
+const tabletBtnBox = document.querySelector(".TabletBtnBox");
+
+tabletBtnBox.addEventListener("click", () => {
+  tablet.classList.toggle("on");
+  tabletBtnBox.classList.toggle("on");
 });

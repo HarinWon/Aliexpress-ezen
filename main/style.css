@@ -673,7 +673,6 @@ body {
   display: none;
 }
 #categoryContainer .categoryContents .category {
-  margin-top: 200px;
   transition: all 0.3s;
 }
 #categoryContainer .categoryContents .category:last-child {
@@ -734,6 +733,9 @@ body {
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg:hover img {
   transform: scale(1.1);
+}
+#categoryContainer .categoryContents .category.active .categoryTitle {
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
 }
 
 @media screen and (max-width: 768px) {
@@ -872,9 +874,6 @@ body {
     border: 1px solid #dddddd;
     border-radius: 4px;
   }
-  #weeklyContainer {
-    margin-top: 30px;
-  }
   #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft {
     width: 100%;
     flex-direction: column;
@@ -925,7 +924,7 @@ body {
     color: #f5f5f5;
   }
   #foryouContainer {
-    margin-top: 90px;
+    margin-top: 80px;
   }
   #foryouContainer .foryouContents .foryouTop {
     width: 100%;
@@ -964,7 +963,7 @@ body {
   }
   #experienceContainer {
     margin: 0;
-    margin: 30px 0 -20px;
+    margin: 20px 0 -20px;
   }
   #experienceContainer .experienceImg {
     width: 100%;
@@ -992,6 +991,7 @@ body {
     margin: 0 20px;
   }
   #categoryContainer .categoryContents {
+    position: relative;
     flex-direction: column;
     width: 100%;
     transform: translateX(-50%);
@@ -1000,23 +1000,24 @@ body {
     display: none;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet {
-    margin-top: 40px;
-    margin-bottom: -50px;
-    padding: 30px 0 10px;
+    background: #fff;
+    margin: 40px -40px 20px;
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: -160px;
+    top: -167px;
     left: 0;
     height: -moz-fit-content;
     height: fit-content;
-    background: #fff;
     transition: all 0.3s;
     z-index: 4;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul {
     display: flex;
-    gap: 30px;
+    gap: 24px;
+    padding: 20px 40px 0 20px;
+    padding-left: 40px;
+    padding-bottom: 20px;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul li a {
     display: flex;
@@ -1035,32 +1036,27 @@ body {
     opacity: 1;
     color: #f5f5f5;
     font-weight: bold;
-    padding: 4px 10px;
+    padding: 4px 7px;
     border-radius: 12px;
     background: #ff611d;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox {
-    height: 45px;
-    background: #fff;
-    padding-bottom: 10px;
+    display: none;
+    width: 100%;
+    height: 50px;
+    background: #ff611d;
+    transition: all 0.3s;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn {
-    display: none;
     position: relative;
-    width: 60px;
-    height: 34px;
-    margin-top: 12.5px;
-    margin-left: 330px;
-    border-radius: 8px;
-    background: #ff611d;
     cursor: pointer;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn .TabletBtnLeft {
     width: 14px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-10%, -50%) rotate(-45deg);
+    top: 20px;
+    left: 49%;
+    transform: rotate(45deg);
     border: 1px solid #f5f5f5;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox .TabletBtn .TabletBtnRight {
@@ -1068,23 +1064,22 @@ body {
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 50%;
+    top: 20px;
     left: 50%;
-    transform: translate(-70%, -50%) rotate(45deg);
+    transform: rotate(-45deg);
     border: 1px solid #f5f5f5;
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox.on .TabletBtnLeft {
+    transform: rotate(-45deg);
+  }
+  #categoryContainer .categoryContents .categoryGnb.Tablet .TabletBtnBox.on .TabletBtnRight {
+    transform: rotate(45deg);
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet.on {
     top: 0;
   }
-  #categoryContainer .categoryContents .categoryGnb.Tablet.on .TabletBtn .TabletBtnLeft {
-    transform: translate(-10%, -50%) rotate(45deg);
-  }
-  #categoryContainer .categoryContents .categoryGnb.Tablet.on .TabletBtn .TabletBtnRight {
-    transform: translate(-70%, -50%) rotate(-45deg);
-  }
   #categoryContainer .categoryContents .category {
     width: 100%;
-    margin: 50px 0;
   }
   #categoryContainer .categoryContents .category .categoryContent {
     width: 100%;
