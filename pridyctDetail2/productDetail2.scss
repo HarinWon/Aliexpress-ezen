@@ -132,33 +132,131 @@ $color: (
 
 .slider-container {
   width: 200px;
-  margin: 20px;
+  margin: 20px auto;
+
+  .slider-contaoner-contents {
+    .slider-label {
+      @include body-small();
+      font-weight: bold;
+    }
+
+    .slider {
+      -webkit-appearance: none; // 기본 브라우저 스타일 제거
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #ddd;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none; // 기본 브라우저 스타일 제거
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: map-get($color, main-color );
+        cursor: pointer;
+      }
+
+      &::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #6e44ff; // 이미지의 보라색
+        cursor: pointer;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2); // 그림자 효과
+      }
+    }
+
+    .price-range {
+      @include body-small();
+    }
+
+    .radio-group {
+      .label {
+        @include body-small();
+        font-weight: bold;
+      }
+
+      label {
+        input[type="radio"] {
+          @include body-small();
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid map-get($color, main-color );
+          border-radius: 50%;
+          position: relative;
+          margin-right: 8px;
+          cursor: pointer;
+          &:checked {
+            background-color: map-get($color, main-color ); // 선택 시 배경색
+            border-color: map-get($color, main-color );
+            &::before {
+              content: "";
+              display: block;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background: white; // 선택 시 내부 동그라미 색상
+              position: absolute;
+              top: 3px;
+              left: 3px;
+            }
+          }
+        }
+      }
+    }
+
+    .checkbox-group {
+      .label {
+        @include body-small();
+        font-weight: bold;
+      }
+
+      label {
+        // 각각의 체크박스 스타일
+        input[type="radio"] {
+          @include body-small();
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid map-get($color, main-color );
+          border-radius: 50%;
+          position: relative;
+          margin-right: 8px;
+          cursor: pointer;
+          &:checked {
+            background-color: map-get($color, main-color ); // 선택 시 배경색
+            border-color: map-get($color, main-color );
+            &::before {
+              content: "";
+              display: block;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background: white; // 선택 시 내부 동그라미 색상
+              position: absolute;
+              top: 3px;
+              left: 3px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.slider-label {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 4px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #000;
-  cursor: pointer;
-  border-radius: 50%;
-}
 
 .price-range {
   margin-top: 10px;
@@ -192,7 +290,7 @@ $color: (
 .product-list {
   width: calc(
     100% - 300px
-  ); // 너비 설정, slider-container가 200px이라면 200px로 수정
+  );
 }
 
 .productContents {

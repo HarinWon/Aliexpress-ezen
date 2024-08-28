@@ -28,7 +28,8 @@
   <body>
     <main class="product-detail-list-box">
       <div class="slider-container">
-        <div class="slider-label">가격</div>
+        <div class="slider-contaoner-contents">
+          <div class="slider-label">가격</div>
         <input
           type="range"
           min="0"
@@ -70,12 +71,12 @@
         <div class="checkbox-group">
           <div class="label">배송방법</div>
           <label for="choice">
-            <input type="checkbox" name="method" id="choice" value="choice" />
+            <input type="radio" name="method" id="choice" value="choice" />
             choice
           </label>
           <label for="sevenToTenDays">
             <input
-              type="checkbox"
+              type="radio"
               name="method"
               id="sevenToTenDays"
               value="7-10days"
@@ -83,6 +84,8 @@
             7-10일 배송
           </label>
         </div>
+        </div>
+        
       </div>
       <div class="product-list" id="productList">
         <article class="productContents">
