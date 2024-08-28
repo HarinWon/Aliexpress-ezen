@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제품상세페이지</title>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- custom css&JS -->
+    <link rel="stylesheet" href="./productDetail2.css" />
+    <script defer src="./productDetail2.js"></script>
+    <!-- fontawsome -->
+    <script
+      src="https://kit.fontawesome.com/3d3f071495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- slick -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      type="text/javascript"
+      src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+  </head>
+  <body>
+    <main class="product-detail-list-box">
+      <div class="slider-container">
+        <div class="slider-contaoner-contents">
+          <div class="slider-label">가격</div>
+          <input
+            type="range"
+            min="0"
+            max="190000"
+            value="0"
+            step="10000"
+            class="slider"
+            id="priceSlider"
+            oninput="updatePriceRange()"
+          />
+          <div class="price-range" id="priceRange">가격범위 0원~190,000원</div>
+          <div class="radio-group">
+            <div class="label">발송국가</div>
+            <label for="allCountries">
+              <input
+                type="radio"
+                name="country"
+                id="allCountries"
+                value="all"
+                checked
+              />
+              모든국가
+            </label>
+            <label for="domestic">
+              <input
+                type="radio"
+                name="country"
+                id="domestic"
+                value="domestic"
+              />
+              국내배송
+            </label>
+            <label for="international">
+              <input
+                type="radio"
+                name="country"
+                id="international"
+                value="international"
+              />
+              해외배송
+            </label>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="label">배송방법</div>
+            <label for="choice">
+              <input type="radio" name="method" id="choice" value="choice" />
+              choice
+            </label>
+            <label for="sevenToTenDays">
+              <input
+                type="radio"
+                name="method"
+                id="sevenToTenDays"
+                value="7-10days"
+              />
+              7-10일 배송
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="product-list" id="productList">
+        <article class="productContents">
+          <article class="productTop">
+            <article class="titleRight">
+              <div class="titleBtnContainer">
+                <form class="titleBtn">
+                  <input type="radio" name="filter" id="lowPrice" />
+                  <label for="lowPrice" id="lowPriceLabel" class="btn active">
+                    낮은가격순
+                  </label>
+                  <input type="radio" name="filter" id="highPrice" />
+                  <label for="highPrice" id="highPriceLabel" class="btn">
+                    높은가격순
+                  </label>
+                  <input type="radio" name="filter" id="mostReviews" />
+                  <label for="mostReviews" id="mostReviewsLabel" class="btn">
+                    리뷰많은순
+                  </label>
+                  <input type="radio" name="filter" id="highRating" />
+                  <label for="highRating" id="highRatingLabel" class="btn">
+                    평점 높은 순
+                  </label>
+                  <input type="radio" name="filter" id="lowRating" />
+                  <label for="lowRating" id="lowRatingLabel" class="btn">
+                    평점 낮은 순
+                  </label>
+                </form>
+              </div>
+              <div class="filterBtnContainer">
+                <label for="lowRating" id="filter" class="filterBtn">
+                  <i class="fa-solid fa-filter"></i>
+                </label>
+              </div>
+            </article>
+          </article>
+
+          <article class="productcontent">
+            <ul class="ulElements">
+              <!-- Dynamic product list items will be inserted here -->
+            </ul>
+          </article>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>

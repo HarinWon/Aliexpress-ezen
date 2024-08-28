@@ -163,3 +163,28 @@ document.querySelector(".overlay").addEventListener("click", () => {
   bodyElement.classList.remove("cart-active");
   mobileCartBtn.classList.remove("cart");
 });
+
+// 제품상세 정보 로드
+$(document).ready(function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+
+  if (productId) {
+    $.getJSON("db.json", function (data) {
+      const product = data.find((item) => item.id === productId);
+
+      if (product) {
+        // 제품 정보를 페이지에 표시
+        $(".product-info h2").text(product.brand);
+        $(".product-info h1").text(product.product_name);
+        $(".product-info .price").text(product.price);
+        $(".product-images .main-image img").attr("src", product.image_path);
+        // 필요한 다른 정보들도 여기에 추가
+      } else {
+        alert("제품 정보를 찾을 수 없습니다.");
+      }
+    });
+  } else {
+    alert("제품 ID가 제공되지 않았습니다.");
+  }
+});
