@@ -93,6 +93,103 @@ $color: (
 //   color: map-get($color, main-color);
 // }
 
+// slider
+.product-slider {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  div {
+    cursor: pointer;
+    .productImg {
+      width: 240px;
+      height: 200px;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.1); /* 이미지 확대 */
+        }
+      }
+    }
+    h3 {
+      @include heading5();
+      margin-bottom: 10px;
+    }
+    p {
+      @include body-medium();
+    }
+    img {
+      width: 250px;
+    }
+    span {
+      strong {
+        @include body-small();
+        font-weight: bold;
+        color: map-get($color, main-color);
+      }
+      b {
+        @include body-small();
+        font-weight: bold;
+      }
+      del {
+        @include body-small();
+        color: map-get($color, light1);
+      }
+      p {
+        @include body-small();
+      }
+    }
+  }
+  button {
+    cursor: pointer;
+    scale: 140%;
+    position: absolute;
+    z-index: 10;
+    top: 20%;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: rgba($color: #000000, $alpha: 0);
+    border: none;
+    transition: transform 0.3s;
+    &.slick-prev {
+      left: -10px;
+      font-size: 0;
+      color: transparent;
+      &::before {
+        content: "\f053";
+        font-family: "FontAwesome";
+        color: map-get($color, light3);
+        font-size: 20px;
+      }
+    }
+    &.slick-next {
+      right: 0;
+      font-size: 0;
+      // color: map-get($color, light2 );
+      &::before {
+        content: "\f054";
+        font-family: "FontAwesome";
+        color: map-get($color, light3);
+        font-size: 20px;
+      }
+    }
+    &:hover {
+      background: rgba($color: #ff611d, $alpha: 1);
+      color: #fff;
+      &.slick-prev {
+        transform: translateX(-10px);
+        color: #fff;
+      }
+      &.slick-next {
+        transform: translateX(10px);
+        color: #fff;
+      }
+    }
+  }
+}
+
 // Desktop
 body {
   display: flex;
@@ -363,7 +460,7 @@ body {
       justify-content: center;
       margin-top: 20px;
       .product-item {
-        width: 970px;
+        // width: 970px;
         height: 420px;
         background: #fff;
         margin-bottom: 20px;
@@ -413,6 +510,13 @@ body {
 
 // Mobile
 @media (max-width: 430px) {
+  .product-slider {
+    div {
+      img {
+        width: 180px;
+      }
+    }
+  }
   .mypage_left {
     display: none;
   }

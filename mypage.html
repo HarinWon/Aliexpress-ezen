@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Page</title>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- custom css&JS -->
     <link rel="stylesheet" href="./mypage.css" />
+    <script defer src="./mypage.js"></script>
+    <!-- fontawsome -->
+    <script
+      src="https://kit.fontawesome.com/3d3f071495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- slick -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      type="text/javascript"
+      src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
   </head>
   <body>
     <aside class="mypage_left">
@@ -31,7 +50,7 @@
           <img src="./img/profile.png" alt="profile" />
         </div>
         <h1>
-          <strong>하린</strong> 님, <a href="#none">설정</a></span>
+          <strong>하린</strong> 님, <a href="#none">설정</a>
           <br />
           <small>Aliexpress에 오신 것을 환영합니다!</small>
         </h1>
@@ -43,30 +62,61 @@
               <img src="./img/profile.png" alt="profile" />
             </div>
             <h1>
-              <strong>하린</strong> 님, <a href="#none">설정</a></span>
+              <strong>하린</strong> 님, <a href="#none">설정</a>
               <br />
               <small>Aliexpress에 오신 것을 환영합니다!</small>
             </h1>
           </div>
           <div class="coin">
-            <span><h1>내 코인</h1><a href="#none">코인 받으러 가기 ></a></span>
-            <p><img src="./img/coin.png" alt="coin"></p>
+            <span
+              ><h1>내 코인</h1>
+              <a href="#none">코인 받으러 가기 ></a></span
+            >
+            <p><img src="./img/coin.png" alt="coin" /></p>
           </div>
         </div>
         <div class="stats">
           <div class="stats-top">
-            <div><img src="./img/coupon.png" alt="coupon"><h1>보유쿠폰<p>14</p></h1></div>
-            <div><img src="./img/cart.png" alt="coupon"><h1>장바구니<p>98</p></h1></div>
-            <div><img src="./img/order.png" alt="coupon"><h1>주문배송<p>4</p></h1></div>
-            <div><img src="./img/review.png" alt="coupon"><h1>리뷰작성<p>100</p></h1></div>
+            <div>
+              <img src="./img/coupon.png" alt="coupon" />
+              <h1>
+                보유쿠폰
+                <p>14</p>
+              </h1>
+            </div>
+            <div>
+              <img src="./img/cart.png" alt="coupon" />
+              <h1>
+                장바구니
+                <p>98</p>
+              </h1>
+            </div>
+            <div>
+              <img src="./img/order.png" alt="coupon" />
+              <h1>
+                주문배송
+                <p>4</p>
+              </h1>
+            </div>
+            <div>
+              <img src="./img/review.png" alt="coupon" />
+              <h1>
+                리뷰작성
+                <p>100</p>
+              </h1>
+            </div>
           </div>
           <div class="stats-bottom">
-            <span><img src="./img/customer service center.png" alt="customer"></span>
-            <span><img src="./img/question.png" alt="question"></span>
-            <span><img src="./img/message.png" alt="message"></span>
-            <span><img src="./img/payment.png" alt="payment"></span>
-            <span><img src="./img/Stores of interest.png" alt="store"></span>
-            <span><img src="./img/Improvement suggestions.png" alt="Improvement"></span>
+            <span
+              ><img src="./img/customer service center.png" alt="customer"
+            /></span>
+            <span><img src="./img/question.png" alt="question" /></span>
+            <span><img src="./img/message.png" alt="message" /></span>
+            <span><img src="./img/payment.png" alt="payment" /></span>
+            <span><img src="./img/Stores of interest.png" alt="store" /></span>
+            <span
+              ><img src="./img/Improvement suggestions.png" alt="Improvement"
+            /></span>
           </div>
         </div>
       </div>
@@ -75,7 +125,7 @@
           <h1>주문배송<strong>2</strong></h1>
           <div class="order_product">
             <div class="product_img">
-              <img src="./img/melamine_plate.jpg" alt="air_fry">
+              <img src="./img/melamine_plate.jpg" alt="air_fry" />
             </div>
             <div class="product_con">
               <p class="delivery_status">배송완료<span>07.31 구매</span></p>
@@ -85,7 +135,7 @@
           </div>
           <div class="order_product">
             <div class="product_img">
-              <img src="./img/melamine_plate.jpg" alt="air_fry">
+              <img src="./img/melamine_plate.jpg" alt="air_fry" />
             </div>
             <div class="product_con">
               <p class="delivery_status">배송완료<span>07.31 구매</span></p>
@@ -98,7 +148,7 @@
           </div>
         </div>
         <div class="event-banner">
-          <img src="./img/ali3D.png" alt="ali3D">
+          <img src="./img/ali3D.png" alt="ali3D" />
           <div class="event_txt">
             <p><span>Aliexpress</span> 설문참여 EVENT</p>
             <p>고객님의 알리익스프레스 경험을 남겨주세요!</p>
@@ -107,10 +157,10 @@
         </div>
         <div class="product-list">
           <div class="product-item">
-            <img src="product1.jpg" alt="상품 1" />
+            <section class="product-slider"></section>
           </div>
           <div class="product-item">
-            <img src="product2.jpg" alt="상품 2" />
+            <section class="product-slider"></section>
           </div>
         </div>
       </div>
