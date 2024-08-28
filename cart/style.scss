@@ -58,7 +58,7 @@ $fonts: (
 
 // color
 $color: (
-  main: #ff611d,
+  main-color: #ff611d,
   main-gradient: linear-gradient(to right, #f7971d 0%, #ff611d 100%),
   point-color: #e43225,
   logo-color: #f7971d,
@@ -85,6 +85,7 @@ body {
   width: 100%;
   height: 100%;
   header {
+    min-width: 993px;
     #cartHeader {
       display: flex;
       justify-content: center;
@@ -140,6 +141,7 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
+    min-width: 993px;
     font-size: 26px;
     justify-content: center;
     align-items: center;
@@ -166,7 +168,7 @@ body {
           @include bodyLarge();
         }
         &.active {
-          color: map-get($color, main);
+          color: map-get($color, main-color);
         }
       }
       .barRight {
@@ -196,8 +198,8 @@ body {
             input[type="checkbox"] {
               display: none;
               &:checked ~ .fa-circle-check {
-                color: map-get($color, main);
-                text-shadow: 0 0 2px map-get($color, main);
+                color: map-get($color, main-color);
+                text-shadow: 0 0 2px map-get($color, main-color);
               }
             }
             .fa-circle-check {
@@ -238,18 +240,19 @@ body {
             border: 1px solid;
             border-style: solid none;
             &.foreignStore {
-              color: map-get($color, main);
-              border-color: map-get($color, main);
+              color: map-get($color, main-color);
+              border-color: map-get($color, main-color);
             }
           }
           .storeL {
             display: flex;
-            align-items: center;
             gap: 10px;
             @include heading4();
             span {
+              display: flex;
               text-align: center;
               align-items: center;
+              gap: 5px;
               .storeLinkTitle {
                 display: inline-block;
                 max-width: 330px;
@@ -262,7 +265,7 @@ body {
               display: none;
               &.storeCheck {
                 &:checked ~ label {
-                  color: map-get($color, main);
+                  color: map-get($color, main-color);
                   text-shadow: none;
                 }
               }
@@ -280,7 +283,7 @@ body {
           }
           .storeR {
             input[type="button"] {
-              background: map-get($color, main);
+              background: map-get($color, main-color);
               padding: 10px 5px;
               border: none;
               border-radius: 5px;
@@ -316,7 +319,7 @@ body {
                 .prodCheck {
                   display: none;
                   &:checked ~ label {
-                    color: map-get($color, main);
+                    color: map-get($color, main-color);
                     text-shadow: none;
                   }
                 }
@@ -394,7 +397,7 @@ body {
                         @include bodyLarge();
                         border: none;
                         background: none;
-                        color: map-get($color, main);
+                        color: map-get($color, main-color);
                         cursor: pointer;
                       }
                     }
@@ -418,8 +421,9 @@ body {
               }
               .prodBlockR {
                 display: flex;
-                justify-content: right;
+                justify-content: space-between;
                 flex-direction: column;
+                min-height: 168px;
                 gap: 20px;
                 text-align: right;
                 .prodInfoRdesc {
@@ -431,7 +435,7 @@ body {
                   }
                   h4 {
                     @include body-normal();
-                    color: map-get($color, main);
+                    color: map-get($color, main-color);
                     s {
                       color: map-get($color, dark2);
                     }
@@ -449,9 +453,9 @@ body {
                   input[type="button"] {
                     background: transparent;
                     padding: 5px 10px;
-                    border: 1px solid map-get($color, main);
+                    border: 1px solid map-get($color, main-color);
                     border-radius: 5px;
-                    color: map-get($color, main);
+                    color: map-get($color, main-color);
                     @include body-normal();
                   }
                 }
@@ -609,6 +613,7 @@ body {
       position: sticky;
       top: 0;
       z-index: 2;
+      min-width:0;
       #cartHeader {
         padding: 15px 24px;
         .gnbWrapper {
@@ -655,7 +660,7 @@ body {
               @include bodyLarge();
             }
             &.active {
-              color: map-get($color, main);
+              color: map-get($color, main-color);
             }
           }
           .barRight {
@@ -671,7 +676,7 @@ body {
       justify-content: center;
       flex-direction: column;
       width: 100%;
-      min-width: 670px;
+      // min-width: 670px;
       // height: 1000px;
       .content {
         width: 100%;
@@ -711,6 +716,7 @@ body {
       #tabCartFooter {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 8px 24px;
         background: #fff;
         border: 1px map-get($color, dark2);
@@ -758,7 +764,6 @@ body {
           justify-content: space-between;
           align-items: center;
           padding: 20px;
-          min-width: 316px;
           h2 {
             @include heading4();
           }
@@ -802,7 +807,7 @@ body {
             }
           }
           input[type="button"] {
-            background: map-get($color, main);
+            background: map-get($color, main-color);
             border: none;
             border-radius: 5px;
             padding: 10px;
@@ -909,7 +914,7 @@ body {
                 display: block;
                 input {
                   &:checked ~ label {
-                    color: map-get($color, main);
+                    color: map-get($color, main-color);
                     text-shadow: none;
                   }
                 }
@@ -951,7 +956,7 @@ body {
                       input {
                         display: none;
                         &:checked ~ label {
-                          color: map-get($color, main);
+                          color: map-get($color, main-color);
                           text-shadow: none;
                         }
                       }
@@ -990,7 +995,7 @@ body {
                         }
                         h4 {
                           @include body-small();
-                          color: map-get($color, main);
+                          color: map-get($color, main-color);
                           s {
                             color: map-get($color, dark2);
                           }
@@ -1054,16 +1059,16 @@ body {
                         padding: 4px;
                         border: none;
                         background: none;
-                        color: map-get($color, main);
+                        color: map-get($color, main-color);
                         cursor: pointer;
                       }
                     }
                     input[type="button"] {
                       background: transparent;
                       padding: 5px 10px;
-                      border: 1px solid map-get($color, main);
+                      border: 1px solid map-get($color, main-color);
                       border-radius: 5px;
-                      color: map-get($color, main);
+                      color: map-get($color, main-color);
                       @include body-small();
                     }
                   }
@@ -1081,14 +1086,22 @@ body {
             .storeCalcMob {
               display: flex;
               flex-direction: column;
+              background: map-get($color, light3);
               .accordion {
-                display: none;
+                display: flex;
+                height: 0;
+                opacity: 0;
                 flex-direction: column;
                 align-items: center;
-                padding: 5px 20px;
+                padding: 0;
                 gap: 5px;
-                background: map-get($color, light3);
+                transition: height 0.3s;
                 @include body-medium();
+                &.active{
+                  height: 123px;
+                  opacity: 1;
+                  padding: 10px 20px;
+                }
                 div {
                   display: flex;
                   width: 100%;
@@ -1105,6 +1118,8 @@ body {
                 border-style: solid none;
                 padding: 10px 20px 15px 20px;
                 gap: 5px;
+                background: #fff;
+                z-index: 0;
                 .totalPrice {
                   display: flex;
                   justify-content: space-between;
@@ -1115,23 +1130,16 @@ body {
                   }
                 }
                 input[type="submit"] {
-                  background: map-get($color, main);
+                  background: map-get($color, main-color);
                   border: none;
                   border-radius: 5px;
                   color: #fff;
-                  padding: 5px;
+                  padding: 8px;
                   @include body-normal();
                 }
               }
             }
           }
-        }
-        .tab {
-          margin: 48px 0;
-          display: flex;
-          width: 100%;
-          height: 115px;
-          background: url("./img/eventBanner.png") center/cover no-repeat;
         }
       }
       #stickyDesk {
@@ -1193,6 +1201,13 @@ body {
                 }
               }
             }
+            .storeCalcMob {
+              .storePay {
+                input[type="submit"] {
+                  padding: 5px;
+                }
+              }
+            }
           }
         }
       }
@@ -1208,15 +1223,20 @@ body {
         display: flex;
         flex-direction: column;
         background: map-get($color, light3);
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
         @include body-small();
         .payDetail {
           // display: none;
           height: 0;
-          padding: 10px;
           text-align: center;
-          transition: all 10s;
-          &.active{
-            height: fit-content;
+          padding: 0;
+          opacity: 0;
+          transition: height 0.3s;
+          &.active {
+            height: 114px;
+            padding: 10px;
+            opacity: 1;
           }
           button {
             width: 100px;
@@ -1250,6 +1270,7 @@ body {
           color: #fff;
           padding: 10px;
           gap: 10px;
+          z-index: 2;
           button {
             color: #fff;
             background: transparent;

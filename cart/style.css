@@ -21,6 +21,9 @@ body {
   width: 100%;
   height: 100%;
 }
+body header {
+  min-width: 993px;
+}
 body header #cartHeader {
   display: flex;
   justify-content: center;
@@ -80,6 +83,7 @@ body #cartSortDesk {
   position: sticky;
   top: 0;
   width: 100%;
+  min-width: 993px;
   font-size: 26px;
   justify-content: center;
   align-items: center;
@@ -195,7 +199,6 @@ body main .content #stores .storeBlock .foreignStore.foreignStore {
 }
 body main .content #stores .storeBlock .storeL {
   display: flex;
-  align-items: center;
   gap: 10px;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 26px;
@@ -203,8 +206,10 @@ body main .content #stores .storeBlock .storeL {
   line-height: 1.3;
 }
 body main .content #stores .storeBlock .storeL span {
+  display: flex;
   text-align: center;
   align-items: center;
+  gap: 5px;
 }
 body main .content #stores .storeBlock .storeL span .storeLinkTitle {
   display: inline-block;
@@ -375,8 +380,9 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   flex-direction: column;
+  min-height: 168px;
   gap: 20px;
   text-align: right;
 }
@@ -580,6 +586,7 @@ body section {
     position: sticky;
     top: 0;
     z-index: 2;
+    min-width: 0;
   }
   body header #cartHeader {
     padding: 15px 24px;
@@ -645,7 +652,6 @@ body section {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    min-width: 670px;
   }
   body main .content {
     width: 100%;
@@ -679,6 +685,7 @@ body section {
   body footer #tabCartFooter {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 8px 24px;
     background: #fff;
     border: 1px #333333;
@@ -724,7 +731,6 @@ body section {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    min-width: 316px;
   }
   body section #payInfoTab .payInfoUp h2 {
     font-family: "Noto Sans KR, sans-serif";
@@ -1081,18 +1087,26 @@ body section {
   body main .content #stores .storeBlock .storeCalcMob {
     display: flex;
     flex-direction: column;
+    background: #f5f5f5;
   }
   body main .content #stores .storeBlock .storeCalcMob .accordion {
-    display: none;
+    display: flex;
+    height: 0;
+    opacity: 0;
     flex-direction: column;
     align-items: center;
-    padding: 5px 20px;
+    padding: 0;
     gap: 5px;
-    background: #f5f5f5;
+    transition: height 0.3s;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion.active {
+    height: 123px;
+    opacity: 1;
+    padding: 10px 20px;
   }
   body main .content #stores .storeBlock .storeCalcMob .accordion div {
     display: flex;
@@ -1109,6 +1123,8 @@ body section {
     border-style: solid none;
     padding: 10px 20px 15px 20px;
     gap: 5px;
+    background: #fff;
+    z-index: 0;
   }
   body main .content #stores .storeBlock .storeCalcMob .storePay .totalPrice {
     display: flex;
@@ -1122,18 +1138,11 @@ body section {
     border: none;
     border-radius: 5px;
     color: #fff;
-    padding: 5px;
+    padding: 8px;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 16px;
     font-weight: 500;
     line-height: 1.3;
-  }
-  body main .content .tab {
-    margin: 48px 0;
-    display: flex;
-    width: 100%;
-    height: 115px;
-    background: url("./img/eventBanner.png") center/cover no-repeat;
   }
   body main #stickyDesk {
     display: none;
@@ -1165,6 +1174,9 @@ body section {
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
     justify-content: center;
   }
+  body main .content #stores .storeBlock .storeCalcMob .storePay input[type=submit] {
+    padding: 5px;
+  }
   body footer {
     bottom: 0;
     position: fixed;
@@ -1177,6 +1189,8 @@ body section {
     display: flex;
     flex-direction: column;
     background: #f5f5f5;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
     font-weight: 400;
@@ -1184,13 +1198,15 @@ body section {
   }
   body footer #mobCartFooter .payDetail {
     height: 0;
-    padding: 10px;
     text-align: center;
-    transition: all 10s;
+    padding: 0;
+    opacity: 0;
+    transition: height 0.3s;
   }
   body footer #mobCartFooter .payDetail.active {
-    height: -moz-fit-content;
-    height: fit-content;
+    height: 114px;
+    padding: 10px;
+    opacity: 1;
   }
   body footer #mobCartFooter .payDetail button {
     width: 100px;
@@ -1223,6 +1239,7 @@ body section {
     color: #fff;
     padding: 10px;
     gap: 10px;
+    z-index: 2;
   }
   body footer #mobCartFooter #payInfoMob button {
     color: #fff;

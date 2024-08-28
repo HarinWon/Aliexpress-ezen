@@ -2,7 +2,6 @@
 const prodQuantNs = document.querySelectorAll(".prodQuantN");
 let origQuantN;
 
-// Loop through each prodQuantN to set up individual event listeners
 prodQuantNs.forEach((prodQuantN) => {
   // number에 클릭해서 직접 값을 주는 코드
   prodQuantN.addEventListener("focus", function () {
@@ -42,18 +41,18 @@ prodQuantNs.forEach((prodQuantN) => {
   });
 });
 
-// Infinite increment/decrement control variables
+// 버튼들이 제 역할을 하도록 해주는 코드
+// Infinite increment/decrement
 let intervId;
 let timeOut;
 
-// Function to clear the buttons (stops the infinite increment/decrement)
+// Function to clear the the infinite increment/decrement
 function clearButtons() {
   clearTimeout(timeOut);
   clearInterval(intervId);
 }
 
-// Loop through each minusN button and set up event listeners
-const minusBs = document.querySelectorAll(".minusN");
+const minusBs = document.querySelectorAll(".minusB");
 minusBs.forEach((minusB, i) => {
   const prodQuantN = prodQuantNs[i];
 
@@ -77,8 +76,7 @@ minusBs.forEach((minusB, i) => {
   minusB.addEventListener("mouseout", clearButtons);
 });
 
-// Loop through each plusN button and set up event listeners
-const plusBs = document.querySelectorAll(".plusN");
+const plusBs = document.querySelectorAll(".plusB");
 plusBs.forEach((plusB, i) => {
   const prodQuantN = prodQuantNs[i];
 
@@ -102,8 +100,7 @@ plusBs.forEach((plusB, i) => {
   plusB.addEventListener("mouseout", clearButtons);
 });
 
-//Accordion storeCalcMob
-
+//모바일 상세가격 아코디언 효과
 // const accordionContent = document.querySelectorAll(".accordion");
 // const accordionOpen = document.querySelectorAll(".accordOpen");
 // // console.log(accordionOpen);
@@ -123,67 +120,143 @@ plusBs.forEach((plusB, i) => {
 
 //   });
 // });
-
+// 상점 상세가격
 const accordionOpen = document.querySelectorAll(".accordOpen");
-
 accordionOpen.forEach((openBtn) => {
   openBtn.addEventListener("click", () => {
     let openContainer = openBtn.parentElement.parentElement.parentElement;
     let content = openContainer.previousElementSibling;
-
-    content.style.display = "flex";
-
+    content.classList.add("active");
+    // content.style.display = "flex";
     const accordClose = content.querySelector(".accordClose");
     accordClose.addEventListener("click", () => {
-      content.style.display = "none";
+      // content.style.display = "none";
+      content.classList.remove("active");
       openBtn.style.display = "inline-block";
     });
-
     // const accordCloseFoot = content
     openBtn.style.display = "none";
   });
 });
-
-const accordionOpenF = document.querySelectorAll(".accordOpenF");
-
-accordionOpenF.forEach((openBtnF) => {
-  openBtnF.addEventListener("click", () => {
-    let contentF = openBtnF.parentElement.previousElementSibling;
-
+// 전체 상세가격
+const accordionOpenF = document.querySelector(".accordOpenF");
+accordionOpenF.addEventListener("click", () => {
+  let contentF = accordionOpenF.parentElement.previousElementSibling;
+  // console.log(contentF);
+  // contentF.style.display = "block";
+  if (accordionOpenF.classList.contains("active")) {
+    accordionOpenF.classList.remove("active");
+    contentF.classList.remove("active");
+    // contentF.style.display = "none";
+    // contentF.style.height = "0px";
+  } else {
+    accordionOpenF.classList.add("active");
+    contentF.classList.add("active");
+    // contentF.style.height = "114px";
     // contentF.style.display = "block";
+    // contentF.style.height = fit-content;
+  }
+  // const payDetail = document.querySelector(".payDetail");
+  // const height = 140;
+  // console.log(payDetail);
+  // if (payDetail.style.height === "0px") {
+  //   payDetail.style.height = `${height}px`;
+  // } else {
+  //   payDetail.style.height = "0px";
+  // }
+  const accordCloseF = contentF.querySelector(".accordCloseF");
+  accordCloseF.addEventListener("click", () => {
+    accordionOpenF.classList.remove("active");
+    contentF.classList.remove("active");
+    // contentF.style.height = "0px";
+    // contentF.style.display = "none";
+  });
+});
 
-    if (openBtnF.classList.contains("active")) {
-      contentF.classList.remove("active");
-      openBtnF.classList.remove("active");
-      // contentF.style.display = "none";
-      // contentF.style.height = 0;
-    } else {
-      contentF.classList.add("active");
-      openBtnF.classList.add("active");
-      // contentF.style.display = "block";
-      // contentF.style.height = fit-content;
-    }
+// 체크박스를 하나로 묶어서 한번에 켰다 껐다 하게해주는 함수들
 
-    const accordCloseF = contentF.querySelector(".accordCloseF");
-    accordCloseF.addEventListener("click", () => {
-      contentF.classList.remove("active");
-      // contentF.style.display = "none";
-      openBtnF.classList.remove("active");
+// 데스크톱과 모바일의 상품체크박스 연결 sync desktop and mob checkboxes
+document.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
+  const prodCheck = prodBlock.querySelector(".prodCheck");
+  const prodMobCheck =
+    prodBlock.nextElementSibling.querySelector(".prodMobCheck");
+  prodCheck.addEventListener("change", function () {
+    prodMobCheck.checked = prodCheck.checked;
+  });
+  prodMobCheck.addEventListener("change", function () {
+    prodCheck.checked = prodMobCheck.checked;
+  });
+});
+
+// 상점 전체선택 storeCheck
+const storeChecks = document.querySelectorAll(".storeCheck");
+// 상점 전체선택을 눌렀을 때 상품들이 전부 체크됨
+storeChecks.forEach((storeCheck) => {
+  const prodchecks =
+    storeCheck.parentElement.parentElement.nextElementSibling.querySelectorAll(
+      ".prodMobCheck, .prodCheck"
+    );
+  storeCheck.addEventListener("change", function () {
+    prodchecks.forEach((checkbox) => {
+      checkbox.checked = this.checked;
+    });
+  });
+  // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
+  // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
+  prodchecks.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const allChecked = Array.from(prodchecks).every(
+        (checkbox) => checkbox.checked
+      );
+      const anyUnchecked = Array.from(prodchecks).some(
+        (checkbox) => !checkbox.checked
+      );
+      if (allChecked) {
+        storeCheck.checked = true;
+      } else if (anyUnchecked) {
+        storeCheck.checked = false;
+      }
     });
   });
 });
+// 전체선택 SelectAll
+// 전체선택을 눌렀을 때 모든 checkbox들이 체크됨
+// const selectAll = document.getElementById("#selectAllTxt");
+// const selectAll = document.querySelector('input[type="checkbox"]');
+// selectAll.addEventListener("click", function(selectAll) {
+//   const checkboxes = document.querySelectorAll(".storeCheck, .prodMobCheck, .prodCheck");
+//   checkboxes.forEach((checkbox) => {
+//     // checkbox.checked = selectAll.checked;
+//     selectAll.checked = checkbox.checked;
+//   });
+// });
 
-// SelectAll
+const selectAll = document.querySelector('input[type="checkbox"]');
 
-const selectAll = document.getElementById("#selectAllCheck");
-selectAll.addEventListener("click", function selectAll(selectAll) {
-  const checkboxes = document.querySelectorAll(".storeCheck, .prodCheck");
+selectAll.addEventListener("click", function () {
+  const checkboxes = document.querySelectorAll(
+    ".storeCheck, .prodMobCheck, .prodCheck"
+  );
   checkboxes.forEach((checkbox) => {
-    // checkbox.checked = selectAll.checked;
-    selectAll.checked = checkbox.checked;
+    checkbox.checked = selectAll.checked;
+    // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
+    // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
+    checkbox.addEventListener("change", () => {
+      const allChecked = Array.from(checkboxes).every(
+        (checkbox) => checkbox.checked
+      );
+      const anyUnchecked = Array.from(checkboxes).some(
+        (checkbox) => !checkbox.checked
+      );
+      if (allChecked) {
+        selectAll.checked = true;
+      } else if (anyUnchecked) {
+        selectAll.checked = false;
+      }
+    });
   });
 });
-
+// const selectAll = document.getElementById("#selectAllTxt");
 // const selectAll = document.querySelector('input[type="checkbox"]');
 // selectAll.addEventListener('click', function() {
 //   const checkboxes = document.querySelectorAll(".storeCheck , .prodMobCheck, .prodCheck");
@@ -198,22 +271,102 @@ selectAll.addEventListener("click", function selectAll(selectAll) {
 //   }
 // });
 
-
-// storeCheck
-
-const storeCheck = document.querySelector('.storeCheck');
-
-// Add event listener to the first checkbox
-storeCheck.addEventListener('click', function() {
-  const prodboxes = storeCheck.parentElement.parentElement.nextSibling.querySelectorAll(".prodMobCheck, .prodCheck");
-  // Only select/deselect if the first checkbox is checked
-  if (storeCheck.checked) {
-    prodboxes.forEach((checkbox) => {
-      checkbox.checked = true;
+// 가격 계산
+function calculateTotal() {
+  document.querySelectorAll(".storeBlock").forEach(function (storeBlock) {
+    // 상점 기본금액&할인금액 //storeOrigPrice & storeDiscount
+    let storeOrigPrTotal = 0;
+    let storeDiscTotal = 0;
+    storeBlock.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
+      const prodCheck = prodBlock.querySelector(".prodCheck");
+      if (prodCheck.checked) {
+        const prodFinaPrice = prodBlock.querySelector(".prodFinaPrice");
+        const prodOrigPrice = prodBlock.querySelector(".prodOrigPrice");
+        if (prodOrigPrice) {
+          let origPrice = parseFloat(
+            prodOrigPrice.textContent.replace(/[,원]/g, "")
+          );
+          let finaPrice = parseFloat(
+            prodFinaPrice.textContent.replace(/[,원]/g, "")
+          );
+          storeOrigPrTotal += origPrice;
+          storeDiscTotal += origPrice - finaPrice;
+        } else if (prodFinaPrice) {
+          let finaPrice = parseFloat(
+            prodFinaPrice.textContent.replace(/[,원]/g, "")
+          );
+          storeOrigPrTotal += finaPrice;
+        }
+      }
     });
-  } else {
-    prodboxes.forEach((checkbox) => {
-      checkbox.checked = false;
+    storeBlock
+      .querySelectorAll(".storeOrigPrice")
+      .forEach(function (storeOrigPrice) {
+        storeOrigPrice.textContent = storeOrigPrTotal.toLocaleString() + "원";
+      });
+    storeBlock
+      .querySelectorAll(".storeDiscount")
+      .forEach(function (storeDiscount) {
+        storeDiscount.textContent = storeDiscTotal.toLocaleString() + "원";
+      });
+    // 상점 총액 storePrice
+    let storePriceTotal = 0;
+    storeBlock.querySelectorAll(".storeCalc").forEach(function (storeCalc) {
+      const storeOrigPrice = parseFloat(
+        storeCalc
+          .querySelector(".storeOrigPrice")
+          .textContent.replace(/[,원]/g, "")
+      );
+      const storeShipFee = parseFloat(
+        storeCalc
+          .querySelector(".storeShipFee")
+          .textContent.replace(/[,원]/g, "")
+      );
+      const storeDiscount = parseFloat(
+        storeCalc
+          .querySelector(".storeDiscount")
+          .textContent.replace(/[,원]/g, "")
+      );
+      storePriceTotal = storeOrigPrice + storeShipFee - storeDiscount;
+      // console.log(storePriceTotal);
     });
-  }
+    storeBlock.querySelectorAll(".storePrice").forEach(function (storePrice) {
+      storePrice.textContent = storePriceTotal.toLocaleString() + "원";
+    });
+  });
+}
+// 체크박스를 클릭했을 떄 계산이 진행되도록 해주는 함수
+document
+  .querySelectorAll(".prodCheck, .prodMobCheck, .storeCheck , .selectAllCheck")
+  .forEach(function (checkbox) {
+    checkbox.addEventListener("change", calculateTotal);
+  });
+calculateTotal();
+// 결제정보
+// 총상품수
+const prodBlocks = document.querySelectorAll(".prodBlock").length;
+document.querySelectorAll("totalProdQuant").forEach(function (tPQ) {
+  tPQ.textContent = prodBlocks + "개";
 });
+// console.log('Number of .prodBlock elements:', prodBlockCount);
+// 총상품금액
+const storeOrigPrices = document.querySelectorAll(".storeOrigPrice");
+let totalSum = 0;
+storeOrigPrices.forEach(function (e) {
+  const priceText = e.textContent.replace(/[,원]/g, "");
+  const priceValue = parseInt(priceText, 10);
+  totalSum += priceValue / 2;
+  document.querySelectorAll(".totalOrigPrice").forEach(function (tOP) {
+    tOP.textContent = totalSum.toLocaleString() + "원";
+  });
+});
+
+// 총배송비
+const totalShipFee = document.querySelectorAll("storeOrigPrice").value;
+// 총할인금액
+// 결제예정금액
+// 적립예정포인트
+
+// document.querySelectorAll(".storeBlock").forEach(function (storeBlock) {
+//   let storePriceTotal = 0;
+// });
