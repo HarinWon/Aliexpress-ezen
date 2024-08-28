@@ -407,15 +407,14 @@ window.addEventListener("scroll", () => {
 
   categories.forEach((category, index) => {
     const categoryRect = category.getBoundingClientRect();
-
-    const categoryTop = window.scrollY + categoryRect.top;
+    const categoryTop = categoryRect.top;
     const categoryHeight = category.offsetHeight;
 
     const offset = 130;
 
     if (
-      scrollY >= categoryTop - offset &&
-      scrollY < categoryTop + categoryHeight - offset
+      categoryTop >= 0 - offset &&
+      categoryTop < window.innerHeight - offset
     ) {
       tabletgnbItems.forEach((item) => item.classList.remove("active"));
       deskgnbItems.forEach((item) => item.classList.remove("active"));
@@ -424,15 +423,28 @@ window.addEventListener("scroll", () => {
       tabletgnbItems[index].classList.add("active");
       deskgnbItems[index].classList.add("active");
       categories[index].classList.add("active");
+
+      // 해당 GNB 항목으로 스크롤 이동 (가로 스크롤)
+      const gnbContainer = document.querySelector(".Tablet ul"); // GNB 컨테이너
+      const targetItem = tabletgnbItems[index];
+
+      // GNB 가로 스크롤 위치 조정
+      gnbContainer.scrollLeft =
+        targetItem.offsetLeft -
+        gnbContainer.clientWidth / 2 +
+        targetItem.clientWidth / 2;
     }
 
+    // 태블릿 scrollY
     if (window.innerWidth >= tabletBreakpoint) {
       if (scrollY > 4910) {
         document.querySelector(".TabletBtnBox").style.display = "block";
       } else {
         document.querySelector(".TabletBtnBox").style.display = "none";
       }
-    } else if (window.innerWidth <= mobileBreakpoint) {
+    }
+    // 모바일 scrollY
+    else if (window.innerWidth <= mobileBreakpoint) {
       if (scrollY > 3849) {
         document.querySelector(".TabletBtnBox").style.display = "block";
       } else {
