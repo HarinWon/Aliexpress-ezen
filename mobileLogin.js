@@ -64,7 +64,7 @@ function validateForm() {
   }
 
   if (isIdValid && isPasswordValid) {
-    if (userId === "alieexpress@naver.com" || userId === "01012345678") {
+    if (userId === "aliexpress@naver.com" || userId === "01012345678") {
       window.location.href = "congratulate.html";
     } else {
       const userConfirmed = confirm(

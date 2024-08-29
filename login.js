@@ -66,7 +66,7 @@ document.querySelector("#qr_btn").addEventListener("click", showQRLogin);
 
 // 비밀번호 유도
 document.addEventListener("DOMContentLoaded", function () {
-  const registeredEmail = "alieexpress@naver.com";
+  const registeredEmail = "aliexpress@naver.com";
   const registeredPhone = "01012345678";
 
   const form = document.querySelector(".login-form");
@@ -84,6 +84,16 @@ document.addEventListener("DOMContentLoaded", function () {
       emailInput.disabled = true;
 
       if (passwordInput.value.trim()) {
+        const newUserid = document.querySelector("#email-phone").value;
+        let registeredUsers =
+          JSON.parse(localStorage.getItem("registeredUsers")) || [];
+        if (!registeredUsers.includes(newUserid)) {
+          registeredUsers.push(newUserid);
+          localStorage.setItem(
+            "registeredUsers",
+            JSON.stringify(registeredUsers)
+          );
+        }
         window.location.href = "./congratulate.html";
       }
     } else {

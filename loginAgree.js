@@ -35,34 +35,12 @@ toggleButton2.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const registeredEmail = "alieexpress@naver.com";
+  const registeredEmail = "aliexpress@naver.com";
   const registeredPhone = "01012345678";
 
   const form = document.querySelector(".login-form");
   const emailInput = document.querySelector("#email-phone");
   const passwordInput = document.querySelector("#email-pw");
-
-  // // 로그인 폼 제출 시 비밀번호 입력
-  // form.addEventListener("submit", function (event) {
-  //   event.preventDefault();
-
-  //   const enteredEmail = emailInput.value.trim();
-
-  //   if (enteredEmail === registeredEmail || enteredEmail === registeredPhone) {
-  //     passwordInput.style.display = "block";
-  //     passwordInput.setAttribute("required", "true");
-  //     emailInput.disabled = true;
-  //   } else {
-  //     const userConfirmed = confirm(
-  //       "회원정보가 없습니다. 회원가입으로 넘어가시겠습니까?"
-  //     );
-  //     if (userConfirmed) {
-  //       window.location.href = "./loginAgree.html";
-  //     } else {
-  //       emailInput.value = "";
-  //     }
-  //   }
-  // });
 
   // 아이디 유효성검사
   function isValidEmail(email) {
@@ -202,6 +180,16 @@ document.addEventListener("DOMContentLoaded", function () {
       isConfirmPasswordValid &&
       allChecksActive
     ) {
+      const newUserid = document.querySelector("#email").value;
+      let registeredUsers =
+        JSON.parse(localStorage.getItem("registeredUsers")) || [];
+      if (!registeredUsers.includes(newUserid)) {
+        registeredUsers.push(newUserid);
+        localStorage.setItem(
+          "registeredUsers",
+          JSON.stringify(registeredUsers)
+        );
+      }
       window.location.href = "./congratulate.html";
     } else {
       alert("회원가입 조건을 만족하지 않았거나 약관에 동의하지 않으셨습니다.");
