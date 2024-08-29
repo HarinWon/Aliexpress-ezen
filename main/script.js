@@ -470,7 +470,6 @@ window.addEventListener("scroll", () => {
 
       const translateXValue = Math.min(-scrollY / divideFactor, maxTranslateX);
 
-      // translateX를 계산된 값으로 설정
       categoryGnb.style.transform = `translateX(${translateXValue + 50}px)`;
     }
 
