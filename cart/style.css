@@ -148,6 +148,9 @@ body main .content #selectNCoup #selectProd {
   display: flex;
   gap: 10px;
 }
+body main .content #selectNCoup #selectProd #selectAll {
+  cursor: pointer;
+}
 body main .content #selectNCoup #selectProd #selectAll input[type=checkbox] {
   display: none;
 }
@@ -162,6 +165,7 @@ body main .content #selectNCoup #selectProd #selectAll .fa-circle-check {
 body main .content #selectNCoup #selectProd #selectDel {
   padding-left: 10px;
   border-left: 1px solid #000;
+  cursor: pointer;
 }
 body main .content #selectNCoup #coupon {
   display: flex;
@@ -232,6 +236,10 @@ body main .content #stores .storeBlock .storeL input[type=checkbox].storeHeart:c
 body main .content #stores .storeBlock .storeL label {
   color: #fff;
   text-shadow: 0 0 2px #000;
+  cursor: pointer;
+}
+body main .content #stores .storeBlock .storeL label:hover {
+  color: #f5f5f5;
 }
 body main .content #stores .storeBlock .storeR input[type=button] {
   background: #ff611d;
@@ -243,6 +251,11 @@ body main .content #stores .storeBlock .storeR input[type=button] {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.3;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+body main .content #stores .storeBlock .storeR input[type=button]:hover {
+  background: linear-gradient(rgba(123, 123, 123, 0.1), rgba(123, 123, 123, 0.1)), #ff611d;
 }
 body main .content #stores .storeBlock .storeR span {
   display: none;
@@ -279,6 +292,10 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL label {
   color: #fff;
   transform: scale(1.5);
   text-shadow: 0 0 2px #000;
+  cursor: pointer;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL label:hover {
+  color: #f5f5f5;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodImg {
   width: 120px;
@@ -311,7 +328,6 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
   text-decoration: underline;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodOpt {
-  display: none;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 16px;
   font-weight: 500;
@@ -320,9 +336,6 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodOpt opt {
   color: #333333;
-}
-body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodOpt.active {
-  display: block;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn {
   display: flex;
@@ -339,7 +352,7 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodQuant input[type=number] {
   text-align: center;
-  width: 32px;
+  width: 34px;
   border: none;
   outline: none;
   font-family: "Noto Sans KR, sans-serif";
@@ -371,10 +384,6 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInf
   color: #fd384f;
   text-shadow: none;
 }
-body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn label {
-  color: #fff;
-  text-shadow: 0 0 2px #000;
-}
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .tab {
   display: none;
 }
@@ -390,6 +399,10 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInf
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc .fa-xmark::before {
+  cursor: pointer;
+  font-size: 24px;
 }
 body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc h2 {
   font-family: "Noto Sans KR, sans-serif";
@@ -427,6 +440,11 @@ body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInf
   font-size: 16px;
   font-weight: 500;
   line-height: 1.3;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRBtn input[type=button]:hover {
+  background: #f5f5f5;
 }
 body main .content #stores .storeBlock .prodList .prodBlockMob {
   display: none;
@@ -445,7 +463,6 @@ body main .content #stores .storeBlock .storeCalc {
   line-height: 1.3;
 }
 body main .content #stores .storeBlock .storeCalc > i {
-  font-size: 20px;
   color: transparent;
   -webkit-text-stroke: 2.4px #000;
 }
@@ -461,7 +478,7 @@ body main .content #stores .storeBlock .storeCalc div span.active {
 }
 body main .content #stores .storeBlock .storeCalc div i {
   margin: 5px;
-  font-size: 10px;
+  font-size: 15px;
 }
 body main .content #stores .storeBlock .storeCalc .storePrice h1 {
   font-family: "Noto Sans KR, sans-serif";
@@ -554,16 +571,22 @@ body main #stickyDesk #payInfo .payInfoDown input[type=button] {
   border: none;
   border-radius: 5px;
   padding: 10px;
+  color: #fff;
   font-family: "Noto Sans KR, sans-serif";
   font-size: 20px;
   font-weight: 500;
   line-height: 1.3;
-  color: #fff;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+body main #stickyDesk #payInfo .payInfoDown input[type=button]:hover {
+  background: linear-gradient(rgba(123, 123, 123, 0.1), rgba(123, 123, 123, 0.1)), linear-gradient(to right, #f7971d 0%, #ff611d 100%);
 }
 body main #stickyDesk .bannerEvt {
   width: 100%;
   height: 115px;
   background: url("./img/eventBanner.png") center/cover no-repeat;
+  cursor: pointer;
 }
 body footer #tabCartFooter {
   display: none;
@@ -916,14 +939,18 @@ body section {
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodBlockMobClose {
     width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
     justify-content: end;
     text-align: right;
+    margin: -2px 0 7px 0;
+    font-size: 20px;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 15px;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo {
     display: flex;
@@ -967,6 +994,7 @@ body section {
     gap: 10px;
     width: -moz-fit-content;
     width: fit-content;
+    align-items: end;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h2 {
     font-family: "Noto Sans KR, sans-serif";
@@ -996,12 +1024,6 @@ body section {
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h4.hidden {
     display: none;
   }
-  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h5 {
-    font-family: "Noto Sans KR, sans-serif";
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.3;
-  }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
     max-width: 330px;
     overflow: hidden;
@@ -1009,7 +1031,6 @@ body section {
     white-space: nowrap;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt {
-    display: none;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
     font-weight: 400;
@@ -1019,8 +1040,13 @@ body section {
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt opt {
     color: #333333;
   }
-  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt.active {
-    display: block;
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .origNFina {
+    display: flex;
+    padding: 0;
+    gap: 10px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .origNFina .prodOrigPrice {
+    padding-top: 2px;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
     display: flex;
@@ -1054,15 +1080,14 @@ body section {
     margin: 0;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant input[type=button] {
+    background: none;
+    padding: 4px;
+    border: none;
+    color: #ff611d;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
-    padding: 4px;
-    border: none;
-    background: none;
-    color: #ff611d;
-    cursor: pointer;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn input[type=button] {
     background: transparent;
@@ -1098,10 +1123,15 @@ body section {
     padding: 0;
     gap: 5px;
     transition: height 0.3s;
+    color: #333333;
     font-family: "Noto Sans KR, sans-serif";
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion > i {
+    color: #7b7b7b;
+    font-size: 18px;
   }
   body main .content #stores .storeBlock .storeCalcMob .accordion.active {
     height: 123px;
@@ -1113,8 +1143,18 @@ body section {
     width: 100%;
     justify-content: space-between;
   }
+  body main .content #stores .storeBlock .storeCalcMob .accordion div i {
+    color: #7b7b7b;
+    font-size: 14px;
+  }
   body main .content #stores .storeBlock .storeCalcMob .accordion div .active {
     color: #e43225;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion div :nth-child(2) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
   }
   body main .content #stores .storeBlock .storeCalcMob .storePay {
     display: flex;
@@ -1126,11 +1166,11 @@ body section {
     background: #fff;
     z-index: 0;
   }
-  body main .content #stores .storeBlock .storeCalcMob .storePay .totalPrice {
+  body main .content #stores .storeBlock .storeCalcMob .storePay .storeTotalPrice {
     display: flex;
     justify-content: space-between;
   }
-  body main .content #stores .storeBlock .storeCalcMob .storePay .totalPrice i.active {
+  body main .content #stores .storeBlock .storeCalcMob .storePay .storeTotalPrice i.active {
     transform: rotate(180deg);
   }
   body main .content #stores .storeBlock .storeCalcMob .storePay input[type=submit] {
@@ -1162,7 +1202,7 @@ body section {
     gap: 15px;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
-    max-width: 300px;
+    max-width: 400px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -1202,6 +1242,14 @@ body section {
     padding: 0;
     opacity: 0;
     transition: height 0.3s;
+    border: 1px #7b7b7b;
+    border-style: solid none none;
+    border-radius: 8px 8px 0 0;
+    color: #333333;
+  }
+  body footer #mobCartFooter .payDetail i {
+    color: #7b7b7b;
+    font-size: 18px;
   }
   body footer #mobCartFooter .payDetail.active {
     height: 114px;

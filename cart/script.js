@@ -173,10 +173,9 @@ accordionOpenF.addEventListener("click", () => {
   });
 });
 
-// 체크박스를 하나로 묶어서 한번에 켰다 껐다 하게해주는 함수들
-
-// 데스크톱과 모바일의 상품체크박스 연결 sync desktop and mob checkboxes
+// 데스크탑 상품과 모바일 상품을 연결시키는 함수
 document.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
+  // 데스크톱과 모바일의 상품체크박스 연결 sync desktop and mob checkboxes
   const prodCheck = prodBlock.querySelector(".prodCheck");
   const prodMobCheck =
     prodBlock.nextElementSibling.querySelector(".prodMobCheck");
@@ -186,8 +185,14 @@ document.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
   prodMobCheck.addEventListener("change", function () {
     prodCheck.checked = prodMobCheck.checked;
   });
+  // 상품하트 연결
+  const prodHeart = prodBlock.querySelector(".prodHeart");
+  // 상점하트 연결
+
+  // 수량인풋 연결
 });
 
+// 체크박스를 하나로 묶어서 한번에 켰다 껐다 하게해주는 함수들
 // 상점 전체선택 storeCheck
 const storeChecks = document.querySelectorAll(".storeCheck");
 // 상점 전체선택을 눌렀을 때 상품들이 전부 체크됨
@@ -231,8 +236,7 @@ storeChecks.forEach((storeCheck) => {
 //   });
 // });
 
-const selectAll = document.querySelector('input[type="checkbox"]');
-
+const selectAll = document.querySelector("#selectAllTxt");
 selectAll.addEventListener("click", function () {
   const checkboxes = document.querySelectorAll(
     ".storeCheck, .prodMobCheck, .prodCheck"
@@ -272,7 +276,8 @@ selectAll.addEventListener("click", function () {
 // });
 
 // 가격 계산
-function calculateTotal() {
+// 상점 가격 계산
+function storeCalc() {
   document.querySelectorAll(".storeBlock").forEach(function (storeBlock) {
     // 상점 기본금액&할인금액 //storeOrigPrice & storeDiscount
     let storeOrigPrTotal = 0;
@@ -335,38 +340,100 @@ function calculateTotal() {
     });
   });
 }
+// 결제정보
+function totalCalc() {
+  // 총상품수 totalProdQuant
+  let checkedProd = 0;
+  document.querySelectorAll(".prodCheck:checked").forEach(function () {
+    checkedProd++;
+  });
+  document.querySelectorAll(".totalProdQuant").forEach(function (tPQ) {
+    tPQ.textContent = checkedProd;
+  });
+  // 총상품금액 totalOrigPrice
+  const storeOrigPrices = document.querySelectorAll(".storeOrigPrice");
+  let origToTal = 0;
+  storeOrigPrices.forEach(function (e) {
+    const origPrice = parseInt(e.textContent.replace(/[,원]/g, ""), 10);
+    origToTal += origPrice / 2;
+    document.querySelectorAll(".totalOrigPrice").forEach(function (tOP) {
+      tOP.textContent = origToTal.toLocaleString() + "원";
+    });
+  });
+  // 총배송비
+  const storeShipFees = document.querySelectorAll(".storeShipFee");
+  let shipToTal = 0;
+  storeShipFees.forEach(function (e) {
+    const origPrice = parseInt(e.textContent.replace(/[,원]/g, ""), 10);
+    shipToTal += origPrice / 2;
+    document.querySelectorAll(".totalShipFee").forEach(function (tSF) {
+      tSF.textContent = shipToTal.toLocaleString() + "원";
+    });
+  });
+  // 총할인금액
+  const storeDiscounts = document.querySelectorAll(".storeDiscount");
+  let DiscTotal = 0;
+  storeDiscounts.forEach(function (e) {
+    const storeDiscount = parseInt(e.textContent.replace(/[,원]/g, ""), 10);
+    DiscTotal += storeDiscount / 2;
+    document.querySelectorAll(".totalDiscount").forEach(function (tD) {
+      tD.textContent = DiscTotal.toLocaleString() + "원";
+    });
+  });
+  // 결제예정금액
+  const storePrices = document.querySelectorAll(".storePrice");
+  let priceTotal = 0;
+  let point = 0;
+  storePrices.forEach(function (e) {
+    const storePrice = parseInt(e.textContent.replace(/[,원]/g, ""), 10);
+    priceTotal += storePrice / 2;
+    document.querySelectorAll(".totalPrice").forEach(function (tP) {
+      tP.textContent = priceTotal.toLocaleString() + "원";
+    });
+    // 적립예정포인트
+    document.querySelectorAll(".expectedPoint").forEach(function (tP) {
+      point = priceTotal * 0.02;
+      tP.textContent = point.toLocaleString() + "원";
+    });
+  });
+  // 푸터 submit 안에 value를 바꿔주는 코드
+}
+
 // 체크박스를 클릭했을 떄 계산이 진행되도록 해주는 함수
 document
   .querySelectorAll(".prodCheck, .prodMobCheck, .storeCheck , .selectAllCheck")
   .forEach(function (checkbox) {
-    checkbox.addEventListener("change", calculateTotal);
+    checkbox.addEventListener("change", storeCalc);
+    checkbox.addEventListener("change", totalCalc);
   });
-calculateTotal();
-// 결제정보
-// 총상품수
-const prodBlocks = document.querySelectorAll(".prodBlock").length;
-document.querySelectorAll("totalProdQuant").forEach(function (tPQ) {
-  tPQ.textContent = prodBlocks + "개";
-});
-// console.log('Number of .prodBlock elements:', prodBlockCount);
-// 총상품금액
-const storeOrigPrices = document.querySelectorAll(".storeOrigPrice");
-let totalSum = 0;
-storeOrigPrices.forEach(function (e) {
-  const priceText = e.textContent.replace(/[,원]/g, "");
-  const priceValue = parseInt(priceText, 10);
-  totalSum += priceValue / 2;
-  document.querySelectorAll(".totalOrigPrice").forEach(function (tOP) {
-    tOP.textContent = totalSum.toLocaleString() + "원";
-  });
-});
+storeCalc();
+totalCalc();
 
-// 총배송비
-const totalShipFee = document.querySelectorAll("storeOrigPrice").value;
-// 총할인금액
-// 결제예정금액
-// 적립예정포인트
+// 내일 할일
+//  // 선생님과 얘기하고 json 고치기
+//  // css  한번보기
+// a) 구매버튼들 색깔이 구매가 불가능할때 색깔이 바뀌게끔(회색)
+// b) 모바일과 데스크톱 연결
+// c) 전체선택 고치기
 
-// document.querySelectorAll(".storeBlock").forEach(function (storeBlock) {
-//   let storePriceTotal = 0;
-// });
+// header와 연결
+// 1. 상세페이지에서 집어넣을시와 장바구니에서 지울시에 localstorage에 상품이 몇개 들어와 있는지 업데이트 한다(length)
+
+// local storage로 값을 넣는 과정
+// 1.값이 1 이상& 옵션이 선택 되있어야 locastorage에 값이 들어감. 장바구니에 상품이 들어갔다는 메세지를 띄움.
+// 하트를 누르면 찜한상품이 바뀜?
+// 2.상품이름이 같은 게 이미 들어가 있으면 수량만 더해주고 이미 있었다는 메세지를 띄움
+
+// local storage에서 값을 받는 과정
+// 1. 전부 cart: 0일 경우에 content를 비우고 cartNone에 정리해둔 content를 띄운다. //localstorage에 상품관련 기록이 없으면 띄운다
+// 2. cart: 0이 아닌 게 하나라도 있을 경우에 상점이름을 읽는다. // 애초에 localstorage에 넣을 때 값이 1이상이여만 들어가도록 설정한다
+// 상점이름 하나당 .storeBlock 하나를 만드는데 해외배송/국내배송에 따라서 .localStore .foreignStore class를 구분해서 넣는다.
+// 3. cart: 안에 있는 값을  number의 value로 넣는다.
+// 4. number 안에 있는 값과 상품 값을 곱한 값이 상품가격에 표시되도록 ***이건 script
+// 5. number 안에 있는 값이 바뀌면 local storage 안에 있는 cart: 에도 값이 바뀐다
+// 6. .storeBlock 안에 있는 상품들의 배송비중에 비교후 더 싼 걸 상점의 배송비로 끌어온다
+// 7. x버튼을 누르면 해당 상품이 사라진다. localstorage에서도 지워진다
+
+// 선택 삭제
+// 정말 지우겠냐/선택된 게 없다 alert
+// 체크가 된 상품들을 지운다

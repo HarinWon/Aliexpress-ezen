@@ -195,6 +195,7 @@ body {
           display: flex;
           gap: 10px;
           #selectAll {
+            cursor: pointer;
             input[type="checkbox"] {
               display: none;
               &:checked ~ .fa-circle-check {
@@ -210,6 +211,7 @@ body {
           #selectDel {
             padding-left: 10px;
             border-left: 1px solid #000;
+            cursor: pointer;
           }
         }
         #coupon {
@@ -279,6 +281,10 @@ body {
             label {
               color: #fff;
               text-shadow: 0 0 2px #000;
+              cursor: pointer;
+              &:hover {
+                color: map-get($color, light3);
+              }
             }
           }
           .storeR {
@@ -289,6 +295,15 @@ body {
               border-radius: 5px;
               color: #fff;
               @include bodyLarge();
+              cursor: pointer;
+              transition: background 0.2s;
+              &:hover {
+                background: linear-gradient(
+                    rgba(123, 123, 123, 0.1),
+                    rgba(123, 123, 123, 0.1)
+                  ),
+                  map-get($color, main-color);
+              }
             }
             span {
               display: none;
@@ -327,6 +342,10 @@ body {
                   color: #fff;
                   transform: scale(1.5);
                   text-shadow: 0 0 2px #000;
+                  cursor: pointer;
+                  &:hover {
+                    color: map-get($color, light3);
+                  }
                 }
                 .prodImg {
                   width: 120px;
@@ -356,14 +375,10 @@ body {
                   }
 
                   .prodOpt {
-                    display: none;
                     @include body-normal();
                     color: map-get($color, dark3);
                     opt {
                       color: map-get($color, dark2);
-                    }
-                    &.active {
-                      display: block;
                     }
                   }
 
@@ -378,10 +393,9 @@ body {
                       height: 31px;
                       border: 1px solid #000;
                       border-radius: 5px;
-
                       input[type="number"] {
                         text-align: center;
-                        width: 32px;
+                        width: 34px;
                         border: none;
                         outline: none;
                         @include bodyLarge();
@@ -409,10 +423,6 @@ body {
                         text-shadow: none;
                       }
                     }
-                    label {
-                      color: #fff;
-                      text-shadow: 0 0 2px #000;
-                    }
                   }
                   .tab {
                     display: none;
@@ -430,6 +440,10 @@ body {
                   display: flex;
                   flex-direction: column;
                   gap: 8px;
+                  .fa-xmark::before {
+                    cursor: pointer;
+                    font-size: 24px;
+                  }
                   h2 {
                     @include heading4();
                   }
@@ -457,6 +471,11 @@ body {
                     border-radius: 5px;
                     color: map-get($color, main-color);
                     @include body-normal();
+                    cursor: pointer;
+                    transition: background 0.1s;
+                    &:hover {
+                      background: map-get($color, light3);
+                    }
                   }
                 }
               }
@@ -475,7 +494,6 @@ body {
             border-style: solid none;
             @include bodyLarge();
             & > i {
-              font-size: 20px;
               color: transparent;
               -webkit-text-stroke: 2.4px #000;
               &:nth-of-type(3) {
@@ -492,7 +510,7 @@ body {
               }
               i {
                 margin: 5px;
-                font-size: 10px;
+                font-size: 15px;
               }
             }
             .storePrice {
@@ -575,8 +593,17 @@ body {
             border: none;
             border-radius: 5px;
             padding: 10px;
-            @include bodyLarge();
             color: #fff;
+            @include bodyLarge();
+            cursor: pointer;
+            transition: background 0.5s;
+            &:hover {
+              background: linear-gradient(
+                  rgba(123, 123, 123, 0.1),
+                  rgba(123, 123, 123, 0.1)
+                ),
+                map-get($color, main-gradient);
+            }
           }
         }
       }
@@ -584,6 +611,7 @@ body {
         width: 100%;
         height: 115px;
         background: url("./img/eventBanner.png") center/cover no-repeat;
+        cursor: pointer;
       }
     }
   }
@@ -613,7 +641,7 @@ body {
       position: sticky;
       top: 0;
       z-index: 2;
-      min-width:0;
+      min-width: 0;
       #cartHeader {
         padding: 15px 24px;
         .gnbWrapper {
@@ -938,14 +966,17 @@ body {
                 border-bottom: 1px solid map-get($color, light1);
                 .prodBlockMobClose {
                   width: 100%;
+                  height: fit-content;
                   justify-content: end;
                   text-align: right;
+                  margin: -2px 0 7px 0;
+                  font-size: 20px;
                 }
                 .prodInfoWrapper {
                   display: flex;
                   flex-direction: column;
                   width: 100%;
-                  gap: 10px;
+                  gap: 15px;
                   .prodBlockMobInfo {
                     display: flex;
                     justify-content: space-between;
@@ -987,6 +1018,7 @@ body {
                         flex-direction: column;
                         gap: 10px;
                         width: fit-content;
+                        align-items: end;
                         h2 {
                           @include body-normal();
                         }
@@ -1006,9 +1038,6 @@ body {
                             display: none;
                           }
                         }
-                        h5 {
-                          @include body-small();
-                        }
                         .prodTitle {
                           max-width: 330px;
                           overflow: hidden;
@@ -1016,14 +1045,18 @@ body {
                           white-space: nowrap;
                         }
                         .prodOpt {
-                          display: none;
                           @include body-small();
                           color: map-get($color, dark3);
                           opt {
                             color: map-get($color, dark2);
                           }
-                          &.active {
-                            display: block;
+                        }
+                        .origNFina {
+                          display: flex;
+                          padding: 0;
+                          gap: 10px;
+                          .prodOrigPrice {
+                            padding-top: 2px;
                           }
                         }
                       }
@@ -1055,12 +1088,11 @@ body {
                         appearance: textfield;
                       }
                       input[type="button"] {
-                        @include body-small();
+                        background: none;
                         padding: 4px;
                         border: none;
-                        background: none;
                         color: map-get($color, main-color);
-                        cursor: pointer;
+                        @include body-small();
                       }
                     }
                     input[type="button"] {
@@ -1096,8 +1128,13 @@ body {
                 padding: 0;
                 gap: 5px;
                 transition: height 0.3s;
+                color: map-get($color, dark2);
                 @include body-medium();
-                &.active{
+                & > i {
+                  color: map-get($color, dark3);
+                  font-size: 18px;
+                }
+                &.active {
                   height: 123px;
                   opacity: 1;
                   padding: 10px 20px;
@@ -1106,8 +1143,15 @@ body {
                   display: flex;
                   width: 100%;
                   justify-content: space-between;
+                  i {
+                    color: map-get($color, dark3);
+                    font-size: 14px;
+                  }
                   .active {
                     color: map-get($color, point-color);
+                  }
+                  :nth-child(2) {
+                    @include body-normal();
                   }
                 }
               }
@@ -1120,7 +1164,7 @@ body {
                 gap: 5px;
                 background: #fff;
                 z-index: 0;
-                .totalPrice {
+                .storeTotalPrice {
                   display: flex;
                   justify-content: space-between;
                   i {
@@ -1183,7 +1227,7 @@ body {
                       .prodInfoRdesc {
                         .prodTitle {
                           // text-align: left;
-                          max-width: 300px;
+                          max-width: 400px;
                           overflow: hidden;
                           text-overflow: ellipsis;
                           display: -webkit-box;
@@ -1233,6 +1277,14 @@ body {
           padding: 0;
           opacity: 0;
           transition: height 0.3s;
+          border: 1px map-get($color, dark3);
+          border-style: solid none none;
+          border-radius: 8px 8px 0 0;
+          color: map-get($color, dark2);
+          i {
+            color: map-get($color, dark3);
+            font-size: 18px;
+          }
           &.active {
             height: 114px;
             padding: 10px;
