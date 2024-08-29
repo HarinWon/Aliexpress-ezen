@@ -40,7 +40,6 @@ arrows.forEach((arrow) => {
 });
 
 //infoScroll
-
 window.addEventListener("scroll", () => {
   const info = document.querySelectorAll("#infoContainer ul li");
   let scrollY = window.scrollY;
@@ -52,6 +51,42 @@ window.addEventListener("scroll", () => {
       item.classList.remove("activeScroll");
     }
   });
+});
+
+//Coupon Slick Slider
+
+$(".myslider").slick({
+  dots: false,
+  infinite: true,
+  autoplay: true,
+  speed: 1000,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 760,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 });
 
 //weeklyCountdown
@@ -333,8 +368,9 @@ fetch("/db.json")
 
 //category Touch Event
 const categoryGnb = document.querySelector(".Tablet ul");
+console.log(categoryGnb);
 const gnbClientWidth = categoryGnb.clientWidth;
-const gnbScrollWidth = categoryGnb.scrollWidth;
+const gnbScrollWidth = categoryGnb.scrollWidth + categoryGnb.clientWidth / 8;
 
 let firstX = 0;
 let secondX = 0;
@@ -424,20 +460,23 @@ window.addEventListener("scroll", () => {
       deskgnbItems[index].classList.add("active");
       categories[index].classList.add("active");
 
-      // // 해당 GNB 항목으로 스크롤 이동 (가로 스크롤)
-      // const gnbContainer = document.querySelector(".Tablet ul"); // GNB 컨테이너
-      // const targetItem = tabletgnbItems[index];
+      const maxTranslateX = categoryGnb.scrollWidth - categoryGnb.clientWidth;
+      let divideFactor;
+      if (window.innerWidth < 768) {
+        divideFactor = 70;
+      } else {
+        divideFactor = 100;
+      }
 
-      // // GNB 가로 스크롤 위치 조정
-      // gnbContainer.scrollLeft =
-      //   targetItem.offsetLeft -
-      //   gnbContainer.clientWidth / 2 +
-      //   targetItem.clientWidth / 2;
+      const translateXValue = Math.min(-scrollY / divideFactor, maxTranslateX);
+
+      // translateX를 계산된 값으로 설정
+      categoryGnb.style.transform = `translateX(${translateXValue + 50}px)`;
     }
 
     // 태블릿 scrollY
     if (window.innerWidth >= tabletBreakpoint) {
-      if (scrollY > 4910) {
+      if (scrollY > 5000) {
         document.querySelector(".TabletBtnBox").style.display = "block";
       } else {
         document.querySelector(".TabletBtnBox").style.display = "none";
@@ -445,7 +484,7 @@ window.addEventListener("scroll", () => {
     }
     // 모바일 scrollY
     else if (window.innerWidth <= mobileBreakpoint) {
-      if (scrollY > 3849) {
+      if (scrollY > 4180) {
         document.querySelector(".TabletBtnBox").style.display = "block";
       } else {
         document.querySelector(".TabletBtnBox").style.display = "none";

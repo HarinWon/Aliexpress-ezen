@@ -415,8 +415,8 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
+  cursor: pointer;
   .couponContent {
-    // border: 1px solid #f00;
     display: flex;
     justify-content: space-between;
     .couponImg {
@@ -826,37 +826,19 @@ body {
 
   // main
   #mainContainer {
-    height: 100%;
+    height: 428px;
     overflow: hidden;
     #mainVideo video {
       height: 100%;
+      object-fit: cover;
     }
     &::before {
       height: 100%;
     }
-
     .mainTrigger {
-      bottom: 30px;
+      bottom: 50px;
       p:nth-of-type(1) {
-        font-size: 1rem;
-        left: -4%;
-      }
-      p:nth-of-type(2) {
-        font-size: 1rem;
-        position: absolute;
-        left: 23%;
-      }
-      section:nth-of-type(1) {
-        position: absolute;
-        width: 22%;
-        height: 2px;
-        background: rgba(255, 255, 255, 0.4);
-      }
-      section:nth-of-type(2) {
-        position: absolute;
-        width: 11%;
-        height: 3px;
-        background: map-get($color, light3);
+        left: -5%;
       }
     }
   }
@@ -893,12 +875,18 @@ body {
   //welcome
   #welcomeContainer {
     .welcome {
-      margin-top: -30px;
+      margin-top: -45px;
       .welcomeContents {
         display: flex;
         flex-direction: column;
         .welcomeContentLeft {
           width: 100%;
+          height: 410px;
+          .image {
+            width: 100%;
+            height: 100%;
+            background-position: bottom;
+          }
           .leftText {
             color: map-get($color, light3);
             width: 700px;
@@ -939,6 +927,20 @@ body {
       }
     }
   }
+
+  //coupon
+  #coupon {
+    .couponContent {
+      .couponImg {
+        height: 120px;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
   //weekly
   #weeklyContainer {
     .weeklyContents {
@@ -1204,6 +1206,22 @@ body {
       height: 30px;
     }
   }
+
+  //main
+  #mainContainer {
+    height: 219px;
+    overflow: hidden;
+    #mainVideo video {
+      height: 100%;
+      object-fit: cover;
+    }
+    .mainTrigger {
+      bottom: 40px;
+      p:nth-of-type(1) {
+        left: -5%;
+      }
+    }
+  }
   //info
   #infoContainer {
     z-index: 2;
@@ -1292,6 +1310,20 @@ body {
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  //coupon
+  #coupon {
+    margin-top: 40px;
+    .couponContent {
+      .couponImg {
+        height: 120px;
+        img {
+          height: 100%;
+          object-fit: cover;
         }
       }
     }
