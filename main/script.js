@@ -262,6 +262,24 @@ foryouBtn.forEach((btn) => {
   });
 });
 
+// toggleHeart
+const hearts = document.querySelectorAll(".fa-heart");
+
+function toggleHeart(hearts) {
+  hearts.forEach((heart) => {
+    heart.addEventListener("click", () => {
+      if (heart.style.color === "red") {
+        heart.style.color = "";
+        heart.style.transform = "";
+      } else {
+        heart.style.color = "red";
+        heart.style.transform = "scale(1.1)";
+        heart.style.transition = "all 0.3s";
+      }
+    });
+  });
+}
+
 //foryou json + category json
 const foryouContent = document.querySelector(".foryoucontent");
 
@@ -318,7 +336,7 @@ fetch("/db.json")
                   <p>${item.delivery}</p>
                   <p>${item.delivery_date}</p>
                 </span>
-                <span><b>*****</b>${item.ratings} 판매</span>
+                <span><b>★★★★★</b>${item.ratings} 판매</span>
               </div>
             </a>
           `;
@@ -363,7 +381,7 @@ fetch("/db.json")
                   <p>${item.delivery}</p>
                   <p>${item.delivery_date}</p>
                 </span>
-                <span><b>*****</b>${item.ratings} 판매</span>
+                <span><b>★★★★★</b>${item.ratings} 판매</span>
               </div>
             </a>
           </li>
@@ -372,6 +390,8 @@ fetch("/db.json")
         createUl.insertAdjacentHTML("beforeend", productHTML);
       }
     });
+    const hearts = document.querySelectorAll(".fa-heart");
+    toggleHeart(hearts);
   });
 
 //category Touch Event
