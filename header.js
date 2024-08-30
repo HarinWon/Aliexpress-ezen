@@ -117,7 +117,7 @@ if (iconHtml.includes("<i")) {
   // Font Awesome 아이콘이 포함된 경우
   const iconContainer = document.createElement("span");
   iconContainer.innerHTML = iconHtml; // 아이콘 HTML을 직접 렌더링
-  iconContainer.querySelector('i').classList.add('icon-style'); // 아이콘에 클래스 추가
+  iconContainer.querySelector("i").classList.add("icon-style"); // 아이콘에 클래스 추가
   categoryElement.appendChild(iconContainer);
 } else {
   // 이미지 경로로 설정된 경우
@@ -127,3 +127,56 @@ if (iconHtml.includes("<i")) {
   icon.className = "category-icon"; // 스타일을 위한 클래스 추가
   categoryElement.appendChild(icon);
 }
+
+// 실시간 검색어
+document.addEventListener("DOMContentLoaded", function () {
+  const realTimeSearchContainer = document.querySelector(".real-time-search");
+  const realTimeSearchList = document.querySelector(".real-time-result");
+
+  // 호버 이벤트를 추가하여 실시간 검색 결과 목록을 표시하거나 숨김
+  realTimeSearchContainer.addEventListener("mouseenter", function () {
+    realTimeSearchList.style.display = "block"; // 목록 표시
+  });
+  realTimeSearchContainer.addEventListener("mouseleave", function () {
+    realTimeSearchList.style.display = "none"; // 목록 숨김
+  });
+
+  function updateRealTimeSearch() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    let timeOfDay;
+
+    // 시간대에 따라 'morning', 'afternoon', 'evening' 설정
+    if (hours >= 6 && hours < 12) {
+      timeOfDay = "morning";
+    } else if (hours >= 12 && hours < 18) {
+      timeOfDay = "afternoon";
+    } else {
+      timeOfDay = "evening";
+    }
+
+    // realTime.json에서 적절한 데이터 가져오기
+    fetch("/realTime.json")
+      .then((response) => response.json())
+      .then((data) => {
+        displayRealTimeSearch(data[timeOfDay]);
+      })
+      .catch((error) =>
+        console.error("Error loading real time search data:", error)
+      );
+  }
+
+  function displayRealTimeSearch(items) {
+    realTimeSearchList.innerHTML = ""; // 기존 목록 지우기
+    items.forEach((item, index) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = index + 1 + ". " + Object.values(item)[0];
+      realTimeSearchList.appendChild(listItem);
+    });
+  }
+
+  // 실시간 검색어 목록 업데이트
+  updateRealTimeSearch();
+  // 30분마다 업데이트
+  setInterval(updateRealTimeSearch, 1800000);
+});

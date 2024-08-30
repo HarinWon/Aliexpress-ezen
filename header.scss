@@ -148,6 +148,9 @@ header {
       justify-content: space-between;
       border-radius: 40px;
       position: relative;
+      &:hover .real-time-result {
+        display: block;
+      }
       .real-time-search {
         width: 130px;
         // border-right: 1px solid map-get($color, dark3);
@@ -290,14 +293,17 @@ header {
             width: 160px;
             height: 50px;
             line-height: 50px;
-            padding: 10px;
+            padding: 0 10px;
             border-radius: 4px;
             cursor: pointer;
-            &:last-child {
-              border-bottom: none;
+            span i {
+              margin-right: 8px;
             }
             &:hover {
               background-color: #fff;
+              & > span {
+                color: map-get($color, main-color);
+              }
             }
           }
         }
@@ -317,6 +323,8 @@ header {
         }
         .subcategory-menu .subcategory-item:hover {
           background-color: #f0f0f0;
+          color: map-get($color, main-color);
+          font-weight: bold;
         }
       }
       li {
@@ -521,7 +529,6 @@ header {
       }
     }
   }
-
 
   .footer-bottom {
     display: flex;
