@@ -337,9 +337,8 @@ body {
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: all 0.5s;
   border-radius: 4px;
-  transition: transform 0.3s opacity 0.3s;
+  transition: all 0.5s;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li::before {
   content: "";
@@ -371,6 +370,7 @@ body {
   border-radius: 20px;
   background: rgba(255, 97, 29, 0.85);
   opacity: 0;
+  transition: all 0.5s;
   z-index: 3;
 }
 #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li .icon .fa-solid {
@@ -501,6 +501,35 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+#weeklyContainer .weeklyContents .weeklyContent ul .contentImg .icon {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 40px;
+  gap: 20px;
+  border-radius: 20px;
+  background: rgba(255, 97, 29, 0.85);
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 3;
+}
+#weeklyContainer .weeklyContents .weeklyContent ul .contentImg .icon .fa-solid {
+  font-size: 1.3rem;
+  color: #fff;
+}
+#weeklyContainer .weeklyContents .weeklyContent ul .contentImg .icon img {
+  margin-top: 8px;
+  width: 22px;
+  height: 22px;
+}
+#weeklyContainer .weeklyContents .weeklyContent ul:hover .icon {
+  opacity: 1;
+}
 #weeklyContainer .weeklyArrows {
   position: absolute;
   top: 55%;
@@ -611,6 +640,7 @@ body {
   justify-content: space-between;
 }
 #foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg {
+  position: relative;
   width: 350px;
   height: 210px;
   overflow-clip-margin: content-box;
@@ -624,8 +654,37 @@ body {
      object-fit: cover;
   transition: transform 0.3s;
 }
-#foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg:hover img {
+#foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg:hover img:not(.icon img) {
   transform: scale(1.1);
+}
+#foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg .icon {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 40px;
+  gap: 20px;
+  border-radius: 20px;
+  background: rgba(255, 97, 29, 0.85);
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 3;
+}
+#foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg .icon .fa-solid {
+  font-size: 1.3rem;
+  color: #fff;
+}
+#foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg .icon img {
+  margin-top: 8px;
+  width: 22px;
+  height: 22px;
+}
+#foryouContainer .foryouContents .foryoucontent .ulElements li:hover .icon {
+  opacity: 1;
 }
 #foryouContainer .foryouContents .foryoucontent .ulElements li .foryouTitle {
   margin-top: 4px;
@@ -781,6 +840,7 @@ body {
   margin-bottom: 60px;
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
+  position: relative;
   width: 276px;
   height: 200px;
   overflow-clip-margin: content-box;
@@ -791,10 +851,41 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
   transition: transform 0.3s;
 }
-#categoryContainer .categoryContents .category .categoryContent ul li .contentImg:hover img {
+#categoryContainer .categoryContents .category .categoryContent ul li .contentImg:hover img:not(.icon img) {
   transform: scale(1.1);
+}
+#categoryContainer .categoryContents .category .categoryContent ul li .contentImg .icon {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 40px;
+  gap: 20px;
+  border-radius: 20px;
+  background: rgba(255, 97, 29, 0.85);
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 3;
+}
+#categoryContainer .categoryContents .category .categoryContent ul li .contentImg .icon .fa-solid {
+  font-size: 1.3rem;
+  color: #fff;
+}
+#categoryContainer .categoryContents .category .categoryContent ul li .contentImg .icon img {
+  margin-top: 8px;
+  width: 22px;
+  height: 22px;
+}
+#categoryContainer .categoryContents .category .categoryContent ul li:hover .icon {
+  opacity: 1;
 }
 #categoryContainer .categoryContents .category.active .categoryTitle {
   background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);

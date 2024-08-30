@@ -299,6 +299,10 @@ fetch("/db.json")
             <a href="#none">
               <div class="contentImg">
                 <img src="${item.image_path}" alt="${item.product_name}" style="width:340px; height:220px;" />
+                <div class="icon">
+                  <i class="fa-solid fa-heart"></i>
+                  <img src="./dbImg/icon/cart.png" alt="cart" />
+                </div>
               </div>
               <div class="contentTitle foryouTitle">
                 <h3>${item.brand}</h3>
@@ -340,6 +344,10 @@ fetch("/db.json")
             <a href="#none">
               <div class="contentImg">
                 <img src="${item.image_path}" alt="${item.product_name}" />
+                <div class="icon">
+                  <i class="fa-solid fa-heart"></i>
+                  <img src="./dbImg/icon/cart.png" alt="cart" />
+                </div>
               </div>
               <div class="contentTitle foryouTitle">
                 <h3>${item.brand}</h3>
