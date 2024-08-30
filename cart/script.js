@@ -173,7 +173,8 @@ accordionOpenF.addEventListener("click", () => {
   });
 });
 
-// 데스크탑 상품과 모바일 상품을 연결시키는 함수
+// 데스크탑과 모바일에 생기는 변화를 연결시키는 영역
+// prodBlock
 document.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
   // 데스크톱과 모바일의 상품체크박스 연결 sync desktop and mob checkboxes
   const prodCheck = prodBlock.querySelector(".prodCheck");
@@ -187,9 +188,55 @@ document.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
   });
   // 상품하트 연결
   const prodHeart = prodBlock.querySelector(".prodHeart");
-  // 상점하트 연결
-
+  const prodHeartMob =
+    prodBlock.nextElementSibling.querySelector(".prodHeartMob");
+  prodHeart.addEventListener("change", function () {
+    prodHeartMob.checked = prodHeart.checked;
+  });
+  prodHeartMob.addEventListener("change", function () {
+    prodHeart.checked = prodHeartMob.checked;
+  });
   // 수량인풋 연결
+  // minus
+  const minusN = prodBlock.querySelector(".minusB");
+  const minusNMob = prodBlock.nextElementSibling.querySelector(".minusB");
+  // function syncMinusB(source, target) {
+  //   target.click();  // Trigger a click event on the target button
+  // }
+  // minusN.addEventListener("click", function () {
+  //   syncMinusB(minusN, minusNMob);
+  // });
+  // minusNMob.addEventListener("click", function () {
+  //   syncMinusB(minusNMob, minusN);
+  // });
+  // Number
+  minusN.addEventListener("change", function () {
+    quantNMob.value = quantN.value;
+  });
+  minusNMob.addEventListener("change", function () {
+    quantN.value = quantNMob.value;
+  });
+  const quantN = prodBlock.querySelector("input[type='number']");
+  const quantNMob = prodBlock.nextElementSibling.querySelector(
+    "input[type='number']"
+  );
+  quantN.addEventListener("change", function () {
+    quantNMob.value = quantN.value;
+  });
+  quantNMob.addEventListener("change", function () {
+    quantN.value = quantNMob.value;
+  });
+});
+// storeBlock //상점하트 연결
+document.querySelectorAll(".storeL").forEach(function (storeL) {
+  const storeHeart = storeL.querySelector(".storeHeart");
+  const storeHeartMob = storeL.nextElementSibling.querySelector(".storeHeart");
+  storeHeart.addEventListener("change", function () {
+    storeHeartMob.checked = storeHeart.checked;
+  });
+  storeHeartMob.addEventListener("change", function () {
+    storeHeart.checked = storeHeartMob.checked;
+  });
 });
 
 // 체크박스를 하나로 묶어서 한번에 켰다 껐다 하게해주는 함수들
@@ -225,58 +272,32 @@ storeChecks.forEach((storeCheck) => {
   });
 });
 // 전체선택 SelectAll
-// 전체선택을 눌렀을 때 모든 checkbox들이 체크됨
-// const selectAll = document.getElementById("#selectAllTxt");
-// const selectAll = document.querySelector('input[type="checkbox"]');
-// selectAll.addEventListener("click", function(selectAll) {
-//   const checkboxes = document.querySelectorAll(".storeCheck, .prodMobCheck, .prodCheck");
+const selectAll = document.querySelector("#selectAllTxt");
+const checkboxes = document.querySelectorAll(
+  ".storeCheck, .prodMobCheck, .prodCheck"
+);
+// selectAll.addEventListener("change", function () {
 //   checkboxes.forEach((checkbox) => {
-//     // checkbox.checked = selectAll.checked;
-//     selectAll.checked = checkbox.checked;
+//     checkbox.checked = selectAll.checked;
 //   });
 // });
-
-const selectAll = document.querySelector("#selectAllTxt");
-selectAll.addEventListener("click", function () {
-  const checkboxes = document.querySelectorAll(
-    ".storeCheck, .prodMobCheck, .prodCheck"
-  );
-  checkboxes.forEach((checkbox) => {
+checkboxes.forEach((checkbox) => {
+  // 전체선택을 눌렀을 때 모든 checkbox들이 체크됨
+  selectAll.addEventListener("change", function () {
     checkbox.checked = selectAll.checked;
-    // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
-    // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
-    checkbox.addEventListener("change", () => {
-      const allChecked = Array.from(checkboxes).every(
-        (checkbox) => checkbox.checked
-      );
-      const anyUnchecked = Array.from(checkboxes).some(
-        (checkbox) => !checkbox.checked
-      );
-      if (allChecked) {
-        selectAll.checked = true;
-      } else if (anyUnchecked) {
-        selectAll.checked = false;
-      }
-    });
+  });
+  // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
+  // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
+  checkbox.addEventListener("change", function () {
+    const allChecked = Array.from(checkboxes).every(
+      (checkbox) => checkbox.checked
+    );
+    selectAll.checked = allChecked;
   });
 });
-// const selectAll = document.getElementById("#selectAllTxt");
-// const selectAll = document.querySelector('input[type="checkbox"]');
-// selectAll.addEventListener('click', function() {
-//   const checkboxes = document.querySelectorAll(".storeCheck , .prodMobCheck, .prodCheck");
-//   if (selectAll.checked) {
-//     checkboxes.forEach((checkbox) => {
-//       checkbox.checked = true;
-//     });
-//   } else {
-//     checkboxes.forEach((checkbox) => {
-//       checkbox.checked = false;
-//     });
-//   }
-// });
 
-// 가격 계산
-// 상점 가격 계산
+// 가격&수량 계산
+// 상점 가격&수량 계산
 function storeCalc() {
   document.querySelectorAll(".storeBlock").forEach(function (storeBlock) {
     // 상점 기본금액&할인금액 //storeOrigPrice & storeDiscount
@@ -338,10 +359,27 @@ function storeCalc() {
     storeBlock.querySelectorAll(".storePrice").forEach(function (storePrice) {
       storePrice.textContent = storePriceTotal.toLocaleString() + "원";
     });
+    // 상점별 수량
+    let quantN = storeBlock.querySelectorAll(".prodCheck:checked").length;
+    console.log(quantN);
+    const storeQuant = storeBlock.querySelector(".storeQuant");
+    storeQuant.value = quantN.toLocaleString() + "건바로구매";
+    const storeQuantMob = storeBlock.querySelector(".storeQuantMob");
+    storeQuantMob.value = quantN.toLocaleString() + "건 바로구매";
   });
 }
+// const storeR = document.querySelectorAll(".storeR");
+// const prodBlock =
+//   storeR.parentElement.nextElementSibling.querySelectorAll(".prodBlock");
+// prodBlock.forEach(function (storeRIn) {
+//   const storeQuant = storeRIn.;
+// storeRIn.querySelector(
+//   ".storeQuant"
+// ).value = `${}건바로구매`
+// });
 // 결제정보
 function totalCalc() {
+  // 총수량
   // 총상품수 totalProdQuant
   let checkedProd = 0;
   document.querySelectorAll(".prodCheck:checked").forEach(function () {
@@ -350,6 +388,35 @@ function totalCalc() {
   document.querySelectorAll(".totalProdQuant").forEach(function (tPQ) {
     tPQ.textContent = checkedProd;
   });
+  // 해외상품 수량
+  const foreignStores = document.querySelectorAll(".foreignStore");
+  foreignStores.forEach(function (foreignStore) {
+    const foreignStoreBlock = foreignStore.parentElement;
+    let checkedFrProd = 0;
+    foreignStoreBlock
+      .querySelectorAll(".prodCheck:checked")
+      .forEach(function () {
+        checkedFrProd++;
+      });
+    console.log(checkedFrProd);
+    document.querySelectorAll(".foreignProdQuant").forEach(function (fPQ) {
+      fPQ.textContent = checkedFrProd;
+    });
+  });
+  // 국내상품 수량
+  const localStores = document.querySelectorAll(".localStore");
+  localStores.forEach(function (localStore) {
+    const localStoreBlock = localStore.parentElement;
+    let checkedLcProd = 0;
+    localStoreBlock.querySelectorAll(".prodCheck:checked").forEach(function () {
+      checkedLcProd++;
+    });
+    console.log(checkedLcProd);
+    document.querySelectorAll(".localProdQuant").forEach(function (lPQ) {
+      lPQ.textContent = checkedLcProd;
+    });
+  });
+  // 종금액
   // 총상품금액 totalOrigPrice
   const storeOrigPrices = document.querySelectorAll(".storeOrigPrice");
   let origToTal = 0;
@@ -396,7 +463,22 @@ function totalCalc() {
       tP.textContent = point.toLocaleString() + "원";
     });
   });
-  // 푸터 submit 안에 value를 바꿔주는 코드
+  //테블릿 결제용 submit 안에 value를 바꿔주는 코드
+  const totalPrice = parseInt(
+    document.querySelector(".totalPrice").textContent.replace(/[,]/g, ""),
+    10
+  );
+  const totalQuant = parseInt(
+    document.querySelector(".totalProdQuant").textContent.replace(/[,]/g, ""),
+    10
+  );
+  // const totalPrice = document.querySelector(".totalPrice");
+  document.querySelector(
+    ".tabFooterSubmit"
+  ).value = `${totalPrice}원 (${totalQuant}건)`;
+  document.querySelector(
+    ".tabSectionSubmit"
+  ).value = `총 ${totalQuant}개 주문하기`;
 }
 
 // 체크박스를 클릭했을 떄 계산이 진행되도록 해주는 함수
@@ -409,24 +491,71 @@ document
 storeCalc();
 totalCalc();
 
-// 내일 할일
-//  // 선생님과 얘기하고 json 고치기
-//  // css  한번보기
-// a) 구매버튼들 색깔이 구매가 불가능할때 색깔이 바뀌게끔(회색)
-// b) 모바일과 데스크톱 연결
-// c) 전체선택 고치기
+// 국내배송&해외배송 누르면 구분되게끔
+// const cartSortDesk = document.querySelector(".cartSortDesk");
+// cartSortDesk.querySelectorAll("sortAll").addEventListener("click", function () {
+//   const localStore =
+//     document.querySelectorAll(".localStore").parentElement.parentElement;
+//   localStore.style.display = "flex";
+//   const foreignStore =
+//     document.querySelectorAll(".foreignStore").parentElement.parentElement;
+//   foreignStore.style.display = "flex";
+// });
+// cartSortDesk.querySelectorAll("sortFr").addEventListener("click", function () {
+//   const localStore =
+//     document.querySelectorAll(".localStore").parentElement.parentElement;
+//   localStore.style.display = "none";
+//   const foreignStore =
+//   document.querySelectorAll(".foreignStore").parentElement.parentElement;
+// foreignStore.style.display = "flex";
+// });
+// cartSortDesk.querySelectorAll("sortLocal").addEventListener("click", function () {
+//   const localStore =
+//     document.querySelectorAll(".localStore").parentElement.parentElement;
+//   localStore.style.display = "flex";
+//   const foreignStore =
+//   document.querySelectorAll(".foreignStore").parentElement.parentElement;
+// foreignStore.style.display = "none";
+// });
+const cartSortDesk = document.querySelector(".cartSortDesk");
 
-// header와 연결
-// 1. 상세페이지에서 집어넣을시와 장바구니에서 지울시에 localstorage에 상품이 몇개 들어와 있는지 업데이트 한다(length)
+// // Handle sorting all stores
+// cartSortDesk.querySelector(".sortAll").addEventListener("click", function () {
+//   document.querySelectorAll(".localStore").forEach(function (localStore) {
+//     localStore.parentElement.parentElement.style.display = "flex";
+//   });
+//   document.querySelectorAll(".foreignStore").forEach(function (foreignStore) {
+//     foreignStore.parentElement.parentElement.style.display = "flex";
+//   });
+// });
 
-// local storage로 값을 넣는 과정
-// 1.값이 1 이상& 옵션이 선택 되있어야 locastorage에 값이 들어감. 장바구니에 상품이 들어갔다는 메세지를 띄움.
-// 하트를 누르면 찜한상품이 바뀜?
+// // Handle sorting foreign stores only
+// cartSortDesk.querySelector(".sortFr").addEventListener("click", function () {
+//   document.querySelectorAll(".localStore").forEach(function (localStore) {
+//     localStore.parentElement.parentElement.style.display = "none";
+//   });
+//   document.querySelectorAll(".foreignStore").forEach(function (foreignStore) {
+//     foreignStore.parentElement.parentElement.style.display = "flex";
+//   });
+// });
+
+// // Handle sorting local stores only
+// cartSortDesk.querySelector(".sortLocal").addEventListener("click", function () {
+//   document.querySelectorAll(".localStore").forEach(function (localStore) {
+//     localStore.parentElement.parentElement.style.display = "flex";
+//   });
+//   document.querySelectorAll(".foreignStore").forEach(function (foreignStore) {
+//     foreignStore.parentElement.parentElement.style.display = "none";
+//   });
+// });
+
+// local storage로 상세체이지에서 값을 넣는 과정
+// 1.값이 1 이상& 옵션이 선택 돼있어야 locastorage에 값이 들어감. 장바구니에 상품이 들어갔다는 메세지를 띄움.
 // 2.상품이름이 같은 게 이미 들어가 있으면 수량만 더해주고 이미 있었다는 메세지를 띄움
 
-// local storage에서 값을 받는 과정
-// 1. 전부 cart: 0일 경우에 content를 비우고 cartNone에 정리해둔 content를 띄운다. //localstorage에 상품관련 기록이 없으면 띄운다
-// 2. cart: 0이 아닌 게 하나라도 있을 경우에 상점이름을 읽는다. // 애초에 localstorage에 넣을 때 값이 1이상이여만 들어가도록 설정한다
+// localstorage에서 카트로 값을 받는 과정
+// 1. 전부 cart: 0일 경우에 content를 비우고 cartNone에 정리해둔 content를 띄운다.
+// 2. cart: 0이 아닌 게 하나라도 있을 경우에 상점이름을 읽는다.
 // 상점이름 하나당 .storeBlock 하나를 만드는데 해외배송/국내배송에 따라서 .localStore .foreignStore class를 구분해서 넣는다.
 // 3. cart: 안에 있는 값을  number의 value로 넣는다.
 // 4. number 안에 있는 값과 상품 값을 곱한 값이 상품가격에 표시되도록 ***이건 script
@@ -434,6 +563,14 @@ totalCalc();
 // 6. .storeBlock 안에 있는 상품들의 배송비중에 비교후 더 싼 걸 상점의 배송비로 끌어온다
 // 7. x버튼을 누르면 해당 상품이 사라진다. localstorage에서도 지워진다
 
+// header와의 연결
+// 1. 상세페이지에서 집어넣을시와 장바구니에서 지울시에 localstorage에 상품이 몇개 들어와 있는지 업데이트 한다(length)
+
+// 하트 (찜한상품)
+// 상세페이지, 메인페이지, 장바구니에 있는 찜버튼이 비활성화된 상태에서 체크되면(change) localstoreage에 favorite이 true로 바뀐 값이 들어간다
+// 찜버튼을 활성화된 상태에서 누르면 localstoreage에서 cart(수량)이 0 인경우 데이터가 제거된다
+// 모든 페이지들을 부를때 관련 제품의 찜 버튼이 활성화된 상태로 불려져온다.
+
 // 선택 삭제
-// 정말 지우겠냐/선택된 게 없다 alert
-// 체크가 된 상품들을 지운다
+// 1. 정말 지우겠냐/선택된 게 없다 alert
+// 2. 체크가 된 상품들을 지운다

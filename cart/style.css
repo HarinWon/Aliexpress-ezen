@@ -1091,6 +1091,7 @@ body section {
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn input[type=button] {
     background: transparent;
+    width: 86px;
     padding: 5px 10px;
     border: 1px solid #ff611d;
     border-radius: 5px;
@@ -1212,7 +1213,8 @@ body section {
     white-space: normal;
   }
   body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
-    justify-content: center;
+    gap: 10px;
+    justify-content: space-around;
   }
   body main .content #stores .storeBlock .storeCalcMob .storePay input[type=submit] {
     padding: 5px;

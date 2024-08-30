@@ -1097,6 +1097,7 @@ body {
                     }
                     input[type="button"] {
                       background: transparent;
+                      width: 86px;
                       padding: 5px 10px;
                       border: 1px solid map-get($color, main-color);
                       border-radius: 5px;
@@ -1240,7 +1241,8 @@ body {
                     }
                   }
                   .prodInfoBtn {
-                    justify-content: center;
+                    gap: 10px;
+                    justify-content: space-around;
                   }
                 }
               }
