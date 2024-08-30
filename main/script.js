@@ -64,7 +64,7 @@ $(".myslider").slick({
   slidesToScroll: 2,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1170,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -73,10 +73,10 @@ $(".myslider").slick({
       },
     },
     {
-      breakpoint: 760,
+      breakpoint: 800,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 1,
+        slidesToScroll: 1,
       },
     },
     {
@@ -390,8 +390,8 @@ fetch("/db.json")
         createUl.insertAdjacentHTML("beforeend", productHTML);
       }
     });
-    const hearts = document.querySelectorAll(".fa-heart");
-    toggleHeart(hearts);
+    const heartsv2 = document.querySelectorAll(".fa-heart");
+    toggleHeart(heartsv2);
   });
 
 //category Touch Event
