@@ -396,7 +396,7 @@ header {
           &:nth-child(1) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "30% 할인";
                 @include card-styles();
               }
             }
@@ -404,7 +404,7 @@ header {
           &:nth-child(2) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "코인 10개";
                 @include card-styles();
               }
             }
@@ -412,7 +412,7 @@ header {
           &:nth-child(3) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "20% 할인";
                 @include card-styles();
               }
             }
@@ -420,7 +420,7 @@ header {
           &:nth-child(4) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "15% 할인";
                 @include card-styles();
               }
             }
@@ -428,7 +428,7 @@ header {
           &:nth-child(5) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "코인 15개";
                 @include card-styles();
               }
             }
@@ -436,7 +436,7 @@ header {
           &:nth-child(6) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "22% 할인";
                 @include card-styles();
               }
             }
@@ -444,7 +444,7 @@ header {
           &:nth-child(7) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "30% 할인";
                 @include card-styles();
               }
             }
@@ -452,7 +452,7 @@ header {
           &:nth-child(8) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "코인 30개";
                 @include card-styles();
               }
             }
@@ -460,7 +460,7 @@ header {
           &:nth-child(9) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "35% 할인";
                 @include card-styles();
               }
             }
@@ -468,7 +468,7 @@ header {
           &:nth-child(10) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "8% 할인";
                 @include card-styles();
               }
             }
@@ -476,7 +476,7 @@ header {
           &:nth-child(11) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "12% 할인";
                 @include card-styles();
               }
             }
@@ -484,7 +484,7 @@ header {
           &:nth-child(12) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "코인 9개";
                 @include card-styles();
               }
             }
@@ -492,7 +492,7 @@ header {
           &:nth-child(13) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "24% 할인";
                 @include card-styles();
               }
             }
@@ -500,7 +500,7 @@ header {
           &:nth-child(14) {
             &:hover {
               &::before {
-                content: "안냐세요?";
+                content: "코인 3개";
                 @include card-styles();
               }
             }
@@ -521,6 +521,7 @@ header {
       }
     }
   }
+
 
   .footer-bottom {
     display: flex;
