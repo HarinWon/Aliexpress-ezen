@@ -30,65 +30,156 @@
       <div class="slider-container">
         <div class="slider-contaoner-contents">
           <div class="slider-label">가격</div>
-        <input
-          type="range"
-          min="0"
-          max="190000"
-          value="0"
-          step="10000"
-          class="slider"
-          id="priceSlider"
-          oninput="updatePriceRange()"
-        />
-        <div class="price-range" id="priceRange">가격범위 0원~190,000원</div>
-        <div class="radio-group">
-          <div class="label">발송국가</div>
-          <label for="allCountries">
-            <input
-              type="radio"
-              name="country"
-              id="allCountries"
-              value="all"
-              checked
-            />
-            모든국가
-          </label>
-          <label for="domestic">
-            <input type="radio" name="country" id="domestic" value="domestic" />
-            국내배송
-          </label>
-          <label for="international">
-            <input
-              type="radio"
-              name="country"
-              id="international"
-              value="international"
-            />
-            해외배송
-          </label>
-        </div>
+          <input
+            type="range"
+            min="0"
+            max="190000"
+            value="0"
+            step="10000"
+            class="slider"
+            id="priceSlider"
+            oninput="updatePriceRange()"
+          />
+          <div class="price-range" id="priceRange">가격범위 0원~190,000원</div>
+          <div class="radio-group">
+            <div class="label">발송국가</div>
+            <label for="allCountries">
+              <input
+                type="radio"
+                name="country"
+                id="allCountries"
+                value="all"
+                checked
+              />
+              모든국가
+            </label>
+            <label for="domestic">
+              <input
+                type="radio"
+                name="country"
+                id="domestic"
+                value="국내배송"
+              />
+              국내배송
+            </label>
+            <label for="international">
+              <input
+                type="radio"
+                name="country"
+                id="international"
+                value="해외배송"
+              />
+              해외배송
+            </label>
+          </div>
 
-        <div class="checkbox-group">
-          <div class="label">배송방법</div>
-          <label for="choice">
-            <input type="radio" name="method" id="choice" value="choice" />
-            choice
-          </label>
-          <label for="sevenToTenDays">
-            <input
-              type="radio"
-              name="method"
-              id="sevenToTenDays"
-              value="7-10days"
-            />
-            7-10일 배송
-          </label>
+          <div class="checkbox-group">
+            <div class="label">배송방법</div>
+            <label for="choice">
+              <input
+                type="radio"
+                name="method"
+                id="choice"
+                value="choice배송"
+              />
+              choice
+            </label>
+            <label for="sevenToTenDays">
+              <input
+                type="radio"
+                name="method"
+                id="sevenToTenDays"
+                value="7-10일 배송"
+              />
+              7-10일 배송
+            </label>
+          </div>
         </div>
-        </div>
-        
       </div>
       <div class="product-list" id="productList">
         <article class="productContents">
+          <article class="categoryGnb Tablet on">
+            <ul>
+              <li>
+                <a href="#" class="active">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category1.png"
+                    alt="category1"
+                  />
+                  <p>디지털</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category2.png"
+                    alt="category2"
+                  />
+                  <p>가전제품</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category9.jpg"
+                    alt="category3"
+                  />
+                  <p>반려동물 용품</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category4.png"
+                    alt="category4"
+                  />
+                  <p>뷰티</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category5.png"
+                    alt="category5"
+                  />
+                  <p>패션</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category6.png"
+                    alt="category6"
+                  />
+                  <p>유아용품</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category7.png"
+                    alt="category7"
+                  />
+                  <p>게임</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./dbImg/./category/00categoryGnb/category8.png"
+                    alt="category8"
+                  />
+                  <p>스포츠</p>
+                </a>
+              </li>
+            </ul>
+            <div class="TabletBtnBox on">
+              <div class="TabletBtn">
+                <div class="TabletBtnLeft"></div>
+                <div class="TabletBtnRight"></div>
+              </div>
+            </div>
+          </article>
           <article class="productTop">
             <article class="titleRight">
               <form class="titleBtn">

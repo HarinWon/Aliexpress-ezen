@@ -9,9 +9,37 @@ async function loadProducts() {
     renderProducts(allProducts); // 초기 로드 시 모든 제품 표시
     addSortingListeners(); // 정렬 버튼에 이벤트 리스너 추가
     addFilterListeners(); // 필터 버튼에 이벤트 리스너 추가
+    addCategoryListeners(); // 카테고리 버튼에 이벤트 리스너 추가
   } catch (error) {
     console.error("제품 데이터를 불러오는 중 오류 발생:", error);
   }
+}
+
+// 카테고리 버튼에 이벤트 리스너를 추가하는 함수
+function addCategoryListeners() {
+  const categoryLinks = document.querySelectorAll(".categoryGnb ul li a");
+
+  categoryLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // 기본 클릭 이벤트 막기
+
+      // 모든 링크에서 active 클래스 제거
+      categoryLinks.forEach((link) => link.classList.remove("active"));
+
+      // 클릭된 링크에 active 클래스 추가
+      this.classList.add("active");
+
+      // 클릭된 카테고리의 텍스트 가져오기
+      const category = this.querySelector("p").textContent.trim();
+
+      // 카테고리와 일치하는 제품 필터링
+      const filteredProducts = allProducts.filter(
+        (product) => product["Product-classification"] === category
+      );
+
+      renderProducts(filteredProducts); // 필터링된 제품만 표시
+    });
+  });
 }
 
 // 제품을 화면에 표시하는 함수
@@ -158,5 +186,3 @@ function addFilterListeners() {
 
 // 페이지 로드 시 JSON 파일을 불러옴
 document.addEventListener("DOMContentLoaded", loadProducts);
-
-// filter scroll

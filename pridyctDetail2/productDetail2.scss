@@ -160,7 +160,7 @@ $color: (
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background: map-get($color, main-color );
+        background: map-get($color, main-color);
         cursor: pointer;
       }
 
@@ -192,14 +192,14 @@ $color: (
           -moz-appearance: none;
           width: 20px;
           height: 20px;
-          border: 2px solid map-get($color, main-color );
+          border: 2px solid map-get($color, main-color);
           border-radius: 50%;
           position: relative;
           margin-right: 8px;
           cursor: pointer;
           &:checked {
-            background-color: map-get($color, main-color ); // 선택 시 배경색
-            border-color: map-get($color, main-color );
+            background-color: map-get($color, main-color); // 선택 시 배경색
+            border-color: map-get($color, main-color);
             &::before {
               content: "";
               display: block;
@@ -231,14 +231,14 @@ $color: (
           -moz-appearance: none;
           width: 20px;
           height: 20px;
-          border: 2px solid map-get($color, main-color );
+          border: 2px solid map-get($color, main-color);
           border-radius: 50%;
           position: relative;
           margin-right: 8px;
           cursor: pointer;
           &:checked {
-            background-color: map-get($color, main-color ); // 선택 시 배경색
-            border-color: map-get($color, main-color );
+            background-color: map-get($color, main-color); // 선택 시 배경색
+            border-color: map-get($color, main-color);
             &::before {
               content: "";
               display: block;
@@ -256,7 +256,6 @@ $color: (
     }
   }
 }
-
 
 .price-range {
   margin-top: 10px;
@@ -288,16 +287,14 @@ $color: (
 }
 
 .product-list {
-  width: calc(
-    100% - 300px
-  );
+  width: calc(100% - 300px);
 }
 
 .productContents {
   .productTop {
     width: 100%;
     .titleRight {
-      position: fixed;
+      // position: fixed;
       width: 100%;
       height: 70px;
       // top: 20px;
@@ -314,8 +311,8 @@ $color: (
 
       .titleBtn {
         display: flex;
-        margin-top: 30px;
-        gap: 16px;
+        margin-top: 20px;
+        gap: 40px;
 
         input[type="radio"] {
           display: none;
@@ -325,7 +322,7 @@ $color: (
           display: inline-block;
           text-align: center;
           line-height: 30px;
-          width: 130px;
+          width: 150px;
           height: 30px;
           background: map-get($color, light2);
           border-radius: 50px;
@@ -352,7 +349,7 @@ $color: (
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-      margin-top: 100px;
+      margin-top: 40px;
 
       li {
         width: 300px;
@@ -382,7 +379,59 @@ $color: (
     }
   }
 }
-
+.categoryContents {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-55%);
+}
+.categoryGnb.Tablet {
+  display: none;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  // border: 1px solid #f00;
+  flex-direction: column;
+  position: sticky;
+  top: -167px;
+  left: 0;
+  height: fit-content;
+  transition: all 0.3s;
+  z-index: 4;
+  padding-right: 40px;
+  white-space: nowrap; /* 가로 스크롤을 위한 설정 */
+  overflow-x: hidden; /* 가로 스크롤 가능하게 설정 */
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: left;
+    padding: 20px 0 20px 10px;
+    li {
+      a {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        position: relative;
+        img {
+          width: 90px;
+          height: 90px;
+          border: 1px solid map-get($color, light1);
+          border-radius: 50%;
+        }
+        &.active p {
+          opacity: 1;
+          color: map-get($color, light3);
+          font-weight: bold;
+          padding: 4px 7px;
+          border-radius: 12px;
+          background: map-get($color, main-color);
+        }
+      }
+    }
+  }
+}
 // tab
 @media screen and (max-width: 1100px) {
   .product-detail-list-box {
@@ -391,14 +440,17 @@ $color: (
     }
     .product-list {
       width: 100%;
-      .productcontent {
-        .ulElements {
-          gap: 20px;
-          li {
-            width: 200px;
-            .contentImg {
-              width: 100%;
-              height: 150px;
+      .categoryGnb.Tablet {
+        display: none;
+        width: 100%;
+      }
+      .productContents {
+        .productTop {
+          width: 100%;
+          .titleRight {
+            .titleBtn {
+              gap: 10px;
+              font-size: 12px;
             }
           }
         }
