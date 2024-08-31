@@ -3,162 +3,144 @@ document.addEventListener("DOMContentLoaded", function () {
   const categoryMenu = document.getElementById("category-menu");
   const dropdownContainer = document.querySelector(".dropdown-container");
 
-  // * 좌측 아코디언 메뉴 코드
+  // Fetch categories from JSON and build menu
   fetch("categories.json")
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+      if (!response.ok) throw new Error("Network response was not ok");
       return response.json();
     })
     .then((data) => {
-      Object.keys(data).forEach((mainCategory) => {
-        // 메인 카테고리 컨테이너 생성
-        const categoryElement = document.createElement("div");
-        categoryElement.className = "category";
-
-        // 아이콘 이미지 또는 Font Awesome 아이콘 추가
-        const iconHtml = data[mainCategory].image; // 이미지 또는 아이콘 코드
-        if (iconHtml) {
-          if (iconHtml.includes("<i")) {
-            // Font Awesome 아이콘이 포함된 경우
-            const iconContainer = document.createElement("span");
-            iconContainer.innerHTML = iconHtml; // 아이콘 HTML을 직접 렌더링
-            categoryElement.appendChild(iconContainer);
-          } else {
-            // 이미지 경로로 설정된 경우
-            const icon = document.createElement("img");
-            icon.src = iconHtml;
-            icon.alt = `${mainCategory} 아이콘`;
-            icon.className = "category-icon"; // 스타일을 위한 클래스 추가
-            categoryElement.appendChild(icon);
-          }
-        }
-
-        // 메인 카테고리 이름 추가
-        const categoryText = document.createElement("span");
-        categoryText.textContent = mainCategory;
-        categoryElement.appendChild(categoryText);
-
-        // 서브카테고리 메뉴
-        const subcategoryMenu = document.createElement("div");
-        subcategoryMenu.className = "subcategory-menu";
-        categoryElement.appendChild(subcategoryMenu);
-
-        // 서브카테고리 이벤트 리스너 추가
-        categoryElement.addEventListener("mouseenter", function () {
-          subcategoryMenu.innerHTML = ""; // 기존 서브카테고리 제거
-          if (data[mainCategory]) {
-            Object.keys(data[mainCategory]).forEach((subcategory) => {
-              if (subcategory !== "image") {
-                const subcategoryElement = document.createElement("div");
-                subcategoryElement.className = "subcategory-item";
-                subcategoryElement.textContent = subcategory;
-
-                // 서브 카테고리 메뉴
-                const subsubcategoryMenu = document.createElement("div");
-                subsubcategoryMenu.className = "subcategory-menu";
-                subcategoryElement.appendChild(subsubcategoryMenu);
-
-                subcategoryElement.addEventListener("mouseenter", function () {
-                  subsubcategoryMenu.innerHTML = ""; // 기존 하위 메뉴 제거
-                  const items = data[mainCategory][subcategory];
-                  items.forEach((item) => {
-                    const itemElement = document.createElement("div");
-                    itemElement.className = "subcategory-item";
-                    itemElement.textContent = item;
-                    subsubcategoryMenu.appendChild(itemElement);
-                  });
-                  subsubcategoryMenu.style.display = "block"; // 하위 메뉴 보이기
-                });
-
-                subcategoryElement.addEventListener("mouseleave", function () {
-                  subsubcategoryMenu.style.display = "none";
-                });
-
-                subcategoryMenu.appendChild(subcategoryElement);
-              }
-            });
-          }
-          subcategoryMenu.style.display = "block"; // 서브카테고리 보이기
-        });
-
-        // 메인 카테고리에서 마우스가 벗어나면 서브 메뉴 숨기기
-        categoryElement.addEventListener("mouseleave", function () {
-          subcategoryMenu.style.display = "none"; // 서브 메뉴 숨기기
-        });
-
-        categoryMenu.appendChild(categoryElement);
-      });
+      buildMenu(data);
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
 
-  // 드롭다운 메뉴 보이기
-  menuItem.addEventListener("mouseenter", function () {
-    dropdownContainer.style.display = "flex";
-  });
+  // Build categories menu
+  function buildMenu(data) {
+    Object.keys(data).forEach((mainCategory) => {
+      const categoryElement = document.createElement("div");
+      categoryElement.className = "category";
+      categoryElement.innerHTML = renderIcon(
+        data[mainCategory].image,
+        mainCategory
+      );
+      categoryElement.appendChild(createCategoryText(mainCategory));
 
-  // 드롭다운 메뉴 숨기기
-  menuItem.addEventListener("mouseleave", function () {
-    if (!dropdownContainer.matches(":hover")) {
-      dropdownContainer.style.display = "none";
+      const subcategoryMenu = createSubcategoryMenu(data, mainCategory);
+      categoryElement.appendChild(subcategoryMenu);
+
+      categoryElement.addEventListener(
+        "mouseenter",
+        () => (subcategoryMenu.style.display = "block")
+      );
+      categoryElement.addEventListener(
+        "mouseleave",
+        () => (subcategoryMenu.style.display = "none")
+      );
+
+      categoryMenu.appendChild(categoryElement);
+    });
+  }
+
+  // Handle icon rendering
+  function renderIcon(iconHtml, mainCategory) {
+    if (iconHtml.includes("<i")) {
+      return `<span class='icon-style'>${iconHtml}</span>`;
+    } else {
+      return `<img src="${iconHtml}" alt="${mainCategory} 아이콘" class="category-icon">`;
     }
+  }
+
+  // Create main category text
+  function createCategoryText(mainCategory) {
+    const categoryText = document.createElement("span");
+    categoryText.textContent = mainCategory;
+    return categoryText;
+  }
+
+  // Create subcategory menu
+  function createSubcategoryMenu(data, mainCategory) {
+    const subcategoryMenu = document.createElement("div");
+    subcategoryMenu.className = "subcategory-menu";
+
+    Object.keys(data[mainCategory]).forEach((subcategory) => {
+      if (subcategory !== "image") {
+        const subcategoryElement = document.createElement("div");
+        subcategoryElement.className = "subcategory-item";
+        subcategoryElement.textContent = subcategory;
+
+        const subsubcategoryMenu = createSubSubcategoryMenu(
+          data[mainCategory][subcategory]
+        );
+        subcategoryElement.appendChild(subsubcategoryMenu);
+
+        subcategoryElement.addEventListener(
+          "mouseenter",
+          () => (subsubcategoryMenu.style.display = "block")
+        );
+        subcategoryElement.addEventListener(
+          "mouseleave",
+          () => (subsubcategoryMenu.style.display = "none")
+        );
+
+        subcategoryMenu.appendChild(subcategoryElement);
+      }
+    });
+
+    return subcategoryMenu;
+  }
+
+  // Create sub-subcategory menu
+  function createSubSubcategoryMenu(items) {
+    const subsubcategoryMenu = document.createElement("div");
+    subsubcategoryMenu.className = "subcategory-menu";
+
+    items.forEach((item) => {
+      const itemElement = document.createElement("div");
+      itemElement.className = "subcategory-item";
+      itemElement.textContent = item;
+      subsubcategoryMenu.appendChild(itemElement);
+    });
+
+    return subsubcategoryMenu;
+  }
+
+  // Handle dropdown display logic
+  menuItem.addEventListener(
+    "mouseenter",
+    () => (dropdownContainer.style.display = "flex")
+  );
+  menuItem.addEventListener("mouseleave", () => {
+    if (!dropdownContainer.matches(":hover"))
+      dropdownContainer.style.display = "none";
   });
+  dropdownContainer.addEventListener(
+    "mouseenter",
+    () => (dropdownContainer.style.display = "flex")
+  );
 
-  dropdownContainer.addEventListener("mouseenter", function () {
-    dropdownContainer.style.display = "flex";
-  });
-});
-
-// 기존 코드 내에서 아이콘 처리 부분
-if (iconHtml.includes("<i")) {
-  // Font Awesome 아이콘이 포함된 경우
-  const iconContainer = document.createElement("span");
-  iconContainer.innerHTML = iconHtml; // 아이콘 HTML을 직접 렌더링
-  iconContainer.querySelector("i").classList.add("icon-style"); // 아이콘에 클래스 추가
-  categoryElement.appendChild(iconContainer);
-} else {
-  // 이미지 경로로 설정된 경우
-  const icon = document.createElement("img");
-  icon.src = iconHtml;
-  icon.alt = `${mainCategory} 아이콘`;
-  icon.className = "category-icon"; // 스타일을 위한 클래스 추가
-  categoryElement.appendChild(icon);
-}
-
-// 실시간 검색어
-document.addEventListener("DOMContentLoaded", function () {
+  // Real-time search updates
   const realTimeSearchContainer = document.querySelector(".real-time-search");
   const realTimeSearchList = document.querySelector(".real-time-result");
 
-  // 호버 이벤트를 추가하여 실시간 검색 결과 목록을 표시하거나 숨김
-  realTimeSearchContainer.addEventListener("mouseenter", function () {
-    realTimeSearchList.style.display = "block"; // 목록 표시
-  });
-  realTimeSearchContainer.addEventListener("mouseleave", function () {
-    realTimeSearchList.style.display = "none"; // 목록 숨김
-  });
+  realTimeSearchContainer.addEventListener(
+    "mouseenter",
+    () => (realTimeSearchList.style.display = "block")
+  );
+  realTimeSearchContainer.addEventListener(
+    "mouseleave",
+    () => (realTimeSearchList.style.display = "none")
+  );
 
   function updateRealTimeSearch() {
-    const currentTime = new Date();
-    const hours = currentTime.getHours();
-    let timeOfDay;
-
-    // 시간대에 따라 'morning', 'afternoon', 'evening' 설정
-    if (hours >= 6 && hours < 12) {
-      timeOfDay = "morning";
-    } else if (hours >= 12 && hours < 18) {
-      timeOfDay = "afternoon";
-    } else {
-      timeOfDay = "evening";
-    }
-
-    // realTime.json에서 적절한 데이터 가져오기
     fetch("/realTime.json")
       .then((response) => response.json())
       .then((data) => {
+        const currentTime = new Date();
+        const hours = currentTime.getHours();
+        const timeOfDay =
+          hours < 12 ? "morning" : hours < 18 ? "afternoon" : "evening";
         displayRealTimeSearch(data[timeOfDay]);
       })
       .catch((error) =>
@@ -167,16 +149,145 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayRealTimeSearch(items) {
-    realTimeSearchList.innerHTML = ""; // 기존 목록 지우기
+    realTimeSearchList.innerHTML = "";
     items.forEach((item, index) => {
       const listItem = document.createElement("li");
-      listItem.textContent = index + 1 + ". " + Object.values(item)[0];
+      listItem.textContent = `${index + 1}. ${Object.values(item)[0]}`;
       realTimeSearchList.appendChild(listItem);
     });
   }
 
-  // 실시간 검색어 목록 업데이트
   updateRealTimeSearch();
-  // 30분마다 업데이트
-  setInterval(updateRealTimeSearch, 1800000);
+  setInterval(updateRealTimeSearch, 1800000); // Refresh every 30 minutes
+});
+
+// scroll
+document.addEventListener("DOMContentLoaded", function () {
+  const hashContent = document.querySelector("#main_nav");
+
+  // 이 부분에서 실제 스크롤 가능한 너비를 계산해야 합니다.
+  let listScrollWidth = hashContent.scrollWidth - hashContent.clientWidth;
+
+  let startX = 0;
+  let transform = 0;
+
+  hashContent.style.transition = "transform 0.1s ease";
+
+  const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+
+  const onScrollStart = (e) => {
+    startX = getClientX(e);
+    transform = getTranslateX();
+
+    document.addEventListener("touchmove", onScrollMove, { passive: false });
+    document.addEventListener("mousemove", onScrollMove, { passive: false });
+    document.addEventListener("touchend", onScrollEnd);
+    document.addEventListener("mouseup", onScrollEnd);
+  };
+
+  const onScrollMove = (e) => {
+    const currentX = getClientX(e);
+    const diffX = currentX - startX;
+    const newPosition = transform + diffX;
+
+    // newPosition의 경계를 체크하여 올바른 범위 내에서만 스크롤되도록 합니다.
+    if (newPosition < 0 && newPosition > -listScrollWidth) {
+      hashContent.style.transform = `translateX(${newPosition}px)`;
+    }
+    e.preventDefault();
+  };
+
+  const onScrollEnd = () => {
+    document.removeEventListener("touchmove", onScrollMove, { passive: false });
+    document.removeEventListener("mousemove", onScrollMove, { passive: false });
+    document.removeEventListener("touchend", onScrollEnd);
+    document.removeEventListener("mouseup", onScrollEnd);
+
+    snapToBounds();
+  };
+
+  const getTranslateX = () => {
+    const style = window.getComputedStyle(hashContent).transform;
+    return parseInt(style.split(",")[4] || 0);
+  };
+
+  const snapToBounds = () => {
+    const currentPosition = getTranslateX();
+    let adjustedPosition = currentPosition;
+
+    if (currentPosition > 0) {
+      adjustedPosition = 0;
+    } else if (Math.abs(currentPosition) > listScrollWidth) {
+      adjustedPosition = -listScrollWidth;
+    }
+
+    hashContent.style.transform = `translateX(${adjustedPosition}px)`;
+  };
+
+  hashContent.addEventListener("touchstart", onScrollStart, { passive: false });
+  hashContent.addEventListener("mousedown", onScrollStart, { passive: false });
+});
+
+// 이미지 검색
+document.addEventListener("DOMContentLoaded", function () {
+  const cameraIcon = document.querySelector(".camera");
+  const dropZone = document.getElementById("dropZone");
+  const modal = document.getElementById("modal"); // Ensure you have this element in your HTML
+  const overlay = document.getElementById("overlay"); // Ensure you have this element in your HTML
+
+  // Handle camera icon click to show drop zone and modal overlay
+  cameraIcon.addEventListener("click", function () {
+    modal.style.display = "block"; // Shows the modal if it's separate from the dropZone
+    overlay.style.display = "block"; // Shows an overlay if used
+    dropZone.style.display = "block"; // Make sure dropZone is visible
+  });
+
+  // Assuming closeModal and overlay are meant to hide the modal and drop zone
+  document.getElementById("closeModal").addEventListener("click", function () {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+    dropZone.style.display = "none"; // Also hide dropZone here
+  });
+
+  // Setup for image drag-and-drop
+  dropZone.addEventListener("dragover", function (event) {
+    event.preventDefault(); // Prevent default to allow drop
+  });
+
+  dropZone.addEventListener("drop", function (event) {
+    event.preventDefault(); // Prevent default to handle the file
+    handleImageUpload(event.dataTransfer.files[0]); // Process the dropped file
+  });
+
+  // Function to handle image upload
+  function handleImageUpload(file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const img = document.createElement("img");
+      img.src = event.target.result;
+      dropZone.innerHTML = ""; // Clear the drop zone
+      dropZone.appendChild(img); // Add the image to the drop zone
+    };
+    reader.readAsDataURL(file); // Read the file as Data URL
+  }
+});
+
+// 모바일 메뉴 active클래스 추가 코드
+document.addEventListener("DOMContentLoaded", function () {
+  // main_nav 내의 모든 li 요소를 선택
+  const navItems = document.querySelectorAll("#main_nav > li");
+
+  // 각 li 요소에 클릭 이벤트 리스너를 추가
+  navItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      // 이전에 active 클래스가 적용된 요소에서 active 클래스 제거
+      const currentActive = document.querySelector("#main_nav .active");
+      if (currentActive) {
+        currentActive.classList.remove("active");
+      }
+
+      // 클릭된 요소에 active 클래스 추가
+      this.classList.add("active");
+    });
+  });
 });
