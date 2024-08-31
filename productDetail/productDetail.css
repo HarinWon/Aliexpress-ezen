@@ -32,17 +32,21 @@ body {
   overflow-x: hidden;
   display: grid;
 }
+body main {
+  padding-top: 30px;
+}
 
 .product-buy {
   grid-column: 2;
   width: 500px;
   height: 100%;
   padding: 20px;
+  margin-top: 10px;
   position: relative;
 }
 .product-buy .product-info {
   position: sticky;
-  top: 10px;
+  top: 50px;
 }
 .product-buy .product-info h2 {
   font-size: 14px;
@@ -1163,7 +1167,12 @@ main #weeklyContainer .trigger section:last-child {
     justify-content: center;
   }
   main .product-detail .product-images .main-image {
-    width: 100%;
+    width: 500px;
+    overflow: hidden;
+  }
+  main .product-detail .product-images .main-image img {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   main .product-detail .product-images .thumbnail-images {
     display: none;
@@ -1276,4 +1285,4 @@ main #weeklyContainer .trigger section:last-child {
   main .product-slider div img {
     width: 180px;
   }
-}
+}/*# sourceMappingURL=productDetail.css.map */

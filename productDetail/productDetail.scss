@@ -109,16 +109,20 @@ $color: (
 body {
   overflow-x: hidden;
   display: grid;
+  main {
+    padding-top: 30px;
+  }
 }
 .product-buy {
   grid-column: 2;
   width: 500px;
   height: 100%;
   padding: 20px;
+  margin-top: 10px;
   position: relative;
   .product-info {
     position: sticky;
-    top: 10px;
+    top: 50px;
     h2 {
       font-size: 14px;
       color: #999;
@@ -1330,7 +1334,11 @@ main {
         text-align: center;
         justify-content: center;
         .main-image {
-          width: 100%;
+          width: 500px;
+          overflow: hidden;
+          img {
+            object-fit: cover;
+          }
         }
 
         .thumbnail-images {

@@ -276,3 +276,61 @@ function renderProducts(products) {
     productList.appendChild(productItem);
   });
 }
+
+// filter scroll
+const titleBtnContainer = document.querySelector(".titleBtnContainer");
+const titleBtn = document.querySelector(".titleBtn");
+
+let startX = 0;
+let scrollLeft = 0;
+let isDragging = false;
+
+// 터치 및 마우스 이벤트에서 X 좌표를 가져오는 함수
+const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+
+// 드래그 시작 시 호출되는 함수
+const onDragStart = (e) => {
+  isDragging = true;
+  startX = getClientX(e) - titleBtn.offsetLeft; // 시작 위치
+  scrollLeft = titleBtn.scrollLeft; // 초기 스크롤 위치 저장
+  titleBtn.classList.add("dragging");
+
+  // 드래그 이벤트 추가
+  document.addEventListener("mousemove", onDragMove);
+  document.addEventListener("touchmove", onDragMove);
+  document.addEventListener("mouseup", onDragEnd);
+  document.addEventListener("touchend", onDragEnd);
+};
+
+// 드래그 중 호출되는 함수
+const onDragMove = (e) => {
+  if (!isDragging) return; // 드래그 중이 아니면 종료
+  const x = getClientX(e) - startX; // 현재 위치에서 시작 위치를 뺀 값
+  titleBtn.style.transform = `translateX(${x}px)`;
+};
+
+// 드래그 종료 시 호출되는 함수
+const onDragEnd = () => {
+  isDragging = false;
+  titleBtn.classList.remove("dragging");
+
+  // 이벤트 해제
+  document.removeEventListener("mousemove", onDragMove);
+  document.removeEventListener("touchmove", onDragMove);
+  document.removeEventListener("mouseup", onDragEnd);
+  document.removeEventListener("touchend", onDragEnd);
+
+  // 이동 범위 제한 및 제자리 돌아오기
+  const maxScroll = Math.max(titleBtn.scrollWidth - titleBtnContainer.clientWidth, 0);
+  const currentTranslateX = parseInt(titleBtn.style.transform.split(/[^\-0-9]+/g)[1]) || 0;
+
+  if (currentTranslateX > 0) {
+    titleBtn.style.transform = `translateX(0px)`; // 왼쪽으로 벗어날 경우
+  } else if (Math.abs(currentTranslateX) > maxScroll) {
+    titleBtn.style.transform = `translateX(-${maxScroll}px)`; // 오른쪽으로 벗어날 경우
+  }
+};
+
+// 이벤트 리스너 추가
+titleBtn.addEventListener("mousedown", onDragStart);
+titleBtn.addEventListener("touchstart", onDragStart);
