@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./image.js"></script>
+    <title>이미지 검색</title>
+    <style>
+      /* 기본 스타일 설정 */
+      #searchBar {
+        display: flex;
+        align-items: center;
+        background-color: #333;
+        padding: 5px;
+        border-radius: 20px;
+        color: white;
+        width: 300px;
+      }
+
+      #searchInput {
+        flex-grow: 1;
+        border: none;
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+      }
+
+      #cameraIcon,
+      #searchIcon {
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      #modal {
+        display: none; /* 초기에는 숨겨둠 */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        width: 300px;
+        text-align: center;
+      }
+
+      #modal h3 {
+        margin-bottom: 20px;
+      }
+
+      #dropZone {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        cursor: pointer;
+      }
+
+      #result {
+        margin-top: 20px;
+      }
+
+      #result img {
+        max-width: 200px;
+      }
+
+      #overlay {
+        display: none; /* 초기에는 숨겨둠 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="searchBar">
+      <input type="text" id="searchInput" placeholder="실시간 검색" readonly />
+      <img
+        style="width: 20px"
+        id="cameraIcon"
+        src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fw7.pngwing.com%2Fpngs%2F921%2F756%2Fpng-transparent-computer-icons-video-cameras-graphy-black-and-white-camera-video-symbol-singlelens-reflex-camera-thumbnail.png&type=sc960_832"
+        alt="Camera Icon"
+      />
+      <img id="searchIcon" src="search-icon.png" alt="Search Icon" />
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="modal">
+      <h3>이미지를 업로드하세요</h3>
+      <div id="dropZone">이미지를 이곳에 드래그하거나 클릭하세요</div>
+      <button id="closeModal">닫기</button>
+    </div>
+
+    <div id="result">
+      <!-- 검색 결과가 여기에 표시됩니다 -->
+    </div>
+
+    <!-- <script>
+      // 모달 및 오버레이 열기/닫기
+      document
+        .getElementById("cameraIcon")
+        .addEventListener("click", function () {
+          document.getElementById("modal").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+        });
+
+      document
+        .getElementById("closeModal")
+        .addEventListener("click", function () {
+          document.getElementById("modal").style.display = "none";
+          document.getElementById("overlay").style.display = "none";
+          document.getElementById("dropZone").innerHTML =
+            "이미지를 이곳에 드래그하거나 클릭하세요";
+        });
+
+      // 드래그 앤 드롭 기능 추가
+      const dropZone = document.getElementById("dropZone");
+      dropZone.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        dropZone.style.backgroundColor = "#f0f0f0";
+      });
+
+      dropZone.addEventListener("dragleave", () => {
+        dropZone.style.backgroundColor = "";
+      });
+
+      dropZone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        dropZone.style.backgroundColor = "";
+        handleImageUpload(event.dataTransfer.files[0]);
+      });
+
+      dropZone.addEventListener("click", () => {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.click();
+        fileInput.onchange = () => {
+          handleImageUpload(fileInput.files[0]);
+        };
+      });
+
+      // 이미지 업로드 처리 및 검색 결과 표시
+      function handleImageUpload(file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const uploadedImage = new Image();
+          uploadedImage.src = event.target.result;
+          dropZone.innerHTML = ""; // DropZone 내용 지우기
+          dropZone.appendChild(uploadedImage);
+
+          fetch("db.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const matchedProducts = findMatchingProducts(
+                uploadedImage,
+                data.data
+              );
+              displayResults(matchedProducts);
+            });
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // 간단한 매칭 함수 (업로드된 이미지와 JSON 이미지 경로를 단순 비교)
+      function findMatchingProducts(uploadedImage, products) {
+        return products.filter((product) => {
+          return product.img.includes("air") || product.img.includes("animal");
+        });
+      }
+
+      // 검색 결과 표시 함수
+      function displayResults(products) {
+        const resultContainer = document.getElementById("result");
+        resultContainer.innerHTML = ""; // 기존 결과 지우기
+
+        if (products.length === 0) {
+          resultContainer.innerHTML = "<p>비슷한 상품이 없습니다.</p>";
+          return;
+        }
+
+        products.forEach((product) => {
+          const productElement = document.createElement("div");
+          productElement.innerHTML = `
+                    <h4>${product.name}</h4>
+                    <img src="${product.img}" alt="${product.name}">
+                    <p>가격: ${product.price}원</p>
+                    <p>카테고리: ${product.category}</p>
+                `;
+          resultContainer.appendChild(productElement);
+        });
+
+        // 모달 닫기
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script> -->
+  </body>
+</html>

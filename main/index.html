@@ -26,9 +26,131 @@
     <!-- custom css&js -->
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./style.css" />
+    <!-- header -->
+    <link rel="stylesheet" href="./header.css" />
+    <script defer src="./header.js"></script>
     <title>Main</title>
   </head>
   <body>
+    <header>
+      <div class="header-top">
+        <div class="header-logo">
+          <img src="./img/logo.png" alt="AliExpress" />
+        </div>
+        <div class="header-search">
+          <ul class="real-time-search">
+            <span class="real-time-result-txt">실시간 검색어</span>
+            <i class="fa-solid fa-angle-down"></i>
+            <ul class="real-time-result">
+              <li>1. 진공청소기</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+            </ul>
+          </ul>
+          <input type="text" />
+          <button class="camera">
+            <img src="./img/icon/camera.png" alt="camera" />
+          </button>
+          <div id="dropZone">이미지를 이곳에 <br />드래그하거나 클릭하세요</div>
+
+          <button class="search">
+            <img src="./img/icon/search.png" alt="search" />
+          </button>
+        </div>
+        <div class="header-icons">
+          <div class="language">
+            <img src="./img/kr.png" alt="language_img" />
+            <div>
+              <span>Language </span>
+              <p>KR</p>
+            </div>
+          </div>
+          <div class="login">
+            <img src="./img/icon/user.png" alt="login" />
+            <p>로그인</p>
+          </div>
+          <div class="cart">
+            <img src="./img/icon/cart.png" alt="cart" />
+            <p>장바구니</p>
+          </div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <ul id="main_nav">
+          <li>
+            <ul id="sub_nav">
+              <div id="all-categories">
+                <i class="fa-solid fa-bars"></i>
+                <span>모든 카테고리</span>
+              </div>
+              <div class="dropdown-container">
+                <div id="category-menu"></div>
+              </div>
+              <li></li>
+            </ul>
+          </li>
+          <li>디지털</li>
+          <li>스포츠/레저</li>
+          <li>자동차용품</li>
+          <li>홈인테리어</li>
+          <li>뷰티/건강</li>
+          <li>패션/가방</li>
+          <li>가전</li>
+          <li>유아용품</li>
+        </ul>
+      </nav>
+    </header>
+    <nav class="remocon">
+      <a class="gotoTop" href="#"><i class="fa-solid fa-chevron-up"></i></a>
+      <!-- channel-talk  -->
+      <script class="chat">
+        (function () {
+          var w = window;
+          if (w.ChannelIO) {
+            return w.console.error("ChannelIO script included twice.");
+          }
+          var ch = function () {
+            ch.c(arguments);
+          };
+          ch.q = [];
+          ch.c = function (args) {
+            ch.q.push(args);
+          };
+          w.ChannelIO = ch;
+          function l() {
+            if (w.ChannelIOInitialized) {
+              return;
+            }
+            w.ChannelIOInitialized = true;
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+            var x = document.getElementsByTagName("script")[0];
+            if (x.parentNode) {
+              x.parentNode.insertBefore(s, x);
+            }
+          }
+          if (document.readyState === "complete") {
+            l();
+          } else {
+            w.addEventListener("DOMContentLoaded", l);
+            w.addEventListener("load", l);
+          }
+        })();
+
+        ChannelIO("boot", {
+          pluginKey: "4a91996b-77f0-4b4f-9a6e-83de3c795070",
+        });
+      </script>
+    </nav>
     <main id="mainContainer">
       <article id="mainVideo"></article>
       <article class="mainTrigger">
@@ -137,7 +259,7 @@
                         <p>무료배송</p>
                         <p>9/20 도착예정</p>
                       </span>
-                      <span><b>★★★★★</b>173판매</span>
+                      <span><b>★★★★☆</b>173판매</span>
                     </div>
                   </a>
                   <div class="icon">
@@ -190,7 +312,7 @@
                         <p>무료배송</p>
                         <p>9/22 도착예정</p>
                       </span>
-                      <span><b>★★★★★</b>809판매</span>
+                      <span><b>★★★★☆</b>809판매</span>
                     </div>
                   </a>
                   <div class="icon">
@@ -303,7 +425,7 @@
                       <p>무료배송</p>
                       <p>9/20 도착예정</p>
                     </span>
-                    <span><b>★★★★★</b>430판매</span>
+                    <span><b>★★★☆☆</b>430판매</span>
                   </div>
                 </a>
               </li>
@@ -365,7 +487,7 @@
                       <p>무료배송</p>
                       <p>9/18 도착예정</p>
                     </span>
-                    <span><b>★★★★★</b>230판매</span>
+                    <span><b>★★★☆☆</b>230판매</span>
                   </div>
                 </a>
               </li>
@@ -396,7 +518,7 @@
                       <p>무료배송</p>
                       <p>9/24 도착예정</p>
                     </span>
-                    <span><b>★★★★★</b>30판매</span>
+                    <span><b>★★★★☆</b>30판매</span>
                   </div>
                 </a>
               </li>
@@ -427,7 +549,7 @@
                       <p>무료배송</p>
                       <p>9/22 도착예정</p>
                     </span>
-                    <span><b>★★★★★</b>1,024판매</span>
+                    <span><b>★★★★☆</b>1,024판매</span>
                   </div>
                 </a>
               </li>
@@ -1200,5 +1322,219 @@
         </article>
       </article>
     </section>
+    <footer class="web_footer">
+      <div class="footer-top">
+        <div class="footer-services">
+          <div class="footer-select">
+            <p>서비스 안내</p>
+            <select
+              name="customer-service"
+              id="customer-service"
+              onchange="window.open(value,'_blank');"
+            >
+              <option value="customer-service" disabled selected hidden>
+                고객서비스
+              </option>
+              <option
+                value="https://helpcenter.aliexpress.com/s/KRBuyerHelp?spm=a2g0o.home.sitefooter.1.4c8e70f44DLenF&language=ko_KR&tsuCode=ByrCmn&region=KR&suid=103014240819162042210171BB2293"
+              >
+                고객센터
+              </option>
+              <option
+                value="https://rulechannel.alibaba.com/icbu?type=detail&ruleId=2054&cId=1304#/rule/detail?cId=1304&ruleId=2054"
+              >
+                Transaction Services Agreement for
+              </option>
+              <option
+                value="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_aliexpress/suit_bu1_aliexpress202109291856_35940.html?spm=a2g0o.home.14.3.500770f4DCYpXK"
+              >
+                Terms and Conditions for EU/EEA/UK
+              </option>
+              <option
+                value="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_aliexpress/suit_bu1_aliexpress202109291856_35940.html?spm=a2g0o.home.14.3.500770f47Trs4O"
+              >
+                Consumers (Transactions)
+              </option>
+              <option
+                value="https://www.surveymonkey.com/r/?spm=a2g0o.home.14.4.500770f4DK0jUJ&sm=9z9qYkOd%2fEnXROEaWLxcOUt4dfPTFY7TGg0vXOC6XnQ%3d"
+              >
+                고객 의견 설문 응답
+              </option>
+            </select>
+            <select
+              name="shopping-guide"
+              id="shopping-guide"
+              onchange="window.open(value,'_blank');"
+            >
+              <option value="customer-service" disabled selected hidden>
+                쇼핑가이드
+              </option>
+              <option
+                value="https://helpcenter.aliexpress.com/s/KRBuyerHelp/category?tsuCode=ByrCmn&region=KR&suid=1030142408191625302102E2F73268"
+              >
+                결제하기
+              </option>
+              <option
+                value="https://helpcenter.aliexpress.com/s/KRBuyerHelp/category?tsuCode=ByrCmn&region=KR&suid=1030142408191625462141262A7066"
+              >
+                배송 옵션
+              </option>
+              <option
+                value="https://ko.aliexpress.com/p/buyerprotection/index.html?spm=a2g0o.home.14.7.500770f4jg4Ps7"
+              >
+                구매자 보호
+              </option>
+            </select>
+            <select
+              name="alliance"
+              id="alliance"
+              onchange="window.open(value,'_blank');"
+            >
+              <option value="customer-service" disabled selected hidden>
+                제휴안내
+              </option>
+              <option value="https://www.alibabagroup.com/en-US/">
+                파트너십
+              </option>
+              <option
+                value="https://portals.aliexpress.com/affiportals/web/portals.htm#/home"
+              >
+                협력 프로그램
+              </option>
+              <option
+                value="https://ds.aliexpress.com/find-products?spm=a2g0o.home.14.10.500770f4DnDTiY"
+              >
+                DS Center
+              </option>
+              <option
+                value="https://login.aliexpress.com/seller_new.htm?return_url=https://gsp.aliexpress.com/"
+              >
+                Seller Log In
+              </option>
+              <option
+                value="https://sell.aliexpress.com/zh/__pc/newsellerlanding.htm?spm=a2g0o.home.14.12.500770f4cNAYRs"
+              >
+                中国卖家入驻
+              </option>
+              <option
+                value="https://sell.aliexpress.com/__pc/4DYTFsSkV0.htm?spm=a2g0o.home.14.13.500770f4fnVuWw"
+              >
+                Non-Chinese Seller Registration
+              </option>
+            </select>
+          </div>
+          <div id="payment">
+            <p>결제수단</p>
+            <div class="payment-wrap">
+              <div class="footer-payment">
+                <div class="cards">
+                  <img src="./img/footer/ae.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/bc.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/hd.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/hn.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/jcb.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/kb.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/lt.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/master.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/naver.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/nh.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/sh.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/ss.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/toss.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/visa.png" alt="Mastercard" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-categories">
+        Browse by Category:
+        <a href="https://ko.aliexpress.com/popular.html">All Popular</a>,
+        <a href="https://ko.aliexpress.com/wholesale.html">Product</a>,
+        <a href="https://ko.aliexpress.com/promotion.html">Low price</a>,
+        <a href="https://ko.aliexpress.com/cheap.html">Great Value</a>,
+        <a href="https://ko.aliexpress.com/reviews.html">Reviews</a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a
+            href="https://cdn.contract.alibaba.com/terms/privacy_policy_full/20240624154655415/20240624154655415.html"
+            target="_blank"
+            >개인정보 처리방침</a
+          >
+          <a
+            href="https://www.aliexpress.com/sitemap.html?spm=a2g0o.best.0.0.32de423aj88xX5"
+            target="_blank"
+            >위치 지도</a
+          >
+          <a
+            href="https://helpcenter.aliexpress.com/s/KRBuyerHelp?spm=a2g0o.best.sitefooter.1.32de423afxicKx&language=ko_KR&tsuCode=ByrCmn&region=KR&suid=10301424080121331421016F432817"
+            target="_blank"
+            >고객센터</a
+          >
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com/AliExpress/?spm=a2g0o.best.14.14.1af7423a85jTI8"
+            target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a
+            href="https://x.com/AliExpress_EN?spm=a2g0o.best.14.15.1af7423a85jTI8"
+            ><i class="fa-brands fa-x-twitter" target="_blank"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/aliexpress/?spm=a2g0o.best.14.16.1af7423a85jTI8"
+            ><i class="fa-brands fa-instagram" target="_blank"></i
+          ></a>
+          <a
+            href="https://www.messenger.com/login.php?next=https%3A%2F%2Fwww.messenger.com%2Ft%2F335963307560%2F%3Fmessaging_source%3Dsource%253Apages%253Amessage_shortlink%26source_id%3D1441792%26recurring_notification%3D0"
+            target="_blank"
+            ><i class="fa-solid fa-comment"></i
+          ></a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=8657186563839&text&type=phone_number&app_absent=0"
+            target="_blank"
+            ><i class="fa-solid fa-phone"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <footer class="mobile_footer">
+      <ul>
+        <li><img src="./img/footer/home-1.png" alt="home" /></li>
+        <li><img src="./img/footer/inbox-alt.png" alt="inbox" /></li>
+        <li><img src="./img/footer/event.png" alt="event" /></li>
+        <li><img src="./img/footer/cart-1.png" alt="cart" /></li>
+        <li><img src="./img/footer/user-1.png" alt="user" /></li>
+      </ul>
+    </footer>
   </body>
 </html>

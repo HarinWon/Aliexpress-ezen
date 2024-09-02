@@ -262,23 +262,50 @@ foryouBtn.forEach((btn) => {
   });
 });
 
-// toggleHeart
+// 모든 .fa-heart 요소를 선택합니다.
 const hearts = document.querySelectorAll(".fa-heart");
 
 function toggleHeart(hearts) {
-  hearts.forEach((heart) => {
+  hearts.forEach((heart, index) => {
+    // 인덱스를 이용해 고유한 아이디로 인식합니다.
+    let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
+
+    // 페이지 로드 시 저장된 하트 상태를 복원
+    if (savedHearts.includes(index)) {
+      heart.style.color = "red";
+      heart.style.transform = "scale(1.1)";
+    }
+
     heart.addEventListener("click", () => {
       if (heart.style.color === "red") {
         heart.style.color = "";
         heart.style.transform = "";
+        removeHeartLocal(index);
       } else {
         heart.style.color = "red";
         heart.style.transform = "scale(1.1)";
         heart.style.transition = "all 0.3s";
+        saveHeartLocal(index);
       }
     });
   });
 }
+
+function saveHeartLocal(index) {
+  let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
+  if (!savedHearts.includes(index)) {
+    savedHearts.push(index);
+    localStorage.setItem("localhearts", JSON.stringify(savedHearts));
+  }
+}
+
+function removeHeartLocal(index) {
+  let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
+  savedHearts = savedHearts.filter((id) => id !== index);
+  localStorage.setItem("localhearts", JSON.stringify(savedHearts));
+}
+
+toggleHeart(hearts);
 
 //foryou json + category json
 const foryouContent = document.querySelector(".foryoucontent");
@@ -316,9 +343,9 @@ fetch("/db.json")
           liElement.innerHTML = `
             <a href="#none">
               <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" style="width:340px; height:220px;" />
+                <img src="${item.image_path}" alt="${item.product_name}" style="width:340px;" />
                 <div class="icon">
-                  <i class="fa-solid fa-heart"></i>
+                  <i id="localhearts" class="fa-solid fa-heart"></i>
                   <img src="./dbImg/icon/cart.png" alt="cart" />
                 </div>
               </div>
@@ -336,7 +363,7 @@ fetch("/db.json")
                   <p>${item.delivery}</p>
                   <p>${item.delivery_date}</p>
                 </span>
-                <span><b>★★★★★</b>${item.ratings} 판매</span>
+                <span><b>${item.reviews}</b>${item.ratings} 판매</span>
               </div>
             </a>
           `;
@@ -363,7 +390,7 @@ fetch("/db.json")
               <div class="contentImg">
                 <img src="${item.image_path}" alt="${item.product_name}" />
                 <div class="icon">
-                  <i class="fa-solid fa-heart"></i>
+                  <i id="localhearts" class="fa-solid fa-heart"></i>
                   <img src="./dbImg/icon/cart.png" alt="cart" />
                 </div>
               </div>
@@ -381,7 +408,7 @@ fetch("/db.json")
                   <p>${item.delivery}</p>
                   <p>${item.delivery_date}</p>
                 </span>
-                <span><b>★★★★★</b>${item.ratings} 판매</span>
+                <span><b>${item.reviews}</b>${item.ratings} 판매</span>
               </div>
             </a>
           </li>
@@ -396,7 +423,7 @@ fetch("/db.json")
 
 //category Touch Event
 const categoryGnb = document.querySelector(".Tablet ul");
-console.log(categoryGnb);
+// console.log(categoryGnb);
 const gnbClientWidth = categoryGnb.clientWidth;
 const gnbScrollWidth = categoryGnb.scrollWidth + categoryGnb.clientWidth / 8;
 

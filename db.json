@@ -17,7 +17,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "AP-0002",
@@ -37,7 +39,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "AP-0003",
@@ -57,7 +61,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "AP-0004",
@@ -77,7 +83,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★☆☆"
   },
   {
     "id": "AP-0005",
@@ -97,7 +105,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "AP-0006",
@@ -117,7 +127,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "CP-0001",
@@ -137,7 +149,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "야외 장비",
+    "reviews": "★★★★☆"
   },
   {
     "id": "CP-0002",
@@ -157,7 +171,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "야외 장비",
+    "reviews": "★★★★★"
   },
   {
     "id": "CP-0003",
@@ -177,7 +193,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "야외 장비",
+    "reviews": "★★★★☆"
   },
   {
     "id": "CP-0004",
@@ -197,7 +215,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "야외 장비",
+    "reviews": "★★★★★"
   },
   {
     "id": "CP-0005",
@@ -217,7 +237,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "야외 장비",
+    "reviews": "★★★★☆"
   },
   {
     "id": "CP-0006",
@@ -237,7 +259,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "야외 장비",
+    "reviews": "★★★★★"
   },
   {
     "id": "PT-0001",
@@ -257,7 +281,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "반려동물 용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "PT-0002",
@@ -277,7 +303,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "반려동물 용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "PT-0003",
@@ -297,7 +325,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "반려동물 용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "PT-0004",
@@ -317,7 +347,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "반려동물 용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "PT-0005",
@@ -337,7 +369,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "반려동물 용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "PT-0006",
@@ -357,7 +391,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "반려동물 용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "DG-0001",
@@ -377,7 +413,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★☆"
   },
   {
     "id": "DG-0002",
@@ -397,7 +435,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★★"
   },
   {
     "id": "DG-0003",
@@ -417,7 +457,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★☆"
   },
   {
     "id": "DG-0004",
@@ -437,7 +479,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★★"
   },
   {
     "id": "DG-0005",
@@ -457,7 +501,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★★"
   },
   {
     "id": "DG-0006",
@@ -477,7 +523,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★☆"
   },
   {
     "id": "DG-0007",
@@ -497,7 +545,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★☆"
   },
   {
     "id": "DG-0008",
@@ -517,7 +567,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "디지털",
+    "reviews": "★★★★★"
   },
   {
     "id": "AP-0007",
@@ -537,7 +589,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "AP-0008",
@@ -557,7 +611,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "AP-0009",
@@ -577,7 +633,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "AP-0010",
@@ -597,7 +655,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "AP-0011",
@@ -617,7 +677,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "AP-0012",
@@ -637,7 +699,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "AP-0013",
@@ -657,7 +721,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "AP-0014",
@@ -677,7 +743,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가전제품",
+    "reviews": "★★★★★"
   },
   {
     "id": "HM-0001",
@@ -697,7 +765,9 @@
     "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "HM-0002",
@@ -717,7 +787,9 @@
     "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "HM-0003",
@@ -737,7 +809,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "HM-0004",
@@ -757,7 +831,9 @@
     "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "HM-0005",
@@ -777,7 +853,9 @@
     "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "HM-0006",
@@ -797,7 +875,9 @@
     "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "HM-0007",
@@ -817,7 +897,9 @@
     "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "HM-0008",
@@ -837,7 +919,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "가정용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "BT-0001",
@@ -857,7 +941,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★★"
   },
   {
     "id": "BT-0002",
@@ -877,7 +963,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BT-0003",
@@ -897,7 +985,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★★"
   },
   {
     "id": "BT-0004",
@@ -917,7 +1007,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BT-0005",
@@ -937,7 +1029,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★★"
   },
   {
     "id": "BT-0006",
@@ -957,7 +1051,9 @@
     "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BT-0007",
@@ -977,7 +1073,9 @@
     "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★★"
   },
   {
     "id": "BT-0008",
@@ -997,7 +1095,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "뷰티",
+    "reviews": "★★★★☆"
   },
   {
     "id": "FS-0001",
@@ -1017,7 +1117,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★★"
   },
   {
     "id": "FS-0002",
@@ -1037,7 +1139,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★★"
   },
   {
     "id": "FS-0003",
@@ -1057,7 +1161,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★☆"
   },
   {
     "id": "FS-0004",
@@ -1077,7 +1183,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★★"
   },
   {
     "id": "FS-0005",
@@ -1097,7 +1205,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★☆"
   },
   {
     "id": "FS-0006",
@@ -1117,7 +1227,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★★"
   },
   {
     "id": "FS-0007",
@@ -1137,7 +1249,9 @@
     "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★☆"
   },
   {
     "id": "FS-0008",
@@ -1157,7 +1271,9 @@
     "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "패션",
+    "reviews": "★★★★★"
   },
   {
     "id": "BB-0001",
@@ -1177,7 +1293,9 @@
     "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BB-0002",
@@ -1197,7 +1315,9 @@
     "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "BB-0003",
@@ -1217,7 +1337,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BB-0004",
@@ -1237,7 +1359,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "BB-0005",
@@ -1257,7 +1381,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BB-0006",
@@ -1277,7 +1403,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "BB-0007",
@@ -1297,7 +1425,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★☆"
   },
   {
     "id": "BB-0008",
@@ -1317,7 +1447,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "유아용품",
+    "reviews": "★★★★★"
   },
   {
     "id": "GM-0001",
@@ -1337,7 +1469,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★☆"
   },
   {
     "id": "GM-0002",
@@ -1355,90 +1489,99 @@
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품",
     "shippingType": "해외배송",
-    "isFavorited": true,
+    "isFavorited": false,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★★"
   },
   {
     "id": "GM-0003",
-    "brand": "Nintendo",
-    "product_name": "태고의 달인 RPG 대모험",
-    "discount": "15%",
-    "price": "45,000원",
-    "original_price": "52,500원",
+    "brand": "EA Sports",
+    "product_name": "FIFA 23 PS5",
+    "discount": "35%",
+    "price": "48,000원",
+    "original_price": "73,500원",
     "delivery": "무료배송",
-    "delivery_date": "9/26 도착예정",
-    "ratings": "320개",
+    "delivery_date": "9/22 도착예정",
+    "ratings": "650개",
     "image_path": "./dbImg/category/07game/game3.jpg",
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품",
     "shippingType": "국내배송",
-    "isFavorited": false,
-    "shippingMethod": "choice배송",
-    "cart": false
+    "isFavorited": true,
+    "shippingMethod": "7-10일 배송",
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★☆"
   },
-
   {
     "id": "GM-0004",
-    "brand": "Nintendo",
-    "product_name": "Splatoon 3",
-    "discount": "25%",
-    "price": "48,000원",
-    "original_price": "64,000원",
+    "brand": "Sony",
+    "product_name": "PlayStation 5",
+    "discount": "5%",
+    "price": "600,000원",
+    "original_price": "630,000원",
     "delivery": "무료배송",
-    "delivery_date": "9/23 도착예정",
-    "ratings": "970개",
+    "delivery_date": "9/25 도착예정",
+    "ratings": "950개",
     "image_path": "./dbImg/category/07game/game4.jpg",
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품",
-    "shippingType": "국내배송",
+    "shippingType": "해외배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★★"
   },
   {
     "id": "GM-0005",
-    "brand": "Nintendo",
-    "product_name": "Nintendo Switch OLED 모델",
-    "discount": "10%",
-    "price": "350,000원",
-    "original_price": "389,000원",
+    "brand": "Microsoft",
+    "product_name": "Xbox Series X",
+    "discount": "15%",
+    "price": "540,000원",
+    "original_price": "620,000원",
     "delivery": "무료배송",
-    "delivery_date": "9/22 도착예정",
-    "ratings": "1,500개",
+    "delivery_date": "9/24 도착예정",
+    "ratings": "900개",
     "image_path": "./dbImg/category/07game/game5.jpg",
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품",
-    "shippingType": "해외배송",
+    "shippingType": "국내배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★☆"
   },
   {
     "id": "GM-0006",
-    "brand": "Nintendo",
-    "product_name": "Mario Kart Wii + 레이싱 휠",
-    "discount": "30%",
-    "price": "55,000원",
-    "original_price": "78,000원",
+    "brand": "Square Enix",
+    "product_name": "파이널 판타지 VII 리메이크",
+    "discount": "25%",
+    "price": "44,000원",
+    "original_price": "59,000원",
     "delivery": "무료배송",
-    "delivery_date": "9/24 도착예정",
-    "ratings": "1,200개",
+    "delivery_date": "9/23 도착예정",
+    "ratings": "800개",
     "image_path": "./dbImg/category/07game/game6.jpg",
     "category": "game",
     "viewPoint": "많이 본 상품",
     "cartPoint": "많이 담은 상품",
     "buyingPoint": "많이 구매 한 상품",
-    "shippingType": "국내배송",
+    "shippingType": "해외배송",
     "isFavorited": false,
-    "shippingMethod": "choice배송",
-    "cart": false
+    "shippingMethod": "7-10일 배송",
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★★"
   },
   {
     "id": "GM-0007",
@@ -1458,7 +1601,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★☆"
   },
   {
     "id": "GM-0008",
@@ -1478,7 +1623,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "게임",
+    "reviews": "★★★★☆"
   },
   {
     "id": "SP-0001",
@@ -1498,7 +1645,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★★"
   },
   {
     "id": "SP-0002",
@@ -1518,7 +1667,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★☆"
   },
   {
     "id": "SP-0003",
@@ -1538,7 +1689,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★★"
   },
   {
     "id": "SP-0004",
@@ -1558,7 +1711,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★☆"
   },
   {
     "id": "SP-0005",
@@ -1578,7 +1733,9 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "7-10일 배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★☆☆"
   },
   {
     "id": "SP-0006",
@@ -1598,7 +1755,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★★"
   },
   {
     "id": "SP-0007",
@@ -1618,7 +1777,9 @@
     "shippingType": "국내배송",
     "isFavorited": false,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★★"
   },
   {
     "id": "SP-0008",
@@ -1638,6 +1799,8 @@
     "shippingType": "해외배송",
     "isFavorited": true,
     "shippingMethod": "choice배송",
-    "cart": false
+    "cart": 0,
+    "Product-classification": "스포츠",
+    "reviews": "★★★★☆"
   }
 ]
