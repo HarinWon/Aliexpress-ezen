@@ -24,146 +24,442 @@
       type="text/javascript"
       src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
+    <!-- header -->
+    <link rel="stylesheet" href="./header.css" />
+    <script defer src="./header.js"></script>
   </head>
   <body>
-    <aside class="mypage_left">
-      <ul class="account">
-        <p>계정</p>
-        <li class="active"><a href="#none">개요</a></li>
-        <li><a href="#none">주문</a></li>
-        <li><a href="#none">지불</a></li>
-        <li><a href="#none">환불 & 반품</a></li>
-        <li><a href="#none">피드백</a></li>
-        <li><a href="#none">설정</a></li>
-        <li><a href="#none">배송지 주소</a></li>
-        <li><a href="#none">메시지 센터</a></li>
-        <li><a href="#none">친구 초대</a></li>
-        <li><a href="#none">고객센터</a></li>
-        <li><a href="#none">보고서관리</a></li>
-        <li><a href="#none">추천</a></li>
-        <li><a href="#none">드롭쉬핑센터</a></li>
-      </ul>
-    </aside>
-    <section>
-      <div class="mobile_header">
-        <div class="profile-image">
-          <img src="./img/profile.png" alt="profile" />
+    <header>
+      <div class="header-top">
+        <div class="header-logo">
+          <img src="./img/logo.png" alt="AliExpress" />
         </div>
-        <h1>
-          <strong>하린</strong> 님, <a href="#none">설정</a>
-          <br />
-          <small>Aliexpress에 오신 것을 환영합니다!</small>
-        </h1>
-      </div>
-      <div class="profile-section">
-        <div class="profile-info">
-          <div class="user_information">
-            <div class="profile-image">
-              <img src="./img/profile.png" alt="profile" />
+        <div class="header-search">
+          <ul class="real-time-search">
+            <span class="real-time-result-txt">실시간 검색어</span>
+            <i class="fa-solid fa-angle-down"></i>
+            <ul class="real-time-result">
+              <li>1. 진공청소기</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+            </ul>
+          </ul>
+          <input type="text" />
+          <button class="camera">
+            <img src="./img/icon/camera.png" alt="camera" />
+          </button>
+          <div id="dropZone">이미지를 이곳에 <br />드래그하거나 클릭하세요</div>
+
+          <button class="search">
+            <img src="./img/icon/search.png" alt="search" />
+          </button>
+        </div>
+        <div class="header-icons">
+          <div class="language">
+            <img src="./img/kr.png" alt="language_img" />
+            <div>
+              <span>Language </span>
+              <p>KR</p>
             </div>
-            <h1>
-              <strong>하린</strong> 님, <a href="#none">설정</a>
-              <br />
-              <small>Aliexpress에 오신 것을 환영합니다!</small>
-            </h1>
           </div>
-          <div class="coin">
-            <span
-              ><h1>내 코인</h1>
-              <a href="#none">코인 받으러 가기 ></a></span
+          <div class="login">
+            <img src="./img/icon/user.png" alt="login" />
+            <p id="userId">로그인</p>
+          </div>
+          <div class="cart">
+            <img src="./img/icon/cart.png" alt="cart" />
+            <p>장바구니</p>
+          </div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <ul id="main_nav">
+          <li>
+            <ul id="sub_nav">
+              <div id="all-categories">
+                <i class="fa-solid fa-bars"></i>
+                <span>모든 카테고리</span>
+              </div>
+              <div class="dropdown-container">
+                <div id="category-menu"></div>
+              </div>
+              <li></li>
+            </ul>
+          </li>
+          <li>디지털</li>
+          <li>스포츠/레저</li>
+          <li>자동차용품</li>
+          <li>홈인테리어</li>
+          <li>뷰티/건강</li>
+          <li>패션/가방</li>
+          <li>가전</li>
+          <li>유아용품</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <aside class="mypage_left">
+        <ul class="account">
+          <p>계정</p>
+          <li class="active"><a href="#none">개요</a></li>
+          <li><a href="#none">주문</a></li>
+          <li><a href="#none">지불</a></li>
+          <li><a href="#none">환불 & 반품</a></li>
+          <li><a href="#none">피드백</a></li>
+          <li><a href="#none">설정</a></li>
+          <li><a href="#none">배송지 주소</a></li>
+          <li><a href="#none">메시지 센터</a></li>
+          <li><a href="#none">친구 초대</a></li>
+          <li><a href="#none">고객센터</a></li>
+          <li><a href="#none">보고서관리</a></li>
+          <li><a href="#none">추천</a></li>
+          <li><a href="#none">드롭쉬핑센터</a></li>
+        </ul>
+      </aside>
+      <section>
+        <div class="mobile_header">
+          <div class="profile-image">
+            <img src="./img/profile.png" alt="profile" />
+          </div>
+          <h1>
+            <strong>하린</strong> 님, <a href="#none">설정</a>
+            <br />
+            <small>Aliexpress에 오신 것을 환영합니다!</small>
+          </h1>
+        </div>
+        <div class="profile-section">
+          <div class="profile-info">
+            <div class="user_information">
+              <div class="profile-image">
+                <img src="./img/profile.png" alt="profile" />
+              </div>
+              <h1>
+                <strong>하린</strong> 님, <a href="#none">설정</a>
+                <br />
+                <small>Aliexpress에 오신 것을 환영합니다!</small>
+              </h1>
+            </div>
+            <div class="coin">
+              <span
+                ><h1>내 코인</h1>
+                <a href="#none">코인 받으러 가기 ></a></span
+              >
+              <p><img src="./img/coin.png" alt="coin" /></p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stats-top">
+              <div>
+                <img src="./img/coupon.png" alt="coupon" />
+                <h1>
+                  보유쿠폰
+                  <p>14</p>
+                </h1>
+              </div>
+              <div>
+                <img src="./img/cart.png" alt="coupon" />
+                <h1>
+                  장바구니
+                  <p>98</p>
+                </h1>
+              </div>
+              <div>
+                <img src="./img/order.png" alt="coupon" />
+                <h1>
+                  주문배송
+                  <p>4</p>
+                </h1>
+              </div>
+              <div>
+                <img src="./img/review.png" alt="coupon" />
+                <h1>
+                  리뷰작성
+                  <p>100</p>
+                </h1>
+              </div>
+            </div>
+            <div class="stats-bottom">
+              <span
+                ><img src="./img/customer service center.png" alt="customer"
+              /></span>
+              <span><img src="./img/question.png" alt="question" /></span>
+              <span><img src="./img/message.png" alt="message" /></span>
+              <span><img src="./img/payment.png" alt="payment" /></span>
+              <span
+                ><img src="./img/Stores of interest.png" alt="store"
+              /></span>
+              <span
+                ><img src="./img/Improvement suggestions.png" alt="Improvement"
+              /></span>
+            </div>
+          </div>
+        </div>
+        <div class="content-section">
+          <div class="order">
+            <h1>주문배송<strong>2</strong></h1>
+            <div class="order_product">
+              <div class="product_img">
+                <img src="./img/melamine_plate.jpg" alt="air_fry" />
+              </div>
+              <div class="product_con">
+                <p class="delivery_status">배송완료 <span>07.31 구매</span></p>
+                <p class="product_name">귀여운 어글리 멜라민 접시세트</p>
+                <strong class="price">78,000원</strong>
+              </div>
+            </div>
+            <div class="order_product">
+              <div class="product_img">
+                <img src="./img/melamine_plate.jpg" alt="air_fry" />
+              </div>
+              <div class="product_con">
+                <p class="delivery_status">배송완료 <span>07.31 구매</span></p>
+                <p class="product_name">귀여운 어글리 멜라민 접시세트</p>
+                <strong class="price">78,000원</strong>
+              </div>
+            </div>
+            <div class="order-more">
+              <p>주문 배송내역 모두 보기</p>
+            </div>
+          </div>
+          <div class="event-banner">
+            <img src="./img/ali3D.png" alt="ali3D" />
+            <div class="event_txt">
+              <p><span>Aliexpress</span> 설문참여 EVENT</p>
+              <p>고객님의 알리익스프레스 경험을 남겨주세요!</p>
+            </div>
+            <a href="#none">설문참여 ></a>
+          </div>
+          <div class="product-list">
+            <div class="product-item">
+              <section class="product-slider"></section>
+            </div>
+            <div class="product-item">
+              <section class="product-slider"></section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="web_footer">
+      <div class="footer-top">
+        <div class="footer-services">
+          <div class="footer-select">
+            <p>서비스 안내</p>
+            <select
+              name="customer-service"
+              id="customer-service"
+              onchange="window.open(value,'_blank');"
             >
-            <p><img src="./img/coin.png" alt="coin" /></p>
+              <option value="customer-service" disabled selected hidden>
+                고객서비스
+              </option>
+              <option
+                value="https://helpcenter.aliexpress.com/s/KRBuyerHelp?spm=a2g0o.home.sitefooter.1.4c8e70f44DLenF&language=ko_KR&tsuCode=ByrCmn&region=KR&suid=103014240819162042210171BB2293"
+              >
+                고객센터
+              </option>
+              <option
+                value="https://rulechannel.alibaba.com/icbu?type=detail&ruleId=2054&cId=1304#/rule/detail?cId=1304&ruleId=2054"
+              >
+                Transaction Services Agreement for
+              </option>
+              <option
+                value="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_aliexpress/suit_bu1_aliexpress202109291856_35940.html?spm=a2g0o.home.14.3.500770f4DCYpXK"
+              >
+                Terms and Conditions for EU/EEA/UK
+              </option>
+              <option
+                value="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_aliexpress/suit_bu1_aliexpress202109291856_35940.html?spm=a2g0o.home.14.3.500770f47Trs4O"
+              >
+                Consumers (Transactions)
+              </option>
+              <option
+                value="https://www.surveymonkey.com/r/?spm=a2g0o.home.14.4.500770f4DK0jUJ&sm=9z9qYkOd%2fEnXROEaWLxcOUt4dfPTFY7TGg0vXOC6XnQ%3d"
+              >
+                고객 의견 설문 응답
+              </option>
+            </select>
+            <select
+              name="shopping-guide"
+              id="shopping-guide"
+              onchange="window.open(value,'_blank');"
+            >
+              <option value="customer-service" disabled selected hidden>
+                쇼핑가이드
+              </option>
+              <option
+                value="https://helpcenter.aliexpress.com/s/KRBuyerHelp/category?tsuCode=ByrCmn&region=KR&suid=1030142408191625302102E2F73268"
+              >
+                결제하기
+              </option>
+              <option
+                value="https://helpcenter.aliexpress.com/s/KRBuyerHelp/category?tsuCode=ByrCmn&region=KR&suid=1030142408191625462141262A7066"
+              >
+                배송 옵션
+              </option>
+              <option
+                value="https://ko.aliexpress.com/p/buyerprotection/index.html?spm=a2g0o.home.14.7.500770f4jg4Ps7"
+              >
+                구매자 보호
+              </option>
+            </select>
+            <select
+              name="alliance"
+              id="alliance"
+              onchange="window.open(value,'_blank');"
+            >
+              <option value="customer-service" disabled selected hidden>
+                제휴안내
+              </option>
+              <option value="https://www.alibabagroup.com/en-US/">
+                파트너십
+              </option>
+              <option
+                value="https://portals.aliexpress.com/affiportals/web/portals.htm#/home"
+              >
+                협력 프로그램
+              </option>
+              <option
+                value="https://ds.aliexpress.com/find-products?spm=a2g0o.home.14.10.500770f4DnDTiY"
+              >
+                DS Center
+              </option>
+              <option
+                value="https://login.aliexpress.com/seller_new.htm?return_url=https://gsp.aliexpress.com/"
+              >
+                Seller Log In
+              </option>
+              <option
+                value="https://sell.aliexpress.com/zh/__pc/newsellerlanding.htm?spm=a2g0o.home.14.12.500770f4cNAYRs"
+              >
+                中国卖家入驻
+              </option>
+              <option
+                value="https://sell.aliexpress.com/__pc/4DYTFsSkV0.htm?spm=a2g0o.home.14.13.500770f4fnVuWw"
+              >
+                Non-Chinese Seller Registration
+              </option>
+            </select>
           </div>
-        </div>
-        <div class="stats">
-          <div class="stats-top">
-            <div>
-              <img src="./img/coupon.png" alt="coupon" />
-              <h1>
-                보유쿠폰
-                <p>14</p>
-              </h1>
+          <div id="payment">
+            <p>결제수단</p>
+            <div class="payment-wrap">
+              <div class="footer-payment">
+                <div class="cards">
+                  <img src="./img/footer/ae.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/bc.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/hd.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/hn.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/jcb.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/kb.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/lt.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/master.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/naver.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/nh.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/sh.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/ss.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/toss.png" alt="Mastercard" />
+                </div>
+                <div class="cards">
+                  <img src="./img/footer/visa.png" alt="Mastercard" />
+                </div>
+              </div>
             </div>
-            <div>
-              <img src="./img/cart.png" alt="coupon" />
-              <h1>
-                장바구니
-                <p>98</p>
-              </h1>
-            </div>
-            <div>
-              <img src="./img/order.png" alt="coupon" />
-              <h1>
-                주문배송
-                <p>4</p>
-              </h1>
-            </div>
-            <div>
-              <img src="./img/review.png" alt="coupon" />
-              <h1>
-                리뷰작성
-                <p>100</p>
-              </h1>
-            </div>
-          </div>
-          <div class="stats-bottom">
-            <span
-              ><img src="./img/customer service center.png" alt="customer"
-            /></span>
-            <span><img src="./img/question.png" alt="question" /></span>
-            <span><img src="./img/message.png" alt="message" /></span>
-            <span><img src="./img/payment.png" alt="payment" /></span>
-            <span><img src="./img/Stores of interest.png" alt="store" /></span>
-            <span
-              ><img src="./img/Improvement suggestions.png" alt="Improvement"
-            /></span>
           </div>
         </div>
       </div>
-      <div class="content-section">
-        <div class="order">
-          <h1>주문배송<strong>2</strong></h1>
-          <div class="order_product">
-            <div class="product_img">
-              <img src="./img/melamine_plate.jpg" alt="air_fry" />
-            </div>
-            <div class="product_con">
-              <p class="delivery_status">배송완료<span>07.31 구매</span></p>
-              <p class="product_name">귀여운 어글리 멜라민 접시세트</p>
-              <strong class="price">78,000원</strong>
-            </div>
-          </div>
-          <div class="order_product">
-            <div class="product_img">
-              <img src="./img/melamine_plate.jpg" alt="air_fry" />
-            </div>
-            <div class="product_con">
-              <p class="delivery_status">배송완료<span>07.31 구매</span></p>
-              <p class="product_name">귀여운 어글리 멜라민 접시세트</p>
-              <strong class="price">78,000원</strong>
-            </div>
-          </div>
-          <div class="order-more">
-            <p>주문 배송내역 모두 보기</p>
-          </div>
+      <div class="footer-categories">
+        Browse by Category:
+        <a href="https://ko.aliexpress.com/popular.html">All Popular</a>,
+        <a href="https://ko.aliexpress.com/wholesale.html">Product</a>,
+        <a href="https://ko.aliexpress.com/promotion.html">Low price</a>,
+        <a href="https://ko.aliexpress.com/cheap.html">Great Value</a>,
+        <a href="https://ko.aliexpress.com/reviews.html">Reviews</a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a
+            href="https://cdn.contract.alibaba.com/terms/privacy_policy_full/20240624154655415/20240624154655415.html"
+            target="_blank"
+            >개인정보 처리방침</a
+          >
+          <a
+            href="https://www.aliexpress.com/sitemap.html?spm=a2g0o.best.0.0.32de423aj88xX5"
+            target="_blank"
+            >위치 지도</a
+          >
+          <a
+            href="https://helpcenter.aliexpress.com/s/KRBuyerHelp?spm=a2g0o.best.sitefooter.1.32de423afxicKx&language=ko_KR&tsuCode=ByrCmn&region=KR&suid=10301424080121331421016F432817"
+            target="_blank"
+            >고객센터</a
+          >
         </div>
-        <div class="event-banner">
-          <img src="./img/ali3D.png" alt="ali3D" />
-          <div class="event_txt">
-            <p><span>Aliexpress</span> 설문참여 EVENT</p>
-            <p>고객님의 알리익스프레스 경험을 남겨주세요!</p>
-          </div>
-          <a href="#none">설문참여 ></a>
-        </div>
-        <div class="product-list">
-          <div class="product-item">
-            <section class="product-slider"></section>
-          </div>
-          <div class="product-item">
-            <section class="product-slider"></section>
-          </div>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com/AliExpress/?spm=a2g0o.best.14.14.1af7423a85jTI8"
+            target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a
+            href="https://x.com/AliExpress_EN?spm=a2g0o.best.14.15.1af7423a85jTI8"
+            ><i class="fa-brands fa-x-twitter" target="_blank"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/aliexpress/?spm=a2g0o.best.14.16.1af7423a85jTI8"
+            ><i class="fa-brands fa-instagram" target="_blank"></i
+          ></a>
+          <a
+            href="https://www.messenger.com/login.php?next=https%3A%2F%2Fwww.messenger.com%2Ft%2F335963307560%2F%3Fmessaging_source%3Dsource%253Apages%253Amessage_shortlink%26source_id%3D1441792%26recurring_notification%3D0"
+            target="_blank"
+            ><i class="fa-solid fa-comment"></i
+          ></a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=8657186563839&text&type=phone_number&app_absent=0"
+            target="_blank"
+            ><i class="fa-solid fa-phone"></i
+          ></a>
         </div>
       </div>
-    </section>
+    </footer>
+    <footer class="mobile_footer">
+      <ul>
+        <li><img src="./img/footer/home-1.png" alt="home" /></li>
+        <li><img src="./img/footer/inbox-alt.png" alt="inbox" /></li>
+        <li><img src="./img/footer/event.png" alt="event" /></li>
+        <li><img src="./img/footer/cart-1.png" alt="cart" /></li>
+        <li><img src="./img/footer/user-1.png" alt="user" /></li>
+      </ul>
+    </footer>
   </body>
 </html>
