@@ -501,7 +501,7 @@ window.addEventListener("scroll", () => {
     const categoryTop = window.scrollY + categoryRect.top;
     const categoryHeight = category.offsetHeight;
 
-    const offset = 130;
+    const offset = 160;
 
     if (
       scrollY >= categoryTop - offset &&

@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         subcategoryElement.appendChild(subsubcategoryMenu);
 
         subcategoryElement.addEventListener(
-          "mouseenter",
+          "mouseover",
           () => (subsubcategoryMenu.style.display = "block")
         );
         subcategoryElement.addEventListener(
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Handle dropdown display logic
   menuItem.addEventListener(
-    "mouseenter",
+    "mouseover",
     () => (dropdownContainer.style.display = "flex")
   );
   menuItem.addEventListener("mouseleave", () => {
@@ -118,6 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
   dropdownContainer.addEventListener(
     "mouseenter",
     () => (dropdownContainer.style.display = "flex")
+  );
+  dropdownContainer.addEventListener(
+    "mouseleave",
+    () => (dropdownContainer.style.display = "none")
   );
 
   // Real-time search updates
@@ -292,28 +296,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// 서브 네비 스크롤 시 없애는 코드
-document.addEventListener("DOMContentLoaded", function () {
-  var lastScrollTop = 0; // 마지막 스크롤 위치를 저장할 변수
-  var headerNav = document.querySelector(".header-nav"); // header-nav 요소 선택
+let lastScrollTop = 0; // 마지막 스크롤 위치를 저장할 변수
+let headerNav = document.querySelector(".header-nav"); // header-nav 요소 선택
 
-  window.addEventListener("scroll", function () {
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop; // 현재 스크롤 위치
+window.addEventListener("scroll", function () {
+  let scrollTop = window.scrollY; // 현재 스크롤 위치
 
-    if (scrollTop > lastScrollTop) {
-      // 아래로 스크롤할 경우
-      headerNav.style.opacity = Math.max(0, headerNav.style.opacity - 0.1);
-      if (headerNav.style.opacity <= 0) {
-        headerNav.style.display = "none";
-      }
-    } else {
-      // 위로 스크롤할 경우
-      headerNav.style.display = "block";
-      headerNav.style.opacity = Math.min(
-        1,
-        parseFloat(headerNav.style.opacity) + 0.1
-      );
+  if (scrollTop > lastScrollTop) {
+    // 아래로 스크롤할 경우
+    headerNav.style.opacity = Math.max(0, headerNav.style.opacity - 0.1);
+    if (headerNav.style.opacity <= 0) {
+      headerNav.style.display = "none";
     }
-    lastScrollTop = scrollTop; // 스크롤 위치 업데이트
-  });
+  } else if (scrollTop === 0) {
+    // 위로 스크롤할 경우
+    headerNav.style.display = "block";
+    headerNav.style.opacity = Math.min(
+      1,
+      parseFloat(headerNav.style.opacity) + 1
+    );
+  }
+  lastScrollTop = scrollTop; // 스크롤 위치 업데이트
 });

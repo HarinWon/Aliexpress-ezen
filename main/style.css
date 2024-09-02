@@ -11,6 +11,7 @@ header {
 .web_footer {
   width: 100%;
   bottom: 0;
+  margin-top: 7500px;
 }
 
 .inner {
@@ -105,13 +106,13 @@ body {
 #mainContainer {
   position: relative;
   width: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 90px);
   margin-top: 150px;
 }
 #mainContainer #mainVideo video {
   position: relative;
   width: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 90px);
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -130,7 +131,7 @@ body {
   display: flex;
   align-items: center;
   left: 8%;
-  bottom: 9%;
+  bottom: 13%;
   z-index: 9;
   color: #afafaf;
   cursor: pointer;
@@ -206,7 +207,6 @@ body {
 
 #infoContainer {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -658,7 +658,7 @@ body {
 #foryouContainer .foryouContents .foryoucontent .ulElements li .contentImg {
   position: relative;
   width: 350px;
-  height: 210px;
+  height: 200px;
   overflow-clip-margin: content-box;
   overflow: clip;
 }
@@ -756,6 +756,7 @@ body {
   position: relative;
   display: flex;
   width: 100%;
+  height: 100%;
 }
 #categoryContainer .categoryContents {
   background: #fff;
@@ -770,7 +771,7 @@ body {
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 130px;
+  top: 160px;
   right: 0;
   width: 125px;
   height: -moz-fit-content;
@@ -846,6 +847,7 @@ body {
 }
 #categoryContainer .categoryContents .category .categoryContent {
   width: 100%;
+  margin-bottom: 50px;
 }
 #categoryContainer .categoryContents .category .categoryContent ul {
   display: flex;
@@ -853,14 +855,12 @@ body {
   justify-content: center;
   padding: 20px 0;
   gap: 17px;
-}
-#categoryContainer .categoryContents .category .categoryContent ul li {
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
   position: relative;
   width: 276px;
-  height: 200px;
+  height: 190px;
   overflow-clip-margin: content-box;
   overflow: clip;
 }
@@ -911,6 +911,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .web_footer {
+    margin-top: 100px;
+  }
   .inner {
     width: 700px;
     margin-top: 0px;
@@ -1178,7 +1181,7 @@ body {
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: -167px;
+    top: 85px;
     left: 0;
     height: -moz-fit-content;
     height: fit-content;
@@ -1249,7 +1252,7 @@ body {
     transform: rotate(45deg);
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet.on {
-    top: 0;
+    top: -75px;
   }
   #categoryContainer .categoryContents .category {
     width: 100%;
@@ -1301,8 +1304,9 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
+    font-size: 1rem;
     width: 110%;
-    height: 30px;
+    height: 38px;
   }
   #mainContainer {
     height: 219px;
@@ -1317,7 +1321,11 @@ body {
     bottom: 40px;
   }
   #mainContainer .mainTrigger p:nth-of-type(1) {
-    left: -5%;
+    font-size: 1rem;
+    left: -6%;
+  }
+  #mainContainer .mainTrigger p:nth-of-type(2) {
+    font-size: 1rem;
   }
   #infoContainer {
     z-index: 2;
@@ -1370,7 +1378,7 @@ body {
     display: none;
   }
   #welcomeContainer .welcome {
-    margin: 0;
+    margin-top: -30px;
   }
   #welcomeContainer .welcome .welcomeContents {
     display: flex;
@@ -1378,7 +1386,7 @@ body {
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft {
     width: 100%;
-    height: 250px;
+    height: 190px;
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentLeft .leftText {
     width: 330px;
@@ -1406,7 +1414,7 @@ body {
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li img {
     width: 100%;
-    height: 130px;
+    height: 100px;
     border: none;
   }
   #welcomeContainer .welcome .welcomeContents .welcomeContentRight ul li .icon {
@@ -1424,8 +1432,9 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
   }
-  #weeklyContainer .weeklyContents {
-    margin-top: 40px;
+  #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft {
+    gap: 10px;
+    margin: 0;
   }
   #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft h1 {
     font-family: "Noto Sans KR, sans-serif";
@@ -1434,7 +1443,9 @@ body {
     line-height: 1.3;
   }
   #weeklyContainer .weeklyContents .weeklyTitle .weeklyinnerLeft .weeklyTime {
-    margin-top: -10px;
+    font-size: 1.2rem;
+    gap: 14px;
+    width: 190px;
     height: 50px;
   }
   #weeklyContainer .weeklyContents .weeklyContent ul {
@@ -1443,7 +1454,7 @@ body {
   }
   #weeklyContainer .weeklyContents .weeklyContent ul .contentImg {
     width: 300px;
-    height: 270px;
+    height: 200px;
   }
   #weeklyContainer .weeklyContents .weeklyContent ul .contentImg img {
     transform: scale(0.9);
@@ -1464,10 +1475,11 @@ body {
     height: 50px;
   }
   #weeklyContainer .weeklyContents .weeklyContent ul .contentImg .icon {
-    bottom: 16px;
+    bottom: 35px;
   }
   #weeklyContainer .weeklyContents .weeklyArrows {
     width: 88%;
+    top: 310px;
   }
   #weeklyContainer .weeklyContents .trigger {
     margin-top: 10px;
@@ -1549,7 +1561,8 @@ body {
     justify-content: center;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet {
-    top: -127px;
+    top: 120px;
+    font-size: 1rem;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul {
     display: flex;
@@ -1558,7 +1571,7 @@ body {
     padding-left: 40px;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul li a p {
-    font-size: 0.69rem;
+    font-size: 0.9rem;
     color: #7b7b7b;
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet ul li a img {
@@ -1609,7 +1622,7 @@ body {
     transform: rotate(45deg);
   }
   #categoryContainer .categoryContents .categoryGnb.Tablet.on {
-    top: 0;
+    top: -15px;
   }
   #categoryContainer .categoryContents .category {
     width: 100%;
@@ -1635,7 +1648,8 @@ body {
     display: flex;
   }
   #categoryContainer .categoryContents .category .contentPrice {
-    font-size: 0.68rem;
+    width: 120%;
+    font-size: 0.8rem;
   }
   #categoryContainer .categoryContents .category .categoryContent {
     width: 100%;
@@ -1654,6 +1668,12 @@ body {
     width: calc(50% - 10px);
     display: flex;
     justify-content: center;
+  }
+  #categoryContainer .categoryContents .category .categoryContent ul li .contentTitle p {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
   }
   #categoryContainer .categoryContents .category .categoryContent ul li .contentImg {
     width: 160px;
