@@ -272,6 +272,10 @@ function renderProducts(products) {
                   <span><b>*****</b>${product.ratings}</span>
               </div>
           </a>
+             <div class="icon">
+                    <i class="fa-solid fa-heart"></i>
+                    <img src="./dbImg/icon/cart.png" alt="cart" />
+                  </div>
       `;
     productList.appendChild(productItem);
   });
@@ -321,8 +325,12 @@ const onDragEnd = () => {
   document.removeEventListener("touchend", onDragEnd);
 
   // 이동 범위 제한 및 제자리 돌아오기
-  const maxScroll = Math.max(titleBtn.scrollWidth - titleBtnContainer.clientWidth, 0);
-  const currentTranslateX = parseInt(titleBtn.style.transform.split(/[^\-0-9]+/g)[1]) || 0;
+  const maxScroll = Math.max(
+    titleBtn.scrollWidth - titleBtnContainer.clientWidth,
+    0
+  );
+  const currentTranslateX =
+    parseInt(titleBtn.style.transform.split(/[^\-0-9]+/g)[1]) || 0;
 
   if (currentTranslateX > 0) {
     titleBtn.style.transform = `translateX(0px)`; // 왼쪽으로 벗어날 경우

@@ -78,6 +78,20 @@ $color: (
   @include font-style(map-get($fonts, noto-sans), 14px, 400);
 }
 
+// header footer
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+}
+.web_footer {
+  width: 100%;
+  position: absolute;
+  bottom: -500px;
+}
+body {
+  position: relative;
+}
 // 모바일 오버레이
 .overlay {
   position: fixed;
@@ -111,6 +125,7 @@ body {
   display: grid;
   main {
     padding-top: 30px;
+    margin-top: 150px;
   }
 }
 .product-buy {
@@ -122,7 +137,7 @@ body {
   position: relative;
   .product-info {
     position: sticky;
-    top: 50px;
+    top: 170px;
     h2 {
       font-size: 14px;
       color: #999;
@@ -436,7 +451,11 @@ main {
       flex-direction: row;
 
       .main-image {
-        width: 500px;
+        width: 800px;
+        overflow: hidden;
+        img {
+          object-fit: cover;
+        }
       }
 
       .thumbnail-images {
@@ -1354,6 +1373,7 @@ main {
 
       .product-info {
         width: 100%;
+        background: #fff;
 
         h1 {
           @include heading3();

@@ -1,11 +1,9 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
-
 // font family
 $fonts: (
   noto-sans: "Noto Sans KR, sans-serif",
 );
-
 // font style mixins
 @mixin display1 {
   font-family: map-get($fonts, noto-sans);
@@ -13,70 +11,60 @@ $fonts: (
   font-weight: 400;
   line-height: 1.3;
 }
-
 @mixin display2 {
   font-family: map-get($fonts, noto-sans);
   font-size: 42px;
   font-weight: 400;
   line-height: 1.3;
 }
-
 @mixin heading1 {
   font-family: map-get($fonts, noto-sans);
   font-size: 50px;
   font-weight: 700;
   line-height: 1.3;
 }
-
 @mixin heading2 {
   font-family: map-get($fonts, noto-sans);
   font-size: 42px;
   font-weight: 700;
   line-height: 1.3;
 }
-
 @mixin heading3 {
   font-family: map-get($fonts, noto-sans);
   font-size: 34px;
   font-weight: 700;
   line-height: 1.3;
 }
-
 @mixin heading4 {
   font-family: map-get($fonts, noto-sans);
   font-size: 26px;
   font-weight: 700;
   line-height: 1.3;
 }
-
 @mixin heading5 {
   font-family: map-get($fonts, noto-sans);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.3;
 }
-
 @mixin lead-paragraph {
   font-family: map-get($fonts, noto-sans);
   font-size: 22px;
   font-weight: 400;
   line-height: 1.3;
 }
-
 @mixin body-medium {
   font-family: map-get($fonts, noto-sans);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.3;
 }
-
 @mixin body-normal {
   font-family: map-get($fonts, noto-sans);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.3;
 }
-
 @mixin body-small {
   font-family: map-get($fonts, noto-sans);
   font-size: 14px;
@@ -84,8 +72,42 @@ $fonts: (
   line-height: 1.3;
 }
 
-body {
-  font-family: "Noto Sans KR, sans-serif";
+// header/footer
+.web_footer {
+  bottom: 0;
+  width: 100%;
+  margin-top: 500px;
+}
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 300;
+}
+
+.icon {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 40px;
+  gap: 20px;
+  border-radius: 20px;
+  background: rgba(255, 97, 29, 0.85);
+  opacity: 0;
+  z-index: 3;
+
+  .fa-solid {
+    font-size: 1.3rem;
+    color: #fff;
+  }
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 // color
@@ -148,21 +170,16 @@ $color: (
 
 .slider-container {
   width: 200px;
-  height: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 10px;
+  margin: 20px;
 
   .slider-contaoner-contents {
-    position: sticky;
-    top: 30px;
     .slider-label {
       @include body-small();
       font-weight: bold;
     }
 
     .slider {
-      -webkit-appearance: none;
+      -webkit-appearance: none; // 기본 브라우저 스타일 제거
       width: 100%;
       height: 8px;
       border-radius: 5px;
@@ -176,7 +193,7 @@ $color: (
       }
 
       &::-webkit-slider-thumb {
-        -webkit-appearance: none;
+        -webkit-appearance: none; // 기본 브라우저 스타일 제거
         appearance: none;
         width: 20px;
         height: 20px;
@@ -189,9 +206,9 @@ $color: (
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background: map-get($color, main-color);
+        background: #6e44ff; // 이미지의 보라색
         cursor: pointer;
-        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2); // 그림자 효과
       }
     }
 
@@ -219,7 +236,7 @@ $color: (
           margin-right: 8px;
           cursor: pointer;
           &:checked {
-            background-color: map-get($color, main-color);
+            background-color: map-get($color, main-color); // 선택 시 배경색
             border-color: map-get($color, main-color);
             &::before {
               content: "";
@@ -227,7 +244,7 @@ $color: (
               width: 10px;
               height: 10px;
               border-radius: 50%;
-              background: white;
+              background: white; // 선택 시 내부 동그라미 색상
               position: absolute;
               top: 3px;
               left: 3px;
@@ -244,6 +261,7 @@ $color: (
       }
 
       label {
+        // 각각의 체크박스 스타일
         input[type="radio"] {
           @include body-small();
           appearance: none;
@@ -257,7 +275,7 @@ $color: (
           margin-right: 8px;
           cursor: pointer;
           &:checked {
-            background-color: map-get($color, main-color);
+            background-color: map-get($color, main-color); // 선택 시 배경색
             border-color: map-get($color, main-color);
             &::before {
               content: "";
@@ -265,7 +283,7 @@ $color: (
               width: 10px;
               height: 10px;
               border-radius: 50%;
-              background: white;
+              background: white; // 선택 시 내부 동그라미 색상
               position: absolute;
               top: 3px;
               left: 3px;
@@ -274,11 +292,6 @@ $color: (
         }
       }
     }
-  }
-
-  &.filter {
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
   }
 }
 
@@ -308,7 +321,8 @@ $color: (
 // Flexbox container 설정
 .product-detail-list-box {
   display: flex;
-  height: 100vh;
+  height: 100%;
+  padding-top: 150px;
 }
 
 .product-list {
@@ -316,66 +330,54 @@ $color: (
 }
 
 .productContents {
-  position: relative;
-  // width: 1300px;
   .productTop {
+    width: 100%;
     .titleRight {
       // position: fixed;
-      justify-content: flex-end;
       width: 100%;
       height: 70px;
+      // top: 20px;
       background: #fff;
       z-index: 3;
 
-      // a {
-      //   position: absolute;
-      //   top: 0;
-      //   right: 0;
-      //   @include body-medium();
-      //   color: map-get($color, light1);
-      // }
-      .titleBtnContainer {
-        width: 100%;
-        padding-left: 280px;
-        .titleBtn {
-          display: flex;
-          width: 700px;
-          margin-top: 30px;
-          gap: 16px;
-
-          // white-space: nowrap;
-          // justify-content: flex-end;
-
-          input[type="radio"] {
-            display: none;
-          }
-
-          .btn {
-            display: inline-block;
-            text-align: center;
-            line-height: 30px;
-            width: 130px;
-            height: 30px;
-            background: map-get($color, light2);
-            border-radius: 50px;
-            cursor: pointer;
-            &.active {
-              background: map-get($color, main-gradient);
-              color: #fff;
-            }
-          }
-        }
+      a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include body-medium();
+        color: map-get($color, light1);
       }
 
-      .filterBtnContainer {
-        display: none;
+      .titleBtn {
+        display: flex;
+        margin-top: 20px;
+        gap: 40px;
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        .btn {
+          display: inline-block;
+          text-align: center;
+          line-height: 30px;
+          width: 150px;
+          height: 30px;
+          background: map-get($color, light2);
+          border-radius: 50px;
+          cursor: pointer;
+
+          &.active {
+            background: map-get($color, main-gradient);
+            color: #fff;
+          }
+        }
       }
     }
   }
 
   .productcontent {
-    width: 1300px;
-    position: relative;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -385,17 +387,19 @@ $color: (
       margin-top: 30px;
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 100px;
+      gap: 30px;
+      margin-top: 40px;
 
       li {
         width: 300px;
-        margin-bottom: 50px;
+        position: relative;
+        &:hover .icon {
+          opacity: 1;
+        }
         .contentImg {
           width: 100%;
           height: 210px;
-          border-radius: 10px;
-          overflow: hidden;
+          overflow: hidden; // 부모 컨테이너를 벗어나는 이미지 부분을 숨김
           img {
             width: 100%;
             height: 100%;
@@ -406,7 +410,7 @@ $color: (
         }
 
         &:hover img {
-          transform: scale(1.1);
+          transform: scale(1.1); // 이미지 확대 효과
         }
 
         .foryouTitle {
@@ -418,140 +422,105 @@ $color: (
     }
   }
 }
-
-// tab
-@media screen and (max-width: 1200px) {
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 15;
+.categoryContents {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-55%);
+}
+.categoryGnb.Tablet {
+  display: none;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  // border: 1px solid #f00;
+  flex-direction: column;
+  position: sticky;
+  top: -167px;
+  left: 0;
+  height: fit-content;
+  transition: all 0.3s;
+  z-index: 4;
+  padding-right: 40px;
+  white-space: nowrap; /* 가로 스크롤을 위한 설정 */
+  overflow-x: hidden; /* 가로 스크롤 가능하게 설정 */
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: left;
+    padding: 20px 0 20px 10px;
+    li {
+      a {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        position: relative;
+        img {
+          width: 90px;
+          height: 90px;
+          border: 1px solid map-get($color, light1);
+          border-radius: 50%;
+        }
+        &.active p {
+          opacity: 1;
+          color: map-get($color, light3);
+          font-weight: bold;
+          padding: 4px 7px;
+          border-radius: 12px;
+          background: map-get($color, main-color);
+        }
+      }
+    }
   }
-
+}
+// tab
+@media screen and (max-width: 1100px) {
   .product-detail-list-box {
     .slider-container {
-      width: 300px;
-      height: 100%;
-      position: fixed;
-      margin: 0;
-      right: 0;
-      background: #fff;
-      box-shadow: -3px 0px 10px 0px rgba(0, 0, 0, 0.15);
-      z-index: 1010;
-      transition: transform 0.3s ease-in-out;
-      transform: translateX(100%);
-      .slider-contaoner-contents {
-        padding-top: 50px;
-        margin-left: 30px;
-        width: 200px;
-      }
-      &.filter {
-        transform: translateX(0);
-      }
+      display: none;
     }
     .product-list {
-      overflow-x: hidden;
       width: 100%;
+      .categoryGnb.Tablet {
+        display: none;
+        width: 100%;
+      }
       .productContents {
         .productTop {
-          position: relative;
+          width: 100%;
           .titleRight {
-            display: flex; /* 내부 요소를 플렉스로 설정하여 정렬 */
-            justify-content: flex-end;
-            align-items: center; /* 수직 중앙 정렬 */
-            padding-right: 20px; /* 우측 여백 조정 */
-            width: 100%; /* 부모 요소의 너비 채우기 */
-            box-sizing: border-box; /* 여백과 패딩 포함 */
             .titleBtn {
-              padding-right: 40px;
-              display: flex;
-              /* 플렉스 레이아웃 적용 */
-              gap: 16px; /* 버튼 간의 간격 */
-              margin-left: auto; /* 우측 정렬을 위한 자동 왼쪽 여백 */
-              white-space: nowrap; /* 버튼이 한 줄로 유지되도록 설정 */
-              .btn {
-              }
-            }
-            .filterBtnContainer {
-              position: absolute;
-              width: 50px;
-              height: 58%;
-              border-radius: 0 !important;
-              background: #fff;
-              text-align: center;
-              border-radius: 30px;
-              display: block;
-              position: absolute;
-              right: 0;
-              box-shadow: -5px 0 10px rgba(255, 255, 255, 0.8);
-              top: 30px;
-              .filterBtn {
-                display: block;
-                width: 50px;
-                height: 32px;
-                line-height: 32px;
-                border-radius: 40px;
-                cursor: pointer;
-                background: map-get($color, light2);
-              }
+              gap: 10px;
+              font-size: 12px;
             }
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .product-detail-list-box {
+    .slider-container {
+      display: none;
+    }
+    .product-list {
+      width: 100%;
       .productcontent {
         .ulElements {
-          width: 100vw;
-          justify-content: center;
-          gap: 20px;
+          justify-content: space-around;
           li {
-            width: 200px;
+            width: 180px;
             .contentImg {
               width: 100%;
-              height: 150px;
+              height: 120px;
             }
           }
         }
       }
-    }
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .titleRight {
-    .titleBtnContainer {
-      display: flex;
-      margin-right: 100px;
-      justify-content: center;
-      .titleBtn {
-        div {
-          background: #fff;
-          position: absolute;
-          right: -60px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .titleRight {
-    white-space: nowrap;
-    .titleBtn {
-      display: inline-flex;
-      width: 100%;
-      // gap: 10px;
-      div {
-        display: inline-block;
-      }
-    }
-  }
-  .ulElements {
-    li {
-      width: 180px !important;
-      gap: 20px !important;
     }
   }
 }

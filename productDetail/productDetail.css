@@ -1,6 +1,22 @@
 @charset "UTF-8";
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+}
+
+.web_footer {
+  width: 100%;
+  position: absolute;
+  bottom: -500px;
+}
+
+body {
+  position: relative;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -34,6 +50,7 @@ body {
 }
 body main {
   padding-top: 30px;
+  margin-top: 150px;
 }
 
 .product-buy {
@@ -46,7 +63,7 @@ body main {
 }
 .product-buy .product-info {
   position: sticky;
-  top: 50px;
+  top: 170px;
 }
 .product-buy .product-info h2 {
   font-size: 14px;
@@ -333,7 +350,12 @@ main .product-detail .product-images {
   flex-direction: row;
 }
 main .product-detail .product-images .main-image {
-  width: 500px;
+  width: 800px;
+  overflow: hidden;
+}
+main .product-detail .product-images .main-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main .product-detail .product-images .thumbnail-images {
   display: flex;
@@ -1184,6 +1206,7 @@ main #weeklyContainer .trigger section:last-child {
   }
   main .product-detail .product-info {
     width: 100%;
+    background: #fff;
   }
   main .product-detail .product-info h1 {
     font-family: "Noto Sans KR, sans-serif";
@@ -1285,4 +1308,4 @@ main #weeklyContainer .trigger section:last-child {
   main .product-slider div img {
     width: 180px;
   }
-}/*# sourceMappingURL=productDetail.css.map */
+}
