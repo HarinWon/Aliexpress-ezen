@@ -100,6 +100,62 @@ plusBs.forEach((plusB, i) => {
   plusB.addEventListener("mouseout", clearButtons);
 });
 
+// Select all the quantity input fields and buttons in both prodBlock and prodBlockMob
+const prodBlocks = document.querySelectorAll(".prodBlock");
+const prodBlockMobs = document.querySelectorAll(".prodBlockMob");
+
+prodBlocks.forEach((prodBlock, index) => {
+  const minusB = prodBlock.querySelector(".minusB");
+  const plusB = prodBlock.querySelector(".plusB");
+  const prodQuantN = prodBlock.querySelector(".prodQuantN");
+
+  const mobMinusB = prodBlockMobs[index].querySelector(".minusB");
+  const mobPlusB = prodBlockMobs[index].querySelector(".plusB");
+  const mobProdQuantN = prodBlockMobs[index].querySelector(".prodQuantN");
+
+  function syncQuantities(mainInput, syncedInput) {
+    syncedInput.value = mainInput.value;
+  }
+
+  // Handle minus button
+  minusB.addEventListener("mousedown", () => {
+    if (Number(prodQuantN.value) > 1) {
+      prodQuantN.value = Number(prodQuantN.value) - 1;
+      syncQuantities(prodQuantN, mobProdQuantN);
+    }
+  });
+
+  mobMinusB.addEventListener("mousedown", () => {
+    if (Number(mobProdQuantN.value) > 1) {
+      mobProdQuantN.value = Number(mobProdQuantN.value) - 1;
+      syncQuantities(mobProdQuantN, prodQuantN);
+    }
+  });
+
+  // Handle plus button
+  plusB.addEventListener("mousedown", () => {
+    if (Number(prodQuantN.value) < 999) {
+      prodQuantN.value = Number(prodQuantN.value) + 1;
+      syncQuantities(prodQuantN, mobProdQuantN);
+    }
+  });
+
+  mobPlusB.addEventListener("mousedown", () => {
+    if (Number(mobProdQuantN.value) < 999) {
+      mobProdQuantN.value = Number(mobProdQuantN.value) + 1;
+      syncQuantities(mobProdQuantN, prodQuantN);
+    }
+  });
+
+  // Sync on direct input changes
+  prodQuantN.addEventListener("input", () => {
+    syncQuantities(prodQuantN, mobProdQuantN);
+  });
+
+  mobProdQuantN.addEventListener("input", () => {
+    syncQuantities(mobProdQuantN, prodQuantN);
+  });
+});
 //모바일 상세가격 아코디언 효과
 // const accordionContent = document.querySelectorAll(".accordion");
 // const accordionOpen = document.querySelectorAll(".accordOpen");
@@ -210,16 +266,16 @@ document.querySelectorAll(".prodBlock").forEach(function (prodBlock) {
   //   syncMinusB(minusNMob, minusN);
   // });
   // Number
+  const quantN = prodBlock.querySelector("input[type='number']");
+  const quantNMob = prodBlock.nextElementSibling.querySelector(
+    "input[type='number']"
+  );
   minusN.addEventListener("change", function () {
     quantNMob.value = quantN.value;
   });
   minusNMob.addEventListener("change", function () {
     quantN.value = quantNMob.value;
   });
-  const quantN = prodBlock.querySelector("input[type='number']");
-  const quantNMob = prodBlock.nextElementSibling.querySelector(
-    "input[type='number']"
-  );
   quantN.addEventListener("change", function () {
     quantNMob.value = quantN.value;
   });
@@ -238,6 +294,7 @@ document.querySelectorAll(".storeL").forEach(function (storeL) {
     storeHeart.checked = storeHeartMob.checked;
   });
 });
+
 
 // 체크박스를 하나로 묶어서 한번에 켰다 껐다 하게해주는 함수들
 // 상점 전체선택 storeCheck
@@ -273,28 +330,106 @@ storeChecks.forEach((storeCheck) => {
 });
 // 전체선택 SelectAll
 const selectAll = document.querySelector("#selectAllTxt");
-const checkboxes = document.querySelectorAll(
+let checkboxes = document.querySelectorAll(
   ".storeCheck, .prodMobCheck, .prodCheck"
 );
-// selectAll.addEventListener("change", function () {
-//   checkboxes.forEach((checkbox) => {
-//     checkbox.checked = selectAll.checked;
-//   });
-// });
-checkboxes.forEach((checkbox) => {
-  // 전체선택을 눌렀을 때 모든 checkbox들이 체크됨
+
+  checkboxes.forEach((checkbox) => {
+    // 전체선택을 눌렀을 때 모든 checkbox들이 체크됨
   selectAll.addEventListener("change", function () {
-    checkbox.checked = selectAll.checked;
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = selectAll.checked;
+    });
   });
-  // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
-  // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
-  checkbox.addEventListener("change", function () {
-    const allChecked = Array.from(checkboxes).every(
-      (checkbox) => checkbox.checked
+    // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
+    // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
+    checkbox.addEventListener("change", function () {
+      const allChecked = Array.from(checkboxes).every(
+        (checkbox) => checkbox.checked
+      );
+      selectAll.checked = allChecked;
+    });
+  });
+
+// function selectAllFunc() {
+//   checkboxes.forEach((checkbox) => {
+//     // 전체선택을 눌렀을 때 모든 checkbox들이 체크됨
+//     selectAll.addEventListener("change", function () {
+//       checkbox.checked = selectAll.checked;
+//     });
+//     // 상품의 checkbox가 unchecked 되면 상점전체선택도 해제됨
+//     // 모든 상품의 checkbox가 체크되면 상점전체선택도 체크됨
+//     checkbox.addEventListener("change", function () {
+//       const allChecked = Array.from(checkboxes).every(
+//         (checkbox) => checkbox.checked
+//       );
+//       selectAll.checked = allChecked;
+//     });
+//   });
+// }
+// 전체,해외,국내 구분
+const sortAlls = document.querySelectorAll(".sortAll");
+const sortFrs = document.querySelectorAll(".sortFr");
+const sortLocals = document.querySelectorAll(".sortLc");
+const storeBlocks = document.querySelectorAll(".storeBlock");
+
+function selectAllState() {
+  const allChecked = Array.from(checkboxes).every(
+    (checkbox) => checkbox.checked
+  );
+  selectAll.checked = allChecked;
+  // selectAllFunc();
+}
+
+
+// 전체
+sortAlls.forEach((button) => {
+  button.addEventListener("click", function () {
+    storeBlocks.forEach((block) => {
+      block.style.display = "flex";
+    });
+    checkboxes = document.querySelectorAll(
+      ".storeCheck, .prodMobCheck, .prodCheck"
     );
-    selectAll.checked = allChecked;
+    selectAllState();
   });
 });
+
+// 해외
+sortFrs.forEach((button) => {
+  button.addEventListener("click", function () {
+    storeBlocks.forEach((block) => {
+      if (block.querySelector(".foreignStore")) {
+        block.style.display = "flex";
+      } else {
+        block.style.display = "none";
+      }
+    });
+    const foreignStore = document.querySelector(".foreignStore");
+    const frStoreBlock = foreignStore.parentElement;
+    checkboxes = frStoreBlock.querySelectorAll(".storeCheck, .prodCheck, .prodMobCheck")
+    selectAllState();
+  });
+});
+
+// 국내
+sortLocals.forEach((button) => {
+  button.addEventListener("click", function () {
+    storeBlocks.forEach((block) => {
+      if (block.querySelector(".localStore")) {
+        block.style.display = "flex";
+      } else {
+        block.style.display = "none";
+      }
+    });
+    const localStore = document.querySelector(".localStore");
+    const lcStoreBlock = localStore.parentElement;
+    checkboxes = lcStoreBlock.querySelectorAll(".storeCheck, .prodCheck, .prodMobCheck")
+    selectAllState();
+  });
+});
+
+
 
 // 가격&수량 계산
 // 상점 가격&수량 계산
@@ -491,63 +626,9 @@ document
 storeCalc();
 totalCalc();
 
-// 국내배송&해외배송 누르면 구분되게끔
-// const cartSortDesk = document.querySelector(".cartSortDesk");
-// cartSortDesk.querySelectorAll("sortAll").addEventListener("click", function () {
-//   const localStore =
-//     document.querySelectorAll(".localStore").parentElement.parentElement;
-//   localStore.style.display = "flex";
-//   const foreignStore =
-//     document.querySelectorAll(".foreignStore").parentElement.parentElement;
-//   foreignStore.style.display = "flex";
-// });
-// cartSortDesk.querySelectorAll("sortFr").addEventListener("click", function () {
-//   const localStore =
-//     document.querySelectorAll(".localStore").parentElement.parentElement;
-//   localStore.style.display = "none";
-//   const foreignStore =
-//   document.querySelectorAll(".foreignStore").parentElement.parentElement;
-// foreignStore.style.display = "flex";
-// });
-// cartSortDesk.querySelectorAll("sortLocal").addEventListener("click", function () {
-//   const localStore =
-//     document.querySelectorAll(".localStore").parentElement.parentElement;
-//   localStore.style.display = "flex";
-//   const foreignStore =
-//   document.querySelectorAll(".foreignStore").parentElement.parentElement;
-// foreignStore.style.display = "none";
-// });
-const cartSortDesk = document.querySelector(".cartSortDesk");
 
-// // Handle sorting all stores
-// cartSortDesk.querySelector(".sortAll").addEventListener("click", function () {
-//   document.querySelectorAll(".localStore").forEach(function (localStore) {
-//     localStore.parentElement.parentElement.style.display = "flex";
-//   });
-//   document.querySelectorAll(".foreignStore").forEach(function (foreignStore) {
-//     foreignStore.parentElement.parentElement.style.display = "flex";
-//   });
-// });
 
-// // Handle sorting foreign stores only
-// cartSortDesk.querySelector(".sortFr").addEventListener("click", function () {
-//   document.querySelectorAll(".localStore").forEach(function (localStore) {
-//     localStore.parentElement.parentElement.style.display = "none";
-//   });
-//   document.querySelectorAll(".foreignStore").forEach(function (foreignStore) {
-//     foreignStore.parentElement.parentElement.style.display = "flex";
-//   });
-// });
 
-// // Handle sorting local stores only
-// cartSortDesk.querySelector(".sortLocal").addEventListener("click", function () {
-//   document.querySelectorAll(".localStore").forEach(function (localStore) {
-//     localStore.parentElement.parentElement.style.display = "flex";
-//   });
-//   document.querySelectorAll(".foreignStore").forEach(function (foreignStore) {
-//     foreignStore.parentElement.parentElement.style.display = "none";
-//   });
-// });
 
 // local storage로 상세체이지에서 값을 넣는 과정
 // 1.값이 1 이상& 옵션이 선택 돼있어야 locastorage에 값이 들어감. 장바구니에 상품이 들어갔다는 메세지를 띄움.
