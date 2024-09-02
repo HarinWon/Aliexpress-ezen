@@ -138,13 +138,6 @@ body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]
   line-height: 1.3rem;
   padding-left: 10px;
 }
-body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]::-moz-placeholder {
-  font-family: "Noto Sans KR, sans-serif";
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.3rem;
-  padding-left: 8px;
-}
 body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]::placeholder {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 18px;
@@ -279,12 +272,6 @@ body .inner .content .submit {
     font-weight: 400;
     line-height: 1.3rem;
   }
-  body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]::-moz-placeholder {
-    font-family: "Noto Sans KR, sans-serif";
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.3rem;
-  }
   body .inner .content .find-password-form1 .find-method-pw1 form input[type=text]::placeholder {
     font-family: "Noto Sans KR, sans-serif";
     font-size: 14px;
@@ -303,4 +290,4 @@ body .inner .content .submit {
     font-size: 20px;
     margin-top: -180px;
   }
-}/*# sourceMappingURL=find.css.map */
+}

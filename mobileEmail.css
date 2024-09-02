@@ -43,8 +43,7 @@ header .logo {
 header .logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .back-button {
@@ -149,4 +148,4 @@ p {
 }
 .submit-button:hover {
   background: #fd384f;
-}/*# sourceMappingURL=mobileEmail.css.map */
+}

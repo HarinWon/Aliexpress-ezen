@@ -54,12 +54,6 @@ body .container .inner .login-box .login-form input[type=text] {
   line-height: 1.3rem;
   transition: all 0.3s;
 }
-body .container .inner .login-box .login-form input[type=text]::-moz-placeholder {
-  font-family: "Noto Sans KR, sans-serif";
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.3rem;
-}
 body .container .inner .login-box .login-form input[type=text]::placeholder {
   font-family: "Noto Sans KR, sans-serif";
   font-size: 14px;
@@ -82,12 +76,6 @@ body .container .inner .login-box .login-form input[type=password] {
   font-weight: 400;
   line-height: 1.3rem;
   transition: all 0.3s;
-}
-body .container .inner .login-box .login-form input[type=password]::-moz-placeholder {
-  font-family: "Noto Sans KR, sans-serif";
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.3rem;
 }
 body .container .inner .login-box .login-form input[type=password]::placeholder {
   font-family: "Noto Sans KR, sans-serif";
@@ -257,4 +245,4 @@ body .container .inner .agree.active {
     padding: 10px;
     width: 100%;
   }
-}/*# sourceMappingURL=loginAgree.css.map */
+}

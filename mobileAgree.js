@@ -23,7 +23,7 @@ checkAll.addEventListener("click", function () {
 
 function handleAgreeBtnClick() {
   if (checkAll.classList.contains("active")) {
-    window.location.href = "congratulate.html";
+    window.location.href = "mobileCongratulate.html";
   } else {
     alert("약관에 동의하세요.");
   }
