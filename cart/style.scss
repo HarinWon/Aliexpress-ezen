@@ -1,0 +1,1860 @@
+@import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+
+// font family
+$fonts: (
+  noto-sans: "Noto Sans KR, sans-serif",
+);
+
+// font styles
+@mixin heading3 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@mixin heading4 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@mixin lead-paragraph {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+@mixin bodyLarge {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+@mixin body-medium {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+@mixin body-normal {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+@mixin body-small {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+// color
+$color: (
+  main-color: #ff611d,
+  main-gradient: linear-gradient(to right, #f7971d 0%, #ff611d 100%),
+  point-color: #e43225,
+  logo-color: #f7971d,
+  enable-color: #fd384f,
+  disabled-color: #ffc6cd,
+  dark1: #191919,
+  dark2: #333333,
+  dark3: #7b7b7b,
+  light1: #afafaf,
+  light2: #dddddd,
+  light3: #f5f5f5,
+);
+
+@mixin card-styles {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+// mix - in 사용법 !!!!
+// h1 {
+//   @include body-medium();
+//   color: map-get($color, main-color);
+// }
+
+// cartHeader
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  .aliHeader {
+    position: sticky;
+    background-color: map-get($color, dark1);
+    color: #fff;
+    top: 0;
+    z-index: 2;
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 300px;
+
+      .header-logo {
+        margin: 10px;
+        cursor: pointer;
+        img {
+          height: 40px;
+        }
+      }
+
+      .header-search {
+        width: 800px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        padding: 4px 14px;
+        justify-content: space-between;
+        border-radius: 40px;
+        position: relative;
+        &:hover .real-time-result {
+          display: block;
+          z-index: 6;
+        }
+        .real-time-search {
+          width: 130px;
+          // border-right: 1px solid map-get($color, dark3);
+          color: map-get($color, dark3);
+          font-size: 10px;
+          cursor: pointer;
+          position: relative;
+          .real-time-result {
+            width: 130px;
+            height: 200px;
+            position: absolute;
+            top: 24px;
+            left: -10px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            li {
+              padding-bottom: 2px;
+              border-bottom: 1px solid map-get($color, light1);
+              &:last-child {
+                border: none;
+              }
+            }
+            &.timeHover {
+              display: flex;
+            }
+          }
+        }
+        input {
+          width: 90%;
+          padding: 5px;
+          border: none;
+          border-radius: 4px;
+          &:focus {
+            outline: none;
+          }
+        }
+        .camera {
+          width: 40px;
+          height: 30px;
+          border: none;
+          background: inherit;
+          cursor: pointer;
+        }
+        #dropZone {
+          position: absolute;
+          top: 40px;
+          right: 0;
+          width: 150px;
+          height: 150px;
+          border: 2px dashed #ccc;
+          background: #fff;
+          color: map-get($color, dark1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-size: 12px;
+          display: none;
+          &.click {
+            display: block;
+          }
+        }
+        .search {
+          width: 56px;
+          height: 32px;
+          padding: 4px 16px;
+          border: none;
+          border-radius: 20px;
+          background-color: map-get($color, dark1);
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+    .header-icons {
+      @include body-small();
+      width: 350px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px;
+      .login,
+      .cart {
+        width: 60px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .language {
+        display: flex;
+        text-align: left;
+        cursor: pointer;
+      }
+    }
+    .header-nav {
+      @include body-small();
+      background-color: map-get($color, dark1);
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0 100px;
+      line-height: 50px;
+      ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        i {
+          // font-size: 24px;
+        }
+        #sub_nav {
+          width: 160px;
+          height: 40px;
+          position: relative;
+          background: map-get($color, light3);
+          color: map-get($color, dark1);
+          font-weight: bold;
+          .dropdown-container {
+            width: 160px;
+            // height: 40px;
+            color: black;
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background: map-get($color, light3);
+            // border-radius: 4px;
+            font-weight: 400;
+            z-index: 1000;
+          }
+          #category-menu {
+            display: flex;
+            flex-direction: column;
+            .category {
+              z-index: 100;
+              width: 160px;
+              height: 50px;
+              line-height: 50px;
+              padding: 0 10px;
+              // border-radius: 4px;
+              cursor: pointer;
+              span i {
+                margin-right: 8px;
+              }
+              &:hover {
+                background-color: #fff;
+                & > span {
+                  color: map-get($color, main-color);
+                }
+              }
+            }
+          }
+
+          .subcategory-menu {
+            display: none;
+            width: 180px;
+            height: 400px;
+            position: absolute;
+            left: 160px;
+            top: 0;
+            background: map-get($color, light3);
+            // border-radius: 4px;
+            & > .subcategory-item:hover {
+              background-color: #f0f0f0;
+              color: map-get($color, main-color);
+              font-weight: bold;
+            }
+          }
+          .subcategory-menu .subcategory-item {
+            cursor: pointer;
+            color: inherit;
+            .subcategory-menu {
+              background: none;
+              .subcategory-item {
+                display: none;
+              }
+            }
+          }
+        }
+        li {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .cartHeaderContainer {
+    min-width: 993px;
+    #cartHeader {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      border-bottom: 1px solid map-get($color, dark3);
+      .gnbWrapper {
+        display: flex;
+        width: 1170px;
+        align-items: center;
+        justify-content: space-between;
+        .leftGnb {
+          display: flex;
+          align-items: center;
+          i {
+            display: none;
+            font-size: 24px;
+            padding: 6px;
+          }
+          h1 {
+            @include heading3();
+          }
+          img {
+            height: 36px;
+            filter: invert(1);
+          }
+        }
+        .rightGnb {
+          display: flex;
+          // bodyLarge
+          ul {
+            @include bodyLarge();
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            li {
+              color: map-get($color, dark3);
+              &.active {
+                color: #000;
+              }
+            }
+          }
+        }
+      }
+    }
+    #cartSortMob {
+      display: none;
+    }
+  }
+  #cartSortDesk {
+    display: flex;
+    position: sticky;
+    top: 88px;
+    width: 100%;
+    min-width: 993px;
+    font-size: 26px;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid;
+    z-index: 2;
+    @include heading4();
+    ul {
+      width: 1170px;
+      display: flex;
+      gap: 10px;
+      padding: 20px 0;
+      li {
+        align-items: center;
+        display: flex;
+        padding: 0 30px;
+        gap: 20px;
+        cursor: pointer;
+        span {
+          ::before {
+            margin-top: 10px;
+          }
+          background: map-get($color, light2);
+          width: 30px;
+          height: 30px;
+          border-radius: 15px;
+          text-align: center;
+          @include bodyLarge();
+        }
+        &.active {
+          color: map-get($color, main-color);
+        }
+      }
+      .barRight {
+        border-right: 1px solid map-get($color, light2);
+      }
+    }
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: 770px;
+      // border: 1px solid #f00;
+      #selectNCoup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10px;
+        @include bodyLarge();
+        #selectProd {
+          display: flex;
+          gap: 10px;
+          #selectAll {
+            cursor: pointer;
+            input[type="checkbox"] {
+              display: none;
+              &:checked ~ .fa-circle-check {
+                color: map-get($color, main-color);
+                text-shadow: 0 0 2px map-get($color, main-color);
+              }
+            }
+            .fa-circle-check {
+              color: #fff;
+              text-shadow: 0 0 2px #000;
+            }
+          }
+          #selectDel {
+            padding-left: 10px;
+            border-left: 1px solid #000;
+            cursor: pointer;
+          }
+        }
+        #coupon {
+          display: flex;
+          gap: 5px;
+          .coupInfo {
+            display: flex;
+            gap: 0;
+          }
+          .coupLink {
+            cursor: pointer;
+          }
+        }
+      }
+      #stores {
+        display: flex;
+        flex-direction: column;
+        .storeBlock {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 66px;
+          .localStore,
+          .foreignStore {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid;
+            border-style: solid none;
+            &.foreignStore {
+              color: map-get($color, main-color);
+              border-color: map-get($color, main-color);
+            }
+          }
+          .storeL {
+            display: flex;
+            gap: 10px;
+            @include heading4();
+            span {
+              display: flex;
+              text-align: center;
+              align-items: center;
+              gap: 5px;
+              .storeLinkTitle {
+                display: inline-block;
+                max-width: 330px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+            input[type="checkbox"] {
+              display: none;
+              &.storeCheck {
+                &:checked ~ label {
+                  color: map-get($color, main-color);
+                  text-shadow: none;
+                }
+              }
+              &.storeHeart {
+                &:checked ~ label {
+                  color: map-get($color, enable-color);
+                  text-shadow: none;
+                }
+              }
+            }
+            label {
+              color: #fff;
+              text-shadow: 0 0 2px #000;
+              cursor: pointer;
+              &:hover {
+                color: map-get($color, light3);
+              }
+            }
+          }
+          .storeR {
+            input[type="button"] {
+              background: map-get($color, main-color);
+              padding: 10px 5px;
+              border: none;
+              border-radius: 5px;
+              color: #fff;
+              @include bodyLarge();
+              cursor: pointer;
+              transition: background 0.2s;
+              &:hover {
+                background: linear-gradient(
+                    rgba(123, 123, 123, 0.1),
+                    rgba(123, 123, 123, 0.1)
+                  ),
+                  map-get($color, main-color);
+              }
+              &.disabled {
+                background: map-get($color, light1);
+                cursor: default;
+              }
+            }
+            span {
+              display: none;
+              .storeHeart {
+                &:checked ~ label {
+                  color: map-get($color, enable-color);
+                  text-shadow: none;
+                }
+              }
+              label {
+                color: #fff;
+                text-shadow: 0 0 2px #000;
+              }
+            }
+          }
+          .prodList {
+            .prodBlock {
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              align-items: center;
+              padding: 15px;
+              border-bottom: 1px solid map-get($color, light2);
+              .prodBlockL {
+                display: flex;
+                align-items: start;
+                gap: 15px;
+                .prodCheck {
+                  display: none;
+                  &:checked ~ label {
+                    color: map-get($color, main-color);
+                    text-shadow: none;
+                  }
+                }
+                label {
+                  color: #fff;
+                  transform: scale(1.5);
+                  text-shadow: 0 0 2px #000;
+                  cursor: pointer;
+                  &:hover {
+                    color: map-get($color, light3);
+                  }
+                }
+                .prodImg {
+                  width: 120px;
+                  height: 120px;
+                  border: 1px solid map-get($color, light3);
+                  border-radius: 5px;
+                  transition: all 0.3s;
+                }
+                .prodInfoL {
+                  display: flex;
+                  flex-direction: column;
+                  width: 240px;
+                  gap: 15px;
+                  .prodTitle {
+                    @include bodyLarge();
+                    max-width: 240px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    white-space: normal;
+                    &:hover {
+                      text-decoration: underline;
+                    }
+                  }
+
+                  .prodOpt {
+                    @include body-normal();
+                    color: map-get($color, dark3);
+                    opt {
+                      color: map-get($color, dark2);
+                    }
+                  }
+
+                  .ProdInfoLBtn {
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    gap: 15px;
+                    .prodQuant {
+                      display: flex;
+                      justify-content: space-between;
+                      height: 31px;
+                      border: 1px solid #000;
+                      border-radius: 5px;
+                      input[type="number"] {
+                        text-align: center;
+                        width: 34px;
+                        border: none;
+                        outline: none;
+                        @include bodyLarge();
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-outer-spin-button {
+                          -webkit-appearance: none;
+                          margin: 0;
+                        }
+                        appearance: textfield;
+                      }
+
+                      input[type="button"] {
+                        @include bodyLarge();
+                        border: none;
+                        background: none;
+                        color: map-get($color, main-color);
+                        cursor: pointer;
+                      }
+                    }
+
+                    .prodHeart {
+                      display: none;
+                      &:checked ~ label {
+                        color: map-get($color, enable-color);
+                        text-shadow: none;
+                      }
+                    }
+                  }
+                  .tab {
+                    display: none;
+                  }
+                }
+              }
+              .prodBlockR {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                min-height: 168px;
+                gap: 20px;
+                text-align: right;
+                .prodInfoRdesc {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                  .fa-xmark::before {
+                    cursor: pointer;
+                    font-size: 24px;
+                  }
+                  h2 {
+                    @include heading4();
+                  }
+                  h4 {
+                    @include body-normal();
+                    color: map-get($color, main-color);
+                    s {
+                      color: map-get($color, dark2);
+                    }
+                    span {
+                      color: map-get($color, dark3);
+                    }
+                    &.hidden {
+                      opacity: 0;
+                    }
+                  }
+                }
+                .prodInfoRBtn {
+                  display: flex;
+                  gap: 20px;
+                  input[type="button"] {
+                    background: transparent;
+                    padding: 5px 10px;
+                    border: 1px solid map-get($color, main-color);
+                    border-radius: 5px;
+                    color: map-get($color, main-color);
+                    @include body-normal();
+                    cursor: pointer;
+                    transition: background 0.1s;
+                    &:hover {
+                      background: map-get($color, light3);
+                    }
+                  }
+                }
+              }
+            }
+            .prodBlockMob {
+              display: none;
+            }
+          }
+          .storeCalc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: map-get($color, light3);
+            padding: 25px 20px;
+            border: 1px solid map-get($color, light1);
+            border-style: solid none;
+            @include bodyLarge();
+            & > i {
+              color: transparent;
+              -webkit-text-stroke: 2.4px #000;
+              &:nth-of-type(3) {
+                transform: rotateZ(90deg);
+              }
+            }
+            div {
+              display: flex;
+              flex-direction: column;
+              span {
+                &.active {
+                  color: map-get($color, point-color);
+                }
+              }
+              i {
+                margin: 5px;
+                font-size: 15px;
+              }
+            }
+            .storePrice {
+              h1 {
+                @include heading3();
+              }
+              // font-size: 34px;
+            }
+          }
+          .storeCalcMob {
+            display: none;
+          }
+        }
+      }
+    }
+    #stickyDesk {
+      display: flex;
+      position: sticky;
+      flex-direction: column;
+      // width: 316px;
+      width: 370px;
+      margin-bottom: 66px;
+      height: fit-content;
+      margin-top: 30px;
+      gap: 30px;
+      top: 190px;
+      left: 0;
+      #payInfo {
+        border: 1px solid #000;
+        border-radius: 5px;
+        .payInfoUp {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          min-width: 316px;
+          h2 {
+            @include heading4();
+          }
+          h4 {
+            @include body-normal();
+            color: map-get($color, light1);
+          }
+        }
+        .payInfoMid {
+          display: flex;
+          padding: 20px 20px;
+          border: 1px map-get($color, light1);
+          border-style: solid none;
+          ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            li {
+              display: flex;
+              justify-content: space-between;
+              .active {
+                color: map-get($color, point-color);
+              }
+            }
+          }
+        }
+        .payInfoDown {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          gap: 24px;
+          div {
+            display: flex;
+            justify-content: space-between;
+            h2 {
+              @include heading4();
+            }
+            h3 {
+              @include bodyLarge();
+            }
+          }
+          input[type="button"] {
+            background: map-get($color, main-gradient);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            color: #fff;
+            @include bodyLarge();
+            cursor: pointer;
+            transition: background 0.5s;
+            &:hover {
+              background: linear-gradient(
+                  rgba(123, 123, 123, 0.1),
+                  rgba(123, 123, 123, 0.1)
+                ),
+                map-get($color, main-gradient);
+            }
+            &.disabled {
+              background: map-get($color, light1);
+              cursor: default;
+            }
+          }
+        }
+      }
+      .bannerEvt {
+        width: 100%;
+        height: 115px;
+        background: url("./img/eventBanner.png") center/cover no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+  .cartFooter {
+    #tabCartFooter {
+      display: none;
+    }
+  }
+  .web_footer {
+    // display: none;
+    background-color: map-get($color, dark1);
+    color: #fff;
+    padding: 20px;
+    .footer-top {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      .footer-services {
+        display: flex;
+        gap: 50px;
+        .footer-select {
+          p {
+            @include body-normal();
+          }
+          select {
+            width: 150px;
+            color: #fff;
+            background-color: map-get($color, dark1);
+            margin-right: 40px;
+            margin-top: 20px;
+            border: 1px solid #fff;
+            padding: 10px;
+            border-radius: 2px;
+          }
+        }
+      }
+
+      .footer-dropdown {
+        button {
+          background-color: #333;
+          color: #fff;
+          border: none;
+          padding: 10px;
+          margin: 5px 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .footer-categories {
+      text-align: center;
+      margin: 20px 0;
+    }
+    #payment {
+      p {
+        @include body-normal();
+      }
+      .payment-wrap {
+        width: 600px;
+        overflow: hidden;
+        .footer-payment {
+          position: relative;
+          height: 96px;
+          display: flex;
+          align-items: center;
+          animation: marquee 18s linear infinite;
+          &:hover {
+            animation-play-state: paused;
+          }
+          .cards {
+            width: 87px;
+            height: 60px;
+            margin: 0 4px;
+            position: relative;
+            &:nth-child(1) {
+              &:hover {
+                &::before {
+                  content: "30% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(2) {
+              &:hover {
+                &::before {
+                  content: "코인 10개";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(3) {
+              &:hover {
+                &::before {
+                  content: "20% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(4) {
+              &:hover {
+                &::before {
+                  content: "15% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(5) {
+              &:hover {
+                &::before {
+                  content: "코인 15개";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(6) {
+              &:hover {
+                &::before {
+                  content: "22% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(7) {
+              &:hover {
+                &::before {
+                  content: "30% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(8) {
+              &:hover {
+                &::before {
+                  content: "코인 30개";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(9) {
+              &:hover {
+                &::before {
+                  content: "35% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(10) {
+              &:hover {
+                &::before {
+                  content: "8% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(11) {
+              &:hover {
+                &::before {
+                  content: "12% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(12) {
+              &:hover {
+                &::before {
+                  content: "코인 9개";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(13) {
+              &:hover {
+                &::before {
+                  content: "24% 할인";
+                  @include card-styles();
+                }
+              }
+            }
+            &:nth-child(14) {
+              &:hover {
+                &::before {
+                  content: "코인 3개";
+                  @include card-styles();
+                }
+              }
+            }
+          }
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #333;
+      padding: 10px 0;
+
+      .footer-links,
+      .footer-social {
+        a {
+          color: #fff;
+          margin: 0 10px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+
+      .footer-social {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  section {
+    display: none;
+  }
+}
+
+@media (max-width: 993px) {
+  body {
+    main {
+      justify-content: start;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    position: relative;
+    min-height: 100vh;
+    .aliHeader {
+      display: none;
+    }
+    .cartHeaderContainer {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      min-width: 0;
+      #cartHeader {
+        padding: 15px 24px;
+        .gnbWrapper {
+          width: 100%;
+          .leftGnb {
+            i {
+              display: block;
+            }
+          }
+          .rightGnb {
+            display: none;
+          }
+        }
+      }
+      #cartSortMob {
+        display: flex;
+        // position: sticky;
+        top: 0;
+        width: 100%;
+        min-width: 617px;
+        font-size: 26px;
+        align-items: center;
+        background: #fff;
+        border-bottom: 1px solid;
+        z-index: 2;
+        @include heading4();
+        ul {
+          width: 100%;
+          display: flex;
+          padding: 15px 0;
+          gap: 0;
+          justify-content: center;
+          li {
+            align-items: center;
+            display: flex;
+            padding: 0 30px;
+            gap: 20px;
+            span {
+              background: map-get($color, light2);
+              width: 30px;
+              height: 30px;
+              border-radius: 15px;
+              text-align: center;
+              @include bodyLarge();
+            }
+            &.active {
+              color: map-get($color, main-color);
+            }
+          }
+          .barRight {
+            border-right: 1px solid map-get($color, light2);
+          }
+        }
+      }
+    }
+    #cartSortDesk {
+      display: none;
+    }
+    main {
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      // min-width: 670px;
+      // height: 1000px;
+      .content {
+        width: 100%;
+        justify-content: center;
+        padding: 0 24px;
+        #selectNCoup {
+          padding: 20px 15px;
+        }
+        #stores {
+          .storeBlock {
+            // width: 712px;
+            .storeCalc {
+              .storePrice {
+                h1 {
+                  @include heading4();
+                }
+              }
+            }
+          }
+        }
+        .tab {
+          margin: 48px 0 120px;
+          display: flex;
+          width: 100%;
+          height: 115px;
+          background: url("./img/eventBanner.png") center/cover no-repeat;
+        }
+      }
+      #stickyDesk {
+        display: none;
+      }
+    }
+    .cartFooter {
+      bottom: 0;
+      position: fixed;
+      width: 100%;
+      #tabCartFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 24px;
+        background: #fff;
+        border: 1px map-get($color, dark2);
+        border-style: solid none;
+        // gap: 10px;
+        div {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          justify-content: flex-end;
+          // span{
+          //   text-align: right;
+          // }
+          span {
+            &.active {
+              color: map-get($color, point-color);
+            }
+          }
+        }
+        input[type="submit"] {
+          background: map-get($color, main-gradient);
+          padding: 10px 0;
+          flex: 2.5;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          @include heading4();
+          &.disabled {
+            background: map-get($color, light1);
+            cursor: default;
+          }
+        }
+      }
+      #mobCartFooter {
+        display: none;
+      }
+    }
+    .web_footer {
+      display: none;
+    }
+    section {
+      display: flex;
+      width: 100%;
+      #payInfoTab {
+        background: #fff;
+        border: 1px #000;
+        border-style: solid none;
+        width: 100%;
+        z-index: 2;
+        .payInfoUp {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          h2 {
+            @include heading4();
+          }
+          h4 {
+            @include body-normal();
+            color: map-get($color, light1);
+          }
+        }
+        .payInfoMid {
+          display: flex;
+          padding: 20px 20px;
+          border: 1px map-get($color, light1);
+          border-style: solid none;
+          ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            li {
+              display: flex;
+              justify-content: space-between;
+              .active {
+                color: map-get($color, point-color);
+              }
+            }
+          }
+        }
+        .payInfoDown {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          gap: 24px;
+          div {
+            display: flex;
+            justify-content: space-between;
+            h2 {
+              @include heading4();
+            }
+            h3 {
+              @include bodyLarge();
+            }
+          }
+          input[type="button"] {
+            background: map-get($color, main-color);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            @include lead-paragraph();
+            color: #fff;
+            &.disabled {
+              background: map-get($color, light1);
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 686px) {
+  body {
+    .cartHeaderContainer {
+      #cartHeader {
+        padding: 10px 20px;
+        .gnbWrapper {
+          width: 100%;
+          .leftGnb {
+            i {
+              font-size: 16px;
+            }
+            h1 {
+              @include bodyLarge();
+            }
+            img {
+              height: 20px;
+            }
+          }
+        }
+      }
+      #cartSortMob {
+        min-width: 0;
+        ul {
+          width: 100%;
+          @include body-medium();
+          li {
+            padding: 0 25px;
+            gap: 8px;
+            span {
+              width: 20px;
+              height: 20px;
+              padding-top: 0;
+              @include body-small();
+            }
+          }
+        }
+      }
+    }
+    main {
+      justify-content: center;
+      flex-direction: column;
+      // width: 360px;
+      min-width: 0;
+      .content {
+        width: 100%;
+        // min-width: 628px;
+        justify-content: center;
+        padding: 0 15px;
+        #selectNCoup {
+          padding: 15px 0;
+          @include body-small();
+          #selectProd {
+            gap: 4px;
+            #selectDel {
+              padding-left: 5px;
+            }
+          }
+          #coupon {
+            gap: 2px;
+            .coupInfo {
+              .cartCoup {
+                display: none;
+              }
+            }
+          }
+        }
+        #stores {
+          .storeBlock {
+            .localStore,
+            .foreignStore {
+              padding: 10px;
+              align-items: center;
+            }
+            .storeL {
+              @include body-normal();
+              .storeHeart,
+              .storeHeartLb {
+                display: none;
+              }
+              span {
+                img {
+                  height: 18px;
+                  width: 18px;
+                }
+              }
+            }
+            .storeR {
+              input {
+                display: none;
+              }
+              span {
+                display: block;
+                input {
+                  &:checked ~ label {
+                    color: map-get($color, main-color);
+                    text-shadow: none;
+                  }
+                }
+                label {
+                  color: #fff;
+                  text-shadow: 0 0 2px #000;
+                }
+              }
+            }
+            .prodList {
+              .prodBlock {
+                display: none;
+              }
+              .prodBlockMob {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 5px;
+                width: 100%;
+                border-bottom: 1px solid map-get($color, light1);
+                .prodBlockMobClose {
+                  width: 100%;
+                  height: fit-content;
+                  justify-content: end;
+                  text-align: right;
+                  margin: -2px 0 7px 0;
+                  font-size: 20px;
+                }
+                .prodInfoWrapper {
+                  display: flex;
+                  flex-direction: column;
+                  width: 100%;
+                  gap: 15px;
+                  .prodBlockMobInfo {
+                    display: flex;
+                    justify-content: space-between;
+                    .prodBlockMobL {
+                      display: flex;
+                      align-items: start;
+                      gap: 5px;
+                      input {
+                        display: none;
+                        &:checked ~ label {
+                          color: map-get($color, main-color);
+                          text-shadow: none;
+                        }
+                      }
+                      label {
+                        color: #fff;
+                        text-shadow: 0 0 2px #000;
+                      }
+                      .prodImg {
+                        display: flex;
+                        width: 85px;
+                        height: 85px;
+                        background: url("./img/jaket.png");
+                        border-radius: 5px;
+                        justify-content: end;
+                        align-items: end;
+                        padding: 5px;
+                        .prodHeartMob {
+                          &:checked ~ label {
+                            color: map-get($color, enable-color);
+                          }
+                        }
+                      }
+                    }
+                    .prodBlockMobR {
+                      text-align: right;
+                      .prodInfoRdesc {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        width: fit-content;
+                        align-items: end;
+                        h2 {
+                          @include body-normal();
+                        }
+                        h3 {
+                          @include body-normal();
+                        }
+                        h4 {
+                          @include body-small();
+                          color: map-get($color, main-color);
+                          s {
+                            color: map-get($color, dark2);
+                          }
+                          span {
+                            color: map-get($color, dark3);
+                          }
+                          &.hidden {
+                            display: none;
+                          }
+                        }
+                        .prodTitle {
+                          max-width: 330px;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                        }
+                        .prodOpt {
+                          @include body-small();
+                          color: map-get($color, dark3);
+                          opt {
+                            color: map-get($color, dark2);
+                          }
+                        }
+                        .origNFina {
+                          display: flex;
+                          padding: 0;
+                          gap: 10px;
+                          .prodOrigPrice {
+                            padding-top: 2px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .prodInfoBtn {
+                    display: flex;
+                    justify-content: end;
+                    gap: 20px;
+                    .prodQuant {
+                      display: flex;
+                      justify-content: space-between;
+                      width: 86px;
+                      border: 1px solid #000;
+                      border-radius: 5px;
+                      overflow: hidden;
+                      input[type="number"] {
+                        text-align: center;
+                        width: 28px;
+                        border: none;
+                        outline: none;
+                        background: none;
+                        @include body-small();
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-outer-spin-button {
+                          -webkit-appearance: none;
+                          margin: 0;
+                        }
+                        appearance: textfield;
+                      }
+                      input[type="button"] {
+                        background: none;
+                        padding: 4px;
+                        border: none;
+                        color: map-get($color, main-color);
+                        @include body-small();
+                      }
+                    }
+                    input[type="button"] {
+                      background: transparent;
+                      width: 86px;
+                      padding: 5px 10px;
+                      border: 1px solid map-get($color, main-color);
+                      border-radius: 5px;
+                      color: map-get($color, main-color);
+                      @include body-small();
+                    }
+                  }
+                }
+              }
+            }
+            .storeCalc {
+              display: none;
+              .storePrice {
+                h1 {
+                  @include heading4();
+                }
+              }
+            }
+            .storeCalcMob {
+              display: flex;
+              flex-direction: column;
+              background: map-get($color, light3);
+              .accordion {
+                display: flex;
+                height: 0;
+                opacity: 0;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+                gap: 5px;
+                transition: height 0.3s;
+                color: map-get($color, dark2);
+                @include body-medium();
+                & > i {
+                  color: map-get($color, dark3);
+                  font-size: 18px;
+                }
+                &.active {
+                  height: 123px;
+                  opacity: 1;
+                  padding: 10px 20px;
+                }
+                div {
+                  display: flex;
+                  width: 100%;
+                  justify-content: space-between;
+                  i {
+                    color: map-get($color, dark3);
+                    font-size: 14px;
+                  }
+                  .active {
+                    color: map-get($color, point-color);
+                  }
+                  :nth-child(2) {
+                    @include body-normal();
+                  }
+                }
+              }
+              .storePay {
+                display: flex;
+                flex-direction: column;
+                border: 1px map-get($color, light1);
+                border-style: solid none;
+                padding: 10px 20px 15px 20px;
+                gap: 5px;
+                background: #fff;
+                z-index: 0;
+                .storeTotalPrice {
+                  display: flex;
+                  justify-content: space-between;
+                  i {
+                    &.active {
+                      transform: rotate(180deg);
+                    }
+                  }
+                }
+                input[type="submit"] {
+                  background: map-get($color, main-color);
+                  border: none;
+                  border-radius: 5px;
+                  color: #fff;
+                  padding: 8px;
+                  @include body-normal();
+                }
+              }
+            }
+          }
+        }
+      }
+      #stickyDesk {
+        display: none;
+      }
+    }
+    section {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    .cartHeaderContainer {
+      #cartSortMob {
+        ul {
+          li {
+            padding: 0 15px;
+          }
+        }
+      }
+    }
+    main {
+      .content {
+        #stores {
+          .storeBlock {
+            .storeL {
+              span {
+                .storeLinkTitle {
+                  max-width: 190px;
+                }
+              }
+            }
+            .prodList {
+              .prodBlockMob {
+                .prodInfoWrapper {
+                  .prodBlockMobInfo {
+                    gap: 15px;
+                    .prodBlockMobR {
+                      .prodInfoRdesc {
+                        .prodTitle {
+                          // text-align: left;
+                          max-width: 400px;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          display: -webkit-box;
+                          -webkit-line-clamp: 2;
+                          line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          white-space: normal;
+                        }
+                      }
+                    }
+                  }
+                  .prodInfoBtn {
+                    gap: 10px;
+                    justify-content: space-around;
+                  }
+                }
+              }
+            }
+            .storeCalcMob {
+              .storePay {
+                input[type="submit"] {
+                  padding: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .cartFooter {
+      bottom: 0;
+      position: fixed;
+      width: 100%;
+      #tabCartFooter {
+        display: none;
+      }
+      #mobCartFooter {
+        display: flex;
+        flex-direction: column;
+        background: map-get($color, light3);
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+        @include body-small();
+        .payDetail {
+          // display: none;
+          height: 0;
+          text-align: center;
+          padding: 0;
+          opacity: 0;
+          transition: height 0.3s;
+          border: 1px map-get($color, dark3);
+          border-style: solid none none;
+          border-radius: 8px 8px 0 0;
+          color: map-get($color, dark2);
+          i {
+            color: map-get($color, dark3);
+            font-size: 18px;
+          }
+          &.active {
+            height: 114px;
+            padding: 10px;
+            opacity: 1;
+          }
+          button {
+            width: 100px;
+            border: none;
+            background: none;
+            i {
+              font-size: 20px;
+            }
+          }
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            li {
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              .active {
+                color: map-get($color, point-color);
+              }
+            }
+          }
+        }
+        #payInfoMob {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          text-align: left;
+          align-items: center;
+          background: map-get($color, main-gradient);
+          color: #fff;
+          padding: 10px;
+          gap: 10px;
+          z-index: 2;
+          button {
+            color: #fff;
+            background: transparent;
+            // height: 15px;
+            // width: 45px;
+            padding: 5px 15px;
+            border: none;
+            @include bodyLarge();
+            &.active {
+              transform: rotate(180deg);
+            }
+            &.inactive {
+              opacity: 0;
+            }
+          }
+          h2 {
+            @include bodyLarge();
+          }
+          &.disabled {
+            background: map-get($color, light1);
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media(max-width: 400px){
+//   main{
+//     main {
+//       .content {
+//         #stores {
+//           .storeBlock {
+//             .prodList {
+//               .prodBlockMob {
+//                 .prodInfoWrapper {
+//                   .prodBlockMobInfo {
+//                     .prodBlockMobR {
+//                       .prodInfoRdesc {
+//                         .prodTitle {
+//                           max-width: 150px;
+//                         }
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

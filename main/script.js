@@ -262,50 +262,50 @@ foryouBtn.forEach((btn) => {
   });
 });
 
-// 모든 .fa-heart 요소를 선택합니다.
-const hearts = document.querySelectorAll(".fa-heart");
+// //heart
+// const hearts = document.querySelectorAll(".fa-heart");
 
-function toggleHeart(hearts) {
-  hearts.forEach((heart, index) => {
-    // 인덱스를 이용해 고유한 아이디로 인식합니다.
-    let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
+// function toggleHeart(hearts) {
+//   hearts.forEach((heart) => {
+//     // const productId = heart.getAttribute("data-product-id");
+//     // let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
 
-    // 페이지 로드 시 저장된 하트 상태를 복원
-    if (savedHearts.includes(index)) {
-      heart.style.color = "red";
-      heart.style.transform = "scale(1.1)";
-    }
+//     // // 페이지 로드 시 저장된 하트 상태를 복원
+//     // if (savedHearts.includes(productId)) {
+//     //   heart.style.color = "red";
+//     //   heart.style.transform = "scale(1.1)";
+//     // }
 
-    heart.addEventListener("click", () => {
-      if (heart.style.color === "red") {
-        heart.style.color = "";
-        heart.style.transform = "";
-        removeHeartLocal(index);
-      } else {
-        heart.style.color = "red";
-        heart.style.transform = "scale(1.1)";
-        heart.style.transition = "all 0.3s";
-        saveHeartLocal(index);
-      }
-    });
-  });
-}
+//     heart.addEventListener("click", () => {
+//       if (heart.style.color === "red") {
+//         heart.style.color = "";
+//         heart.style.transform = "";
+//         // removeHeartLocal(productId);
+//       } else {
+//         heart.style.color = "red";
+//         heart.style.transform = "scale(1.1)";
+//         heart.style.transition = "all 0.3s";
+//         // saveHeartLocal(productId);
+//       }
+//     });
+//   });
+// }
 
-function saveHeartLocal(index) {
-  let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
-  if (!savedHearts.includes(index)) {
-    savedHearts.push(index);
-    localStorage.setItem("localhearts", JSON.stringify(savedHearts));
-  }
-}
+// // function saveHeartLocal(productId) {
+// //   let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
+// //   if (!savedHearts.includes(productId)) {
+// //     savedHearts.push(productId);
+// //     localStorage.setItem("localhearts", JSON.stringify(savedHearts));
+// //   }
+// // }
 
-function removeHeartLocal(index) {
-  let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
-  savedHearts = savedHearts.filter((id) => id !== index);
-  localStorage.setItem("localhearts", JSON.stringify(savedHearts));
-}
+// // function removeHeartLocal(productId) {
+// //   let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
+// //   savedHearts = savedHearts.filter((id) => id !== productId);
+// //   localStorage.setItem("localhearts", JSON.stringify(savedHearts));
+// // }
 
-toggleHeart(hearts);
+// toggleHeart(hearts);
 
 //foryou json + category json
 const foryouContent = document.querySelector(".foryoucontent");
@@ -331,12 +331,10 @@ fetch("/db.json")
         }
         // 기존 콘텐츠 제거
         foryouContent.innerHTML = "";
-
         const ulElement = document.createElement("ul");
         ulElement.className = "ulElements";
         ulElement.style.display = "flex";
         ulElement.style.flexWrap = "wrap";
-
         selectedButton.forEach((item) => {
           const liElement = document.createElement("li");
 
@@ -345,8 +343,10 @@ fetch("/db.json")
               <div class="contentImg">
                 <img src="${item.image_path}" alt="${item.product_name}" style="width:340px;" />
                 <div class="icon">
-                  <i id="localhearts" class="fa-solid fa-heart"></i>
-                  <img src="./dbImg/icon/cart.png" alt="cart" />
+                  <i class="fa-solid fa-heart"></i>
+                  <a href="/cart/index.html">
+                  <img data-productid="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
+                  </a>
                 </div>
               </div>
               <div class="contentTitle foryouTitle">
@@ -383,15 +383,16 @@ fetch("/db.json")
           createUl = document.createElement("ul");
           categoryElement.appendChild(createUl);
         }
-
         const productHTML = `
           <li>
             <a href="#none">
               <div class="contentImg">
                 <img src="${item.image_path}" alt="${item.product_name}" />
                 <div class="icon">
-                  <i id="localhearts" class="fa-solid fa-heart"></i>
-                  <img src="./dbImg/icon/cart.png" alt="cart" />
+                  <i class="fa-solid fa-heart"></i>
+                  <a href="/cart/index.html">
+                  <img data-product-id="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
+                  </a>
                 </div>
               </div>
               <div class="contentTitle foryouTitle">
@@ -417,8 +418,49 @@ fetch("/db.json")
         createUl.insertAdjacentHTML("beforeend", productHTML);
       }
     });
-    const heartsv2 = document.querySelectorAll(".fa-heart");
-    toggleHeart(heartsv2);
+
+    const cartIcon = document.querySelectorAll(".icon > a > img");
+    const cartCont = document.querySelectorAll(
+      ".welcomeContentRight ul li, .weeklyContent ul li"
+    );
+
+    let localData = [];
+    let cartContArr = [];
+    
+    function init() {
+      const cartInfo = JSON.parse(localStorage.getItem("cartAli"));
+      if (cartInfo) {
+        localData = cartInfo;
+      }
+    }
+    const save = () => {
+      localStorage.setItem("cartAli", JSON.stringify(cartContArr));
+    };
+    cartIcon.forEach((icon) => {
+      icon.addEventListener("click", (e) => {
+        e.preventDefault();
+        const clickItem = e.target.dataset.productid;
+
+        // 데이터를 먼저 저장
+        data.forEach((data) => {
+          if (clickItem == data.id) {
+            cartContArr.push(data);
+            save(); // 로컬스토리지에 데이터를 저장
+          }
+        });
+
+        // 데이터를 저장한 후에 confirm 다이얼로그를 띄움
+        const userConfirmed = confirm(
+          `상품이 장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?`
+        );
+
+        if (userConfirmed) {
+          window.location.href = "/cart/index.html";
+        }
+      });
+    });
+
+    init();
   });
 
 //category Touch Event
