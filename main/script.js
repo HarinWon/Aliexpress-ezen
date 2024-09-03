@@ -117,133 +117,308 @@ const countdown = () => {
 
 setInterval(countdown);
 
-//weeklySlideDesktop
-const slideWrapper = document.querySelector(".weeklyContent ul");
-const slides = document.querySelectorAll(".weeklyContent li");
-const totalSlides = slides.length;
-const triggerBar = document.querySelector("#triggerBar");
-const triggerItems = 6;
-let currentIndex = 0;
-let slideInterval;
-let isPaused = false;
+// JSON 데이터 로드 함수
+function loadJSON() {
+  return fetch("/db.json")
+    .then((response) => response.json())
+    .catch((error) => console.error("JSON 로드 오류:", error));
+}
 
-let slideWidth = 350;
-let slideMargin = 50;
+// 로컬 스토리지 관리 함수
+function initLocalStorage() {
+  const cartInfo = JSON.parse(localStorage.getItem("cartAli")) || [];
+  return cartInfo;
+}
+function saveToLocalStorage(cartContArr) {
+  localStorage.setItem("cartAli", JSON.stringify(cartContArr));
+}
 
-// 슬라이드 복제
-slides.forEach((slide) => {
-  let cloneSlide = slide.cloneNode(true);
-  slideWrapper.appendChild(cloneSlide);
-});
+// welcomeConts
+function welcomeConts(data) {
+  const welcomeElement = document.querySelector(".welcomeContentRight");
 
-// 슬라이드 너비 계산
-const updateSlideWidth = () => {
-  const totalWidth = (slideWidth + slideMargin) * totalSlides;
-  slideWrapper.style.width = `${totalWidth}px`;
-};
-updateSlideWidth();
-
-// 슬라이드 이동 함수
-function moveToSlide(index) {
-  if (index < 0) {
-    currentIndex = totalSlides - 1;
-    slideWrapper.style.transition = "none";
-    slideWrapper.style.transform = `translateX(-${
-      currentIndex * (slideWidth + slideMargin)
-    }px)`;
-  } else if (index >= totalSlides) {
-    currentIndex = 0;
-    slideWrapper.style.transition = "none";
-    slideWrapper.style.transform = `translateX(0)`;
-  } else {
-    currentIndex = index;
+  if (!welcomeElement) {
+    console.error("welcomeContentRight 요소를 찾을 수 없습니다.");
+    return;
   }
 
-  setTimeout(() => {
-    slideWrapper.style.transition = "transform 0.5s ease-in-out";
-    slideWrapper.style.transform = `translateX(-${
-      currentIndex * (slideWidth + slideMargin)
-    }px)`;
-  }, 0);
-
-  updateTrigger();
-}
-
-// 트리거 업데이트
-function updateTrigger() {
-  triggerBar.style.transition = "transform 0.5s ease-in-out";
-  triggerBar.style.transform = `translateX(${
-    (currentIndex % triggerItems) * 100
-  }%)`;
-}
-
-// 다음 슬라이드로 이동 함수
-function moveToNextSlide() {
-  moveToSlide(currentIndex + 1);
-}
-
-// 자동 슬라이드 함수 시작
-function startSlide() {
-  slideInterval = setInterval(moveToNextSlide, 3000);
-}
-
-// arrow 클릭 이벤트 추가
-const weeklyArrowLeft = document.querySelector(".weeklyArrowLeft");
-const weeklyArrowRight = document.querySelector(".weeklyArrowRight");
-
-weeklyArrowLeft.addEventListener("click", () => {
-  moveToSlide(currentIndex - 1);
-  clearInterval(slideInterval);
-  isPaused = true; // 자동 슬라이드 일시 정지
-});
-
-weeklyArrowRight.addEventListener("click", () => {
-  moveToSlide(currentIndex + 1);
-  clearInterval(slideInterval);
-  isPaused = true; // 자동 슬라이드 일시 정지
-});
-
-// 마우스 오버시 슬라이드 일시 정지
-slideWrapper.addEventListener("mouseover", () => {
-  clearInterval(slideInterval);
-  triggerBar.style.transition = "none"; // 트리거 애니메이션 일시 정지
-  isPaused = true;
-});
-
-slideWrapper.addEventListener("mouseout", () => {
-  if (!isPaused) startSlide(); // 마우스 아웃시 자동 슬라이드 재개
-  triggerBar.style.transition = "transform 0.5s ease-in-out"; // 트리거 애니메이션 재개
-  isPaused = false;
-});
-
-function applyResponsiveSettings() {
-  const tabletQuery = window.matchMedia("(max-width: 768px)");
-  const mobileQuery = window.matchMedia("(max-width: 430px)");
-
-  if (mobileQuery.matches) {
-    slideWidth = 300;
-    slideMargin = 70;
-  } else if (tabletQuery.matches) {
-    slideWidth = 210;
-    slideMargin = 18;
-  } else {
-    slideWidth = 350;
-    slideMargin = 50;
+  // ul 요소가 없으면 생성합니다.
+  let createUl = welcomeElement.querySelector("ul");
+  if (!createUl) {
+    createUl = document.createElement("ul");
+    welcomeElement.appendChild(createUl);
   }
 
+  // "AA-0001"부터 "AA-0004"까지의 항목만 필터링
+  const filteredData = data.filter(
+    (item) => item.id >= "AA-0001" && item.id <= "AA-0004"
+  );
+
+  filteredData.forEach((item) => {
+    const productHTML = `
+      <li>
+        <a href="#none">
+          <div class="contentImg">
+            <img src="${item.image_path}" alt="${item.product_name}" />
+            <div class="icon">
+              <i class="fa-solid fa-heart"></i>
+              <a href="/cart/index.html">
+                <img data-productid="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
+              </a>
+            </div>
+          </div>
+          <div class="contentTitle foryouTitle">
+            <h3>${item.brand}</h3>
+            <p>${item.product_name}</p>
+          </div>
+          <div class="contentPrice">
+            <span>
+              <strong>${item.discount}</strong>
+              <b>${item.price}</b>
+              <del>${item.original_price}</del>
+            </span>
+            <span>
+              <p>${item.delivery}</p>
+              <p>${item.delivery_date}</p>
+            </span>
+            <span><b>${item.reviews}</b>${item.ratings}</span>
+          </div>
+        </a>
+      </li>
+    `;
+    createUl.insertAdjacentHTML("beforeend", productHTML);
+  });
+}
+
+//weeklyConts
+function weeklyContent(data) {
+  const weeklyContentElement = document.querySelector(".weeklyContent ul");
+
+  if (!weeklyContentElement) {
+    console.error("weeklyContent 요소를 찾을 수 없습니다.");
+    return;
+  }
+
+  // 특정 ID에 해당하는 데이터를 필터링하여 표시
+  const targetIds = [
+    "WK-0001",
+    "WK-0002",
+    "WK-0003",
+    "WK-0004",
+    "WK-0005",
+    "WK-0006",
+  ];
+  const filteredData = data.filter((item) => targetIds.includes(item.id));
+
+  // 기존 슬라이드 내용 초기화
+  weeklyContentElement.innerHTML = "";
+
+  filteredData.forEach((item) => {
+    const productHTML = `
+      <li>
+        <a href="#none">
+          <div class="contentImg">
+            <img src="${item.image_path}" alt="${item.product_name}" />
+            <div class="sale">${item.discount}</div>
+            <div class="icon">
+              <i class="fa-solid fa-heart"></i>
+              <a href="/cart/index.html">
+                <img
+                  data-productid="${item.id}"
+                  src="./dbImg/icon/cart.png"
+                  alt="cart"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="contentTitle">
+            <h3>${item.brand}</h3>
+            <p>${item.product_name}</p>
+          </div>
+          <div class="contentPrice">
+            <span>
+              <strong>${item.discount}</strong>
+              <b>${item.price}</b>
+              <del>${item.original_price}</del>
+            </span>
+            <span>
+              <p>${item.delivery}</p>
+              <p>${item.delivery_date}</p>
+            </span>
+            <span><b>${item.reviews}</b>${item.ratings} 판매</span>
+          </div>
+        </a>
+      </li>
+    `;
+
+    weeklyContentElement.insertAdjacentHTML("beforeend", productHTML);
+  });
+
+  initializeSlide(); // 슬라이드 초기화 함수 호출
+}
+// 슬라이드를 초기화하는 함수
+function initializeSlide() {
+  const slideWrapper = document.querySelector(".weeklyContent ul");
+  const slides = document.querySelectorAll(".weeklyContent li");
+  const totalSlides = slides.length;
+  const triggerBar = document.querySelector("#triggerBar");
+  const triggerItems = 6;
+  let currentIndex = 0;
+  let slideInterval;
+  let isPaused = false;
+
+  let slideWidth = 350;
+  let slideMargin = 50;
+
+  // 슬라이드 복제 - 앞에 마지막 슬라이드 복제, 뒤에 첫 슬라이드 복제
+  const firstSlide = slides[0];
+  const lastSlide = slides[totalSlides - 1];
+  let cloneFirst = firstSlide.cloneNode(true);
+  let cloneLast = lastSlide.cloneNode(true);
+
+  slideWrapper.appendChild(cloneFirst);
+  slideWrapper.insertBefore(cloneLast, firstSlide);
+
+  // 슬라이드 너비 계산 및 초기 위치 설정
+  const updateSlideWidth = () => {
+    const totalWidth = (slideWidth + slideMargin) * (totalSlides + 2); // 복제된 슬라이드 2개 포함
+    slideWrapper.style.width = `${totalWidth}px`;
+    slideWrapper.style.transform = `translateX(-${slideWidth + slideMargin}px)`; // 첫 번째 슬라이드로 이동
+  };
   updateSlideWidth();
 
-  // 슬라이드 위치 재조정
-  slideWrapper.style.transform = `translateX(-${
-    currentIndex * (slideWidth + slideMargin)
-  }px)`;
+  // 슬라이드 이동 함수
+  function moveToSlide(index) {
+    slideWrapper.style.transition = "transform 0.5s ease-in-out";
+    slideWrapper.style.transform = `translateX(-${
+      (index + 1) * (slideWidth + slideMargin)
+    }px)`;
+
+    // 현재 슬라이드 인덱스를 업데이트
+    currentIndex = index;
+
+    // 마지막 슬라이드에서 첫 슬라이드로 자연스럽게 전환
+    if (index === totalSlides) {
+      setTimeout(() => {
+        slideWrapper.style.transition = "none";
+        slideWrapper.style.transform = `translateX(-${
+          slideWidth + slideMargin
+        }px)`;
+        currentIndex = 0;
+        updateTrigger(); // 트리거 위치 업데이트
+      }, 500); // 트랜지션 지속 시간 (0.5초)과 일치시킴
+    }
+
+    // 첫 슬라이드에서 마지막 슬라이드로 자연스럽게 전환
+    else if (index === -1) {
+      setTimeout(() => {
+        slideWrapper.style.transition = "none";
+        slideWrapper.style.transform = `translateX(-${
+          totalSlides * (slideWidth + slideMargin)
+        }px)`;
+        currentIndex = totalSlides - 1;
+        updateTrigger(); // 트리거 위치 업데이트
+      }, 500); // 트랜지션 지속 시간 (0.5초)과 일치시킴
+    } else {
+      currentIndex = index;
+      updateTrigger(); // 일반적인 슬라이드 이동 시 트리거 위치 업데이트
+    }
+  }
+
+  // 트리거 업데이트
+  function updateTrigger() {
+    triggerBar.style.transition = "transform 0.5s ease-in-out";
+    triggerBar.style.transform = `translateX(${
+      (currentIndex % triggerItems) * 100
+    }%)`;
+  }
+
+  // 다음 슬라이드로 이동 함수
+  function moveToNextSlide() {
+    moveToSlide(currentIndex + 1);
+  }
+
+  // 자동 슬라이드 함수 시작
+  function startSlide() {
+    slideInterval = setInterval(moveToNextSlide, 2800);
+  }
+
+  // arrow 클릭 이벤트 추가
+  const weeklyArrowLeft = document.querySelector(".weeklyArrowLeft");
+  const weeklyArrowRight = document.querySelector(".weeklyArrowRight");
+
+  weeklyArrowLeft.addEventListener("click", () => {
+    moveToSlide(currentIndex - 1);
+    clearInterval(slideInterval);
+    isPaused = true; // 자동 슬라이드 일시 정지
+  });
+
+  weeklyArrowRight.addEventListener("click", () => {
+    moveToSlide(currentIndex + 1);
+    clearInterval(slideInterval);
+    isPaused = true; // 자동 슬라이드 일시 정지
+  });
+
+  // 마우스 오버시 슬라이드 일시 정지
+  slideWrapper.addEventListener("mouseover", () => {
+    clearInterval(slideInterval);
+    triggerBar.style.transition = "none"; // 트리거 애니메이션 일시 정지
+    isPaused = true;
+  });
+
+  slideWrapper.addEventListener("mouseout", () => {
+    if (!isPaused) startSlide(); // 마우스 아웃시 자동 슬라이드 재개
+    triggerBar.style.transition = "transform 0.5s ease-in-out"; // 트리거 애니메이션 재개
+    isPaused = false;
+  });
+
+  // 슬라이드 시작
+  startSlide();
 }
 
-applyResponsiveSettings();
-window.addEventListener("resize", applyResponsiveSettings);
+// foryouConts
+function foryouConts(products, container) {
+  container.innerHTML = "";
+  const ulElement = document.createElement("ul");
+  ulElement.className = "ulElements";
+  ulElement.style.display = "flex";
+  ulElement.style.flexWrap = "wrap";
+  products.forEach((item) => {
+    const liElement = document.createElement("li");
+    liElement.innerHTML = `
+      <a href="#none">
+        <div class="contentImg">
+          <img src="${item.image_path}" alt="${item.product_name}" style="width:340px;" />
+          <div class="icon">
+            <i class="fa-solid fa-heart"></i>
+            <a href="/cart/index.html">
+            <img data-productid="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
+            </a>
+          </div>
+        </div>
+        <div class="contentTitle foryouTitle">
+          <h3>${item.brand}</h3>
+          <p>${item.product_name}</p>
+        </div>
+        <div class="contentPrice">
+          <span>
+            <strong>${item.discount}</strong>
+            <b>${item.price}</b>
+            <del>${item.original_price}</del>
+          </span>
+          <span>
+            <p>${item.delivery}</p>
+            <p>${item.delivery_date}</p>
+          </span>
+          <span><b>${item.reviews}</b>${item.ratings} 판매</span>
+        </div>
+      </a>
+    `;
+    ulElement.appendChild(liElement);
+  });
 
-// 슬라이드 시작
-startSlide();
+  container.appendChild(ulElement);
+}
 
 //foryou button
 const form = document.querySelector("form");
@@ -262,206 +437,112 @@ foryouBtn.forEach((btn) => {
   });
 });
 
-// //heart
-// const hearts = document.querySelectorAll(".fa-heart");
-
-// function toggleHeart(hearts) {
-//   hearts.forEach((heart) => {
-//     // const productId = heart.getAttribute("data-product-id");
-//     // let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
-
-//     // // 페이지 로드 시 저장된 하트 상태를 복원
-//     // if (savedHearts.includes(productId)) {
-//     //   heart.style.color = "red";
-//     //   heart.style.transform = "scale(1.1)";
-//     // }
-
-//     heart.addEventListener("click", () => {
-//       if (heart.style.color === "red") {
-//         heart.style.color = "";
-//         heart.style.transform = "";
-//         // removeHeartLocal(productId);
-//       } else {
-//         heart.style.color = "red";
-//         heart.style.transform = "scale(1.1)";
-//         heart.style.transition = "all 0.3s";
-//         // saveHeartLocal(productId);
-//       }
-//     });
-//   });
-// }
-
-// // function saveHeartLocal(productId) {
-// //   let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
-// //   if (!savedHearts.includes(productId)) {
-// //     savedHearts.push(productId);
-// //     localStorage.setItem("localhearts", JSON.stringify(savedHearts));
-// //   }
-// // }
-
-// // function removeHeartLocal(productId) {
-// //   let savedHearts = JSON.parse(localStorage.getItem("localhearts")) || [];
-// //   savedHearts = savedHearts.filter((id) => id !== productId);
-// //   localStorage.setItem("localhearts", JSON.stringify(savedHearts));
-// // }
-
-// toggleHeart(hearts);
-
-//foryou json + category json
-const foryouContent = document.querySelector(".foryoucontent");
-
-fetch("/db.json")
-  .then((response) => response.json())
-  .then((data) => {
-    foryouBtn.forEach((button) => {
-      button.addEventListener("click", () => {
-        let selectedButton;
-        if (button.id === "view") {
-          selectedButton = data.filter(
-            (item) => item.id >= "AP-0001" && item.id <= "AP-0006"
-          );
-        } else if (button.id === "cart") {
-          selectedButton = data.filter(
-            (item) => item.id >= "CP-0001" && item.id <= "CP-0006"
-          );
-        } else if (button.id === "buy") {
-          selectedButton = data.filter(
-            (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
-          );
-        }
-        // 기존 콘텐츠 제거
-        foryouContent.innerHTML = "";
-        const ulElement = document.createElement("ul");
-        ulElement.className = "ulElements";
-        ulElement.style.display = "flex";
-        ulElement.style.flexWrap = "wrap";
-        selectedButton.forEach((item) => {
-          const liElement = document.createElement("li");
-
-          liElement.innerHTML = `
-            <a href="#none">
-              <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" style="width:340px;" />
-                <div class="icon">
-                  <i class="fa-solid fa-heart"></i>
-                  <a href="/cart/index.html">
-                  <img data-productid="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
-                  </a>
-                </div>
-              </div>
-              <div class="contentTitle foryouTitle">
-                <h3>${item.brand}</h3>
-                <p>${item.product_name}</p>
-              </div>
-              <div class="contentPrice">
-                <span>
-                  <strong>${item.discount}</strong>
-                  <b>${item.price}</b>
-                  <del>${item.original_price}</del>
-                </span>
-                <span>
-                  <p>${item.delivery}</p>
-                  <p>${item.delivery_date}</p>
-                </span>
-                <span><b>${item.reviews}</b>${item.ratings} 판매</span>
-              </div>
-            </a>
-          `;
-          ulElement.appendChild(liElement);
-        });
-
-        foryouContent.appendChild(ulElement);
-      });
-    });
-    document.querySelector(".btn.active").click();
-
-    data.forEach((item) => {
-      const categoryElement = document.querySelector(`.${item.category}`);
-      if (categoryElement) {
-        let createUl = categoryElement.querySelector("ul");
-        if (!createUl) {
-          createUl = document.createElement("ul");
-          categoryElement.appendChild(createUl);
-        }
-        const productHTML = `
-          <li>
-            <a href="#none">
-              <div class="contentImg">
-                <img src="${item.image_path}" alt="${item.product_name}" />
-                <div class="icon">
-                  <i class="fa-solid fa-heart"></i>
-                  <a href="/cart/index.html">
-                  <img data-product-id="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
-                  </a>
-                </div>
-              </div>
-              <div class="contentTitle foryouTitle">
-                <h3>${item.brand}</h3>
-                <p>${item.product_name}</p>
-              </div>
-              <div class="contentPrice">
-                <span>
-                  <strong>${item.discount}</strong>
-                  <b>${item.price}</b>
-                  <del>${item.original_price}</del>
-                </span>
-                <span>
-                  <p>${item.delivery}</p>
-                  <p>${item.delivery_date}</p>
-                </span>
-                <span><b>${item.reviews}</b>${item.ratings} 판매</span>
-              </div>
-            </a>
-          </li>
-          
-      `;
-        createUl.insertAdjacentHTML("beforeend", productHTML);
+// categoryConts
+function categoryConts(data) {
+  data.forEach((item) => {
+    const categoryElement = document.querySelector(`.${item.category}`);
+    if (categoryElement) {
+      let createUl = categoryElement.querySelector("ul");
+      if (!createUl) {
+        createUl = document.createElement("ul");
+        categoryElement.appendChild(createUl);
       }
+      const productHTML = `
+        <li>
+          <a href="#none">
+            <div class="contentImg">
+              <img src="${item.image_path}" alt="${item.product_name}" />
+              <div class="icon">
+                <i class="fa-solid fa-heart"></i>
+                <a href="/cart/index.html">
+                <img data-productid="${item.id}" src="./dbImg/icon/cart.png" alt="cart" />
+                </a>
+              </div>
+            </div>
+            <div class="contentTitle foryouTitle">
+              <h3>${item.brand}</h3>
+              <p>${item.product_name}</p>
+            </div>
+            <div class="contentPrice">
+              <span>
+                <strong>${item.discount}</strong>
+                <b>${item.price}</b>
+                <del>${item.original_price}</del>
+              </span>
+              <span>
+                <p>${item.delivery}</p>
+                <p>${item.delivery_date}</p>
+              </span>
+              <span><b>${item.reviews}</b>${item.ratings} 판매</span>
+            </div>
+          </a>
+        </li>
+      `;
+      createUl.insertAdjacentHTML("beforeend", productHTML);
+    }
+  });
+}
+
+// 이벤트 핸들러 설정 함수
+function setupEventHandlers(data, cartContArr, save) {
+  const foryouBtn = document.querySelectorAll(".btn");
+  const foryouContent = document.querySelector(".foryoucontent");
+
+  foryouBtn.forEach((button) => {
+    button.addEventListener("click", () => {
+      let selectedProducts;
+      if (button.id === "view") {
+        selectedProducts = data.filter(
+          (item) => item.id >= "AP-0001" && item.id <= "AP-0006"
+        );
+      } else if (button.id === "cart") {
+        selectedProducts = data.filter(
+          (item) => item.id >= "CP-0001" && item.id <= "CP-0006"
+        );
+      } else if (button.id === "buy") {
+        selectedProducts = data.filter(
+          (item) => item.id >= "PT-0001" && item.id <= "PT-0006"
+        );
+      }
+
+      foryouConts(selectedProducts, foryouContent);
     });
+  });
 
-    const cartIcon = document.querySelectorAll(".icon > a > img");
-    const cartCont = document.querySelectorAll(
-      ".welcomeContentRight ul li, .weeklyContent ul li"
-    );
+  // 장바구니 아이콘 클릭 핸들러 설정
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".icon > a > img")) {
+      e.preventDefault();
+      const clickItem = e.target.dataset.productid;
 
-    let localData = [];
-    let cartContArr = [];
-    
-    function init() {
-      const cartInfo = JSON.parse(localStorage.getItem("cartAli"));
-      if (cartInfo) {
-        localData = cartInfo;
+      const selectedProduct = data.find((item) => item.id === clickItem);
+      if (selectedProduct) {
+        cartContArr.push(selectedProduct);
+        save(cartContArr);
+      }
+
+      const userConfirmed = confirm(
+        `상품이 장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?`
+      );
+      if (userConfirmed) {
+        window.location.href = "/cart/index.html";
       }
     }
-    const save = () => {
-      localStorage.setItem("cartAli", JSON.stringify(cartContArr));
-    };
-    cartIcon.forEach((icon) => {
-      icon.addEventListener("click", (e) => {
-        e.preventDefault();
-        const clickItem = e.target.dataset.productid;
-
-        // 데이터를 먼저 저장
-        data.forEach((data) => {
-          if (clickItem == data.id) {
-            cartContArr.push(data);
-            save(); // 로컬스토리지에 데이터를 저장
-          }
-        });
-
-        // 데이터를 저장한 후에 confirm 다이얼로그를 띄움
-        const userConfirmed = confirm(
-          `상품이 장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?`
-        );
-
-        if (userConfirmed) {
-          window.location.href = "/cart/index.html";
-        }
-      });
-    });
-
-    init();
   });
+}
+
+// 초기화 함수
+function initialize() {
+  const cartContArr = initLocalStorage();
+  loadJSON().then((data) => {
+    setupEventHandlers(data, cartContArr, saveToLocalStorage);
+    categoryConts(data);
+    welcomeConts(data);
+    weeklyContent(data);
+    document.querySelector(".btn.active").click(); // 기본 활성화된 버튼 클릭 트리거
+  });
+}
+initialize();
 
 //category Touch Event
 const categoryGnb = document.querySelector(".Tablet ul");
@@ -595,4 +676,11 @@ const tabletBtnBox = document.querySelector(".TabletBtnBox");
 tabletBtnBox.addEventListener("click", () => {
   tablet.classList.toggle("on");
   tabletBtnBox.classList.toggle("on");
+});
+
+//heart
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("fa-heart")) {
+    e.target.classList.toggle("active");
+  }
 });

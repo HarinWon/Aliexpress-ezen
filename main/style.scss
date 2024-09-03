@@ -162,6 +162,9 @@ header {
   }
 }
 
+.fa-heart.active {
+  color: red !important;
+}
 //body
 body {
   width: 100%;
@@ -402,7 +405,6 @@ body {
           gap: 10px;
           li {
             position: relative;
-            display: flex;
             transition: all 0.5s;
             overflow-clip-margin: content-box;
             overflow: clip;
@@ -895,7 +897,7 @@ body {
           flex-wrap: wrap;
           justify-content: center;
           padding: 20px 0;
-          gap: 17px;
+          gap: 15px;
           margin-bottom: 0;
           li {
             .contentImg {
