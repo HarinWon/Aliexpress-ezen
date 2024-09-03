@@ -142,7 +142,6 @@ function welcomeConts(data) {
     return;
   }
 
-  // ul 요소가 없으면 생성합니다.
   let createUl = welcomeElement.querySelector("ul");
   if (!createUl) {
     createUl = document.createElement("ul");
@@ -270,59 +269,43 @@ function initializeSlide() {
   let slideWidth = 350;
   let slideMargin = 50;
 
-  // 슬라이드 복제 - 앞에 마지막 슬라이드 복제, 뒤에 첫 슬라이드 복제
-  const firstSlide = slides[0];
-  const lastSlide = slides[totalSlides - 1];
-  let cloneFirst = firstSlide.cloneNode(true);
-  let cloneLast = lastSlide.cloneNode(true);
+  // 슬라이드 복제
+  slides.forEach((slide) => {
+    let cloneSlide = slide.cloneNode(true);
+    slideWrapper.appendChild(cloneSlide);
+  });
 
-  slideWrapper.appendChild(cloneFirst);
-  slideWrapper.insertBefore(cloneLast, firstSlide);
-
-  // 슬라이드 너비 계산 및 초기 위치 설정
+  // 슬라이드 너비 계산
   const updateSlideWidth = () => {
-    const totalWidth = (slideWidth + slideMargin) * (totalSlides + 2); // 복제된 슬라이드 2개 포함
+    const totalWidth = (slideWidth + slideMargin) * totalSlides;
     slideWrapper.style.width = `${totalWidth}px`;
-    slideWrapper.style.transform = `translateX(-${slideWidth + slideMargin}px)`; // 첫 번째 슬라이드로 이동
   };
   updateSlideWidth();
 
   // 슬라이드 이동 함수
   function moveToSlide(index) {
-    slideWrapper.style.transition = "transform 0.5s ease-in-out";
-    slideWrapper.style.transform = `translateX(-${
-      (index + 1) * (slideWidth + slideMargin)
-    }px)`;
-
-    // 현재 슬라이드 인덱스를 업데이트
-    currentIndex = index;
-
-    // 마지막 슬라이드에서 첫 슬라이드로 자연스럽게 전환
-    if (index === totalSlides) {
-      setTimeout(() => {
-        slideWrapper.style.transition = "none";
-        slideWrapper.style.transform = `translateX(-${
-          slideWidth + slideMargin
-        }px)`;
-        currentIndex = 0;
-        updateTrigger(); // 트리거 위치 업데이트
-      }, 500); // 트랜지션 지속 시간 (0.5초)과 일치시킴
-    }
-
-    // 첫 슬라이드에서 마지막 슬라이드로 자연스럽게 전환
-    else if (index === -1) {
-      setTimeout(() => {
-        slideWrapper.style.transition = "none";
-        slideWrapper.style.transform = `translateX(-${
-          totalSlides * (slideWidth + slideMargin)
-        }px)`;
-        currentIndex = totalSlides - 1;
-        updateTrigger(); // 트리거 위치 업데이트
-      }, 500); // 트랜지션 지속 시간 (0.5초)과 일치시킴
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+      slideWrapper.style.transition = "none";
+      slideWrapper.style.transform = `translateX(-${
+        currentIndex * (slideWidth + slideMargin)
+      }px)`;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+      slideWrapper.style.transition = "none";
+      slideWrapper.style.transform = `translateX(0)`;
     } else {
       currentIndex = index;
-      updateTrigger(); // 일반적인 슬라이드 이동 시 트리거 위치 업데이트
     }
+
+    setTimeout(() => {
+      slideWrapper.style.transition = "transform 0.5s ease-in-out";
+      slideWrapper.style.transform = `translateX(-${
+        currentIndex * (slideWidth + slideMargin)
+      }px)`;
+    }, 0);
+
+    updateTrigger();
   }
 
   // 트리거 업데이트
@@ -340,7 +323,7 @@ function initializeSlide() {
 
   // 자동 슬라이드 함수 시작
   function startSlide() {
-    slideInterval = setInterval(moveToNextSlide, 2800);
+    slideInterval = setInterval(moveToNextSlide, 3000);
   }
 
   // arrow 클릭 이벤트 추가
@@ -372,6 +355,32 @@ function initializeSlide() {
     isPaused = false;
   });
 
+  function applyResponsiveSettings() {
+    const tabletQuery = window.matchMedia("(max-width: 768px)");
+    const mobileQuery = window.matchMedia("(max-width: 430px)");
+
+    if (mobileQuery.matches) {
+      slideWidth = 300;
+      slideMargin = 1;
+    } else if (tabletQuery.matches) {
+      slideWidth = 210;
+      slideMargin = 18;
+    } else {
+      slideWidth = 350;
+      slideMargin = 50;
+    }
+
+    updateSlideWidth();
+
+    // 슬라이드 위치 재조정
+    slideWrapper.style.transform = `translateX(-${
+      currentIndex * (slideWidth + slideMargin)
+    }px)`;
+  }
+
+  applyResponsiveSettings();
+  window.addEventListener("resize", applyResponsiveSettings);
+
   // 슬라이드 시작
   startSlide();
 }
@@ -388,7 +397,7 @@ function foryouConts(products, container) {
     liElement.innerHTML = `
       <a href="#none">
         <div class="contentImg">
-          <img src="${item.image_path}" alt="${item.product_name}" style="width:340px;" />
+          <img src="${item.image_path}" alt="${item.product_name}" />
           <div class="icon">
             <i class="fa-solid fa-heart"></i>
             <a href="/cart/index.html">
@@ -661,7 +670,8 @@ window.addEventListener("scroll", () => {
     }
     // 모바일 scrollY
     else if (window.innerWidth <= mobileBreakpoint) {
-      if (scrollY > 4180) {
+      if (scrollY > 3200) {
+        console.log(scrollY);
         document.querySelector(".TabletBtnBox").style.display = "block";
       } else {
         document.querySelector(".TabletBtnBox").style.display = "none";
