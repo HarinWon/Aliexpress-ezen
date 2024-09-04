@@ -11,13 +11,14 @@
     <!-- custom css & js-->
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./script.js"></script>
-    <title>Document</title>
+    <script defer src="./header.js"></script>
+    <title>알리익스프레스 장바구니</title>
   </head>
   <body>
     <header class="aliHeader">
       <div class="header-top">
         <div class="header-logo">
-          <img src="./img/logo.png" alt="AliExpress" />
+          <a href="#mainPage"><img src="./img/logo.png" alt="AliExpress" /></a>
         </div>
         <div class="header-search">
           <ul class="real-time-search">
@@ -111,24 +112,28 @@
       <div id="cartSortMob">
         <ul>
           <li class="barRight sortAll active">
-            전체<span class="totalProdQuant">3</span>
+            전체<span class="totalProdQuant">0</span>
           </li>
           <li class="barRight sortFr">
-            해외배송<span class="foreignProdQuant">2</span>
+            해외배송<span class="foreignProdQuant">0</span>
           </li>
-          <li class="barNone sortLc">국내배송<span class="localProdQuant">1</span></li>
+          <li class="barNone sortLc">
+            국내배송<span class="localProdQuant">0</span>
+          </li>
         </ul>
       </div>
     </header>
     <div id="cartSortDesk">
       <ul>
         <li class="barRight sortAll active">
-          전체<span class="totalProdQuant">3</span>
+          전체<span class="totalProdQuant">0</span>
         </li>
         <li class="barRight sortFr">
-          해외배송<span class="foreignProdQuant">2</span>
+          해외배송<span class="foreignProdQuant">0</span>
         </li>
-        <li class="barNone sortLc">국내배송<span class="localProdQuant">1</span></li>
+        <li class="barNone sortLc">
+          국내배송<span class="localProdQuant">0</span>
+        </li>
       </ul>
     </div>
     <main>
@@ -155,8 +160,17 @@
             <a href="coupLink">[받으러가기]</a>
           </div>
         </div>
+        <div id="alertEmptyWrapper">
+          <div class="alertEmpty">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <h2>장바구니에 담긴 상품이 없습니다.</h2>
+            <div class="recommandButtons">
+              <button>홈으로</button><button>로그인</button>
+            </div>
+          </div>
+        </div>
         <div id="stores">
-          <div class="storeBlock">
+          <!-- <div class="storeBlock">
             <div class="localStore">
               <div class="storeL">
                 <input
@@ -172,7 +186,6 @@
                   ><a href="#storeLink" class="storeLinkTitle"
                     >MIK_Mart In KoreaStore</a
                   >
-                  <!-- <i class="fa-solid fa-heart"></i> -->
                   <input type="checkbox" class="storeHeart" id="storeHeart1" />
                   <label for="storeHeart1" class="storeHeartLb" id="heartLb"
                     ><i class="fa-solid fa-heart"></i
@@ -217,20 +230,16 @@
                       </h3>
                     </a>
                     <h4 class="prodOpt"></h4>
-                    <!-- https://codepen.io/komarovdesign/pen/PPRbgb -->
-                    <!-- https://www.youtube.com/watch?v=zCT7vRaXovk -->
                     <div class="ProdInfoLBtn">
                       <div class="prodQuant">
-                        <!-- <input type="button" value=" - " class="minusN" onclick="minusN();"/> -->
                         <input type="button" value=" - " class="minusB" />
                         <input
                           type="number"
                           name="prodQuantN"
                           class="prodQuantN"
                           maxlength="1"
-                          value="1"
+                          value="2"
                         />
-                        <!-- <input type="button" value=" + " class="plusN" onclick="plusN();" /> -->
                         <input type="button" value=" + " class="plusB" ; />
                       </div>
                       <input
@@ -249,7 +258,7 @@
                     <i class="fa-solid fa-xmark"></i>
                     <h2 class="prodFinaPrice">38,000원</h2>
                     <h4><s class="prodOrigPrice">42,000원</s></h4>
-                    <h4>7/24일(화) <span>배송예정</span></h4>
+                    <h4><span class="arrivDate">7/24(화)</span> 배송예정</h4>
                   </div>
                   <div class="prodInfoRBtn">
                     <input type="button" value="쿠폰변경" />
@@ -273,12 +282,7 @@
                       <label for="prodMobCheck1" id="prodMobChkLb">
                         <i class="fa-solid fa-circle-check"></i>
                       </label>
-                      <!-- <img
-                        src="./img/jaket.png"
-                        alt="prodImg"
-                        class="prodImg"
-                      /> -->
-                      <div class="prodImg">
+                      <div class="prodImgMob">
                         <input
                           type="checkbox"
                           class="prodHeartMob"
@@ -296,7 +300,9 @@
                             롯데칠성음료 펩시 제로 콜라 355ml x 24캔
                           </h3>
                         </a>
-                        <h4>7/24일(화) <span>배송예정</span></h4>
+                        <h4>
+                          <span class="arrivDate">7/24(화)</span> 배송예정
+                        </h4>
                         <div class="origNFina">
                           <h4 class="prodOrigPrice"><s>42,000원</s></h4>
                           <h2 class="prodFinaPrice">39,000원</h2>
@@ -342,11 +348,9 @@
                       </h3>
                     </a>
                     <h4 class="prodOpt"></h4>
-                    <!-- https://codepen.io/komarovdesign/pen/PPRbgb -->
-                    <!-- https://www.youtube.com/watch?v=zCT7vRaXovk -->
+
                     <div class="ProdInfoLBtn">
                       <div class="prodQuant">
-                        <!-- <input type="button" value=" - " class="minusN" onclick="minusN();"/> -->
                         <input type="button" value=" - " class="minusB" />
                         <input
                           type="number"
@@ -355,7 +359,6 @@
                           maxlength="1"
                           value="1"
                         />
-                        <!-- <input type="button" value=" + " class="plusN" onclick="plusN();" /> -->
                         <input type="button" value=" + " class="plusB" ; />
                       </div>
                       <input
@@ -373,7 +376,7 @@
                   <div class="prodInfoRdesc">
                     <i class="fa-solid fa-xmark"></i>
                     <h2 class="prodFinaPrice">21,000원</h2>
-                    <h4>7/24일(화) <span>배송예정</span></h4>
+                    <h4><span class="arrivDate">7/24(화)</span> 배송예정</h4>
                   </div>
                   <div class="prodInfoRBtn">
                     <input type="button" value="쿠폰변경" />
@@ -397,12 +400,7 @@
                       <label for="prodMobCheck2" id="prodMobChkLb">
                         <i class="fa-solid fa-circle-check"></i>
                       </label>
-                      <!-- <img
-                        src="./img/jaket.png"
-                        alt="prodImg"
-                        class="prodImg"
-                      /> -->
-                      <div class="prodImg">
+                      <div class="prodImgMob">
                         <input
                           type="checkbox"
                           class="prodHeartMob"
@@ -420,7 +418,9 @@
                             동서 맥심 모카골드 커피믹스 400T
                           </h3>
                         </a>
-                        <h4>7/24일(화) <span>배송예정</span></h4>
+                        <h4>
+                          <span class="arrivDate">7/24(화)</span> 배송예정
+                        </h4>
                         <div class="origNFina">
                           <h2 class="prodFinaPrice">21,000원</h2>
                         </div>
@@ -458,7 +458,7 @@
               <i class="fa-solid fa-circle-minus"></i>
               <div>
                 <span>할인금액<i class="fa-solid fa-chevron-down"></i></span
-                ><span class="storeDiscount active"> 2,000원</span>
+                ><span class="storeDiscount"> 2,000원</span>
               </div>
               <i class="fa-solid fa-circle-pause"></i>
               <div>
@@ -478,7 +478,7 @@
                 </div>
                 <div>
                   <span>할인금액 <i class="fa-solid fa-chevron-down"></i></span
-                  ><span class="storeDiscount active">-2,000원</span>
+                  ><span class="storeDiscount">-2,000원</span>
                 </div>
               </div>
               <div class="storePay">
@@ -488,7 +488,11 @@
                   </h3>
                   <h3 class="storePrice">63,000원</h3>
                 </div>
-                <input type="submit" class="storeQuantMob" value="2건 바로구매" />
+                <input
+                  type="submit"
+                  class="storeQuantMob"
+                  value="2건 바로구매"
+                />
               </div>
             </div>
           </div>
@@ -513,7 +517,6 @@
                   ><a href="#storeLink" class="storeLinkTitle"
                     >LIANG LIANG JIA</a
                   >
-                  <!-- <i class="fa-solid fa-heart"></i> -->
                   <input type="checkbox" class="storeHeart" id="storeHeart2" />
                   <label for="storeHeart2" class="storeHeartLb" id="heartLb"
                     ><i class="fa-solid fa-heart"></i
@@ -563,11 +566,8 @@
                     <h4 class="prodOpt active">
                       색상 <opt>Black</opt> / 크기 <opt>All yards</opt>
                     </h4>
-                    <!-- https://codepen.io/komarovdesign/pen/PPRbgb -->
-                    <!-- https://www.youtube.com/watch?v=zCT7vRaXovk -->
                     <div class="ProdInfoLBtn">
                       <div class="prodQuant">
-                        <!-- <input type="button" value=" - " class="minusN" onclick="minusN();"/> -->
                         <input type="button" value=" - " class="minusB" />
                         <input
                           type="number"
@@ -576,7 +576,6 @@
                           maxlength="1"
                           value="1"
                         />
-                        <!-- <input type="button" value=" + " class="plusN" onclick="plusN();" /> -->
                         <input type="button" value=" + " class="plusB" />
                       </div>
                       <input
@@ -595,7 +594,7 @@
                     <i class="fa-solid fa-xmark"></i>
                     <h2 class="prodFinaPrice">12,000원</h2>
                     <h4 class="prodOrigPrice"><s>14,000원</s></h4>
-                    <h4>7/24일(화) <span>배송예정</span></h4>
+                    <h4><span class="arrivDate">7/24(화)</span> 배송예정</h4>
                   </div>
                   <div class="prodInfoRBtn">
                     <input type="button" value="쿠폰변경" />
@@ -619,12 +618,7 @@
                       <label for="prodMobCheck3" id="prodMobChkLb">
                         <i class="fa-solid fa-circle-check"></i>
                       </label>
-                      <!-- <img
-                        src="./img/jaket.png"
-                        alt="prodImg"
-                        class="prodImg"
-                      /> -->
-                      <div class="prodImg">
+                      <div class="prodImgMob">
                         <input
                           type="checkbox"
                           class="prodHeartMob"
@@ -646,7 +640,9 @@
                         <h4 class="prodOpt">
                           색상 <opt>Black</opt> / 크기 <opt>All yards</opt>
                         </h4>
-                        <h4>7/24일(화) <span>배송예정</span></h4>
+                        <h4>
+                          <span class="arrivDate">7/24(화)</span> 배송예정
+                        </h4>
                         <div class="origNFina">
                           <h4 class="prodOrigPrice"><s>14,000원</s></h4>
                           <h2 class="prodFinaPrice">12,000원</h2>
@@ -680,12 +676,12 @@
               <i class="fa-solid fa-circle-plus"></i>
               <div>
                 <span>배송비 <i class="fa-solid fa-chevron-down"></i></span
-                ><span class="storeShipFee active">0원</span>
+                ><span class="storeShipFee">0원</span>
               </div>
               <i class="fa-solid fa-circle-minus"></i>
               <div>
                 <span>할인금액 <i class="fa-solid fa-chevron-down"></i></span
-                ><span class="storeDiscount active">0원</span>
+                ><span class="storeDiscount">0원</span>
               </div>
               <i class="fa-solid fa-circle-pause"></i>
               <div>
@@ -701,11 +697,11 @@
                 </div>
                 <div>
                   <span>배송비 <i class="fa-solid fa-chevron-down"></i></span
-                  ><span class="storeShipFee active">0원</span>
+                  ><span class="storeShipFee">0원</span>
                 </div>
                 <div>
                   <span>할인금액 <i class="fa-solid fa-chevron-down"></i></span
-                  ><span class="storeDiscount active">0원</span>
+                  ><span class="storeDiscount">0원</span>
                 </div>
               </div>
               <div class="storePay">
@@ -715,10 +711,14 @@
                   </h3>
                   <h3 class="storePrice">12,000원</h3>
                 </div>
-                <input type="submit" class="storeQuantMob" value="2건 바로구매" />
+                <input
+                  type="submit"
+                  class="storeQuantMob"
+                  value="2건 바로구매"
+                />
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div id="prodRecent"></div>
         <div class="bannerEvt tab"></div>
@@ -745,7 +745,7 @@
               </li>
               <li>
                 <h3>할인금액</h3>
-                <h3 class="totalDiscount active">-2000원</h3>
+                <h3 class="totalDiscount">-2000원</h3>
               </li>
             </ul>
           </div>
@@ -754,11 +754,12 @@
               <h2>결제예정금액</h2>
               <h2 class="totalPrice">75,000원</h2>
             </div>
-            <div>
+            <h3 class="recommandLogin"><a href="#login">로그인</a>하고 적립혜택을 누려보세요!</h3>
+            <div class="replacedByLogin">
               <h3>적립예정포인트</h3>
               <h3 class="expectedPoint">375원</h3>
             </div>
-            <input type="button" value="주문하기" />
+            <input type="button" class="stickyDeskBtt" value="주문하기" />
           </div>
         </div>
         <div class="bannerEvt"></div>
@@ -769,12 +770,9 @@
         <div>
           <span>상품금액</span><span class="totalOrigPrice">14,000원</span>
         </div>
+        <div><span>배송비</span><span class="totalShipFee">무료배송</span></div>
         <div>
-          <span>배송비</span><span class="totalShipFee active">무료배송</span>
-        </div>
-        <div>
-          <span>할인금액</span
-          ><span class="totalDiscount active">-2,000원</span>
+          <span>할인금액</span><span class="totalDiscount">-2,000원</span>
         </div>
         <input type="submit" class="tabFooterSubmit" value="12,000원(1건)" />
       </section>
@@ -794,7 +792,7 @@
             </li>
             <li>
               <h3>할인금액</h3>
-              <h3 class="totalDiscount active">-2000원</h3>
+              <h3 class="totalDiscount">-2000원</h3>
             </li>
           </ul>
         </div>
@@ -1037,7 +1035,7 @@
             </li>
             <li>
               <h3>할인금액</h3>
-              <h3 class="totalDiscount active">-2000원</h3>
+              <h3 class="totalDiscount">-2000원</h3>
             </li>
           </ul>
         </div>
@@ -1046,11 +1044,16 @@
             <h2>결제예정금액</h2>
             <h2 class="totalPrice">75,000원</h2>
           </div>
-          <div>
+          <h3 class="recommandLogin"><a href="#login">로그인</a>하고 적립혜택을 누려보세요!</h3>
+          <div class="replacedByLogin">
             <h3>적립예정포인트</h3>
             <h3 class="expectedPoint">375원</h3>
           </div>
-          <input type="button" class="tabSectionSubmit" value="총 3개 주문하기" />
+          <input
+            type="button"
+            class="tabSectionSubmit"
+            value="총 3개 주문하기"
+          />
         </div>
       </div>
     </section>

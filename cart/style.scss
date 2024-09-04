@@ -99,13 +99,12 @@ body {
     background-color: map-get($color, dark1);
     color: #fff;
     top: 0;
-    z-index: 2;
+    z-index: 3;
     .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 300px;
-  
       .header-logo {
         margin: 10px;
         cursor: pointer;
@@ -113,7 +112,7 @@ body {
           height: 40px;
         }
       }
-  
+
       .header-search {
         width: 800px;
         height: 36px;
@@ -225,7 +224,7 @@ body {
         cursor: pointer;
       }
     }
-  
+
     .header-nav {
       @include body-small();
       background-color: map-get($color, dark1);
@@ -240,9 +239,6 @@ body {
         padding: 6px 10px;
         border-radius: 4px;
         cursor: pointer;
-        i {
-          // font-size: 24px;
-        }
         #sub_nav {
           width: 160px;
           height: 40px;
@@ -285,7 +281,7 @@ body {
               }
             }
           }
-  
+
           .subcategory-menu {
             display: none;
             width: 180px;
@@ -373,7 +369,7 @@ body {
   #cartSortDesk {
     display: flex;
     position: sticky;
-    top: 88px;
+    top: 86px;
     width: 100%;
     min-width: 993px;
     font-size: 26px;
@@ -395,7 +391,7 @@ body {
         gap: 20px;
         cursor: pointer;
         span {
-          ::before{
+          ::before {
             margin-top: 10px;
           }
           background: map-get($color, light2);
@@ -428,6 +424,7 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 20px 10px;
+        min-width: 509px;
         @include bodyLarge();
         #selectProd {
           display: flex;
@@ -461,6 +458,46 @@ body {
           }
           .coupLink {
             cursor: pointer;
+          }
+        }
+      }
+      #alertEmptyWrapper {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        .alertEmpty {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
+          i {
+            font-size: 90px;
+            color: #fff;
+            text-shadow: 0 0 5px map-get($color, dark3);
+          }
+          h2 {
+            color: map-get($color, dark3);
+            @include body-medium();
+          }
+          .recommandButtons {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            button {
+              padding: 15px 30px;
+              border-radius: 5px;
+              background: transparent;
+              @include body-medium();
+              &:nth-child(1) {
+                color: map-get($color, dark3);
+                border: 1px solid map-get($color, dark3);
+              }
+              &:nth-child(2) {
+                color: map-get($color, main-color);
+                border: 1px solid map-get($color, main-color);
+              }
+            }
           }
         }
       }
@@ -541,6 +578,10 @@ body {
                     rgba(123, 123, 123, 0.1)
                   ),
                   map-get($color, main-color);
+              }
+              &.disabled {
+                background: map-get($color, light1);
+                cursor: default;
               }
             }
             span {
@@ -687,15 +728,15 @@ body {
                   }
                   h4 {
                     @include body-normal();
-                    color: map-get($color, main-color);
+                    color: map-get($color, dark3);
                     s {
                       color: map-get($color, dark2);
                     }
                     span {
-                      color: map-get($color, dark3);
+                      color: map-get($color, main-color);
                     }
                     &.hidden {
-                      opacity: 0;
+                      display: none;
                     }
                   }
                 }
@@ -823,8 +864,15 @@ body {
             h2 {
               @include heading4();
             }
-            h3 {
-              @include bodyLarge();
+          }
+          h3 {
+            @include bodyLarge();
+            a {
+              color: map-get($color, point-color);
+              &:hover {
+                // text-decoration: underline;
+                border-bottom: 1px solid map-get($color, point-color);
+              }
             }
           }
           input[type="button"] {
@@ -842,6 +890,10 @@ body {
                   rgba(123, 123, 123, 0.1)
                 ),
                 map-get($color, main-gradient);
+            }
+            &.disabled {
+              background: map-get($color, light1);
+              cursor: default;
             }
           }
         }
@@ -887,7 +939,7 @@ body {
           }
         }
       }
-  
+
       .footer-dropdown {
         button {
           background-color: #333;
@@ -899,7 +951,7 @@ body {
         }
       }
     }
-  
+
     .footer-categories {
       text-align: center;
       margin: 20px 0;
@@ -1039,7 +1091,7 @@ body {
             }
           }
         }
-  
+
         @keyframes marquee {
           0% {
             transform: translateX(0);
@@ -1053,14 +1105,14 @@ body {
         }
       }
     }
-  
+
     .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #333;
       padding: 10px 0;
-  
+
       .footer-links,
       .footer-social {
         a {
@@ -1070,7 +1122,7 @@ body {
           cursor: pointer;
         }
       }
-  
+
       .footer-social {
         display: flex;
         align-items: center;
@@ -1079,6 +1131,57 @@ body {
   }
   section {
     display: none;
+  }
+}
+
+@media (max-width: 1410px) {
+  body {
+    .aliHeader {
+      .header-top {
+        padding: 10px 10px;
+        .header-logo {
+          scale: 80%;
+        }
+      }
+      .header-nav {
+        width: 100%;
+        padding: 0 10px;
+        #main_nav {
+          li {
+            #sub_nav {
+              width: 30px;
+              #all-categories {
+                span {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+        ul {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+    .web_footer {
+      .footer-top {
+        .footer-services {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+
+        .footer-links,
+        .footer-social {
+          margin: 10px 0;
+        }
+      }
+    }
   }
 }
 
@@ -1094,7 +1197,7 @@ body {
   body {
     position: relative;
     min-height: 100vh;
-    .aliHeader{
+    .aliHeader {
       display: none;
     }
     .cartHeaderContainer {
@@ -1173,6 +1276,9 @@ body {
         #selectNCoup {
           padding: 20px 15px;
         }
+        #alertEmptyWrapper {
+          height: 65vh;
+        }
         #stores {
           .storeBlock {
             // width: 712px;
@@ -1232,13 +1338,17 @@ body {
           border-radius: 5px;
           color: #fff;
           @include heading4();
+          &.disabled {
+            background: map-get($color, light1);
+            cursor: default;
+          }
         }
       }
       #mobCartFooter {
         display: none;
       }
     }
-    .web_footer{
+    .web_footer {
       display: none;
     }
     section {
@@ -1304,6 +1414,10 @@ body {
             padding: 10px;
             @include lead-paragraph();
             color: #fff;
+            &.disabled {
+              background: map-get($color, light1);
+              cursor: default;
+            }
           }
         }
       }
@@ -1361,6 +1475,7 @@ body {
         padding: 0 15px;
         #selectNCoup {
           padding: 15px 0;
+          min-width: 0;
           @include body-small();
           #selectProd {
             gap: 4px;
@@ -1458,11 +1573,13 @@ body {
                         color: #fff;
                         text-shadow: 0 0 2px #000;
                       }
-                      .prodImg {
+                      .prodImgMob {
                         display: flex;
                         width: 85px;
                         height: 85px;
                         background: url("./img/jaket.png");
+                        background-size: cover;
+                        background-position: center;
                         border-radius: 5px;
                         justify-content: end;
                         align-items: end;
@@ -1490,12 +1607,12 @@ body {
                         }
                         h4 {
                           @include body-small();
-                          color: map-get($color, main-color);
+                          color: map-get($color, dark3);
                           s {
                             color: map-get($color, dark2);
                           }
                           span {
-                            color: map-get($color, dark3);
+                            color: map-get($color, main-color);
                           }
                           &.hidden {
                             display: none;
@@ -1786,7 +1903,7 @@ body {
           background: map-get($color, main-gradient);
           color: #fff;
           padding: 10px;
-          gap: 10px;
+          gap: 5px;
           z-index: 2;
           button {
             color: #fff;
@@ -1805,6 +1922,10 @@ body {
           }
           h2 {
             @include bodyLarge();
+          }
+          &.disabled {
+            background: map-get($color, light1);
+            cursor: default;
           }
         }
       }
