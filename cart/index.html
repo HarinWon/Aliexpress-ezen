@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./script.js"></script>
     <script defer src="./header.js"></script>
+        <!-- header -->
+        <link rel="stylesheet" href="./header.css" />
+        <script defer src="./header.js"></script>
     <title>알리익스프레스 장바구니</title>
   </head>
   <body>
     <header class="aliHeader">
       <div class="header-top">
         <div class="header-logo">
-          <a href="#mainPage"><img src="./img/logo.png" alt="AliExpress" /></a>
+          <img src="./img/logo.png" alt="AliExpress" />
         </div>
         <div class="header-search">
           <ul class="real-time-search">
@@ -57,7 +60,7 @@
           </div>
           <div class="login">
             <img src="./img/icon/user.png" alt="login" />
-            <p>로그인</p>
+            <p id="userId">로그인</p>
           </div>
           <div class="cart">
             <img src="./img/icon/cart.png" alt="cart" />
@@ -79,14 +82,16 @@
               <li></li>
             </ul>
           </li>
-          <li>디지털</li>
-          <li>스포츠/레저</li>
-          <li>자동차용품</li>
-          <li>홈인테리어</li>
-          <li>뷰티/건강</li>
-          <li>패션/가방</li>
-          <li>가전</li>
-          <li>유아용품</li>
+          <a href="../productDetail/productDetail2.html" class="active"
+            >디지털</a
+          >
+          <a href="../productDetail/productDetail2.html">스포츠/레저</a>
+          <a href="../productDetail/productDetail2.html">자동차용품</a>
+          <a href="../productDetail/productDetail2.html">홈인테리어</a>
+          <a href="../productDetail/productDetail2.html">뷰티/건강</a>
+          <a href="../productDetail/productDetail2.html">패션/가방</a>
+          <a href="../productDetail/productDetail2.html">가전</a>
+          <a href="../productDetail/productDetail2.html">유아용품</a>
         </ul>
       </nav>
     </header>
@@ -733,31 +738,33 @@
             <ul>
               <li>
                 <h3>상품수</h3>
-                <h3><span class="totalProdQuant"></span>개</h3>
+                <h3><span class="totalProdQuant">0</span>개</h3>
               </li>
               <li>
                 <h3>상품금액</h3>
-                <h3 class="totalOrigPrice">74,000원</h3>
+                <h3 class="totalOrigPrice">0원</h3>
               </li>
               <li>
                 <h3>배송비</h3>
-                <h3 class="totalShipFee">3,000원</h3>
+                <h3 class="totalShipFee">0원</h3>
               </li>
               <li>
                 <h3>할인금액</h3>
-                <h3 class="totalDiscount">-2000원</h3>
+                <h3 class="totalDiscount">0원</h3>
               </li>
             </ul>
           </div>
           <div class="payInfoDown">
             <div>
               <h2>결제예정금액</h2>
-              <h2 class="totalPrice">75,000원</h2>
+              <h2 class="totalPrice">0원</h2>
             </div>
-            <h3 class="recommandLogin"><a href="#login">로그인</a>하고 적립혜택을 누려보세요!</h3>
+            <h3 class="recommandLogin">
+              <a href="#login">로그인</a>하고 적립혜택을 누려보세요!
+            </h3>
             <div class="replacedByLogin">
               <h3>적립예정포인트</h3>
-              <h3 class="expectedPoint">375원</h3>
+              <h3 class="expectedPoint">0원</h3>
             </div>
             <input type="button" class="stickyDeskBtt" value="주문하기" />
           </div>
@@ -767,14 +774,10 @@
     </main>
     <footer class="cartFooter">
       <section id="tabCartFooter">
-        <div>
-          <span>상품금액</span><span class="totalOrigPrice">14,000원</span>
-        </div>
-        <div><span>배송비</span><span class="totalShipFee">무료배송</span></div>
-        <div>
-          <span>할인금액</span><span class="totalDiscount">-2,000원</span>
-        </div>
-        <input type="submit" class="tabFooterSubmit" value="12,000원(1건)" />
+        <div><span>상품금액</span><span class="totalOrigPrice">0원</span></div>
+        <div><span>배송비</span><span class="totalShipFee">0원</span></div>
+        <div><span>할인금액</span><span class="totalDiscount">0원</span></div>
+        <input type="submit" class="tabFooterSubmit" value="0원(0건)" />
       </section>
       <section id="mobCartFooter">
         <div class="payDetail">
@@ -784,15 +787,15 @@
           <ul>
             <li>
               <h3>상품금액</h3>
-              <h3 class="totalOrigPrice">74,000원</h3>
+              <h3 class="totalOrigPrice">0원</h3>
             </li>
             <li>
               <h3>배송비</h3>
-              <h3 class="totalShipFee">3,000원</h3>
+              <h3 class="totalShipFee">0원</h3>
             </li>
             <li>
               <h3>할인금액</h3>
-              <h3 class="totalDiscount">-2000원</h3>
+              <h3 class="totalDiscount">0원</h3>
             </li>
           </ul>
         </div>
@@ -801,8 +804,7 @@
             <i class="fa-solid fa-chevron-up"></i>
           </button>
           <h2>
-            <span class="totalPrice">75,000원</span> (<span
-              class="totalProdQuant"
+            <span class="totalPrice">0원</span> (<span class="totalProdQuant"
               >3</span
             >건) 주문하기
           </h2>
@@ -1027,27 +1029,29 @@
           <ul>
             <li>
               <h3>상품금액</h3>
-              <h3 class="totalOrigPrice">74,000원</h3>
+              <h3 class="totalOrigPrice">0원</h3>
             </li>
             <li>
               <h3>배송비</h3>
-              <h3 class="totalShipFee">3,000원</h3>
+              <h3 class="totalShipFee">0원</h3>
             </li>
             <li>
               <h3>할인금액</h3>
-              <h3 class="totalDiscount">-2000원</h3>
+              <h3 class="totalDiscount">0원</h3>
             </li>
           </ul>
         </div>
         <div class="payInfoDown">
           <div>
             <h2>결제예정금액</h2>
-            <h2 class="totalPrice">75,000원</h2>
+            <h2 class="totalPrice">0원</h2>
           </div>
-          <h3 class="recommandLogin"><a href="#login">로그인</a>하고 적립혜택을 누려보세요!</h3>
+          <h3 class="recommandLogin">
+            <a href="#login">로그인</a>하고 적립혜택을 누려보세요!
+          </h3>
           <div class="replacedByLogin">
             <h3>적립예정포인트</h3>
-            <h3 class="expectedPoint">375원</h3>
+            <h3 class="expectedPoint">0원</h3>
           </div>
           <input
             type="button"

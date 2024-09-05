@@ -305,43 +305,25 @@ for (let brand in groupByBrand) {
       img.style.backgroundSize = "cover";
       img.style.backgroundPosition = "center";
     });
-    // 상품삭제
     function removeProd(prodBlock, prodBlockMob, productName) {
+      const storeBlock = prodBlock.closest(".storeBlock"); // Get the parent storeBlock
       prodBlock.remove();
       prodBlockMob.remove();
 
+      // Update localStorage
       const productIndex = cart.findIndex(
         (item) => item.product_name === productName
       );
       if (productIndex !== -1) {
-        cart.splice(productIndex, 1); 
-        localStorage.setItem("cartAli", JSON.stringify(cart));
+        cart.splice(productIndex, 1); // Remove the product from the cart array
+        localStorage.setItem("cartAli", JSON.stringify(cart)); // Update localStorage
+      }
+      if (
+        storeBlock.querySelectorAll(".prodBlock").length === 0
+      ) {
+        storeBlock.remove();
       }
     }
-    // function removeProd(prodBlock, prodBlockMob, productName) {
-    //   prodBlock.remove();
-    //   prodBlockMob.remove();
-
-    //   // Update localStorage
-    //   const productIndex = cart.findIndex(
-    //     (item) => item.product_name === productName
-    //   );
-    //   if (productIndex !== -1) {
-    //     cart.splice(productIndex, 1); // Remove the product from the cart array
-    //     localStorage.setItem("cartAli", JSON.stringify(cart)); // Update localStorage
-    //   }
-
-    //   // Check if there are any remaining siblings in the storeBlock
-    //   const storeBlock = prodBlock.closest(".storeBlock"); // Get the parent storeBlock
-    //   const storeBlockMob = prodBlockMob.closest(".storeBlock"); // Get the parent storeBlock for mobile
-
-    //   if (
-    //     storeBlock.querySelectorAll(".prodBlock").length === 0 &&
-    //     storeBlockMob.querySelectorAll(".prodBlockMob").length === 0
-    //   ) {
-    //     storeBlock.remove(); // Remove the storeBlock if no prodBlock or prodBlockMob remains
-    //   }
-    // }
     prodBlock.querySelector(".fa-xmark").addEventListener("click", function () {
       removeProd(prodBlock, prodBlockMob, product.product_name);
     });
