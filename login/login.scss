@@ -1,0 +1,469 @@
+@import "./style.scss";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .inner {
+    width: 600px;
+    .contaniner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .log {
+        margin: 20px auto;
+        width: 300px;
+        height: 60px;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      main {
+        width: 100%;
+        height: 700px;
+        margin-top: 10px;
+        .login-page {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          margin: 10px auto;
+          justify-content: center;
+          align-items: center;
+          .login-box {
+            width: 600px;
+            margin: 0 auto;
+            .login-method {
+              display: flex;
+              height: 70px;
+              #email_btn {
+                width: 300px;
+                height: 75px;
+                @include body-medium();
+                color: #777;
+                background: #f5f6f7;
+                border: 1px solid #ddd;
+                border-radius: 18px 0 0 0;
+                cursor: pointer;
+                &.active {
+                  color: #333;
+                  background: #fff;
+                }
+              }
+              #qr_btn {
+                width: 300px;
+                height: 75px;
+                @include body-medium();
+                border: 1px solid #ddd;
+                background: #f5f6f7;
+                color: #777;
+                border-radius: 0 18px 0 0;
+                cursor: pointer;
+                &.active {
+                  color: map-get($color, dark2);
+                  background: #fff;
+                }
+              }
+            }
+            #email-login {
+              padding: 30px;
+              border: 1px solid #c5ccd2;
+              border-radius: 10px;
+              margin-top: -10px;
+              input[type="text"] {
+                width: 530px;
+                height: 70px;
+                padding: 10px;
+                border: 1px solid #c5ccd2;
+                border-radius: 10px;
+                transition: all 0.3s;
+                margin-bottom: 10px;
+                padding-left: 20px;
+                @include body-medium();
+                &::placeholder {
+                  @include body-medium();
+                  color: #d3d3d3;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+              input[type="password"] {
+                display: none;
+                width: 530px;
+                height: 70px;
+                border: 1px solid #c5ccd2;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                transition: all 0.3s;
+                @include body-medium();
+                padding-left: 20px;
+                &::placeholder {
+                  @include body-medium();
+                  font-weight: 400;
+                  color: #d3d3d3;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+              .continue-btn {
+                width: 530px;
+                height: 70px;
+                background: map-get($color, main-gradient);
+                border: none;
+                border-radius: 10px;
+                @include heading4();
+                color: #fff;
+                margin-top: 30px;
+                cursor: pointer;
+              }
+            }
+            #qr-login {
+              width: 100%;
+              height: 370px;
+              padding: 30px;
+              border: 1px solid #c5ccd2;
+              border-radius: 10px;
+              margin-top: -10px;
+              .qr-code {
+                width: 160px;
+                height: 160px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                border: none;
+                border-radius: 5px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+              }
+              p:nth-of-type(1) {
+                @include body-medium();
+                text-align: center;
+                margin: 12px;
+                #qr-timer {
+                  @include lead-paragraph();
+                  font-weight: bold;
+                  color: #00cd3c;
+                }
+              }
+              p:nth-of-type(2) {
+                @include body-normal();
+                margin: 6px;
+                text-align: center;
+              }
+              p:nth-of-type(3) {
+                @include body-normal();
+                text-align: center;
+                margin-top: 10px;
+                #qr-number {
+                  @include lead-paragraph();
+                  font-weight: bold;
+                  color: #00cd3c;
+                }
+              }
+            }
+          }
+          .find-info {
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            gap: 40px;
+            margin-top: 10px;
+            color: #606060;
+            transition: all 0.3s;
+            a {
+              &:hover {
+                color: #000;
+                /* border-bottom: 1px solid #000; */
+              }
+            }
+          }
+          .easy-login {
+            width: 100%;
+            margin-top: 4px;
+            h3 {
+              @include heading4();
+              margin: 30px 0;
+              text-align: center;
+            }
+            .icons {
+              ul {
+                width: 100%;
+                height: 65px;
+                display: flex;
+                justify-content: space-evenly;
+                img {
+                  width: 60px;
+                  height: 60px;
+                  object-fit: contain;
+                }
+              }
+            }
+          }
+          .footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 10px;
+            gap: 10px;
+            .country-select {
+              margin-top: 16px;
+              .field {
+                @include body-normal();
+              }
+              .inputBox {
+                @include body-medium();
+                font-weight: bold;
+                border: none;
+                option {
+                  font-size: 16px;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+            p {
+              @include body-small();
+            }
+            span {
+              width: 120px;
+              margin: 0 auto;
+              margin-top: 10px;
+              font-size: 12px;
+              color: #606060;
+              cursor: pointer;
+              transition: all 0.3s;
+              &:hover {
+                color: #000;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+.login-content {
+  display: none;
+}
+.login-content.active {
+  display: block;
+  background: #fff;
+  color: map-get($color, dark2);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .inner {
+      width: 600px;
+      .contaniner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        main {
+          width: 100%;
+          height: 700px;
+          margin-top: 10px;
+          .login-page {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            margin: 10px auto;
+            justify-content: center;
+            align-items: center;
+            .login-box {
+              width: 480px;
+              .login-method {
+                display: flex;
+                height: 70px;
+                #email_btn {
+                  width: 240px;
+                  height: 75px;
+                  @include body-normal();
+                  color: #777;
+                  background: #f5f6f7;
+                  border: 1px solid #ddd;
+                  border-radius: 18px 0 0 0;
+                  cursor: pointer;
+                  &.active {
+                    color: #333;
+                    background: #fff;
+                  }
+                }
+                #qr_btn {
+                  width: 240px;
+                  height: 75px;
+                  @include body-normal();
+                  border: 1px solid #ddd;
+                  background: #f5f6f7;
+                  color: #777;
+                  border-radius: 0 18px 0 0;
+                  cursor: pointer;
+                  &.active {
+                    color: map-get($color, dark2);
+                    background: #fff;
+                  }
+                }
+              }
+              #email-login {
+                padding: 30px;
+                border: 1px solid #c5ccd2;
+                border-radius: 10px;
+                margin-top: -10px;
+                input[type="text"] {
+                  width: 430px;
+                  height: 70px;
+                  padding: 10px;
+                  border: 1px solid #c5ccd2;
+                  border-radius: 10px;
+                  transition: all 0.3s;
+                  margin-bottom: 10px;
+                  padding-left: 20px;
+                  @include body-medium();
+                  &::placeholder {
+                    @include body-medium();
+                    color: #d3d3d3;
+                  }
+                  &:focus {
+                    outline: none;
+                  }
+                }
+                input[type="password"] {
+                  display: none;
+                  width: 430px;
+                  height: 70px;
+                  border: 1px solid #c5ccd2;
+                  border-radius: 10px;
+                  margin-bottom: 20px;
+                  transition: all 0.3s;
+                  @include body-medium();
+                  padding-left: 20px;
+                  &::placeholder {
+                    @include body-medium();
+                    font-weight: 400;
+                    color: #d3d3d3;
+                  }
+                  &:focus {
+                    outline: none;
+                  }
+                }
+                .continue-btn {
+                  width: 430px;
+                  height: 70px;
+                  background: map-get($color, main-gradient);
+                  border: none;
+                  border-radius: 10px;
+                  @include lead-paragraph();
+                  font-weight: bold;
+                  color: #fff;
+                  margin-top: 30px;
+                  cursor: pointer;
+                }
+              }
+              #qr-login {
+                width: 100%;
+                height: 360px;
+                padding: 30px;
+                border: 1px solid #c5ccd2;
+                border-radius: 10px;
+                margin-top: -10px;
+                .qr-code {
+                  width: 140px;
+                  height: 140px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: 0 auto;
+                  border: none;
+                  border-radius: 5px;
+                }
+                p:nth-of-type(1) {
+                  @include body-medium();
+                  text-align: center;
+                  margin: 12px;
+                  #qr-timer {
+                    @include body-medium();
+                    font-weight: bold;
+                    color: #00cd3c;
+                  }
+                }
+                p:nth-of-type(2) {
+                  @include body-small();
+                  margin: 6px;
+                  text-align: center;
+                }
+                p:nth-of-type(3) {
+                  @include body-small();
+                  text-align: center;
+                  margin-top: 10px;
+                  #qr-number {
+                    @include body-medium();
+                    font-weight: bold;
+                    color: #00cd3c;
+                  }
+                }
+              }
+            }
+            .find-info {
+              width: 100%;
+              justify-content: center;
+              display: flex;
+              gap: 40px;
+              margin-top: 10px;
+              color: #606060;
+              transition: all 0.3s;
+              a {
+                &:hover {
+                  color: #000;
+                  /* border-bottom: 1px solid #000; */
+                }
+              }
+            }
+            .footer {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              text-align: center;
+              margin-top: 10px;
+              gap: 10px;
+              .country-select {
+                margin-top: 16px;
+                .field {
+                  @include body-small();
+                }
+                .inputBox {
+                  @include body-normal();
+                  font-weight: bold;
+                  border: none;
+                  option {
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

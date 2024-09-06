@@ -1,0 +1,835 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+// font family
+$fonts: (
+  noto-sans: "Noto Sans KR, sans-serif",
+);
+// font style mixins
+@mixin display1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin display2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin heading1 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading2 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading3 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading4 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin heading5 {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+@mixin lead-paragraph {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-medium {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-normal {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+@mixin body-small {
+  font-family: map-get($fonts, noto-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+// color
+$color: (
+  main-color: #ff611d,
+  main-gradient: linear-gradient(to right, #f7971d 0%, #ff611d 100%),
+  point-color: #e43225,
+  logo-color: #f7971d,
+  enable-color: #fd384f,
+  disabled-color: #ffc6cd,
+  dark1: #191919,
+  dark2: #333333,
+  dark3: #7b7b7b,
+  light1: #afafaf,
+  light2: #dddddd,
+  light3: #f5f5f5,
+);
+
+@mixin card-styles {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+// mix - in 사용법 !!!!
+// h1 {
+//   @include body-medium();
+//   color: map-get($color, main-color);
+// }
+
+// remote con
+.remocon {
+  position: fixed;
+  right: 27px;
+  bottom: 90px;
+  z-index: 9999 !important;
+
+  .gotoTop {
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+header {
+  background-color: map-get($color, dark1);
+  color: #fff;
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 300px;
+
+    .header-logo {
+      margin: 10px;
+      cursor: pointer;
+      img {
+        height: 40px;
+      }
+    }
+
+    .header-search {
+      width: 1000px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 4px 14px;
+      justify-content: space-between;
+      border-radius: 40px;
+      position: relative;
+      &:hover .real-time-result {
+        display: block;
+        z-index: 6;
+      }
+      .real-time-search {
+        width: 130px;
+        // border-right: 1px solid map-get($color, dark3);
+        color: map-get($color, dark3);
+        font-size: 10px;
+        cursor: pointer;
+        position: relative;
+        .real-time-result {
+          width: 130px;
+          height: 200px;
+          position: absolute;
+          top: 24px;
+          left: -10px;
+          background: #fff;
+          border-radius: 4px;
+          padding: 10px;
+          display: none;
+          flex-direction: column;
+          gap: 2px;
+          li {
+            padding-bottom: 2px;
+            border-bottom: 1px solid map-get($color, light1);
+            &:last-child {
+              border: none;
+            }
+          }
+          &.timeHover {
+            display: flex;
+          }
+        }
+      }
+      input {
+        width: 90%;
+        padding: 5px;
+        border: none;
+        border-radius: 4px;
+        &:focus {
+          outline: none;
+        }
+      }
+      .camera {
+        width: 40px;
+        height: 30px;
+        border: none;
+        background: inherit;
+        cursor: pointer;
+      }
+      #dropZone {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        border: 2px dashed #ccc;
+        background: #fff;
+        color: map-get($color, dark1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 12px;
+        display: none;
+        &.click {
+          display: block;
+        }
+      }
+      .search {
+        width: 56px;
+        height: 32px;
+        padding: 4px 16px;
+        border: none;
+        border-radius: 20px;
+        background-color: map-get($color, dark1);
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  .header-icons {
+    @include body-small();
+    width: 350px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+    .login,
+    .cart {
+      width: 80px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 40px;
+      &:hover {
+        width: 100px;
+        padding: 0 -10%;
+        background: map-get($color, main-color);
+        border-radius: 40px;
+      }
+    }
+    .myPage {
+      h3 {
+        padding: 5px 0 4px;
+      }
+    }
+    .language {
+      display: flex;
+      text-align: left;
+      cursor: pointer;
+    }
+  }
+
+  .header-nav {
+    @include body-small();
+    background-color: map-get($color, dark1);
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 100px;
+    line-height: 50px;
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      i {
+        // font-size: 24px;
+      }
+      #sub_nav {
+        width: 160px;
+        height: 40px;
+        position: relative;
+        background: map-get($color, light3);
+        color: map-get($color, dark1);
+        font-weight: bold;
+        .dropdown-container {
+          width: 160px;
+          // height: 40px;
+          color: black;
+          display: none;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          background: map-get($color, light3);
+          // border-radius: 4px;
+          font-weight: 400;
+          z-index: 1000;
+          #category-menu {
+            display: flex;
+            flex-direction: column;
+            .category {
+              z-index: 100;
+              width: 160px;
+              height: 50px;
+              line-height: 50px;
+              padding: 0 10px;
+              // borderradius: 4px;
+              cursor: pointer;
+              span i {
+                margin-right: 8px;
+              }
+              &:hover {
+                background-color: #fff;
+                & > span {
+                  color: map-get($color, main-color);
+                }
+              }
+              .subcategory-menu {
+                display: none;
+                width: 180px;
+                height: 400px;
+                position: absolute;
+                left: 160px;
+                top: 0;
+                padding-left: 20px;
+                background: map-get($color, light3);
+                // border-radius: 4px;
+                & > .subcategory-item:hover {
+                  background-color: #f0f0f0;
+                  color: map-get($color, main-color);
+                  font-weight: bold;
+                }
+              }
+              .subcategory-menu .subcategory-item {
+                cursor: pointer;
+                color: inherit;
+                .subcategory-menu {
+                  background: none;
+                  .subcategory-item {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.header-nav {
+  #main_nav {
+    a {
+      transition: all 0.3s;
+      &:hover {
+        color: map-get($color, main-color);
+      }
+    }
+  }
+}
+.navLnb {
+  border: 1px solid #f00;
+  a {
+    color: #f00;
+  }
+}
+
+// footer
+.web_footer {
+  // display: none;
+  background-color: map-get($color, dark1);
+  color: #fff;
+  padding: 20px;
+  .footer-top {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .footer-services {
+      display: flex;
+      gap: 50px;
+      .footer-select {
+        p {
+          @include body-normal();
+        }
+        select {
+          width: 150px;
+          color: #fff;
+          background-color: map-get($color, dark1);
+          margin-right: 40px;
+          margin-top: 20px;
+          border: 1px solid #fff;
+          padding: 10px;
+          border-radius: 2px;
+        }
+      }
+    }
+
+    .footer-dropdown {
+      button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-categories {
+    text-align: center;
+    margin: 20px 0;
+  }
+  #payment {
+    p {
+      @include body-normal();
+    }
+    .payment-wrap {
+      width: 600px;
+      overflow: hidden;
+      .footer-payment {
+        position: relative;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        animation: marquee 18s linear infinite;
+        &:hover {
+          animation-play-state: paused;
+        }
+        .cards {
+          width: 87px;
+          height: 60px;
+          margin: 0 4px;
+          position: relative;
+          &:nth-child(1) {
+            &:hover {
+              &::before {
+                content: "30% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(2) {
+            &:hover {
+              &::before {
+                content: "코인 10개";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(3) {
+            &:hover {
+              &::before {
+                content: "20% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(4) {
+            &:hover {
+              &::before {
+                content: "15% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(5) {
+            &:hover {
+              &::before {
+                content: "코인 15개";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(6) {
+            &:hover {
+              &::before {
+                content: "22% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(7) {
+            &:hover {
+              &::before {
+                content: "30% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(8) {
+            &:hover {
+              &::before {
+                content: "코인 30개";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(9) {
+            &:hover {
+              &::before {
+                content: "35% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(10) {
+            &:hover {
+              &::before {
+                content: "8% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(11) {
+            &:hover {
+              &::before {
+                content: "12% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(12) {
+            &:hover {
+              &::before {
+                content: "코인 9개";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(13) {
+            &:hover {
+              &::before {
+                content: "24% 할인";
+                @include card-styles();
+              }
+            }
+          }
+          &:nth-child(14) {
+            &:hover {
+              &::before {
+                content: "코인 3개";
+                @include card-styles();
+              }
+            }
+          }
+        }
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+
+    .footer-links,
+    .footer-social {
+      a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.mobile_footer {
+  display: none;
+}
+
+// Tab
+@media (max-width: 1200px) {
+  header {
+    .header-top {
+      padding: 10px 10px;
+      .header-logo {
+        scale: 80%;
+      }
+    }
+    .header-nav {
+      width: 100%;
+      padding: 0 10px;
+      #main_nav {
+        li {
+          #sub_nav {
+            width: 30px;
+            #all-categories {
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      ul {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+
+  .web_footer {
+    .footer-top {
+      .footer-services {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+
+      .footer-links,
+      .footer-social {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 768px) {
+  header {
+    display: none;
+    position: fixed;
+    width: 100%;
+    .header-top {
+      display: block;
+      .header-logo {
+        float: left;
+      }
+      .header-search {
+        margin-top: 10px;
+        width: calc(100% - 340px);
+        .real-time-search {
+          width: 120px;
+          border: none;
+          .real-time-result-txt {
+            font-size: 8px;
+          }
+        }
+      }
+      .header-icons {
+        position: absolute;
+        width: 100px;
+        top: 12px;
+        right: 30px;
+        gap: 20px;
+        .language {
+          display: none;
+        }
+        .login,
+        .cart {
+          p {
+            display: none;
+          }
+        }
+        .myPage {
+          margin-bottom: 4px;
+          margin-left: 6px;
+        }
+      }
+    }
+    .header-nav {
+      background: #fff;
+      #main_nav {
+        width: 100%;
+        padding: 0;
+        color: map-get($color, dark1);
+        scroll-snap-type: x mandatory;
+        white-space: nowrap;
+        gap: 10px;
+        li {
+          display: inline-block;
+          margin-right: 10px;
+          scroll-snap-align: start;
+        }
+        a {
+          &.active {
+            color: map-get($color, main-color);
+            font-weight: bold;
+            border-bottom: 3px solid map-get($color, main-color);
+          }
+        }
+        #sub_nav {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .web_footer {
+    display: none;
+  }
+  .mobile_footer {
+    display: none;
+    width: 100%;
+    height: 100px;
+    background: map-get($color, main-color);
+    position: fixed;
+    bottom: 0;
+    z-index: 12;
+    padding: 0 20px;
+    // border-top: 1px solid map-get($color, dark1);
+    box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.08);
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      li {
+        margin-top: 30px;
+        // line-height: 115px;
+        width: 36px;
+        height: 36px;
+        img {
+          filter: invert(1);
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &:nth-child(3) {
+          margin-top: 24px;
+          width: 44px;
+          height: 44px;
+        }
+        &:last-child {
+          background: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  header {
+    display: none;
+    position: fixed;
+    width: 100%;
+    .header-top {
+      display: block;
+      .header-logo {
+        float: left;
+      }
+      .header-search {
+        display: none;
+        margin-top: 10px;
+        width: calc(100% - 340px);
+        .real-time-search {
+          width: 120px;
+          border: none;
+          .real-time-result-txt {
+            font-size: 8px;
+          }
+        }
+      }
+      .header-icons {
+        position: absolute;
+        width: 100px;
+        top: 12px;
+        right: 30px;
+        gap: 20px;
+        .language {
+          display: none;
+        }
+        .login,
+        .cart {
+          p {
+            display: none;
+          }
+        }
+        .myPage {
+          margin-bottom: 4px;
+          margin-left: 6px;
+        }
+      }
+    }
+    .header-nav {
+      background: #fff;
+      #main_nav {
+        width: 100%;
+        padding: 0;
+        color: map-get($color, dark1);
+        scroll-snap-type: x mandatory;
+        white-space: nowrap;
+        gap: 10px;
+        li {
+          display: inline-block;
+          margin-right: 10px;
+          scroll-snap-align: start;
+        }
+        a {
+          &.active {
+            color: map-get($color, main-color);
+            font-weight: bold;
+            border-bottom: 3px solid map-get($color, main-color);
+          }
+        }
+        #sub_nav {
+          display: none;
+        }
+      }
+    }
+  }
+}

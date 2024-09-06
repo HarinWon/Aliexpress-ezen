@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AliExpress</title>
+    <link rel="stylesheet" href="mobileLogin.css" />
+    <script defer src="./mobileLogin.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-box">
+        <div class="logo">
+          <img src="img/Aliexpress_logo.svg 1.png" alt="lgo" />
+        </div>
+        <label for="userId">아이디</label>
+        <input
+          type="text"
+          id="userId"
+          placeholder="이메일 주소 / 휴대폰 번호"
+        />
+        <div id="error_email" class="error"></div>
+        <label for="password">비밀번호 입력</label>
+        <input type="password" id="password" placeholder="비밀번호" />
+        <div id="error_password1" class="error"></div>
+        <button class="login-btn" onclick="validateForm()">등록</button>
+        <a href="./mobileFind.html" class="forgot-link"
+          >비밀번호 또는 이메일 찾기</a
+        >
+        <div class="divers">
+          <div class="divider"></div>
+          <span>또는</span>
+          <div class="divider"></div>
+        </div>
+        <div class="social-login">
+          <div class="social-login-sns">
+            <div class="img">
+              <img src="img/kakao.png" alt="kakao>" />
+            </div>
+            <span class="kakao">카카오톡</span>
+          </div>
+          <div class="social-login-sns">
+            <div class="img">
+              <img src="img/naver.png" alt="naver" />
+            </div>
+            <span class="naver">Naver</span>
+          </div>
+          <div class="social-login-sns">
+            <div class="img">
+              <img src="img/google.png" alt="google" />
+            </div>
+            <span class="google">Google</span>
+          </div>
+          <div class="social-login-sns">
+            <div class="img">
+              <img src="img/apple.png" alt="apple>" />
+            </div>
+            <span class="apple">Apple</span>
+          </div>
+        </div>
+        <div class="region">지역: <span>대한민국</span></div>
+      </div>
+    </div>
+  </body>
+</html>

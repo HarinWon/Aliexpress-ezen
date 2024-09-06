@@ -1,0 +1,191 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .container {
+  width: 600px;
+  height: 800px;
+}
+body .container .content {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+body .container .content .logo {
+  padding-bottom: 10px;
+}
+body .container .content .logo h1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  padding-bottom: 20px;
+  text-align: center;
+}
+body .container .login-box {
+  width: 500px;
+  height: 650px;
+  margin: 0 auto;
+  border: 1px solid #8e8e8e;
+}
+body .container .login-box form {
+  text-align: center;
+  padding-top: 40px;
+}
+body .container .login-box form input[type=text],
+body .container .login-box form input[type=password] {
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .login-box form input[type=text]:focus,
+body .container .login-box form input[type=password]:focus {
+  outline: none;
+}
+body .container .login-box form .checkbox {
+  text-align: left;
+  padding-left: 50px;
+  margin: 20px 0;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .login-box form .checkbox input {
+  margin-right: 5px;
+}
+body .container .login-box form .login-btn {
+  width: 400px;
+  padding: 10px;
+  background-color: #ffeb00;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .login-box form .divider {
+  margin: 20px 0;
+  color: #aaa;
+  font-size: 12px;
+}
+body .container .login-box form .qr-login-btn {
+  width: 400px;
+  padding: 10px;
+  background-color: #eee;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  transition: all 0.3s;
+}
+body .container .login-box form .qr-login-btn:hover {
+  background-color: #888;
+}
+body .container .login-box form .help-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 45px;
+  font-size: 12px;
+}
+body .container .login-box form .help-links a {
+  color: #555;
+  margin: 0 4px;
+}
+body .container .login-box form .help-links a:hover {
+  color: #000;
+}
+body .container .login-box form .qr-code {
+  margin: 20px auto;
+  width: 150px;
+  height: 150px;
+}
+body .container .login-box form .qr-code .qr-code img {
+  width: 100%;
+  height: 100%;
+}
+body .container .login-box form .qr-code p {
+  padding-top: 4px;
+  font-size: 12px;
+}
+body .container .login-box form .qr-code p #timer {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: crimson;
+}
+body .container .login-box form p {
+  padding-top: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container footer {
+  margin-top: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  color: #777;
+}
+body .container footer .footer-links {
+  margin-bottom: 10px;
+}
+body .container footer .footer-links a {
+  color: #777;
+  margin: 0 5px;
+}
+body .container footer .footer-links p {
+  padding-top: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    overflow: hidden;
+    width: 100%;
+  }
+  .container .content {
+    width: 100%;
+  }
+  .container .login-box {
+    width: 100%;
+    height: auto;
+    padding: 0px 10px 10px 10px;
+    overflow: hidden;
+  }
+  .container .login-box form {
+    width: 100%;
+  }
+  .container .login-box form input[type=text],
+  .container .login-box form input[type=password] {
+    width: 100%;
+  }
+  .container .login-box form .login-btn,
+  .container .login-box form .qr-login-btn {
+    width: 100%;
+  }
+  .footer-links {
+    font-size: 12px;
+  }
+}

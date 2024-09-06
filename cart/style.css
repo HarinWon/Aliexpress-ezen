@@ -1,0 +1,1896 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+body .aliHeader {
+  position: sticky;
+  background-color: #191919;
+  color: #fff;
+  top: 0;
+  z-index: 3;
+}
+body .aliHeader .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 300px;
+}
+body .aliHeader .header-top .header-logo {
+  margin: 10px;
+  cursor: pointer;
+}
+body .aliHeader .header-top .header-logo img {
+  height: 40px;
+}
+body .aliHeader .header-top .header-search {
+  width: 800px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 4px 14px;
+  justify-content: space-between;
+  border-radius: 40px;
+  position: relative;
+}
+body .aliHeader .header-top .header-search:hover .real-time-result {
+  display: block;
+  z-index: 6;
+}
+body .aliHeader .header-top .header-search .real-time-search {
+  width: 130px;
+  color: #7b7b7b;
+  font-size: 10px;
+  cursor: pointer;
+  position: relative;
+}
+body .aliHeader .header-top .header-search .real-time-search .real-time-result {
+  width: 130px;
+  height: 200px;
+  position: absolute;
+  top: 24px;
+  left: -10px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+body .aliHeader .header-top .header-search .real-time-search .real-time-result li {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #afafaf;
+}
+body .aliHeader .header-top .header-search .real-time-search .real-time-result li:last-child {
+  border: none;
+}
+body .aliHeader .header-top .header-search .real-time-search .real-time-result.timeHover {
+  display: flex;
+}
+body .aliHeader .header-top .header-search input {
+  width: 90%;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+body .aliHeader .header-top .header-search input:focus {
+  outline: none;
+}
+body .aliHeader .header-top .header-search .camera {
+  width: 40px;
+  height: 30px;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+}
+body .aliHeader .header-top .header-search #dropZone {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  border: 2px dashed #ccc;
+  background: #fff;
+  color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  display: none;
+}
+body .aliHeader .header-top .header-search #dropZone.click {
+  display: block;
+}
+body .aliHeader .header-top .header-search .search {
+  width: 56px;
+  height: 32px;
+  padding: 4px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #191919;
+  margin-left: 5px;
+  cursor: pointer;
+}
+body .aliHeader .header-icons {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+body .aliHeader .header-icons .login,
+body .aliHeader .header-icons .cart {
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+}
+body .aliHeader .header-icons .language {
+  display: flex;
+  text-align: left;
+  cursor: pointer;
+}
+body .aliHeader .header-nav {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  background-color: #191919;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 100px;
+  line-height: 50px;
+}
+body .aliHeader .header-nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+body .aliHeader .header-nav ul #sub_nav {
+  width: 160px;
+  height: 40px;
+  position: relative;
+  background: #f5f5f5;
+  color: #191919;
+  font-weight: bold;
+}
+body .aliHeader .header-nav ul #sub_nav .dropdown-container {
+  width: 160px;
+  color: black;
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #f5f5f5;
+  font-weight: 400;
+  z-index: 1000;
+}
+body .aliHeader .header-nav ul #sub_nav #category-menu {
+  display: flex;
+  flex-direction: column;
+}
+body .aliHeader .header-nav ul #sub_nav #category-menu .category {
+  z-index: 100;
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+body .aliHeader .header-nav ul #sub_nav #category-menu .category span i {
+  margin-right: 8px;
+}
+body .aliHeader .header-nav ul #sub_nav #category-menu .category:hover {
+  background-color: #fff;
+}
+body .aliHeader .header-nav ul #sub_nav #category-menu .category:hover > span {
+  color: #ff611d;
+}
+body .aliHeader .header-nav ul #sub_nav .subcategory-menu {
+  display: none;
+  width: 180px;
+  height: 400px;
+  position: absolute;
+  left: 160px;
+  top: 0;
+  background: #f5f5f5;
+}
+body .aliHeader .header-nav ul #sub_nav .subcategory-menu > .subcategory-item:hover {
+  background-color: #f0f0f0;
+  color: #ff611d;
+  font-weight: bold;
+}
+body .aliHeader .header-nav ul #sub_nav .subcategory-menu .subcategory-item {
+  cursor: pointer;
+  color: inherit;
+}
+body .aliHeader .header-nav ul #sub_nav .subcategory-menu .subcategory-item .subcategory-menu {
+  background: none;
+}
+body .aliHeader .header-nav ul #sub_nav .subcategory-menu .subcategory-item .subcategory-menu .subcategory-item {
+  display: none;
+}
+body .aliHeader .header-nav ul li {
+  cursor: pointer;
+}
+body .cartHeaderContainer {
+  min-width: 993px;
+}
+body .cartHeaderContainer #cartHeader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid #7b7b7b;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper {
+  display: flex;
+  width: 1170px;
+  align-items: center;
+  justify-content: space-between;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb {
+  display: flex;
+  align-items: center;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb i {
+  display: none;
+  font-size: 24px;
+  padding: 6px;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb h1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb img {
+  height: 36px;
+  filter: invert(1);
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .rightGnb {
+  display: flex;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .rightGnb ul {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .rightGnb ul li {
+  color: #7b7b7b;
+}
+body .cartHeaderContainer #cartHeader .gnbWrapper .rightGnb ul li.active {
+  color: #000;
+}
+body .cartHeaderContainer #cartSortMob {
+  display: none;
+}
+body #cartSortDesk {
+  display: flex;
+  position: sticky;
+  top: 86px;
+  width: 100%;
+  min-width: 993px;
+  font-size: 26px;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid;
+  z-index: 2;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body #cartSortDesk ul {
+  width: 1170px;
+  display: flex;
+  gap: 10px;
+  padding: 20px 0;
+}
+body #cartSortDesk ul li {
+  align-items: center;
+  display: flex;
+  padding: 0 30px;
+  gap: 20px;
+  cursor: pointer;
+}
+body #cartSortDesk ul li span {
+  background: #dddddd;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body #cartSortDesk ul li span ::before {
+  margin-top: 10px;
+}
+body #cartSortDesk ul li.active {
+  color: #ff611d;
+}
+body #cartSortDesk ul .barRight {
+  border-right: 1px solid #dddddd;
+}
+body main {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+body main .content {
+  display: flex;
+  flex-direction: column;
+  width: 770px;
+}
+body main .content #selectNCoup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  min-width: 509px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main .content #selectNCoup #selectProd {
+  display: flex;
+  gap: 10px;
+}
+body main .content #selectNCoup #selectProd #selectAll {
+  cursor: pointer;
+}
+body main .content #selectNCoup #selectProd #selectAll input[type=checkbox] {
+  display: none;
+}
+body main .content #selectNCoup #selectProd #selectAll input[type=checkbox]:checked ~ .fa-circle-check {
+  color: #ff611d;
+  text-shadow: 0 0 2px #ff611d;
+}
+body main .content #selectNCoup #selectProd #selectAll .fa-circle-check {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
+body main .content #selectNCoup #selectProd #selectDel {
+  padding-left: 10px;
+  border-left: 1px solid #000;
+  cursor: pointer;
+}
+body main .content #selectNCoup #coupon {
+  display: flex;
+  gap: 5px;
+}
+body main .content #selectNCoup #coupon .coupInfo {
+  display: flex;
+  gap: 0;
+}
+body main .content #selectNCoup #coupon .coupLink {
+  cursor: pointer;
+}
+body main .content #alertEmptyWrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+body main .content #alertEmptyWrapper .alertEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+body main .content #alertEmptyWrapper .alertEmpty i {
+  font-size: 90px;
+  color: #fff;
+  text-shadow: 0 0 5px #7b7b7b;
+}
+body main .content #alertEmptyWrapper .alertEmpty h2 {
+  color: #7b7b7b;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main .content #alertEmptyWrapper .alertEmpty .recommandButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+body main .content #alertEmptyWrapper .alertEmpty .recommandButtons button {
+  padding: 15px 30px;
+  border-radius: 5px;
+  background: transparent;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+}
+body main .content #alertEmptyWrapper .alertEmpty .recommandButtons button:nth-child(1) {
+  color: #7b7b7b;
+  border: 1px solid #7b7b7b;
+}
+body main .content #alertEmptyWrapper .alertEmpty .recommandButtons button:nth-child(2) {
+  color: #ff611d;
+  border: 1px solid #ff611d;
+}
+body main .content #stores {
+  display: flex;
+  flex-direction: column;
+}
+body main .content #stores .storeBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 66px;
+}
+body main .content #stores .storeBlock .localStore,
+body main .content #stores .storeBlock .foreignStore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid;
+  border-style: solid none;
+}
+body main .content #stores .storeBlock .localStore.foreignStore,
+body main .content #stores .storeBlock .foreignStore.foreignStore {
+  color: #ff611d;
+  border-color: #ff611d;
+}
+body main .content #stores .storeBlock .storeL {
+  display: flex;
+  gap: 10px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main .content #stores .storeBlock .storeL span {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+}
+body main .content #stores .storeBlock .storeL span .storeLinkTitle {
+  display: inline-block;
+  max-width: 330px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body main .content #stores .storeBlock .storeL input[type=checkbox] {
+  display: none;
+}
+body main .content #stores .storeBlock .storeL input[type=checkbox].storeCheck:checked ~ label {
+  color: #ff611d;
+  text-shadow: none;
+}
+body main .content #stores .storeBlock .storeL input[type=checkbox].storeHeart:checked ~ label {
+  color: #fd384f;
+  text-shadow: none;
+}
+body main .content #stores .storeBlock .storeL label {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+  cursor: pointer;
+}
+body main .content #stores .storeBlock .storeL label:hover {
+  color: #f5f5f5;
+}
+body main .content #stores .storeBlock .storeR input[type=button] {
+  background: #ff611d;
+  padding: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+body main .content #stores .storeBlock .storeR input[type=button]:hover {
+  background: linear-gradient(rgba(123, 123, 123, 0.1), rgba(123, 123, 123, 0.1)), #ff611d;
+}
+body main .content #stores .storeBlock .storeR input[type=button].disabled {
+  background: #afafaf;
+  cursor: default;
+}
+body main .content #stores .storeBlock .storeR span {
+  display: none;
+}
+body main .content #stores .storeBlock .storeR span .storeHeart:checked ~ label {
+  color: #fd384f;
+  text-shadow: none;
+}
+body main .content #stores .storeBlock .storeR span label {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
+body main .content #stores .storeBlock .prodList .prodBlock {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #dddddd;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL {
+  display: flex;
+  align-items: start;
+  gap: 15px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodCheck {
+  display: none;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodCheck:checked ~ label {
+  color: #ff611d;
+  text-shadow: none;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL label {
+  color: #fff;
+  transform: scale(1.5);
+  text-shadow: 0 0 2px #000;
+  cursor: pointer;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL label:hover {
+  color: #f5f5f5;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodImg {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  gap: 15px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodTitle {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodTitle:hover {
+  text-decoration: underline;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodOpt {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #7b7b7b;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .prodOpt opt {
+  color: #333333;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodQuant {
+  display: flex;
+  justify-content: space-between;
+  height: 31px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodQuant input[type=number] {
+  text-align: center;
+  width: 34px;
+  border: none;
+  outline: none;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  appearance: textfield;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodQuant input[type=number]::-webkit-inner-spin-button, body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodQuant input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodQuant input[type=button] {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  border: none;
+  background: none;
+  color: #ff611d;
+  cursor: pointer;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodHeart {
+  display: none;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .ProdInfoLBtn .prodHeart:checked ~ label {
+  color: #fd384f;
+  text-shadow: none;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockL .prodInfoL .tab {
+  display: none;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 168px;
+  gap: 20px;
+  text-align: right;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc .fa-xmark::before {
+  cursor: pointer;
+  font-size: 24px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc h2 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc h4 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #7b7b7b;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc h4 s {
+  color: #333333;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc h4 span {
+  color: #ff611d;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRdesc h4.hidden {
+  display: none;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRBtn {
+  display: flex;
+  gap: 20px;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRBtn input[type=button] {
+  background: transparent;
+  padding: 5px 10px;
+  border: 1px solid #ff611d;
+  border-radius: 5px;
+  color: #ff611d;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+body main .content #stores .storeBlock .prodList .prodBlock .prodBlockR .prodInfoRBtn input[type=button]:hover {
+  background: #f5f5f5;
+}
+body main .content #stores .storeBlock .prodList .prodBlockMob {
+  display: none;
+}
+body main .content #stores .storeBlock .storeCalc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 25px 20px;
+  border: 1px solid #afafaf;
+  border-style: solid none;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main .content #stores .storeBlock .storeCalc > i {
+  color: transparent;
+  -webkit-text-stroke: 2.4px #000;
+}
+body main .content #stores .storeBlock .storeCalc > i:nth-of-type(3) {
+  transform: rotateZ(90deg);
+}
+body main .content #stores .storeBlock .storeCalc div {
+  display: flex;
+  flex-direction: column;
+}
+body main .content #stores .storeBlock .storeCalc div span.active {
+  color: #e43225;
+}
+body main .content #stores .storeBlock .storeCalc div i {
+  margin: 5px;
+  font-size: 15px;
+}
+body main .content #stores .storeBlock .storeCalc .storePrice h1 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main .content #stores .storeBlock .storeCalcMob {
+  display: none;
+}
+body main #stickyDesk {
+  display: flex;
+  position: sticky;
+  flex-direction: column;
+  width: 370px;
+  margin-bottom: 66px;
+  height: fit-content;
+  margin-top: 30px;
+  gap: 30px;
+  top: 190px;
+  left: 0;
+}
+body main #stickyDesk #payInfo {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+body main #stickyDesk #payInfo .payInfoUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  min-width: 316px;
+}
+body main #stickyDesk #payInfo .payInfoUp h2 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main #stickyDesk #payInfo .payInfoUp h4 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #afafaf;
+}
+body main #stickyDesk #payInfo .payInfoMid {
+  display: flex;
+  padding: 20px 20px;
+  border: 1px #afafaf;
+  border-style: solid none;
+}
+body main #stickyDesk #payInfo .payInfoMid ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+body main #stickyDesk #payInfo .payInfoMid ul li {
+  display: flex;
+  justify-content: space-between;
+}
+body main #stickyDesk #payInfo .payInfoMid ul li .active {
+  color: #e43225;
+}
+body main #stickyDesk #payInfo .payInfoDown {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 24px;
+}
+body main #stickyDesk #payInfo .payInfoDown div {
+  display: flex;
+  justify-content: space-between;
+}
+body main #stickyDesk #payInfo .payInfoDown div h2 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+body main #stickyDesk #payInfo .payInfoDown h3 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body main #stickyDesk #payInfo .payInfoDown h3 a {
+  color: #e43225;
+}
+body main #stickyDesk #payInfo .payInfoDown h3 a:hover {
+  border-bottom: 1px solid #e43225;
+}
+body main #stickyDesk #payInfo .payInfoDown input[type=button] {
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+body main #stickyDesk #payInfo .payInfoDown input[type=button]:hover {
+  background: linear-gradient(rgba(123, 123, 123, 0.1), rgba(123, 123, 123, 0.1)), linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+}
+body main #stickyDesk #payInfo .payInfoDown input[type=button].disabled {
+  background: #afafaf;
+  cursor: default;
+}
+body main #stickyDesk .bannerEvt {
+  width: 100%;
+  height: 115px;
+  background: url("./img/eventBanner.png") center/cover no-repeat;
+  cursor: pointer;
+}
+body .cartFooter #tabCartFooter {
+  display: none;
+}
+body .web_footer {
+  background-color: #191919;
+  color: #fff;
+  padding: 20px;
+}
+body .web_footer .footer-top {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+body .web_footer .footer-top .footer-services {
+  display: flex;
+  gap: 50px;
+}
+body .web_footer .footer-top .footer-services .footer-select p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body .web_footer .footer-top .footer-services .footer-select select {
+  width: 150px;
+  color: #fff;
+  background-color: #191919;
+  margin-right: 40px;
+  margin-top: 20px;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 2px;
+}
+body .web_footer .footer-top .footer-dropdown button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+body .web_footer .footer-categories {
+  text-align: center;
+  margin: 20px 0;
+}
+body .web_footer #payment p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body .web_footer #payment .payment-wrap {
+  width: 600px;
+  overflow: hidden;
+}
+body .web_footer #payment .payment-wrap .footer-payment {
+  position: relative;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  animation: marquee 18s linear infinite;
+}
+body .web_footer #payment .payment-wrap .footer-payment:hover {
+  animation-play-state: paused;
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards {
+  width: 87px;
+  height: 60px;
+  margin: 0 4px;
+  position: relative;
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(1):hover::before {
+  content: "30% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(2):hover::before {
+  content: "코인 10개";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(3):hover::before {
+  content: "20% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(4):hover::before {
+  content: "15% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(5):hover::before {
+  content: "코인 15개";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(6):hover::before {
+  content: "22% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(7):hover::before {
+  content: "30% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(8):hover::before {
+  content: "코인 30개";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(9):hover::before {
+  content: "35% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(10):hover::before {
+  content: "8% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(11):hover::before {
+  content: "12% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(12):hover::before {
+  content: "코인 9개";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(13):hover::before {
+  content: "24% 할인";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+body .web_footer #payment .payment-wrap .footer-payment .cards:nth-child(14):hover::before {
+  content: "코인 3개";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  font: 400 16px/1.3 "noto-sans";
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+body .web_footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding: 10px 0;
+}
+body .web_footer .footer-bottom .footer-links a,
+body .web_footer .footer-bottom .footer-social a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+body .web_footer .footer-bottom .footer-social {
+  display: flex;
+  align-items: center;
+}
+body section {
+  display: none;
+}
+
+@media (max-width: 1410px) {
+  body .aliHeader .header-top {
+    padding: 10px 10px;
+  }
+  body .aliHeader .header-top .header-logo {
+    scale: 80%;
+  }
+  body .aliHeader .header-nav {
+    width: 100%;
+    padding: 0 10px;
+  }
+  body .aliHeader .header-nav #main_nav li #sub_nav {
+    width: 30px;
+  }
+  body .aliHeader .header-nav #main_nav li #sub_nav #all-categories span {
+    display: none;
+  }
+  body .aliHeader .header-nav ul {
+    flex-direction: row;
+    align-items: center;
+  }
+  body .web_footer .footer-top .footer-services {
+    flex-direction: column;
+    text-align: center;
+  }
+  body .web_footer .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  body .web_footer .footer-bottom .footer-links,
+  body .web_footer .footer-bottom .footer-social {
+    margin: 10px 0;
+  }
+}
+@media (max-width: 993px) {
+  body main {
+    justify-content: start;
+  }
+}
+@media (max-width: 800px) {
+  body {
+    position: relative;
+    min-height: 100vh;
+  }
+  body .aliHeader {
+    display: none;
+  }
+  body .cartHeaderContainer {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    min-width: 0;
+  }
+  body .cartHeaderContainer #cartHeader {
+    padding: 15px 24px;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper {
+    width: 100%;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb i {
+    display: block;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper .rightGnb {
+    display: none;
+  }
+  body .cartHeaderContainer #cartSortMob {
+    display: flex;
+    top: 0;
+    width: 100%;
+    min-width: 617px;
+    font-size: 26px;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid;
+    z-index: 2;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body .cartHeaderContainer #cartSortMob ul {
+    width: 100%;
+    display: flex;
+    padding: 15px 0;
+    gap: 0;
+    justify-content: center;
+  }
+  body .cartHeaderContainer #cartSortMob ul li {
+    align-items: center;
+    display: flex;
+    padding: 0 30px;
+    gap: 20px;
+  }
+  body .cartHeaderContainer #cartSortMob ul li span {
+    background: #dddddd;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body .cartHeaderContainer #cartSortMob ul li.active {
+    color: #ff611d;
+  }
+  body .cartHeaderContainer #cartSortMob ul .barRight {
+    border-right: 1px solid #dddddd;
+  }
+  body #cartSortDesk {
+    display: none;
+  }
+  body main {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  body main .content {
+    width: 100%;
+    justify-content: center;
+    padding: 0 24px;
+  }
+  body main .content #selectNCoup {
+    padding: 20px 15px;
+  }
+  body main .content #alertEmptyWrapper {
+    height: 65vh;
+  }
+  body main .content #stores .storeBlock .storeCalc .storePrice h1 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body main .content .tab {
+    margin: 48px 0 120px;
+    display: flex;
+    width: 100%;
+    height: 115px;
+    background: url("./img/eventBanner.png") center/cover no-repeat;
+  }
+  body main #stickyDesk {
+    display: none;
+  }
+  body .cartFooter {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  body .cartFooter #tabCartFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+    background: #fff;
+    border: 1px #333333;
+    border-style: solid none;
+  }
+  body .cartFooter #tabCartFooter div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  body .cartFooter #tabCartFooter div span.active {
+    color: #e43225;
+  }
+  body .cartFooter #tabCartFooter input[type=submit] {
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    padding: 10px 0;
+    flex: 2.5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body .cartFooter #tabCartFooter input[type=submit].disabled {
+    background: #afafaf;
+    cursor: default;
+  }
+  body .cartFooter #mobCartFooter {
+    display: none;
+  }
+  body .web_footer {
+    display: none;
+  }
+  body section {
+    display: flex;
+    width: 100%;
+  }
+  body section #payInfoTab {
+    background: #fff;
+    border: 1px #000;
+    border-style: solid none;
+    width: 100%;
+    z-index: 2;
+  }
+  body section #payInfoTab .payInfoUp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  body section #payInfoTab .payInfoUp h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body section #payInfoTab .payInfoUp h4 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #afafaf;
+  }
+  body section #payInfoTab .payInfoMid {
+    display: flex;
+    padding: 20px 20px;
+    border: 1px #afafaf;
+    border-style: solid none;
+  }
+  body section #payInfoTab .payInfoMid ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  body section #payInfoTab .payInfoMid ul li {
+    display: flex;
+    justify-content: space-between;
+  }
+  body section #payInfoTab .payInfoMid ul li .active {
+    color: #e43225;
+  }
+  body section #payInfoTab .payInfoDown {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 24px;
+  }
+  body section #payInfoTab .payInfoDown div {
+    display: flex;
+    justify-content: space-between;
+  }
+  body section #payInfoTab .payInfoDown div h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body section #payInfoTab .payInfoDown h3 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body section #payInfoTab .payInfoDown h3 a {
+    color: #e43225;
+  }
+  body section #payInfoTab .payInfoDown h3 a:hover {
+    border-bottom: 1px solid #e43225;
+  }
+  body section #payInfoTab .payInfoDown input[type=button] {
+    background: #ff611d;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #fff;
+  }
+  body section #payInfoTab .payInfoDown input[type=button].disabled {
+    background: #afafaf;
+    cursor: default;
+  }
+}
+@media (max-width: 686px) {
+  body .cartHeaderContainer #cartHeader {
+    padding: 10px 20px;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper {
+    width: 100%;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb i {
+    font-size: 16px;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb h1 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body .cartHeaderContainer #cartHeader .gnbWrapper .leftGnb img {
+    height: 20px;
+  }
+  body .cartHeaderContainer #cartSortMob {
+    min-width: 0;
+  }
+  body .cartHeaderContainer #cartSortMob ul {
+    width: 100%;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body .cartHeaderContainer #cartSortMob ul li {
+    padding: 0 25px;
+    gap: 8px;
+  }
+  body .cartHeaderContainer #cartSortMob ul li span {
+    width: 20px;
+    height: 20px;
+    padding-top: 0;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body main {
+    justify-content: center;
+    flex-direction: column;
+    min-width: 0;
+  }
+  body main .content {
+    width: 100%;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  body main .content #selectNCoup {
+    padding: 15px 0;
+    min-width: 0;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body main .content #selectNCoup #selectProd {
+    gap: 4px;
+  }
+  body main .content #selectNCoup #selectProd #selectDel {
+    padding-left: 5px;
+  }
+  body main .content #selectNCoup #coupon {
+    gap: 2px;
+  }
+  body main .content #selectNCoup #coupon .coupInfo .cartCoup {
+    display: none;
+  }
+  body main .content #stores .storeBlock .localStore,
+  body main .content #stores .storeBlock .foreignStore {
+    padding: 10px;
+    align-items: center;
+  }
+  body main .content #stores .storeBlock .storeL {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeL .storeHeart,
+  body main .content #stores .storeBlock .storeL .storeHeartLb {
+    display: none;
+  }
+  body main .content #stores .storeBlock .storeL span img {
+    height: 18px;
+    width: 18px;
+  }
+  body main .content #stores .storeBlock .storeR input {
+    display: none;
+  }
+  body main .content #stores .storeBlock .storeR span {
+    display: block;
+  }
+  body main .content #stores .storeBlock .storeR span input:checked ~ label {
+    color: #ff611d;
+    text-shadow: none;
+  }
+  body main .content #stores .storeBlock .storeR span label {
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlock {
+    display: none;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    width: 100%;
+    border-bottom: 1px solid #afafaf;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodBlockMobClose {
+    width: 100%;
+    height: fit-content;
+    justify-content: end;
+    text-align: right;
+    margin: -2px 0 7px 0;
+    font-size: 20px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo {
+    display: flex;
+    justify-content: space-between;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL {
+    display: flex;
+    align-items: start;
+    gap: 5px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL input {
+    display: none;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL input:checked ~ label {
+    color: #ff611d;
+    text-shadow: none;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL label {
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL .prodImgMob {
+    display: flex;
+    width: 85px;
+    height: 85px;
+    background: url("./img/jaket.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    justify-content: end;
+    align-items: end;
+    padding: 5px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobL .prodImgMob .prodHeartMob:checked ~ label {
+    color: #fd384f;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR {
+    text-align: right;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    align-items: end;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h3 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h4 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #7b7b7b;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h4 s {
+    color: #333333;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h4 span {
+    color: #ff611d;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc h4.hidden {
+    display: none;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
+    max-width: 330px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #7b7b7b;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodOpt opt {
+    color: #333333;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .origNFina {
+    display: flex;
+    padding: 0;
+    gap: 10px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .origNFina .prodOrigPrice {
+    padding-top: 2px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant {
+    display: flex;
+    justify-content: space-between;
+    width: 86px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant input[type=number] {
+    text-align: center;
+    width: 28px;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    appearance: textfield;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant input[type=number]::-webkit-inner-spin-button, body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn .prodQuant input[type=button] {
+    background: none;
+    padding: 4px;
+    border: none;
+    color: #ff611d;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn input[type=button] {
+    background: transparent;
+    width: 86px;
+    padding: 5px 10px;
+    border: 1px solid #ff611d;
+    border-radius: 5px;
+    color: #ff611d;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalc {
+    display: none;
+  }
+  body main .content #stores .storeBlock .storeCalc .storePrice h1 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalcMob {
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion {
+    display: flex;
+    height: 0;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: 5px;
+    transition: height 0.3s;
+    color: #333333;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion > i {
+    color: #7b7b7b;
+    font-size: 18px;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion.active {
+    height: 123px;
+    opacity: 1;
+    padding: 10px 20px;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion div i {
+    color: #7b7b7b;
+    font-size: 14px;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion div .active {
+    color: #e43225;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .accordion div :nth-child(2) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .storePay {
+    display: flex;
+    flex-direction: column;
+    border: 1px #afafaf;
+    border-style: solid none;
+    padding: 10px 20px 15px 20px;
+    gap: 5px;
+    background: #fff;
+    z-index: 0;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .storePay .storeTotalPrice {
+    display: flex;
+    justify-content: space-between;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .storePay .storeTotalPrice i.active {
+    transform: rotate(180deg);
+  }
+  body main .content #stores .storeBlock .storeCalcMob .storePay input[type=submit] {
+    background: #ff611d;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 8px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body main #stickyDesk {
+    display: none;
+  }
+  body section {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  body .cartHeaderContainer #cartSortMob ul li {
+    padding: 0 15px;
+  }
+  body main .content #stores .storeBlock .storeL span .storeLinkTitle {
+    max-width: 190px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo {
+    gap: 15px;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodBlockMobInfo .prodBlockMobR .prodInfoRdesc .prodTitle {
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+  body main .content #stores .storeBlock .prodList .prodBlockMob .prodInfoWrapper .prodInfoBtn {
+    gap: 10px;
+    justify-content: space-around;
+  }
+  body main .content #stores .storeBlock .storeCalcMob .storePay input[type=submit] {
+    padding: 5px;
+  }
+  body .cartFooter {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  body .cartFooter #tabCartFooter {
+    display: none;
+  }
+  body .cartFooter #mobCartFooter {
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  body .cartFooter #mobCartFooter .payDetail {
+    height: 0;
+    text-align: center;
+    padding: 0;
+    opacity: 0;
+    transition: height 0.3s;
+    border: 1px #7b7b7b;
+    border-style: solid none none;
+    border-radius: 8px 8px 0 0;
+    color: #333333;
+  }
+  body .cartFooter #mobCartFooter .payDetail i {
+    color: #7b7b7b;
+    font-size: 18px;
+  }
+  body .cartFooter #mobCartFooter .payDetail.active {
+    height: 114px;
+    padding: 10px;
+    opacity: 1;
+  }
+  body .cartFooter #mobCartFooter .payDetail button {
+    width: 100px;
+    border: none;
+    background: none;
+  }
+  body .cartFooter #mobCartFooter .payDetail button i {
+    font-size: 20px;
+  }
+  body .cartFooter #mobCartFooter .payDetail ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  body .cartFooter #mobCartFooter .payDetail ul li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  body .cartFooter #mobCartFooter .payDetail ul li .active {
+    color: #e43225;
+  }
+  body .cartFooter #mobCartFooter #payInfoMob {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    color: #fff;
+    padding: 10px;
+    gap: 5px;
+    z-index: 2;
+  }
+  body .cartFooter #mobCartFooter #payInfoMob button {
+    color: #fff;
+    background: transparent;
+    padding: 5px 15px;
+    border: none;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body .cartFooter #mobCartFooter #payInfoMob button.active {
+    transform: rotate(180deg);
+  }
+  body .cartFooter #mobCartFooter #payInfoMob button.inactive {
+    opacity: 0;
+  }
+  body .cartFooter #mobCartFooter #payInfoMob h2 {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  body .cartFooter #mobCartFooter #payInfoMob.disabled {
+    background: #afafaf;
+    cursor: default;
+  }
+}

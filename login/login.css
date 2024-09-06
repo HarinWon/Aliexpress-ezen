@@ -1,0 +1,555 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .inner {
+  width: 600px;
+}
+body .inner .contaniner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .inner .contaniner .log {
+  margin: 20px auto;
+  width: 300px;
+  height: 60px;
+  cursor: pointer;
+}
+body .inner .contaniner .log img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+body .inner .contaniner main {
+  width: 100%;
+  height: 700px;
+  margin-top: 10px;
+}
+body .inner .contaniner main .login-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+}
+body .inner .contaniner main .login-page .login-box {
+  width: 600px;
+  margin: 0 auto;
+}
+body .inner .contaniner main .login-page .login-box .login-method {
+  display: flex;
+  height: 70px;
+}
+body .inner .contaniner main .login-page .login-box .login-method #email_btn {
+  width: 300px;
+  height: 75px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #777;
+  background: #f5f6f7;
+  border: 1px solid #ddd;
+  border-radius: 18px 0 0 0;
+  cursor: pointer;
+}
+body .inner .contaniner main .login-page .login-box .login-method #email_btn.active {
+  color: #333;
+  background: #fff;
+}
+body .inner .contaniner main .login-page .login-box .login-method #qr_btn {
+  width: 300px;
+  height: 75px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  border: 1px solid #ddd;
+  background: #f5f6f7;
+  color: #777;
+  border-radius: 0 18px 0 0;
+  cursor: pointer;
+}
+body .inner .contaniner main .login-page .login-box .login-method #qr_btn.active {
+  color: #333333;
+  background: #fff;
+}
+body .inner .contaniner main .login-page .login-box #email-login {
+  padding: 30px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+body .inner .contaniner main .login-page .login-box #email-login input[type=text] {
+  width: 530px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  transition: all 0.3s;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .inner .contaniner main .login-page .login-box #email-login input[type=text]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #d3d3d3;
+}
+body .inner .contaniner main .login-page .login-box #email-login input[type=text]:focus {
+  outline: none;
+}
+body .inner .contaniner main .login-page .login-box #email-login input[type=password] {
+  display: none;
+  width: 530px;
+  height: 70px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 20px;
+}
+body .inner .contaniner main .login-page .login-box #email-login input[type=password]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: #d3d3d3;
+}
+body .inner .contaniner main .login-page .login-box #email-login input[type=password]:focus {
+  outline: none;
+}
+body .inner .contaniner main .login-page .login-box #email-login .continue-btn {
+  width: 530px;
+  height: 70px;
+  background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+  border: none;
+  border-radius: 10px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  color: #fff;
+  margin-top: 30px;
+  cursor: pointer;
+}
+body .inner .contaniner main .login-page .login-box #qr-login {
+  width: 100%;
+  height: 370px;
+  padding: 30px;
+  border: 1px solid #c5ccd2;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+body .inner .contaniner main .login-page .login-box #qr-login .qr-code {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+}
+body .inner .contaniner main .login-page .login-box #qr-login .qr-code img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  margin: 12px;
+}
+body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) #qr-timer {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: #00cd3c;
+}
+body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(2) {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  margin: 6px;
+  text-align: center;
+}
+body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  margin-top: 10px;
+}
+body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) #qr-number {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: #00cd3c;
+}
+body .inner .contaniner main .login-page .find-info {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+  color: #606060;
+  transition: all 0.3s;
+}
+body .inner .contaniner main .login-page .find-info a:hover {
+  color: #000;
+  /* border-bottom: 1px solid #000; */
+}
+body .inner .contaniner main .login-page .easy-login {
+  width: 100%;
+  margin-top: 4px;
+}
+body .inner .contaniner main .login-page .easy-login h3 {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  margin: 30px 0;
+  text-align: center;
+}
+body .inner .contaniner main .login-page .easy-login .icons ul {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-evenly;
+}
+body .inner .contaniner main .login-page .easy-login .icons ul img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+body .inner .contaniner main .login-page .footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+body .inner .contaniner main .login-page .footer .country-select {
+  margin-top: 16px;
+}
+body .inner .contaniner main .login-page .footer .country-select .field {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .inner .contaniner main .login-page .footer .country-select .inputBox {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  border: none;
+}
+body .inner .contaniner main .login-page .footer .country-select .inputBox option {
+  font-size: 16px;
+}
+body .inner .contaniner main .login-page .footer .country-select .inputBox:focus {
+  outline: none;
+}
+body .inner .contaniner main .login-page .footer p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .inner .contaniner main .login-page .footer span {
+  width: 120px;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #606060;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+body .inner .contaniner main .login-page .footer span:hover {
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.login-content {
+  display: none;
+}
+
+.login-content.active {
+  display: block;
+  background: #fff;
+  color: #333333;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  body .inner {
+    width: 600px;
+  }
+  body .inner .contaniner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .inner .contaniner main {
+    width: 100%;
+    height: 700px;
+    margin-top: 10px;
+  }
+  body .inner .contaniner main .login-page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+  }
+  body .inner .contaniner main .login-page .login-box {
+    width: 480px;
+  }
+  body .inner .contaniner main .login-page .login-box .login-method {
+    display: flex;
+    height: 70px;
+  }
+  body .inner .contaniner main .login-page .login-box .login-method #email_btn {
+    width: 240px;
+    height: 75px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    color: #777;
+    background: #f5f6f7;
+    border: 1px solid #ddd;
+    border-radius: 18px 0 0 0;
+    cursor: pointer;
+  }
+  body .inner .contaniner main .login-page .login-box .login-method #email_btn.active {
+    color: #333;
+    background: #fff;
+  }
+  body .inner .contaniner main .login-page .login-box .login-method #qr_btn {
+    width: 240px;
+    height: 75px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    border: 1px solid #ddd;
+    background: #f5f6f7;
+    color: #777;
+    border-radius: 0 18px 0 0;
+    cursor: pointer;
+  }
+  body .inner .contaniner main .login-page .login-box .login-method #qr_btn.active {
+    color: #333333;
+    background: #fff;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login {
+    padding: 30px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    margin-top: -10px;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text] {
+    width: 430px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text]::placeholder {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    color: #d3d3d3;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=text]:focus {
+    outline: none;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password] {
+    display: none;
+    width: 430px;
+    height: 70px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    padding-left: 20px;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password]::placeholder {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: 400;
+    color: #d3d3d3;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login input[type=password]:focus {
+    outline: none;
+  }
+  body .inner .contaniner main .login-page .login-box #email-login .continue-btn {
+    width: 430px;
+    height: 70px;
+    background: linear-gradient(to right, #f7971d 0%, #ff611d 100%);
+    border: none;
+    border-radius: 10px;
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login {
+    width: 100%;
+    height: 360px;
+    padding: 30px;
+    border: 1px solid #c5ccd2;
+    border-radius: 10px;
+    margin-top: -10px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login .qr-code {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    text-align: center;
+    margin: 12px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(1) #qr-timer {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    color: #00cd3c;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(2) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    margin: 6px;
+    text-align: center;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    text-align: center;
+    margin-top: 10px;
+  }
+  body .inner .contaniner main .login-page .login-box #qr-login p:nth-of-type(3) #qr-number {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    color: #00cd3c;
+  }
+  body .inner .contaniner main .login-page .find-info {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    color: #606060;
+    transition: all 0.3s;
+  }
+  body .inner .contaniner main .login-page .find-info a:hover {
+    color: #000;
+    /* border-bottom: 1px solid #000; */
+  }
+  body .inner .contaniner main .login-page .footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  body .inner .contaniner main .login-page .footer .country-select {
+    margin-top: 16px;
+  }
+  body .inner .contaniner main .login-page .footer .country-select .field {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
+  }
+  body .inner .contaniner main .login-page .footer .country-select .inputBox {
+    font-family: "Noto Sans KR, sans-serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-weight: bold;
+    border: none;
+  }
+  body .inner .contaniner main .login-page .footer .country-select .inputBox option {
+    font-size: 14px;
+  }
+}

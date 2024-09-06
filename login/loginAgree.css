@@ -1,0 +1,251 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@1,700&display=swap");
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 20px;
+}
+body .container {
+  width: 700px;
+  height: 100%;
+}
+body .container .inner {
+  width: 100%;
+  height: 100%;
+}
+body .container .inner .logo {
+  width: 370px;
+  height: 80px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+body .container .inner .login-box {
+  width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 6px #dddddd;
+  border-radius: 10px;
+}
+body .container .inner .login-box .login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 8px;
+}
+body .container .inner .login-box .login-form label {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 8px;
+  font-weight: bold;
+}
+body .container .inner .login-box .login-form input[type=text] {
+  width: 430px;
+  height: 50px;
+  margin: 0 auto;
+  border: 1px solid #afafaf;
+  border-radius: 10px;
+  padding-left: 15px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  transition: all 0.3s;
+}
+body .container .inner .login-box .login-form input[type=text]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .inner .login-box .login-form input[type=text]:focus {
+  outline: none;
+  border-color: #ff611d;
+}
+body .container .inner .login-box .login-form input[type=password] {
+  width: 430px;
+  height: 50px;
+  margin: 2px auto;
+  border: 1px solid #afafaf;
+  border-radius: 10px;
+  padding-left: 15px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  transition: all 0.3s;
+}
+body .container .inner .login-box .login-form input[type=password]::placeholder {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .inner .login-box .login-form input[type=password]:focus {
+  outline: none;
+  border-color: #ff611d;
+}
+body .container .inner .login-box .login-form p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  line-height: 1.3;
+  color: cadetblue;
+  text-align: center;
+}
+body .container .inner h4 {
+  text-align: right;
+  width: 480px;
+  margin: 4px auto;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  gap: 4px;
+}
+body .container .inner h4 .fa-angle-down {
+  padding-left: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+body .container .inner .agree {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  height: 620px;
+  margin: 0 auto;
+  box-shadow: 0 0 6px #dddddd;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+body .container .inner .agree .agree-box {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height: 590px;
+  background: #fff;
+  border-radius: 10px;
+  gap: 14px;
+  padding: 10px 20px 10px;
+}
+body .container .inner .agree .agree-box .agree-header {
+  text-align: center;
+}
+body .container .inner .agree .agree-box .agree-header h3 {
+  padding-top: 20px;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3rem;
+  margin-bottom: 6px;
+}
+body .container .inner .agree .agree-box .agree-header p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+body .container .inner .agree .agree-box .agree-main ul {
+  gap: 10px;
+}
+body .container .inner .agree .agree-box .agree-main ul li {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  margin: 0 auto 10px;
+}
+body .container .inner .agree .agree-box .agree-main ul li #agree_more_angle {
+  font-size: 18px;
+  cursor: pointer;
+}
+body .container .inner .agree .agree-box .agree-main ul li a {
+  border-bottom: 1px solid #333333;
+}
+body .container .inner .agree .agree-box .agree-main ul li p {
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  color: #d6d6d6;
+  padding-top: 4px;
+  padding-left: 20px;
+}
+body .container .inner .agree .agree-box .submit {
+  width: 380px;
+  height: 40px;
+  border: none;
+  border-radius: 19px;
+  background: #ffc6cd;
+  color: #fff;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-weight: bold;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+body .container .inner .agree .agree-box .submit:hover {
+  background: #fd384f;
+}
+body .container .inner .agree.active {
+  display: flex;
+}
+
+.agree_more {
+  display: block;
+  transition: all 0.3s;
+}
+.agree_more.active {
+  opacity: 0;
+}
+
+.error {
+  color: #e43225;
+  font-family: "Noto Sans KR, sans-serif";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-left: 8px;
+}
+
+.fa-circle-check.active {
+  color: #e43225;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+  .container .inner {
+    width: 100%;
+  }
+  .container .inner .logo {
+    width: 100%;
+    height: 100%;
+    margin: 20px auto;
+  }
+  .container .inner .login-box {
+    width: 100%;
+  }
+  .container .inner h4 {
+    width: 100%;
+  }
+  .agree {
+    width: 100%;
+    height: 100%;
+  }
+  .agree .agree-box {
+    padding: 10px;
+    width: 100%;
+  }
+}
